@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ExpertManagmentSystem.OrganizationalStructures.WoredaSectors>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">የጽህፈት ቤት ዝርዝር ማውጫ</h3>
+        <a asp-action="Create" class="btn btn-success float-right btn-circle  text-light btn-sm"> አዲስ ጽህፈት ቤት </a>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WoredaSectorsName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZonalSectors)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WoredaSectorsName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZonalSectors.ZonalSectorName)
+            </td>
+            <td>
+                 <a asp-action="Woredadepartment" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.WoredaSectorsId">አዲስ የስራ ክፍል </a>
+                 <a asp-action="Woredadepartmentlist" class="btn btn-info btn-circle  text-light btn-sm" asp-route-id="@item.WoredaSectorsId">የስራ ክፍሎች</a>
+                
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table>
+    </div>
+</div>

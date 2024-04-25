@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+
+
+@{
+    ViewData["Title"] = "Roles";
+    var i = 1;
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">የሚና ዝርዝር ማውጫ</h3>
+        <a asp-action="Create" class="btn btn-success float-right btn-circle  text-light btn-sm"> አዲስ ሚና  </a>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        ሚና
+                    </th>
+                    <th> እርምጃዎች </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @i
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                       @* <a asp-action="Edit" data-toggle="modal" data-target="@("#EditRolesmodals-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")"><li class="fa fa-edit bg-warning" title="ማስተካከል"></li></a>
+                        @await Html.PartialAsync("_RolesEditPartialView", item)
+                        <a asp-action="Delete" data-toggle="modal" data-target="@("#DeleteRolesmodals-"+item.Id)" data-url="@Url.Action($"Delete/{item.Id}")"><li class="fa fa-trash bg-red" title="ይሰረዝ"></li></a>
+                        @await Html.PartialAsync("_DeleteRolesPartialView", item) *@
+                        </td>
+                    </tr>
+                    i++;
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

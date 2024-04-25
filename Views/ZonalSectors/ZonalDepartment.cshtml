@@ -1,0 +1,43 @@
+﻿@using ExpertManagmentSystem.OrganizationalStructures
+@model ExpertManagmentSystem.ViewModels.SectorDepartmentViewModels
+
+@{
+    ViewData["Title"] = "ZonalDepartment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ZonalDepartment</h1>
+
+<h4>SectorDepartmentViewModels</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Createzonedepartment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DepartmentName" class="control-label"></label>
+                <input asp-for="DepartmentName" class="form-control" />
+                <span asp-validation-for="DepartmentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               @* <label asp-for="DepartmentParentId" class="control-label"></label>*@
+                <input type="hidden" asp-for="DepartmentParentId" class="form-control" />
+               @* <span asp-validation-for="DepartmentParentId" class="text-danger"></span>*@
+            </div>
+           @* <div class="form-group">
+                <label asp-for="DepartmentCategory" class="control-label"></label>
+                @Html.DropDownList("DepartmentCategory", Html.GetEnumSelectList<DepartmentCategory>(), " የመስሪያ ቤት ምድብ ይምረጡ !", new { @class = "form-control Mapandplans", id = "DepartmentCategory" })
+                <span asp-validation-for="DepartmentCategory" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-success btn-circle  text-light btn-sm"> <i class="fa fa-back"></i> ወደ ዋናው ተመለስ </a>
+                <input type="submit" value="Create" class="btn btn-primary float-right" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

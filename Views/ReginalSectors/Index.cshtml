@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ExpertManagmentSystem.OrganizationalStructures.ReginalSector>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">የክልል ተቋማት ዝርዝር ማውጫ</h3>
+        <a asp-action="Create" class="btn btn-success float-right btn-circle  text-light btn-sm">አዲስ ቢሮ </a>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+        <tr>
+            <th>
+               የክልል ተቋማት ዝርዝር
+            </th>
+            <th></th>
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReginalSectorName)
+            </td>
+
+             @*<td>
+                <a asp-action="Edit" asp-route-id="@item.ReginalSectorId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReginalSectorId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReginalSectorId">Delete</a>
+            </td>*@
+          
+
+            <td>
+                <a asp-action="ReginalDepartment" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.ReginalSectorId">አዲስ የስራ ክፍል </a>
+                <a asp-action="Regiondepartmentlist" class="btn btn-info btn-circle  text-light btn-sm" asp-route-id="@item.ReginalSectorId">የስራ ክፍሎች</a>
+              
+            </td>
+        </tr>
+}
+            </tbody>
+        </table>
+    </div>
+</div>

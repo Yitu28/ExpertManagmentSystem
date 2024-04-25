@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment>
+
+@{
+    ViewData["Title"] = "Regiondepartmentlist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">የስራ ከፍል ዝርዝር ማውጫ</h3>
+        <a asp-action="Index" class="btn btn-success float-right btn-circle  text-light btn-sm"> ወደ ዋናው ተመለስ </a>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentCategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentCategory)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SectrorsDepartmentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SectrorsDepartmentId">Details</a> |
+                <a asp-area="Identity" asp-page="/Account/Register" asp-route-id="@item.SectrorsDepartmentId">አዲስ ተጠቃሚ </a> |
+            </td>
+        </tr>
+}
+            </tbody>
+        </table>
+    </div>
+</div>
+

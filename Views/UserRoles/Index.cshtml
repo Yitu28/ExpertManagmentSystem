@@ -1,0 +1,58 @@
+﻿@using ExpertManagmentSystem.Models
+@model List<ExpertManagmentSystem.ViewModels.UserRolesViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var i = 1;
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"> የተጠቃሚ ዝርዝር ማውጫ</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th> # </th>
+                    <th> የተጠቃሚ ሙሉ ስም </th>
+                    <th> መለያ </th>
+                    <th> ኢሜል </th>
+                    <th> ሚና </th>
+                    <th> እርምጃዎች </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@user.FullName </td>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                        <td>@string.Join(" , ", user.Roles.ToList())</td>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                        ማስተካከያዎች
+                                        <span class="fa fa-caret-down"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li> <a asp-controller="UserRoles" asp-action="Manage" asp-route-userId="@user.UserId"> ሚና ማስተዳደር </a></li>
+                                        @*<li> <a asp-controller="UserRoles" asp-action="Manage" asp-route-userId="@user.UserId"> የተጠቃሚ ማህደር </a></li>*@
+                                        <li> <a asp-action="Edit" asp-controller="UserRoles" asp-route-id="@user.UserId"> ማስተካከል </a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    i++;
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

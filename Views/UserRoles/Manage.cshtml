@@ -1,0 +1,55 @@
+﻿@model List<ExpertManagmentSystem.ViewModels.ManageUserRolesViewModel>
+@{
+    ViewData["Title"] = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="box-title"> @ViewBag.UserName ተጠቃሚ ሚና ማስተዳደር  </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <form method="post">
+            <div class="card">
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> ሚና </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="form-check m-1">
+                                            <input type="hidden" asp-for="@Model[i].RoleId" />
+                                            <input type="hidden" asp-for="@Model[i].RoleName" />
+                                            <input asp-for="@Model[i].Selected" class="form-check-input" />
+                                            @*<label class="form-check-label" asp-for="@Model[i].Selected">
+                                        @Model[i].RoleName
+                                        </label>*@
+                                        </div>
+                                    </td>
+                                    <td>@Model[i].RoleName</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+                <div class="card-footer">
+                    <input type="submit" value="ያዘምኑ" class="btn btn-warning"
+                           style="width:auto" />
+                    @* <a asp-action="EditUser" asp-route-id="@ViewBag.userId"
+                    class="btn btn-primary pull-right" style="width:auto"> ይቅር </a>*@
+                    <a class="btn btn-success pull-right" asp-action="Index">ወደ ዝርዝሩ ይመለሱ </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
