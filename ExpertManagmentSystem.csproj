@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\CrimeModels\" />
     <Folder Include="Models\CivilCaseModels\" />
+    <Folder Include="Models\CrimeModels\" />
     <Folder Include="Models\EconomyModels\" />
     <Folder Include="ViewModels\CrimeViewModels\" />
     <Folder Include="ViewModels\CivilCaseViewModels\" />
