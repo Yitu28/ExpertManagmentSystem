@@ -2,5 +2,6 @@
 {
     public class StartupClass
     {
+        public int MyProperty { get; set; }
     }
 }

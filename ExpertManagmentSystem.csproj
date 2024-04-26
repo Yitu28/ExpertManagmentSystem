@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\CorruptionModels\" />
     <Folder Include="Models\CrimeModels\" />
     <Folder Include="Models\EconomyModels\" />
-    <Folder Include="Models\CorruptionModels\" />
     <Folder Include="ViewModels\CrimeViewModels\" />
     <Folder Include="ViewModels\CivilCaseViewModels\" />
     <Folder Include="ViewModels\EconomyViewModels\" />
