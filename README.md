@@ -4,9 +4,10 @@ Our naming standard should follow the Pascal Case.
 The Models and ViewModels should be included in the folder structure initialized.
 In the case of controllers and Views, it is better to include some prefix based on our directorates i.e 
 1. Crime case controllers and views should be prefixed cr,
-2. Civil case controllers and views should be prefixed cie,
+2. Civil case controllers and views should be prefixed cc,
 3. Corruption case controllers and views should be prefixed co and
-4. Economy case controllers and views should be prefixed ec  
+4. Economy case controllers and views should be prefixed ec
+5. The peimary key of each class should be label as classnam plus Id. 
 The button color is better to follow,
 1.  Create button <btn-success>
 2. Edit button <btn-warnning>
