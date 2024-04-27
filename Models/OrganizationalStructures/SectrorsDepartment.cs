@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ExpertManagmentSystem.Models.CivilCaseModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace ExpertManagmentSystem.OrganizationalStructures
 {
@@ -18,6 +19,8 @@ namespace ExpertManagmentSystem.OrganizationalStructures
         public string? DepartmentName{ get; set; }
         public Guid DepartmentParentId { get; set; }
         public DepartmentCategory DepartmentCategory { get; set; }
+
+        public virtual ICollection<CCFreeLegalService>? CCFreeLegalService { get; set; }
     }
   
 
