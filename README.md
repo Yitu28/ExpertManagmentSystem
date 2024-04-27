@@ -9,6 +9,8 @@ In the case of controllers and Views, it is better to include some prefix based 
 4. Economy case controllers and views should be prefixed ec
 5. The primary key of each class should be labeled as class name plus Id.
 6. Every folder other names we provide are expected to be labeled in Pascal case (Make The first letter of the word capitalized).
+7. Instead of sex use the term Gender.
+8. Put your Enums in the enum folder only.
 The button color is better to follow,
 1.  Create button <btn-success>
 2. Edit button <btn-warnning>
