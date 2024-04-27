@@ -7,7 +7,8 @@ In the case of controllers and Views, it is better to include some prefix based 
 2. Civil case controllers and views should be prefixed cc,
 3. Corruption case controllers and views should be prefixed co and
 4. Economy case controllers and views should be prefixed ec
-5. The peimary key of each class should be label as classnam plus Id. 
+5. The primary key of each class should be labeled as class name plus Id.
+6. Every folder is expected to be labeled in Pascal case (Make The first letter of the word capitalized).
 The button color is better to follow,
 1.  Create button <btn-success>
 2. Edit button <btn-warnning>
