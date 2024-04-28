@@ -110,54 +110,78 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
    @* @if (SignInManager.IsSignedIn(User))
-                        {*@
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="fa fa-list"></i>
-                                    <p>
-                                        Settings
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
+       {*@
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="fa fa-tasks"></i>
+            <p>
+                Settings
+                <i class="fas fa-angle-left right"></i>
+            </p>
+        </a>
 
-                                <ul class="nav nav-treeview">
+        <ul class="nav nav-treeview">
 
-                                    <li class="nav-item">
-                                        <a asp-controller="ReginalSectors" asp-action="Index" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>የክልል ቢሮ</p>
-                                        </a>
-                                    </li>          
-                                    <li class="nav-item">
-                                        <a asp-controller="ZonalSectors" asp-action="Index" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>ዞን መምሪያ</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-controller="WoredaSectors" asp-action="Index" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>የወረዳ ጽ/ቤት</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-controller="Roles" asp-action="Index" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>ሚና ዝርዝር</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-controller="UserRoles" asp-action="Index" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>ተጠቃሚዎች ዝርዝር</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        @*}*@
+            <li class="nav-item">
+                <a asp-controller="ReginalSectors" asp-action="Index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>የክልል ቢሮ</p>
+                </a>
+            </li>          
+            <li class="nav-item">
+                <a asp-controller="ZonalSectors" asp-action="Index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>ዞን መምሪያ</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="WoredaSectors" asp-action="Index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>የወረዳ ጽ/ቤት</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Roles" asp-action="Index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>ሚና ዝርዝር</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="UserRoles" asp-action="Index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>ተጠቃሚዎች ዝርዝር</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+
+     <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="fa fa-regular fa-folder-open"></i>
+            <p>
+                ወንጀል ነክ
+                <i class="fas fa-angle-left right"></i>
+            </p>
+        </a>
+
+        <ul class="nav nav-treeview">
+
+            <li class="nav-item">
+                <a asp-controller="Cr_Crime_Type" asp-action="Index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                                        
+                    <p>የወንጀል አይነቶች</p>
+                </a>
+            </li>          
+           
+        </ul>
+    </li>
+@*}*@
 
        </ul>
       </nav>

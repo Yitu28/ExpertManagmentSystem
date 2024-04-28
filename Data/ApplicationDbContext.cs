@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ExpertManagmentSystem.ViewModels;
+using ExpertManagmentSystem.Models.CrimeModels;
 
 namespace ExpertManagmentSystem.Data
 {
@@ -21,6 +22,19 @@ namespace ExpertManagmentSystem.Data
         public DbSet<ZonalSectors> ZonalSectors { get; set; }
         public DbSet<WoredaSectors> WoredaSectors { get; set; }
         public DbSet<SectrorsDepartment> SectrorsDepartment { get; set; }
+
+        public DbSet<Cr_Crime_Type> Cr_Crime_Types { get; set; }
+        public DbSet<Cr_Decide_Judicial_Appeal> Cr_Decide_Judicial_Appeals { get; set; }
+        public DbSet<Cr_Decided_Judical_Break> Cr_Decided_Judical_Breaks { get; set; }
+        public DbSet<Cr_Decided_Prosecuter_Appeal> Cr_Decided_Prosecuter_Appeal { get; set; }
+        public DbSet<Cr_Decided_Prosecuter_Break> Cr_Decided_Prosecuter_Breaks { get; set; }
+        public DbSet<Cr_Direct_Chare_Decission> Cr_Direct_Chare_Decissions { get; set; }
+        public DbSet<Cr_Direct_Charge_Opening> Cr_Direct_Charge_Openings { get; set; }
+        public DbSet<Cr_Judical_Appeal_Opening> Cr_Judical_Appeal_Openings { get; set; }
+
+        public DbSet<Cr_Judical_Break_Opening> Cr_Judical_Break_Openings { get; set; }
+        public DbSet<Cr_Prosecuter_Appeal_Opening> Cr_Prosecuter_Appeal_Openings { get; set; }
+        public DbSet<Cr_Prosocuter_Break_Openinig> Cr_Prosocuter_Break_Openinigs { get; set; }
 
 
 

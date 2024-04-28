@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpertManagmentSystem.Models.CrimeModels
 {
-    public class Cr_Decided_Prosecuter_Appeal
+    public class Cr_Decide_Judicial_Appeal
     {
-        public Guid Cr_Decided_Prosecuter_AppealId { get; set; }
-        public DateTime OpeningDate { get; set; }
-        public int ProsocuterNo { get; set; }
-        public int Court_No { get; set; }
+        public Guid Cr_Decide_Judicial_AppealId { get; set; }
+        public DateTime Opening_Date { get; set; }
+        public int Prosocuter_No { get; set; }
+        public int CourtNo { get; set; }
         public string Applicant { get; set; }
         public string Respondant { get; set; }
         public string CrimeType { get; set; }
@@ -30,5 +30,10 @@ namespace ExpertManagmentSystem.Models.CrimeModels
         public Guid SectrorsDepartmentId { get; set; }
         [ForeignKey(nameof(SectrorsDepartmentId))]
         public virtual SectrorsDepartment? SectrorsDepartment { get; set; }
+
+
+
+
+
     }
 }

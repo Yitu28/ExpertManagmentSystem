@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpertManagmentSystem.Models.CrimeModels
 {
-    public class Cr_Decided_Prosecuter_Appeal
+    public class Cr_Decided_Prosecuter_Break
     {
-        public Guid Cr_Decided_Prosecuter_AppealId { get; set; }
+        public Guid Cr_Decided_Prosecuter_BreakId { get; set; }
         public DateTime OpeningDate { get; set; }
         public int ProsocuterNo { get; set; }
         public int Court_No { get; set; }
@@ -21,7 +21,6 @@ namespace ExpertManagmentSystem.Models.CrimeModels
         public int AmountOfAppealFemale { get; set; }
         public string EventStatus { get; set; }
         public string ToFederal { get; set; }
-
         public Guid Cr_Crime_TypeId { get; set; }
         [ForeignKey(nameof(Cr_Crime_TypeId))]
 
@@ -30,5 +29,6 @@ namespace ExpertManagmentSystem.Models.CrimeModels
         public Guid SectrorsDepartmentId { get; set; }
         [ForeignKey(nameof(SectrorsDepartmentId))]
         public virtual SectrorsDepartment? SectrorsDepartment { get; set; }
+
     }
 }
