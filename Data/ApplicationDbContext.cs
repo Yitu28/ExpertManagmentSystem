@@ -22,6 +22,16 @@ namespace ExpertManagmentSystem.Data
         public DbSet<WoredaSectors> WoredaSectors { get; set; }
         public DbSet<SectrorsDepartment> SectrorsDepartment { get; set; }
 
+        //corruption department
+        public DbSet<CO_Closed_SentInReverse> CO_Closed_SentInReverse { get; set; }
+        public DbSet<CO_CorruptionCharge> CO_CorruptionCharge { get; set; }
+        public DbSet<CO_FederalAppealOrBreak> CO_FederalAppealOrBreak { get; set; }
+        //public DbSet<CO_FederalBreak> CO_FederalBreak { get; set; }
+        public DbSet<CO_FirstOrder> CO_FirstOrder { get; set; }
+        public DbSet<CO_Petition> CO_Petition { get; set; }
+        public DbSet<CO_RegionalBreakAppeal> CO_RegionalBreakAppeal { get; set; }
+        public DbSet<CO_Warranty> CO_Warranty { get; set; }
+
 
 
 
