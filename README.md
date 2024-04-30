@@ -9,13 +9,12 @@ First thing is first, I'm happy to see this theme spirit and commitment. I belie
 8. Instead of sex use the term Gender.
 9. Put your Enums in the enum folder only.
 10. The button color is better to follow,
-     10.1. Create button -> success
-    10.2. Edit button -> warning 
-    10.3. Details button -> info
-    10.4. Delete button ->danger
+11. Create button -> success
+12. Edit button -> warning
+13. Details button -> info
+14. Delete button ->danger
 
 Rules to follow in Git change
-
-    Everybody should work on his branch if not he is not allowed to push at any time.
+15. Everybody should work on his branch if not he is not allowed to push at any time.
     If we want to push, be sure to sync or pull to get the latest updated git repo first before pushing our contribution. Have a nice coding!!!!!!!!!
 
