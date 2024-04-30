@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpertManagmentSystem.Models.CrimeModels
 {
-    public class Cr_Judical_Appeal_Opening
+    public class Cr_JudicalAppealDirectCharege
     {
-        public Guid Cr_Judical_Appeal_OpeningId { get; set; }
+        public Guid Cr_JudicalAppealDirectCharegeId { get; set; }
         public DateTime Openinig_data { get; set; }
         public int Prosocuters_No { get; set; }
         public int Court_No { get; set; }

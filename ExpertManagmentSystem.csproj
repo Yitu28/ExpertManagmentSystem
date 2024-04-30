@@ -24,7 +24,6 @@
     <Folder Include="Controllers\CorruptionControllers\" />
     <Folder Include="Controllers\CivilCaseContrrollers\" />
     <Folder Include="Controllers\EconomyControllers\" />
-    <Folder Include="Enums\" />
     <Folder Include="Models\CivilCaseModels\" />
     <Folder Include="Models\CorruptionModels\" />
     <Folder Include="Models\EconomyModels\" />

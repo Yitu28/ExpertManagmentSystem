@@ -1,11 +1,18 @@
-﻿using ExpertManagmentSystem.OrganizationalStructures;
+﻿using ExpertManagmentSystem.Enums;
+using ExpertManagmentSystem.OrganizationalStructures;
+using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Linq;
 
 namespace ExpertManagmentSystem.Models.CrimeModels
 {
-    public class Cr_Decided_Prosecuter_Break
+    public class Cr_Decided_Judicial_and_Prosecuter
     {
-        public Guid Cr_Decided_Prosecuter_BreakId { get; set; }
+
+
+        public Guid Cr_Decided_Judicial_and_ProsecuterId { get; set; }
+        [Display(Name = "")]
         public DateTime OpeningDate { get; set; }
         public int ProsocuterNo { get; set; }
         public int Court_No { get; set; }
@@ -21,14 +28,13 @@ namespace ExpertManagmentSystem.Models.CrimeModels
         public int AmountOfAppealFemale { get; set; }
         public string EventStatus { get; set; }
         public string ToFederal { get; set; }
+        public ProsecutorComment? ProsecutorComment { get; set; }
         public Guid Cr_Crime_TypeId { get; set; }
         [ForeignKey(nameof(Cr_Crime_TypeId))]
-
         public virtual Cr_Crime_Type? Cr_Crime_Type { get; set; }
 
         public Guid SectrorsDepartmentId { get; set; }
         [ForeignKey(nameof(SectrorsDepartmentId))]
         public virtual SectrorsDepartment? SectrorsDepartment { get; set; }
-
     }
 }
