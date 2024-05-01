@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ExpertManagmentSystem.ViewModels;
+using ExpertManagmentSystem.Models.CivilCaseModels;
 
 namespace ExpertManagmentSystem.Data
 {
@@ -75,6 +76,13 @@ namespace ExpertManagmentSystem.Data
 
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<ExpertManagmentSystem.ViewModels.SectorDepartmentViewModels>? SectorDepartmentViewModels { get; set; }
+
+
+
+
+
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices>? CCFreelServices { get; set; }
 
     }
 

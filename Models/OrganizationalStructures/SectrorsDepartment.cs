@@ -20,7 +20,7 @@ namespace ExpertManagmentSystem.OrganizationalStructures
         public Guid DepartmentParentId { get; set; }
         public DepartmentCategory DepartmentCategory { get; set; }
 
-        public virtual ICollection<CCFreeLegalService>? CCFreeLegalService { get; set; }
+        public virtual ICollection<CCFreelServices>? CCFreelServices { get; set; }
     }
   
 
