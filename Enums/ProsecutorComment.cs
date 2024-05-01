@@ -24,4 +24,8 @@
     {
          በማፅናት, በማሻሻል, በመሻር 
     }
+    public enum CivilCaseCategory
+    {
+        DirectChargeOpenning, DirectChargeResponseOpenning, GeneralAppealOpenning,GeneralAppealResponseOpenning, BrekingApplicantOpenning, BrekingRespondentOpenning
+    }
 }

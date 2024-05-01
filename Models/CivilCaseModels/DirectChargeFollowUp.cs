@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using ExpertManagmentSystem.Enums;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -32,6 +33,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DecissionDate { get; set; }
 
+        public CivilCaseCategory CivilCaseCategory { get; set; }
 
         [Required]
         [Display(Name = "የውሳኔው አይነት")]
