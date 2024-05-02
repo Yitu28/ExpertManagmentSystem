@@ -4,6 +4,7 @@ using ExpertManagmentSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpertManagmentSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240430131951_addingEnumValues")]
+    partial class addingEnumValues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,7 +124,18 @@ namespace ExpertManagmentSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("AmountOfAppealFemale")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AmountOfAppealMale")
+                        .HasColumnType("int");
+
                     b.Property<string>("Applicant")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourtDesitions")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Court_No")
@@ -132,51 +145,47 @@ namespace ExpertManagmentSystem.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CrimeType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FederalBreakingRequest")
-                        .HasColumnType("int");
+                    b.Property<string>("EventStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FileEndResult")
-                        .HasColumnType("int");
+                    b.Property<string>("ExpertsToCourt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FileStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HighCourtDecission")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NumberOfFemaleAppellants")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NumberOfMaleAppellants")
-                        .HasColumnType("int");
+                    b.Property<string>("ExpertsToProsecuter")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("OpeningDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Other")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OtherCourtDecition")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProsecutorComment")
                         .HasColumnType("int");
 
+                    b.Property<string>("ProsocuterFocus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ProsocuterNo")
                         .HasColumnType("int");
 
                     b.Property<string>("Respondant")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("SectrorsDepartmentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("WhoJudgeCommentedOnDecision")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("WhoLawyeCommented")
+                    b.Property<string>("ToFederal")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Cr_Decided_Judicial_and_ProsecuterId");

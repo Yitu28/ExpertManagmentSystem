@@ -1,4 +1,59 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+    $(document).ready(function () {
+        $('.SectrorsDepartmentId').attr('disabled', true);
+    getworedadepartments();
 
-// Write your JavaScript code.
+});
+
+    function getworedadepartments() {
+        $('.SectrorsDepartmentId').empty();
+    $.ajax({
+        url: '/Cr_Decided_Judicial_and_Prosecuter/Departmentslists',
+    success: function (response) {
+            if (response != null && response != undefined && response.length > 0) {
+        $('.SectrorsDepartmentId').attr('disabled', false);
+    $('.SectrorsDepartmentId').append('<option value="" > ------- የስራ ክፍል ይምረጡ  --------</option>');
+    $.each(response, function (i, data) {
+        $('.SectrorsDepartmentId').append('<option value=' + data.sectrorsDepartmentId + '>' + data.departmentName + '</option>');
+                });
+            }
+    else {
+        $('.SectrorsDepartmentId').attr('disabled', true);
+    $('.SectrorsDepartmentId').append('<option value="" > ------- የስራ ክፍል ዝርዝር አልተገኘም --------</option>');
+
+            }
+
+        }
+    });
+}
+
+//To get Crim Type with dropdown
+
+$(document).ready(function () {
+    $('.Cr_Crime_TypeId').attr('disabled', true);
+    GetCrimeType();
+
+});
+
+function GetCrimeType() {
+    $('.Cr_Crime_TypeId').empty();
+    $.ajax({
+        url: '/Cr_Decided_Judicial_and_Prosecuter/CrimeTypeList',
+        success: function (response) {
+            if (response != null && response != undefined && response.length > 0) {
+                $('.Cr_Crime_TypeId').attr('disabled', false);
+                $('.Cr_Crime_TypeId').append('<option value="" > ------- የወንጀል አይነት  --------</option>');
+                $.each(response, function (i, data) {
+                    $('.Cr_Crime_TypeId').append('<option value=' + data.cr_Crime_TypeId + '>' + data.crimeTypeName + '</option>');
+                });
+            }
+            else {
+                $('.Cr_Crime_TypeId').attr('disabled', true);
+                $('.Cr_Crime_TypeId').append('<option value="" > ------- የወንጀል አይነት ዝርዝር አልተገኘም --------</option>');
+
+            }
+
+        }
+    });
+}
+

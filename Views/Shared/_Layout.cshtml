@@ -173,11 +173,35 @@
 
             <li class="nav-item">
                 <a asp-controller="Cr_Crime_Type" asp-action="Index" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                                        
+                    <i class="far fa-circle nav-icon"></i>                                       
                     <p>የወንጀል አይነቶች</p>
                 </a>
-            </li>          
+            </li>     
+            
+              <li class="nav-item">
+                    <a asp-controller="Cr_Decided_Judicial_and_Prosecuter" asp-action="Index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>                                       
+                    <p>የዐቃቢ ህግ ይግባኝ</p>
+                </a>
+            </li>  
+               <li class="nav-item">
+                    <a asp-controller="" asp-action="Index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>                                       
+                    <p>የዐቃቢ ህግ ሰበር</p>
+                </a>
+            </li> 
+             <li class="nav-item">
+                    <a asp-controller="" asp-action="Index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>                                       
+                    <p>የፍርደኛ ይግባኝ</p>
+                </a>
+            </li> 
+             <li class="nav-item">
+                    <a asp-controller="" asp-action="Index" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>                                       
+                    <p>የፍርደኛ ሰበር</p>
+                </a>
+            </li> 
            
         </ul>
     </li>
@@ -264,6 +288,7 @@
     <script src="~/AdminLte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="~/AdminLte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="~/AdminLte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="~/js/site.js"></script>
 
     <script>
   $(function () {
@@ -274,17 +299,26 @@
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,
-      "searching": false,
-      "ordering": true,
+      "searching": true,
+      "ordering": true,     
       "info": true,
       "autoWidth": false,
       "responsive": true,
     });
   });
 </script>
+
+<script>
+    new DataTable('#DecidedJudicialAndProsecuterTable', {
+        scrollX: true,     
+    });
+</script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
 
 
 

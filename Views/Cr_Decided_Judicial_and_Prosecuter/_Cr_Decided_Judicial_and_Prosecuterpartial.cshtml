@@ -1,0 +1,132 @@
+﻿@using ExpertManagmentSystem.Enums
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@model ExpertManagmentSystem.Models.CrimeModels.Cr_Decided_Judicial_and_Prosecuter
+
+
+<div class="modal fade" id="addDecidednmodals" aria-labelledby="addRegionLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content" style="width:850px">
+            <div class="card card-success">
+                <div class="card-header">
+                    <h3 class="card-title"> የቀረቡና ውሳኔ የተሰጠባቸው የዐ/ህግ የይግባኝ መዛግብት መመዝገቢያ ፎርም </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:white;">×</span></button>
+                </div>
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly " class="text-danger"></div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label asp-for="OpeningDate" class="control-label ">ፋይል የተከፈተበት ቀን</label>
+                                <input asp-for="OpeningDate" class="form-control" />
+                                <span asp-validation-for="OpeningDate" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="ProsocuterNo" class="control-label ">የዐ/ህግ መ/ቁጥር</label>
+                                <input asp-for="ProsocuterNo" class="form-control " />
+                                <span asp-validation-for="ProsocuterNo" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label asp-for="Court_No" class="control-label">የፍ/ቤት መ/ቁጥር</label>
+                                <input asp-for="Court_No" class="form-control" />
+                                <span asp-validation-for="Court_No" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-group col-md-4">
+                                <label asp-for="Applicant" class="control-label">ይግባኝ ባይ</label>
+                                <input asp-for="Applicant" class="form-control" />
+                                <span asp-validation-for="Applicant" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="Respondant" class="control-label"> መልስ ሰጭ</label>
+                                <input asp-for="Respondant" class="form-control" />
+                                <span asp-validation-for="Respondant" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="CrimeType" class="control-label">ወንጀሉ አይነት</label>
+                                <input asp-for="CrimeType" class="form-control" />
+                                <span asp-validation-for="CrimeType" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label asp-for="ProsecutorComment" class="control-label">የዐ/ህግ አስተያየት ይምረጡ </label>
+                                @Html.DropDownList("ProsecutorComment", Html.GetEnumSelectList<ProsecutorComment>(), /*"የዐ/ህግ አስተያየት ይምረጡ !",*/ new { @class = "form-control Mapandplans", id = "DepartmentCategory" })
+                                @*<input asp-for="ProsecutorComment" class="form-control" />*@
+                                <span asp-validation-for="ProsecutorComment" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="Other" class="control-label">ልዩልዩ</label>
+                                <input asp-for="Other" class="form-control" />
+                                <span asp-validation-for="Other" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="WhoLawyeCommented" class="control-label">አስተያየት የሰጠው ዐ/ህግ</label>
+                                <input asp-for="WhoLawyeCommented" class="form-control" />
+                                <span asp-validation-for="WhoLawyeCommented" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="HighCourtDecission" class="control-label">የጠ/ፍ/ቤት ውሳኔ ይምረጡ</label>
+                                @Html.DropDownList("HighCourtDecission", Html.GetEnumSelectList<HighCourtDecission>(), /*"የጠ/ፍ/ቤት ውሳኔ ይምረጡ !",*/ new { @class = "form-control Mapandplans", id = "DepartmentCategory" })
+                                @*<select asp-for="HighCourtDecission" class="form-control"></select>*@
+                                <span asp-validation-for="HighCourtDecission" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="OtherCourtDecition" class="control-label">ልዩልዩ</label>
+                                <input asp-for="OtherCourtDecition" class="form-control" />
+                                <span asp-validation-for="OtherCourtDecition" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="WhoJudgeCommentedOnDecision" class="control-label">አስተያየት የሰጠው የፍ/ቤት ዳኛ</label>
+                                <input asp-for="WhoJudgeCommentedOnDecision" class="form-control" />
+                                <span asp-validation-for="WhoJudgeCommentedOnDecision" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="NumberOfFemaleAppellants" class="control-label">ይግባኝ ባዮች(ሴት)ብዛት</label>
+                                <input asp-for="NumberOfFemaleAppellants" class="form-control" />
+                                <span asp-validation-for="NumberOfFemaleAppellants" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="NumberOfMaleAppellants" class="control-label">ይግባኝ ባዮች(ወንድ)ብዛት</label>
+                                <input asp-for="NumberOfMaleAppellants" class="form-control" />
+                                <span asp-validation-for="NumberOfMaleAppellants" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="FileStatus" class="control-label">አዲስ/ነባር</label>
+                                @Html.DropDownList("FileStatus", Html.GetEnumSelectList<FileStatus>(), /*"አዲስ/ነባር!",*/ new { @class = "form-control Mapandplans", id = "DepartmentCategory" })
+                                @*<select asp-for="FileStatus" class="form-control"></select>*@
+                                <span asp-validation-for="FileStatus" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="FileEndResult" class="control-label">አሸናፊ/ተሸናፊ</label>
+                                @Html.DropDownList("FileEndResult", Html.GetEnumSelectList<FileEndResult>(), /*"ሰበር/ለፌደራል የተጠየቀ!",*/ new { @class = "form-control Mapandplans", id = "DepartmentCategory" })
+
+
+                                <span asp-validation-for="FileEndResult" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="FederalBreakingRequest" class="control-label">ሰበር/ለፌደራል የተጠየቀ</label>
+                                @Html.DropDownList("FederalBreakingRequest", Html.GetEnumSelectList<FederalBreakingRequest>(), /*"ሰበር/ለፌደራል የተጠየቀ!",*/ new { @class = "form-control Mapandplans", id = "DepartmentCategory" })
+
+                                <span asp-validation-for="FederalBreakingRequest" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="Cr_Crime_TypeId" class="control-label">የወንጀል አይነት</label>
+                                <select asp-for="Cr_Crime_TypeId" class="form-control Cr_Crime_TypeId" asp-items="ViewBag.Cr_Crime_TypeId"></select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="SectrorsDepartmentId" class="control-label">የስራ ክፍል</label>
+                                <select asp-for="SectrorsDepartmentId" class="form-control SectrorsDepartmentId" asp-items="ViewBag.SectrorsDepartmentId"></select>
+                            </div>
+           
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i class="fa fa-floppy-disk"></i>
+                        <input type="submit" value="ይመዝግቡ" class="btn float-right btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
