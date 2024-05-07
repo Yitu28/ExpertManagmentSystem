@@ -1,9 +1,8 @@
 ﻿@using ExpertManagmentSystem.Models.CivilCaseModels
-@using Microsoft.AspNetCore.Mvc.RazorPages
 @model ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices
 
 
-<div class="modal fade" id="addRegionmodals" aria-labelledby="addRegionLabel" aria-hidden="true">
+<div class="modal fade" id="addFreeLaarsmodals" aria-labelledby="addFreeLaarsLabel" aria-hidden="true">
     <div class="modal-dialog ">
         <div class="modal-content" style="width:850px">
             <div class="card card-success">
@@ -11,7 +10,7 @@
                     <h3 class="card-title"> ነፃ የህግ ደጋፍ ሰበር አመልካች </h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:white;">×</span></button>
                 </div>
-                <form asp-action="Create" method="post">
+                <form asp-action="FreeLaarsCreate" method="post">
                     <div asp-validation-summary="ModelOnly " class="text-danger"></div>
                     <div class="card-body">
                         <div class="row">
@@ -41,8 +40,7 @@
 
                             <div class="form-group col-md-4">
                                 <label asp-for="Gender" class="control-label"></label>
-                                @* <input asp-for="Gender" class="form-control" /> *@
-                                @Html.DropDownList("Gender", Html.GetEnumSelectList<Genders>(), " ነፃ የህግ ድጋፍ ፈላጊ ፆታ ይምረጡ ", new { @class = "form-control" })
+                                @Html.DropDownList("Gender", Html.GetEnumSelectList<Gender>(), " ነፃ የህግ ድጋፍ ፈላጊ ፆታ ይምረጡ ", new { @class = "form-control" })
                                 <span asp-validation-for="Gender" class="text-danger"></span>
                             </div>
                             <div class="form-group col-md-4">
@@ -119,8 +117,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label class="control-label"> የስራ ክፍል </label>
-                                @* @Html.DropDownListFor(SectrorsDepartmentId, (SelectList)ViewBag.DepartmentName, "-- Select Departments --", new { @class = "form-control" }) *@
-                                <select asp-for="SectrorsDepartmentId" class="form-control" asp-items="ViewBag.SectrorsDepartmentId"></select>
+                                <select asp-for="SectrorsDepartmentId" class="form-control SectrorsDepartmentId"></select>
                             </div>
                         </div>
 

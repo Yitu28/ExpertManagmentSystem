@@ -46,26 +46,26 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         }
 
 
+        public JsonResult Departmentslists()
+        {
+            var regioneslist = _context.SectrorsDepartment.OrderBy(x => x.DepartmentName).ToList();
+            return new JsonResult(regioneslist);
+        }
+
+        public IActionResult FreeLaarsCreate()
+        {
+            CCFreelServices Laaos = new();
+            return PartialView("_FreeLaarsCreateModalPartial", Laaos);
+        }
+
         // GET: CCFreeLaaros/Create
         public IActionResult Create()
         {
-            ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "DepartmentName");
-
-                //var examList = courses.Select(c => new ExamViewModel
-                //{
-                //    ExamId = c.ExamId,
-                //    CourseName = c.CourseName
-                //}).ToList();
+            //ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "DepartmentName");
             //return View();
             CCFreelServices Laaos = new();
-            return PartialView("_FreeLaarosCreateModalPartial", Laaos);
+            return PartialView("_FreeLaaosCreateModalPartial", Laaos);
         }
-        // GET: CCFreeLaaos/Create
-        //public IActionResult Create()
-        //{
-        //    ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId");
-        //    return View();
-        //}
 
 
 
@@ -74,17 +74,22 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CCFreelServicesId,FileNo,RecorNo,Applicant,Responder,Gender,age,SupportType,Doo,typesofIssue,apsm,AddressZone,AddressWoreda,ExpertName,DoAss,DoRet,LOS,PDecission,SectrorsDepartmentId,FreelCategory")] CCFreelServices cCFreelServices)
+        public async Task<IActionResult> Create( Guid SectrorsDepartmentId, CCFreelServices cCFreelServices)
         {
+            
+
             if (ModelState.IsValid)
             {
                 cCFreelServices.CCFreelServicesId = Guid.NewGuid();
+                cCFreelServices.SectrorsDepartmentId = SectrorsDepartmentId;
+                cCFreelServices.FreelCategory = FreelCategory.ይግባኝአመልካች;
                 _context.Add(cCFreelServices);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", cCFreelServices.SectrorsDepartmentId);
-            return View(cCFreelServices);
+            //return View(cCFreelServices);
+            return RedirectToAction("Index", "CCFreeLaaos");
         }
 
         // GET: CCFreeLaaos/Edit/5
@@ -94,14 +99,15 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             {
                 return NotFound();
             }
-
-            var cCFreelServices = await _context.CCFreelServices.FindAsync(id);
-            if (cCFreelServices == null)
+            var Laaos = await _context.CCFreelServices.FindAsync(id);
+            if (Laaos == null)
             {
                 return NotFound();
             }
-            ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", cCFreelServices.SectrorsDepartmentId);
-            return View(cCFreelServices);
+            //ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", cCFreelServices.SectrorsDepartmentId);
+            // CCFreelServices Laaos = new();
+            return PartialView("_FreeLaaosEditModalPartial", Laaos); 
+            //return View(cCFreelServices);
         }
 
         // POST: CCFreeLaaos/Edit/5

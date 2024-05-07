@@ -7,7 +7,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
     // This Class Defines for Civil Case Managment 
     // For Free legal Services 
     // Sex Category with Enumerable List
-    public enum Genders
+    public enum Gender
     {
         ሴት,
         ወንድ
@@ -57,75 +57,75 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public Guid CCFreelServicesId { get; set; }
         // Presecutor's File Number 
         [Required(ErrorMessage = "እባክዎን የአቃቢ ህግ መዝገብ ቁጥርን ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "የአቃቢ ህግ መዝገብ ቁጥር")]
         public string? FileNo { get; set; }
 
         // Courrt Record  Number 
         [Required(ErrorMessage = "እባክዎን የፍርድ ቤት መዝገብ ቁጥርን ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "የፍርድ ቤት መዝገብ ቁጥር")]
         public string? RecorNo { get; set; }
 
         // Legal Aid breaking response Openning Applicant
         [Required(ErrorMessage = "እባክዎን የአመልካችን ስም ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "አመልካች")]
         public string? Applicant { get; set; }
 
         // Legal Aid breaking response Openning Responder
         [Required(ErrorMessage = "እባክዎን የተጠሪን ስም ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "ተጠሪ")]
         public string? Responder { get; set; }
 
 
         // Legal Aid breaking response Openning Sex
         [Required(ErrorMessage = "እባክዎን ነፃ የህግ ድጋፍ ፈላጊ ፆታን ይምረጡ !")]
-        [StringLength(50)]
+        
         [Display(Name = "ነፃ የህግ ድጋፍ ፈላጊ ፆታ")]
-        public Genders? Gender { get; set; }
+        public Gender? Gender { get; set; }
 
         // Legal Aid breaking response Openning Age
         [Required(ErrorMessage = "እባክዎን ነፃ የህግ ድጋፍ ፈላጊ ዕድሜን ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "ነፃ የህግ ድጋፍ ፈላጊ ዕድሜ")]
         public AgeRange? age { get; set; }
 
         // Legal Aid breaking response Openning Support Type
         [Required(ErrorMessage = "እባክዎን ነፃ የህግ ድጋፍ አይነትን ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "ነፃ የህግ ድጋፍ አይነት ")]
         public SupportType? SupportType { get; set; }
 
 
         // Legal Aid breaking response Openning Date of Openning 
         [Required(ErrorMessage = "እባክዎን በዓቃቢ ህግ የተከፈተበት ቀንን ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "በዓቃቢ ህግ የተከፈተበት ቀን")]
         public DateTime? Doo { get; set; }
 
         // Legal Aid breaking response Openning Types Off Issue
         [Required(ErrorMessage = "እባክዎን የጉዳዩን አይነት ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "የጉዳይ አይነት ")]
         public string? typesofIssue { get; set; }
 
         // Legal Aid breaking response Openning (apsm) Amount Per Birr / Square Meter
         [Required(ErrorMessage = "እባክዎን የገንዘብ መጠንን ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "የገንዘብ መጠን")]
         public string? apsm { get; set; }
 
         // Legal Aid breaking response Openning Responder
         [Required(ErrorMessage = "እባክዎን የሚገኝበት ዞንን ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "የሚገኝበት ዞን")]
         public string? AddressZone { get; set; }
 
         // Legal Aid breaking response Openning Responder
         [Required(ErrorMessage = "እባክዎን የሚገኝበት ወረዳን ይሙሉ !")]
-        [StringLength(50)]
+        
         [Display(Name = "የሚገኝበት ወረዳ ")]
         public string? AddressWoreda { get; set; }
 
@@ -143,14 +143,14 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
 
         // Legal Aid breaking response Openning Date of Return 
-        //[StringLength(50)]
+        //
         [Display(Name = "ተሰርቶ የተመለሰበት ቀን")]
         public DateTime? DoRet { get; set; }
 
         // Legal Aid breaking response Openning Taken Time
-        //[StringLength(50)]
+        //
         [Display(Name = "የፈጀው ጊዜ")]
-        public DateTime? LOS { get; set; }
+        public string? LOS { get; set; }
 
 
         // Legal Aid breaking response Openning Date of Presecutor Decisions 
