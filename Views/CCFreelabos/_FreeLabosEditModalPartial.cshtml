@@ -2,16 +2,17 @@
 @model ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices
 
 
-<div class="modal fade" id="addFreeLaaosmodals" aria-labelledby="addFreeLaaosLabel" aria-hidden="true">
+<div class="modal fade" id="EditRegionmodals" aria-labelledby="EditFreeLaaosLabel" aria-hidden="true">
     <div class="modal-dialog ">
         <div class="modal-content" style="width:850px">
             <div class="card card-success">
                 <div class="card-header">
-                    <h3 class="card-title"> ነፃ የህግ ደጋፍ ይግባኝ አመልካች </h3>
+                    <h3 class="card-title"> ነፃ የህግ ደጋፍ ሰበር አመልካች </h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:white;">×</span></button>
                 </div>
-                <form asp-action="Create" method="post">
+                <form asp-action="Edit" method="post">
                     <div asp-validation-summary="ModelOnly " class="text-danger"></div>
+                    <input type="hidden" asp-for="CCFreelServicesId" />
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-4">

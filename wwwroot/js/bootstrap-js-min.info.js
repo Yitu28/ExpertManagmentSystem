@@ -1,15 +1,16 @@
 ﻿
  $(document).ready(function () {
-     $("#custom-content-below-home-tab").click(function () {
+
+     $(".Freelaaos").click(function () {
          $("#Freelaaos").show();
          $("#Freelaars").hide();
-        });
+     });
 
-     $("#custom-content-below-profile-tab").click(function () {
+     $(".Freelaars").click(function () {
          $("#Freelaaos").hide();
          $("#Freelaars").show();
-        });
-    });
+     });
+ });
 
 
 

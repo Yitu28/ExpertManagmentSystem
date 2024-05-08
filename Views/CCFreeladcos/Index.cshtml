@@ -8,14 +8,14 @@
     <div class="card-header">
         <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link Freelaaos active" id="custom-content-below-home-tab" data-toggle="pill" href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">ነፃ የህግ ድጋፍ ይግባኝ አመልካች</a>
+                <a class="nav-link Freelaaos active" id="custom-content-below-home-tab" data-toggle="pill" href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">ነፃ የህግ ድጋፍ ቀጥታ ክስ አመልካች</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link Freelaars" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">ነፃ የህግ ድጋፍ ይግባኝ ተጠሪ</a>
+                <a class="nav-link Freelaars" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">ነፃ የህግ ድጋፍ ቀጥታ ክስ ተጠሪ</a>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn btn-success float-right Freelaaos" id="Freelaaos" data-toggle="modal" data-target="#addFreeLaaosmodals"> <i class="fa fa-plus"></i> አዲስ ጨምር</button>
-                <button type="button" class="btn btn-primary float-right Freelaars" style="display:none;" id="Freelaars" data-toggle="modal" data-target="#addFreeLaarsmodals"> <i class="fa fa-plus"></i> አዲስ ጨምር</button>
+                <button type="button" class="btn btn-success float-right Freelaaos" id="Freelaaos" data-toggle="modal" data-target="#addFreeLadcosmodals"> <i class="fa fa-plus"></i> አዲስ ጨምር</button>
+                <button type="button" class="btn btn-primary float-right Freelaars" style="display:none;" id="Freelaars" data-toggle="modal" data-target="#addFreeLadcrsmodals"> <i class="fa fa-plus"></i> አዲስ ጨምር</button>
             </li>
         </ul>
     </div>
@@ -83,7 +83,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            if (item.FreelCategory == FreelCategory.ይግባኝአመልካች)
+                            if (item.FreelCategory == FreelCategory.ቀጥታክስአመልካች)
                             {
                                 <tr>
                                     <td>
@@ -139,11 +139,11 @@
                                     </td>
                                     <td>
                                         <a asp-action="Edit" data-toggle="modal" data-target="@("#EditRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Edit/{item.CCFreelServicesId}")"><li class="fa fa-edit bg-warning" title="ማስተካከል"></li></a>
-                                        @await Html.PartialAsync("_FreeLaaosEditModalPartial", item)
+                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
                                         <a asp-action="Details" data-toggle="modal" data-target="@("#DetailRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Detail/{item.CCFreelServicesId}")"><li class="fa fa-eye bg-info" title="ዝርዝር መረጃ"></li></a>
-                                        @await Html.PartialAsync("_FreeLaaosEditModalPartial", item)
+                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
                                         <a asp-action="Delete" data-toggle="modal" data-target="@("#DeleteRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Delete/{item.CCFreelServicesId}")"><li class="fa fa-trash bg-red" title="ይሰረዝ"></li></a>
-                                        @await Html.PartialAsync("_FreeLaaosEditModalPartial", item)
+                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
                                     </td>
                                 </tr>
 
@@ -156,7 +156,7 @@
 
             <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
 
-                <table class="table  table-bordered table-striped" id="example3">
+                <table id="example3" class="table  table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>
@@ -216,7 +216,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            if (item.FreelCategory == FreelCategory.ይግባኝመልስ)
+                            if (item.FreelCategory == FreelCategory.ቀጥታክስመልስ)
                             {
                                 <tr>
                                     <td>
@@ -272,11 +272,11 @@
                                     </td>
                                     <td>
                                         <a asp-action="Edit" data-toggle="modal" data-target="@("#EditRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Edit/{item.CCFreelServicesId}")"><li class="fa fa-edit bg-warning" title="ማስተካከል"></li></a>
-                                        @await Html.PartialAsync("_FreeLaaosEditModalPartial", item)
+                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
                                         <a asp-action="Details" data-toggle="modal" data-target="@("#DetailRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Detail/{item.CCFreelServicesId}")"><li class="fa fa-eye bg-info" title="ዝርዝር መረጃ"></li></a>
-                                        @await Html.PartialAsync("_FreeLaaosEditModalPartial", item)
+                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
                                         <a asp-action="Delete" data-toggle="modal" data-target="@("#DeleteRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Delete/{item.CCFreelServicesId}")"><li class="fa fa-trash bg-red" title="ይሰረዝ"></li></a>
-                                        @await Html.PartialAsync("_FreeLaaosEditModalPartial", item)
+                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
                                     </td>
                                 </tr>
 
@@ -290,10 +290,10 @@
         <!-- /.card -->
     </div>
 </div>
-    
 
-@await Html.PartialAsync("_FreeLaarsCreateModalPartial", new CCFreelServices())
-@await Html.PartialAsync("_FreeLaaosCreateModalPartial", new CCFreelServices())
+
+@await Html.PartialAsync("_FreeLadcrsCreateModalPartial", new CCFreelServices())
+@await Html.PartialAsync("_FreeLadcosCreateModalPartial", new CCFreelServices())
 
 @section Scripts {
     @{

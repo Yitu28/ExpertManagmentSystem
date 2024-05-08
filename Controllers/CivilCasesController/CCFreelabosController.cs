@@ -10,23 +10,23 @@ using ExpertManagmentSystem.Models.CivilCaseModels;
 
 namespace ExpertManagmentSystem.Controllers.CivilCasesController
 {
-    public class CCFreeLaaosController : Controller
+    public class CCFreelabosController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CCFreeLaaosController(ApplicationDbContext context)
+        public CCFreelabosController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: CCFreeLaaos
+        // GET: CCFreelabos
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.CCFreelServices.Include(c => c.SectrorsDepartment);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: CCFreeLaaos/Details/5
+        // GET: CCFreelabos/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null || _context.CCFreelServices == null)
@@ -45,22 +45,14 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             return View(cCFreelServices);
         }
 
-
-        public JsonResult Departmentslists()
-        {
-            var regioneslist = _context.SectrorsDepartment.OrderBy(x => x.DepartmentName).ToList();
-            return new JsonResult(regioneslist);
-        }
-
-        public IActionResult FreeLaarsCreate()
+        public IActionResult FreeLabrsCreate()
         {
             CCFreelServices Laaos = new();
-            return PartialView("_FreeLaarsCreateModalPartial", Laaos);
+            return PartialView("_FreeLabrsCreateModalPartial", Laaos);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> FreeLaarsCreate(Guid SectrorsDepartmentId, CCFreelServices cCFreelServices)
+        public async Task<IActionResult> FreeLabrsCreate(Guid SectrorsDepartmentId, CCFreelServices cCFreelServices)
         {
 
 
@@ -68,69 +60,66 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             {
                 cCFreelServices.CCFreelServicesId = Guid.NewGuid();
                 cCFreelServices.SectrorsDepartmentId = SectrorsDepartmentId;
-                cCFreelServices.FreelCategory = FreelCategory.ይግባኝመልስ;
+                cCFreelServices.FreelCategory = FreelCategory.ሰበርተጠሪ;
                 _context.Add(cCFreelServices);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", cCFreelServices.SectrorsDepartmentId);
             //return View(cCFreelServices);
-            return RedirectToAction("Index", "CCFreeLaaos");
+            return RedirectToAction("Index", "CCFreelabos");
         }
 
-        // GET: CCFreeLaaros/Create
+        // GET: CCFreelabos/Create
         public IActionResult Create()
         {
-            //ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "DepartmentName");
+            //ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId");
             //return View();
             CCFreelServices Laaos = new();
-            return PartialView("_FreeLaaosCreateModalPartial", Laaos);
+            return PartialView("_FreeLabosCreateModalPartial", Laaos);
         }
 
-
-
-        // POST: CCFreeLaaos/Create
+        // POST: CCFreelabos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( Guid SectrorsDepartmentId, CCFreelServices cCFreelServices)
+        public async Task<IActionResult> Create(Guid SectrorsDepartmentId, CCFreelServices cCFreelServices)
         {
-            
+
 
             if (ModelState.IsValid)
             {
                 cCFreelServices.CCFreelServicesId = Guid.NewGuid();
                 cCFreelServices.SectrorsDepartmentId = SectrorsDepartmentId;
-                cCFreelServices.FreelCategory = FreelCategory.ይግባኝአመልካች;
+                cCFreelServices.FreelCategory = FreelCategory.ሰበርአመልካች;
                 _context.Add(cCFreelServices);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", cCFreelServices.SectrorsDepartmentId);
             //return View(cCFreelServices);
-            return RedirectToAction("Index", "CCFreeLaaos");
+            return RedirectToAction("Index", "CCFreelabos");
         }
 
-        // GET: CCFreeLaaos/Edit/5
+        // GET: CCFreelabos/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null || _context.CCFreelServices == null)
             {
                 return NotFound();
             }
-            var Laaos = await _context.CCFreelServices.FindAsync(id);
-            if (Laaos == null)
+
+            var cCFreelServices = await _context.CCFreelServices.FindAsync(id);
+            if (cCFreelServices == null)
             {
                 return NotFound();
             }
-            //ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", cCFreelServices.SectrorsDepartmentId);
-            // CCFreelServices Laaos = new();
-            return PartialView("_FreeLaaosEditModalPartial", Laaos); 
-            //return View(cCFreelServices);
+            ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", cCFreelServices.SectrorsDepartmentId);
+            return View(cCFreelServices);
         }
 
-        // POST: CCFreeLaaos/Edit/5
+        // POST: CCFreelabos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -166,7 +155,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             return View(cCFreelServices);
         }
 
-        // GET: CCFreeLaaos/Delete/5
+        // GET: CCFreelabos/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null || _context.CCFreelServices == null)
@@ -185,7 +174,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             return View(cCFreelServices);
         }
 
-        // POST: CCFreeLaaos/Delete/5
+        // POST: CCFreelabos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
