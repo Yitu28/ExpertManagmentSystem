@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">የወንጀል አይነቶች ዝርዝር ማውጫ</h3>
+        <a asp-action="Create" class="btn btn-success float-right btn-circle  text-light btn-sm">የወንጀል አይነት መዝግብ</a>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+        <tr>
+            <th>
+                የወንጀል አይነቶች
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CrimeTypeName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Cr_Crime_TypeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Cr_Crime_TypeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Cr_Crime_TypeId">Delete</a>
+            </td>
+        </tr>
+}
+            </tbody>
+        </table>
+    </div>
+</div>
