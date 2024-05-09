@@ -5,7 +5,12 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ExpertManagmentSystem.ViewModels;
+
 using ExpertManagmentSystem.Models.Corruption;
+
+using ExpertManagmentSystem.Models.CrimeModels;
+using ExpertManagmentSystem.Models.CivilCaseModels;
+
 
 namespace ExpertManagmentSystem.Data
 {
@@ -22,6 +27,7 @@ namespace ExpertManagmentSystem.Data
         public DbSet<ZonalSectors> ZonalSectors { get; set; }
         public DbSet<WoredaSectors> WoredaSectors { get; set; }
         public DbSet<SectrorsDepartment> SectrorsDepartment { get; set; }
+
 
         //corruption department
         //public DbSet<CO_Closed_SentInReverse> CO_Closed_SentInReverses { get; set; }
@@ -42,6 +48,19 @@ namespace ExpertManagmentSystem.Data
         public DbSet<CO_Petition> CO_Petition { get; set; }
         public DbSet<CO_RegionalBreakAppeal> CO_RegionalBreakAppeal { get; set; }
         public DbSet<CO_Warranty> CO_Warranty { get; set; }
+
+        public DbSet<Cr_Crime_Type> Cr_Crime_Types { get; set; }
+        public DbSet<Cr_Decided_Judicial_and_Prosecuter> Cr_Decided_Judicial_and_Prosecuters { get; set; }
+        public DbSet<Cr_JudicalAppealDirectCharege> Cr_JudicalAppealDirectChareges { get; set; }
+        public DbSet<DirectChargeOpenning> DirectChargeOpennings { get; set; }
+        public DbSet<DirectChargeFollowUp> DirectChargeFollowUps { get; set; }
+
+
+
+
+
+
+
 
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)

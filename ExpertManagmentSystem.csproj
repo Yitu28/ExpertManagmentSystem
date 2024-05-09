@@ -22,8 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\CorruptionControllers\" />
+    <Folder Include="Controllers\CivilCaseContrrollers\" />
+    <Folder Include="Controllers\EconomyControllers\" />
     <Folder Include="Models\CorruptionModels\" />
-    <Folder Include="Models\CrimeModels\" />
     <Folder Include="Models\EconomyModels\" />
     <Folder Include="ViewModels\CrimeViewModels\" />
     <Folder Include="ViewModels\CivilCaseViewModels\" />
