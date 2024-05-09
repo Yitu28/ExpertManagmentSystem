@@ -10,6 +10,15 @@
          $("#Freelaaos").hide();
          $("#Freelaars").show();
      });
+   $(".FRbreak").click(function () {
+         $("#FRbreakbtn").show();
+         $("#FRappealbtn").hide();
+     });
+
+     $(".FRappeal").click(function () {
+         $("#FRbreakbtn").hide();
+         $("#FRappealbtn").show();
+     });
  });
 
 
