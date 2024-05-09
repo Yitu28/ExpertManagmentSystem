@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ExpertManagmentSystem.ViewModels;
+using ExpertManagmentSystem.Models.Corruption;
 
 namespace ExpertManagmentSystem.Data
 {
@@ -23,6 +24,16 @@ namespace ExpertManagmentSystem.Data
         public DbSet<SectrorsDepartment> SectrorsDepartment { get; set; }
 
         //corruption department
+        //public DbSet<CO_Closed_SentInReverse> CO_Closed_SentInReverses { get; set; }
+        //public DbSet<CO_CorruptionCharge> CO_CorruptionCharges { get; set; }
+        //public DbSet<CO_FederalAppealOrBreak> CO_FederalAppealOrBreaks { get; set; }
+        ////public DbSet<CO_FederalBreak> CO_FederalBreak { get; set; }
+        //public DbSet<CO_FirstOrder> CO_FirstOrders { get; set; }
+        //public DbSet<CO_Petition> CO_Petitions { get; set; }
+        //public DbSet<CO_RegionalBreakAppeal> CO_RegionalBreakAppeals { get; set; }
+        //public DbSet<CO_Warranty> CO_Warrantys { get; set; }
+        //corruption department
+
         public DbSet<CO_Closed_SentInReverse> CO_Closed_SentInReverse { get; set; }
         public DbSet<CO_CorruptionCharge> CO_CorruptionCharge { get; set; }
         public DbSet<CO_FederalAppealOrBreak> CO_FederalAppealOrBreak { get; set; }
@@ -31,10 +42,6 @@ namespace ExpertManagmentSystem.Data
         public DbSet<CO_Petition> CO_Petition { get; set; }
         public DbSet<CO_RegionalBreakAppeal> CO_RegionalBreakAppeal { get; set; }
         public DbSet<CO_Warranty> CO_Warranty { get; set; }
-
-
-
-
 
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)

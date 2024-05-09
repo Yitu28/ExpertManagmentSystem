@@ -1,9 +1,13 @@
-﻿namespace ExpertManagmentSystem.Models.Corruption
+﻿using ExpertManagmentSystem.OrganizationalStructures;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ExpertManagmentSystem.Models.Corruption
 {
     public enum CO_CrimeType { በመሬት, በፍት, በግብርናበታክስ, በግዥ, በሌሎች  }
     public class CO_CorruptionCharge
     {
-        public int CO_CorruptionChargeId { get; set; }
+        public Guid CO_CorruptionChargeId { get; set; }
 
         [Display(Name = "የዐ/ህግ ወ/መ/ቁጥር")]
         public string? prosecutorNo { get; set; }
@@ -37,6 +41,9 @@
 
         [Display(Name = "የዐ/መ/ቁጥር")]
         public string? Remark { get; set; }
+        public Guid SectrorsDepartmentId { get; set; }
+        [ForeignKey(nameof(SectrorsDepartmentId))]
+        public virtual SectrorsDepartment? SectrorsDepartment { get; set; }
 
     }
 }

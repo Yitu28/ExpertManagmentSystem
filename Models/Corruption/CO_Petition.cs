@@ -1,8 +1,12 @@
-﻿namespace ExpertManagmentSystem.Models.Corruption
+﻿using ExpertManagmentSystem.OrganizationalStructures;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ExpertManagmentSystem.Models.Corruption
 {
     public class CO_Petition
     {
-        public int CO_PetitionId { get; set; }
+        public Guid CO_PetitionId { get; set; }
 
         [Display(Name = "የአቤቱታ አቅራቢው ስም")]
         public string? ComplainantsName { get; set; }
@@ -30,5 +34,8 @@
 
         [Display(Name = "ምርመራ")]
         public string? Remark { get; set; }
+        public Guid SectrorsDepartmentId { get; set; }
+        [ForeignKey(nameof(SectrorsDepartmentId))]
+        public virtual SectrorsDepartment? SectrorsDepartment { get; set; }
     }
 }

@@ -1,4 +1,8 @@
-﻿namespace ExpertManagmentSystem.Models.Corruption
+﻿using ExpertManagmentSystem.OrganizationalStructures;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ExpertManagmentSystem.Models.Corruption
 {
     public enum AppealBreaking
     {
@@ -6,7 +10,8 @@
     }
     public class CO_FederalAppealOrBreak
     {
-        public int CO_FederalAppealId { get; set; }
+        [Key]
+        public Guid CO_FederalAppealId { get; set; }
 
         [Display(Name = "የዐ/መ/ቁጥር")]
         public string? ProsecutorNo { get; set; }
@@ -42,6 +47,9 @@
         public string? Remark { get; set; }
         
         public AppealBreaking F_AppealOrBreak { get; set; }
+        public Guid SectrorsDepartmentId { get; set; }
+        [ForeignKey(nameof(SectrorsDepartmentId))]
+        public virtual SectrorsDepartment? SectrorsDepartment { get; set; }
 
     }
 }
