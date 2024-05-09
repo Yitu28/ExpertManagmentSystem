@@ -28,7 +28,6 @@
     <Folder Include="Models\CorruptionModels\" />
     <Folder Include="Models\EconomyModels\" />
     <Folder Include="ViewModels\CrimeViewModels\" />
-    <Folder Include="ViewModels\CivilCaseViewModels\" />
     <Folder Include="ViewModels\EconomyViewModels\" />
     <Folder Include="ViewModels\CorruptionViewModels\" />
   </ItemGroup>
