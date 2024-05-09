@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpertManagmentSystem.Data;
 using ExpertManagmentSystem.Models.CivilCaseModels;
+using ExpertManagmentSystem.OrganizationalStructures;
+using ExpertManagmentSystem.ViewModels;
+using ExpertManagmentSystem.ViewModels.CivilCaseViewModels;
 
 namespace ExpertManagmentSystem.Controllers.CivilCasesController
 {
@@ -43,6 +46,44 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             }
 
             return View(cCFreelServices);
+        }
+
+
+
+        // GET: Get Free Legal Services Follow Up ID/5
+        public async Task<IActionResult> CCFreeLegalServiceFollowup(Guid? id)
+        {
+            if (id == null || _context.CCFreelServices == null)
+            {
+                return NotFound();
+            }
+
+            var CcFreeServices = await _context.CCFreelServices.FindAsync(id);
+            if (CcFreeServices == null)
+            {
+                return NotFound();
+            }
+            var model = new CCFreeLsfuViewModel
+            {
+
+                CCFreelServicesId = CcFreeServices.CCFreelServicesId
+            };
+            //return PartialView("_FreeCClsfollowupModalPartial", model);
+            return View(model);
+        }
+        // POST: Post Free Legal Services Follow Up
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCCFreeLegalServiceFollowup(CCFreeLegServiceFollowup cCFreeLegServiceFollowup)
+        {
+            if (ModelState.IsValid)
+            {
+                cCFreeLegServiceFollowup.FreeLegServiceFollowupId = Guid.NewGuid();
+                _context.Add(cCFreeLegServiceFollowup);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(cCFreeLegServiceFollowup);
         }
 
 

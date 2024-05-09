@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ExpertManagmentSystem.ViewModels;
 using ExpertManagmentSystem.Models.CivilCaseModels;
+using ExpertManagmentSystem.ViewModels.CivilCaseViewModels;
 
 namespace ExpertManagmentSystem.Data
 {
@@ -83,6 +84,20 @@ namespace ExpertManagmentSystem.Data
 
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices>? CCFreelServices { get; set; }
+
+
+
+
+
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.CivilCaseModels.CCFreeLegServiceFollowup>? CCFreeLegServiceFollowup { get; set; }
+
+
+
+
+
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ExpertManagmentSystem.ViewModels.CivilCaseViewModels.CCFreeLsfuViewModel>? CCFreeLsfuViewModel { get; set; }
 
     }
 

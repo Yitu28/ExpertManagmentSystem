@@ -8,7 +8,7 @@
     <div class="card-header">
         <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link Freelaaos active" id="custom-content-below-home-tab" data-toggle="pill" href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">ነፃ የህግ ድጋፍ ይግባኝ አመልካች</a>
+                <a class="nav-link Freelaaos active" id="custom-content-below-home-tab" data-toggle="pill" href="#customcontent-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">ነፃ የህግ ድጋፍ ይግባኝ አመልካች</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link Freelaars" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">ነፃ የህግ ድጋፍ ይግባኝ ተጠሪ</a>
@@ -21,7 +21,7 @@
     </div>
     <div class="card-body">
         <div class="tab-content" id="custom-content-below-tabContent">
-            <div class="tab-pane fade show active" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+            <div class="tab-pane fade show active" id="customcontent-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
 
                 <table class="table  table-bordered table-striped" id="example1">
                     <thead>
@@ -138,8 +138,8 @@
                                         @Html.DisplayFor(modelItem => item.PDecission)
                                     </td>
                                     <td>
-                                        <a asp-action="Edit" data-toggle="modal" data-target="@("#EditRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Edit/{item.CCFreelServicesId}")"><li class="fa fa-edit bg-warning" title="ማስተካከል"></li></a>
-                                        @await Html.PartialAsync("_FreeLaaosEditModalPartial", item)
+
+                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId"> ወደ ፍርድ ቤት </a>
                                         <a asp-action="Details" data-toggle="modal" data-target="@("#DetailRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Detail/{item.CCFreelServicesId}")"><li class="fa fa-eye bg-info" title="ዝርዝር መረጃ"></li></a>
                                         @await Html.PartialAsync("_FreeLaaosEditModalPartial", item)
                                         <a asp-action="Delete" data-toggle="modal" data-target="@("#DeleteRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Delete/{item.CCFreelServicesId}")"><li class="fa fa-trash bg-red" title="ይሰረዝ"></li></a>
@@ -271,8 +271,7 @@
                                         @Html.DisplayFor(modelItem => item.PDecission)
                                     </td>
                                     <td>
-                                        <a asp-action="Edit" data-toggle="modal" data-target="@("#EditRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Edit/{item.CCFreelServicesId}")"><li class="fa fa-edit bg-warning" title="ማስተካከል"></li></a>
-                                        @await Html.PartialAsync("_FreeLaaosEditModalPartial", item)
+                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId"> ወደ ፍርድ ቤት </a>
                                         <a asp-action="Details" data-toggle="modal" data-target="@("#DetailRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Detail/{item.CCFreelServicesId}")"><li class="fa fa-eye bg-info" title="ዝርዝር መረጃ"></li></a>
                                         @await Html.PartialAsync("_FreeLaaosEditModalPartial", item)
                                         <a asp-action="Delete" data-toggle="modal" data-target="@("#DeleteRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Delete/{item.CCFreelServicesId}")"><li class="fa fa-trash bg-red" title="ይሰረዝ"></li></a>

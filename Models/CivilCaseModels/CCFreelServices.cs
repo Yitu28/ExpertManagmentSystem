@@ -162,5 +162,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public Guid SectrorsDepartmentId { get; set; }
         public SectrorsDepartment? SectrorsDepartment { get; set; }
         public FreelCategory? FreelCategory { get; set; }
+
+        public virtual ICollection<CCFreeLegServiceFollowup>? FreeLegServiceFollowup { get; set; }
     }
 }

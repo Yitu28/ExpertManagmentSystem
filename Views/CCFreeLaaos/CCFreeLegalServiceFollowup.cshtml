@@ -1,0 +1,63 @@
+﻿@model ExpertManagmentSystem.Models.CivilCaseModels.CCFreeLegServiceFollowup
+
+@{
+    ViewData["Title"] = "CCFreeLegalServiceFollowup";
+    Layout = "CCFreeLegalServiceFollowup";
+}
+
+<h1>CCFreeLegalServiceFollowup</h1>
+
+<h4>CCFreeLegServiceFollowup</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CCFreeLegalServiceFollowup">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Doc" class="control-label"></label>
+                <input asp-for="Doc" class="form-control" />
+                <span asp-validation-for="Doc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doa" class="control-label"></label>
+                <input asp-for="Doa" class="form-control" />
+                <span asp-validation-for="Doa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentType" class="control-label"></label>
+                <input asp-for="AppointmentType" class="form-control" />
+                <span asp-validation-for="AppointmentType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoD" class="control-label"></label>
+                <input asp-for="DoD" class="form-control" />
+                <span asp-validation-for="DoD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecisionStatus" class="control-label"></label>
+                <input asp-for="DecisionStatus" class="form-control" />
+                <span asp-validation-for="DecisionStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Decisionmadeby" class="control-label"></label>
+                <input asp-for="Decisionmadeby" class="form-control" />
+                <span asp-validation-for="Decisionmadeby" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCFreelServicesId" class="control-label"></label>
+                <select asp-for="CCFreelServicesId" class ="form-control" asp-items="ViewBag.CCFreelServicesId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
