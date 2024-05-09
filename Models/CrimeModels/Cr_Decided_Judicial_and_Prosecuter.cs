@@ -12,9 +12,9 @@ namespace ExpertManagmentSystem.Models.CrimeModels
 
 
         public Guid Cr_Decided_Judicial_and_ProsecuterId { get; set; }
-        [Display(Name = "")]
+        //[Display(Name = "")]
        
-        public DateTime OpeningDate { get; set; }
+        public DateTime OpeningDate { get; set; }      
         public int ProsocuterNo { get; set; }
         public int Court_No { get; set; }
         public string? Applicant { get; set; }

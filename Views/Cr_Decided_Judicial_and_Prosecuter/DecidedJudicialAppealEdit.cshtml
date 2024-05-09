@@ -1,17 +1,17 @@
 ﻿@model ExpertManagmentSystem.Models.CrimeModels.Cr_Decided_Judicial_and_Prosecuter
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "DecidedJudicialAppealEdit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h1>DecidedJudicialAppealEdit</h1>
 
 <h4>Cr_Decided_Judicial_and_Prosecuter</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="DecidedJudicialAppealEdit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Cr_Decided_Judicial_and_ProsecuterId" />
             <div class="form-group">
@@ -39,14 +39,10 @@
                 <input asp-for="Respondant" class="form-control" />
                 <span asp-validation-for="Respondant" class="text-danger"></span>
             </div>
-          @*  <div class="form-group">
+            <div class="form-group">
                 <label asp-for="CrimeType" class="control-label"></label>
                 <input asp-for="CrimeType" class="form-control" />
                 <span asp-validation-for="CrimeType" class="text-danger"></span>
-            </div>*@
-             <div class="form-group col-md-4">
-                <label asp-for="Cr_Crime_TypeId" class="control-label">የወንጀል አይነት</label>
-                <select asp-for="Cr_Crime_TypeId" class="form-control Cr_Crime_TypeId" asp-items="ViewBag.Cr_Crime_TypeId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ProsecutorComment" class="control-label"></label>

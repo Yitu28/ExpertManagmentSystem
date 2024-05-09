@@ -7,9 +7,8 @@
 -
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">የቀረቡና ውሳኔ የተሰጠባቸው የዐ/ህግ የይግባኝ መዛግብት ዝርዝር ማውጫ</h3>
-        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#addDecidednmodals"> <i class="fa fa-plus"></i> አዲስ ጨምር</button>
-        @*<a asp-action="Create" class="btn btn-success float-right btn-circle  text-light btn-sm"> አዲስ መዝግብ </a>*@
+        <h3 class="card-title">የቀረቡና ውሳኔ የተሰጠባቸው የዐ/ህግ የይግባኝ መዛግብት </h3>
+        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#addDecidednmodals"> <i class="fa fa-plus"></i> አዲስ መዝግብ</button>      
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -20,59 +19,54 @@
                ፋይሉ የተከፈተበት ቀን
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProsocuterNo)
+                የዐ/ህግ መ/ቁጥር
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Court_No)
+              የፍ/ቤት መ/ቁጥር
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Applicant)
+                ይግባኝ ባይ
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Respondant)
+              መልስ ሰጭ
+            </th>         
+            <th>
+               የወንጀል አይነት 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CrimeType)
+                የዐ/ህግ አስተያየት 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProsecutorComment)
+               ልዩልዩ
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Other)
+               አስተያየት የሰጠው ዐ/ህግ
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WhoLawyeCommented)
+              የጠ/ፍ/ቤት ውሳኔ 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HighCourtDecission)
+               ልዩልዩ
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OtherCourtDecition)
+                አስተያየት የሰጠው የፍ/ቤት ዳኛ
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WhoJudgeCommentedOnDecision)
+                ይግባኝ ባዮች ብዛት(ሴት)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NumberOfFemaleAppellants)
+              ይግባኝ ባዮች ብዛት(ወንድ)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NumberOfMaleAppellants)
+               አዲስ/ነባር
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FileStatus)
+               አሸናፊ/ተሸናፊ
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FileEndResult)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FederalBreakingRequest)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cr_Crime_Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SectrorsDepartment)
-            </th>
+             ሰበር/ለፌደራል የተጠየቀ
+           </th>
+                  
             <th></th>
         </tr>
     </thead>
@@ -95,8 +89,8 @@
                 @Html.DisplayFor(modelItem => item.Respondant)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CrimeType)
-            </td>
+                @Html.DisplayFor(modelItem => item.Cr_Crime_Type.CrimeTypeName)
+            </td>      
             <td>
                 @Html.DisplayFor(modelItem => item.ProsecutorComment)
             </td>
@@ -129,17 +123,11 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FederalBreakingRequest)
-            </td>
+            </td>               
             <td>
-                @Html.DisplayFor(modelItem => item.Cr_Crime_Type.Cr_Crime_TypeId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SectrorsDepartment.SectrorsDepartmentId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Cr_Decided_Judicial_and_ProsecuterId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Cr_Decided_Judicial_and_ProsecuterId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Cr_Decided_Judicial_and_ProsecuterId">Delete</a>
+                @*<a asp-action="Edit" asp-route-id="@item.Cr_Decided_Judicial_and_ProsecuterId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Cr_Decided_Judicial_and_ProsecuterId">Details</a> |*@
+                <a asp-action="Edit" asp-route-id="@item.Cr_Decided_Judicial_and_ProsecuterId">አስተካክል</a>
             </td>
         </tr>
 }

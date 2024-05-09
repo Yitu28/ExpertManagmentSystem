@@ -27,6 +27,9 @@ namespace ExpertManagmentSystem.Data
         public DbSet<Cr_Decided_Judicial_and_Prosecuter> Cr_Decided_Judicial_and_Prosecuters { get; set; }
         public DbSet<Cr_JudicalAppealDirectCharege> Cr_JudicalAppealDirectChareges { get; set; }
 
+        public DbSet<JudicalAppealOpening> JudicalAppealOpenings { get; set; }
+
+
 
 
 

@@ -1,0 +1,148 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.CrimeModels.Cr_Decided_Judicial_and_Prosecuter>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+-
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">የቀረቡና ውሳኔ የተሰጠባቸው የዐ/ህግ ሰበር መዛግብት </h3>
+        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#addDDicidedProsecuterBreak"> <i class="fa fa-plus"></i> አዲስ መዝግብ</button>
+        @*<a asp-action="Create" class="btn btn-success float-right btn-circle  text-light btn-sm"> አዲስ መዝግብ </a>*@
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="DecidedJudicialAndProsecuterTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        ፋይሉ የተከፈተበት ቀን
+                    </th>
+                    <th>
+                        የዐ/ህግ መ/ቁጥር
+                    </th>
+                    <th>
+                        የፍ/ቤት መ/ቁጥር
+                    </th>
+                    <th>
+                        ይግባኝ ባይ
+                    </th>
+                    <th>
+                        መልስ ሰጭ
+                    </th>
+                    <th>
+                        የወንጀል አይነት
+                    </th>
+                    <th>
+                        የዐ/ህግ አስተያየት
+                    </th>
+                    <th>
+                        ልዩልዩ
+                    </th>
+                    <th>
+                        አስተያየት የሰጠው ዐ/ህግ
+                    </th>
+                    <th>
+                        የጠ/ፍ/ቤት ውሳኔ
+                    </th>
+                    <th>
+                        ልዩልዩ
+                    </th>
+                    <th>
+                        አስተያየት የሰጠው የፍ/ቤት ዳኛ
+                    </th>
+                    <th>
+                        ይግባኝ ባዮች ብዛት(ሴት)
+                    </th>
+                    <th>
+                        ይግባኝ ባዮች ብዛት(ወንድ)
+                    </th>
+                    <th>
+                        አዲስ/ነባር
+                    </th>
+                    <th>
+                        አሸናፊ/ተሸናፊ
+                    </th>
+                    <th>
+                        ሰበር/ለፌደራል የተጠየቀ
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OpeningDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProsocuterNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Court_No)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Applicant)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Respondant)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cr_Crime_Type.CrimeTypeName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProsecutorComment)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Other)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WhoLawyeCommented)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HighCourtDecission)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OtherCourtDecition)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WhoJudgeCommentedOnDecision)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumberOfFemaleAppellants)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumberOfMaleAppellants)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FileStatus)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FileEndResult)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FederalBreakingRequest)
+                        </td>
+                        <td>
+                            @*<a asp-action="Edit" asp-route-id="@item.Cr_Decided_Judicial_and_ProsecuterId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Cr_Decided_Judicial_and_ProsecuterId">Details</a> |*@
+                            <a asp-action="Edit" asp-route-id="@item.Cr_Decided_Judicial_and_ProsecuterId">አስተካክል</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@await Html.PartialAsync("_Cr_DecidedProcsecuterBreakPartial", new Cr_Decided_Judicial_and_Prosecuter())
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
