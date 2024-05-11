@@ -1,0 +1,59 @@
+﻿@model ExpertManagmentSystem.Models.Corruption.CO_Closed_SentInReverse
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CO_Closed_SentInReverse</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CO_Closed_SentInReverseId" />
+            <div class="form-group">
+                <label asp-for="ProsecutorNo" class="control-label"></label>
+                <input asp-for="ProsecutorNo" class="form-control" />
+                <span asp-validation-for="ProsecutorNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Defenedant" class="control-label"></label>
+                <input asp-for="Defenedant" class="form-control" />
+                <span asp-validation-for="Defenedant" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DefenedantZone" class="control-label"></label>
+                <input asp-for="DefenedantZone" class="form-control" />
+                <span asp-validation-for="DefenedantZone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisterDate" class="control-label"></label>
+                <input asp-for="RegisterDate" class="form-control" />
+                <span asp-validation-for="RegisterDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OpinionGiven" class="control-label"></label>
+                <select asp-for="OpinionGiven" class="form-control"></select>
+                <span asp-validation-for="OpinionGiven" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SectrorsDepartmentId" class="control-label"></label>
+                <select asp-for="SectrorsDepartmentId" class="form-control" asp-items="ViewBag.SectrorsDepartmentId"></select>
+                <span asp-validation-for="SectrorsDepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

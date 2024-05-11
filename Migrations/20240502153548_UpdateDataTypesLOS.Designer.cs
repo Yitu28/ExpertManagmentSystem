@@ -12,180 +12,20 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpertManagmentSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240415115829_updateZonalModels")]
-    partial class updateZonalModels
+    [Migration("20240502153548_UpdateDataTypesLOS")]
+    partial class UpdateDataTypesLOS
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("ExpertUserMngt")
                 .HasAnnotation("ProductVersion", "6.0.29")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.ReginalSector", b =>
-                {
-                    b.Property<Guid>("ReginalSectorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ReginalSectorName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ReginalSectorId");
-
-                    b.ToTable("ReginaslSector");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", b =>
-                {
-                    b.Property<Guid>("SectrorsDepartmentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("DepartmentCategory")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DepartmentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("DepartmentParentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("SectrorsDepartmentId");
-
-                    b.ToTable("SectrorsDepartment");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.WoredaSectors", b =>
-                {
-                    b.Property<Guid>("WoredaSectorsId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("WoredaSectorsName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("ZonalSectorsZonalSectorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("WoredaSectorsId");
-
-                    b.HasIndex("ZonalSectorsZonalSectorId");
-
-                    b.ToTable("WoredaSectors");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.ZonalSectors", b =>
-                {
-                    b.Property<Guid>("ZonalSectorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ReginalSectorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ZonalSectorName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ZonalSectorId");
-
-                    b.HasIndex("ReginalSectorId");
-
-                    b.ToTable("ZonalSectors");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.ViewModels.SectorDepartmentViewModels", b =>
-                {
-                    b.Property<int>("DepartmentCategory")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DepartmentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("DepartmentParentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ReginalSectorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ReginalSectorName")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("SectrorsDepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("WoredaSectorsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("WoredaSectorsName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("ZonalSectorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ZonalSectorName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("SectorDepartmentViewModels");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetRoleClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+            modelBuilder.Entity("ExpertManagmentSystem.Data.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -197,9 +37,8 @@ namespace ExpertManagmentSystem.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DepartmentCategory")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -207,6 +46,10 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Full_Name")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -237,9 +80,15 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<Guid>("UserDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<Guid>("UserParentId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -251,9 +100,251 @@ namespace ExpertManagmentSystem.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("AspNetUsers", (string)null);
+                    b.ToTable("Users", "ExpertUserMngt");
+                });
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
+            modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices", b =>
+                {
+                    b.Property<Guid>("CCFreelServicesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AddressWoreda")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressZone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Applicant")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DoAss")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DoRet")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Doo")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExpertName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FileNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("FreelCategory")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LOS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PDecission")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("RecorNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Responder")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("SupportType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("apsm")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("typesofIssue")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CCFreelServicesId");
+
+                    b.HasIndex("SectrorsDepartmentId");
+
+                    b.ToTable("CCFreelServices", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.ReginalSector", b =>
+                {
+                    b.Property<Guid>("ReginalSectorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ReginalSectorName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ReginalSectorId");
+
+                    b.ToTable("ReginaslSector", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", b =>
+                {
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("DepartmentCategory")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DepartmentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("DepartmentParentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("SectrorsDepartmentId");
+
+                    b.ToTable("SectrorsDepartment", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.WoredaSectors", b =>
+                {
+                    b.Property<Guid>("WoredaSectorsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("WoredaSectorsName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ZonalSectorsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("WoredaSectorsId");
+
+                    b.HasIndex("ZonalSectorsId");
+
+                    b.ToTable("WoredaSectors", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.ZonalSectors", b =>
+                {
+                    b.Property<Guid>("ZonalSectorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ReginalSectorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ZonalSectorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ZonalSectorId");
+
+                    b.HasIndex("ReginalSectorId");
+
+                    b.ToTable("ZonalSectors", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.ViewModels.SectorDepartmentViewModels", b =>
+                {
+                    b.Property<int>("DepartmentCategory")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DepartmentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("DepartmentParentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ReginalSectorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ReginalSectorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WoredaSectorsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("WoredaSectorsName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ZonalSectorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ZonalSectorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("SectorDepartmentViewModels", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("Roles", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("RoleClaims", "ExpertUserMngt");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -278,18 +369,16 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims", (string)null);
+                    b.ToTable("UserClaims", "ExpertUserMngt");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -302,7 +391,7 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins", (string)null);
+                    b.ToTable("UserLogins", "ExpertUserMngt");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -317,7 +406,7 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles", (string)null);
+                    b.ToTable("UserRoles", "ExpertUserMngt");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -326,37 +415,37 @@ namespace ExpertManagmentSystem.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens", (string)null);
+                    b.ToTable("UserTokens", "ExpertUserMngt");
                 });
 
-            modelBuilder.Entity("ExpertManagmentSystem.Data.ApplicationUser", b =>
+            modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices", b =>
                 {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
+                        .WithMany("CCFreelServices")
+                        .HasForeignKey("SectrorsDepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("Full_Name")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.HasDiscriminator().HasValue("ApplicationUser");
+                    b.Navigation("SectrorsDepartment");
                 });
 
             modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.WoredaSectors", b =>
                 {
                     b.HasOne("ExpertManagmentSystem.OrganizationalStructures.ZonalSectors", "ZonalSectors")
                         .WithMany()
-                        .HasForeignKey("ZonalSectorsZonalSectorId");
+                        .HasForeignKey("ZonalSectorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ZonalSectors");
                 });
@@ -383,7 +472,7 @@ namespace ExpertManagmentSystem.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -392,7 +481,7 @@ namespace ExpertManagmentSystem.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -407,7 +496,7 @@ namespace ExpertManagmentSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -416,7 +505,7 @@ namespace ExpertManagmentSystem.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -426,6 +515,11 @@ namespace ExpertManagmentSystem.Migrations
             modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.ReginalSector", b =>
                 {
                     b.Navigation("ZonalSectors");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", b =>
+                {
+                    b.Navigation("CCFreelServices");
                 });
 #pragma warning restore 612, 618
         }

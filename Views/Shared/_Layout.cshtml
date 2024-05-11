@@ -113,6 +113,85 @@
        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
    @* @if (SignInManager.IsSignedIn(User))
+
+                        {*@
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-list"></i>
+                                    <p>
+                                        Settings
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+
+                                <ul class="nav nav-treeview">
+
+                                    <li class="nav-item">
+                                        <a asp-controller="ReginalSectors" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>የክልል ቢሮ</p>
+                                        </a>
+                                    </li>          
+                                    <li class="nav-item">
+                                        <a asp-controller="ZonalSectors" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>ዞን መምሪያ</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="WoredaSectors" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>የወረዳ ጽ/ቤት</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Roles" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>ሚና ዝርዝር</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="UserRoles" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>ተጠቃሚዎች ዝርዝር</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-list"></i>
+                                <p>
+                                    ነፃ የህግ ድጋፍ 
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> ይግባኝ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="CCFreelabos" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> ሰበር </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> ቀጥታ ክስ </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @*}*@
+
        {*@
     <li class="nav-item">
         <a href="#" class="nav-link">
@@ -182,6 +261,7 @@
         </ul>
     </li>
 @*}*@
+
 
        </ul>
       </nav>
@@ -264,24 +344,62 @@
     <script src="~/AdminLte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="~/AdminLte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="~/AdminLte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="~/js/bootstrap-js-min.info.js"></script>
 
     <script>
   $(function () {
+    $("#example4").DataTable()
+    $("#example5").DataTable()
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+
+      "responsive": true, "lengthChange": true, "autoWidth": false,
       //"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
+
+    $("#example2").DataTable({
       "paging": true,
-      "lengthChange": false,
-      "searching": false,
+      "lengthChange": true,
+      "searching": true,
       "ordering": true,
       "info": true,
-      "autoWidth": false,
+      "autoWidth": true,
       "responsive": true,
     });
+
+      "responsive": true, "lengthChange": true, "autoWidth": true,
+      //"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example1').DataTable()
+            $('#example3').DataTable()
+            $('#example4').DataTable()
+            $('#example2').DataTable({
+              "paging": true,
+              "lengthChange": true,
+              "searching": true,
+              "ordering": true,
+              "info": true,
+              "autoWidth": false,
+              "responsive": true,
+            });
+
   });
+
+
 </script>
+
+
+<script>
+        $("#example3").DataTable({
+            //"responsive": true,
+             scrollX: true
+        });
+</script>
+
+@* <script>
+    $(function () {
+        $('#example3').DataTable()
+    })
+</script> *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
