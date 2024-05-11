@@ -1,4 +1,6 @@
-﻿namespace ExpertManagmentSystem.Enums
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ExpertManagmentSystem.Enums
 {
     public enum Gender
     {
@@ -26,6 +28,22 @@
     }
     public enum CivilCaseCategory
     {
-        DirectChargeOpenning, DirectChargeResponseOpenning, GeneralAppealOpenning,GeneralAppealResponseOpenning, BrekingApplicantOpenning, BrekingRespondentOpenning
+        [Display(Name = "የቀጥታ ክስ መክፈቻ")]
+        DirectChargeOpenning, 
+
+        [Display(Name = "የቀጥታ ክስ መልስ")]
+        DirectChargeResponseOpenning,
+
+        [Display(Name = "ጠቅላይ ይግባኝ መክፈቻ")]
+        GeneralAppealOpenning,
+
+        [Display(Name = "ጠቅላይ ይግባኝ መልስ")]
+        GeneralAppealResponseOpenning,
+
+        [Display(Name = "ሰበር ተጠሪ መክፈቻ")]
+        BreakingApplicantOpenning,
+
+        [Display(Name = "ሰበር አመልካች መክፈቻ")]
+        BreakingRespondentOpenning
     }
 }

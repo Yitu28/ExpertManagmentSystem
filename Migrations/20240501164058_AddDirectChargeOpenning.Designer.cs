@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpertManagmentSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240501121126_AddCivilCaseCategory")]
-    partial class AddCivilCaseCategory
+    [Migration("20240501164058_AddDirectChargeOpenning")]
+    partial class AddDirectChargeOpenning
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -113,13 +113,12 @@ namespace ExpertManagmentSystem.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ApplicationUserUser")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CivilCaseCategory")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateApointmented")
@@ -131,13 +130,13 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<DateTime>("DecissionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("DirectChargeOppeningId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("EdittedAt")
+                    b.Property<DateTime?>("EdittedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("IssuedCourtWrittenForOrganization")
@@ -181,8 +180,10 @@ namespace ExpertManagmentSystem.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ApplicationUserUser")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CivilCaseCategory")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CompletionDate")
                         .HasColumnType("datetime2");
@@ -191,16 +192,16 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateDirected")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("EdittedAt")
+                    b.Property<DateTime?>("EdittedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("NameOfTheExpert")

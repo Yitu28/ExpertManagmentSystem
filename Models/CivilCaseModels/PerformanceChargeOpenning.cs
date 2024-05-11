@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ExpertManagmentSystem.Models.CivilCaseModels
 {
-    public class DirectChargeOpenning : Audit
+    public class PerformanceChargeOpenning : Audit
     {
         [Required]
         [Display(Name = "የዐ/ግ ቁጥር")]
@@ -14,26 +14,26 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public string CourtRecordNumber { get; set; }
 
         [Required]
-        [Display(Name = "ከሳሽ")]
+        [Display(Name = "የአፈጻጸም ከሳሽ")]
         public string Plaintiff { get; set; }
 
         [Required]
-        [Display(Name = "ተከሳሽ")]
+        [Display(Name = "የአፈጻጸም ተከሳሽ")]
         public string Accused { get; set; }
-
+        public int MyProperty { get; set; }
         [Required]
         [Display(Name = "የተከፈተበት ቀን")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime OpenningDate  { get; set; }
-        
+        public DateTime OpenningDate { get; set; }
+
         [Required]
         [Display(Name = "የጉዳዩ አይነት")]
-        public string TypeOfIssue { get; set;} 
-        
+        public string TypeOfIssue { get; set; }
+
         [Required]
         [Display(Name = "የተገልጋይ አይነት")]
-        public string TypeOfCustomer  { get; set;}
+        public string TypeOfCustomer { get; set; }
 
         [Required]
         [Display(Name = "በብር")]
@@ -73,11 +73,11 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
         [Required]
         [Display(Name = "የወሰደበት ጊዜ")]
-        public string TimeTakenToComplete { get; set;}
-        
+        public string TimeTakenToComplete { get; set; }
+
         [Required]
         [Display(Name = "በዐ/ህግ የተሰጠው ውሳኔ")]
-        public string ProsecutorDecission { get; set;}
+        public string ProsecutorDecission { get; set; }
         public CivilCaseCategory CivilCaseCategory { get; set; }
         public virtual ICollection<DirectChargeFollowUp> DirectChargeFollowUps { get; set; }
     }
