@@ -2,6 +2,29 @@
 
 namespace ExpertManagmentSystem.Enums
 {
+    public enum TypeOfPerformanceCgarge
+    {
+        [Display(Name = "መክፈቻ")]
+        Openning,
+
+        [Display(Name = "መልስ")]
+        Response,
+    }
+    public enum CustomerType
+    {
+        [Display(Name = "የመንግስት")]
+        GovernmentOrganization,
+
+        [Display(Name = "ጾታ")]
+        Gender,
+
+        [Display(Name = "እድሜ")]
+        Age,
+
+        [Display(Name = "የማህበረሰብ ክፍሎች")]
+        SocialParts        
+    }
+
     public enum Gender
     {
         ወንድ, ሴት 
