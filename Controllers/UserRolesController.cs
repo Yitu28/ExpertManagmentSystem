@@ -52,7 +52,7 @@ namespace ExpertManagmentSystem.Controllers
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                ViewBag.ErrorMessage = $"User with Id = {userId} cannot be found";
+                ViewBag.ErrorMessAge = $"User with Id = {userId} cannot be found";
                 return View("NotFound");
             }
             ViewBag.UserName = user.UserName;
@@ -77,7 +77,7 @@ namespace ExpertManagmentSystem.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Manage(List<ManageUserRolesViewModel> model, string userId)
+        public async Task<IActionResult> ManAge(List<ManageUserRolesViewModel> model, string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
@@ -120,7 +120,7 @@ namespace ExpertManagmentSystem.Controllers
             user.UserParentId = model.UserParentId;
             user.UserDepartmentId = model.UserDepartmentId;
 
-            //var result = await _userManager.UpdateAsync(user);
+            //var result = await _userManAger.UpdateAsync(user);
             var result = await _userManager.CreateAsync(user);
 
             if (result.Succeeded)
@@ -145,7 +145,7 @@ namespace ExpertManagmentSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(ApplicationUser model)
         {
-            // var users = await _userManager.Users.Where(x => x.Id == Id).FirstOrDefaultAsync();
+            // var users = await _userManAger.Users.Where(x => x.Id == Id).FirstOrDefaultAsync();
             var user = await _userManager.FindByIdAsync(model.Id);
 
             user.Full_Name = model.Full_Name;

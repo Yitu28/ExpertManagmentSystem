@@ -1,0 +1,108 @@
+﻿@model ExpertManagmentSystem.Models.CivilCaseModels.CCPetition
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CCPetition</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeFileNo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeFileNo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pevicerequester)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pevicerequester)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeGender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeGender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeAge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeAge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeSupportType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeSupportType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeDoariv)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeDoariv)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeTypes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeTypes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeAddressZone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeAddressZone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeAddressWoreda)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeAddressWoreda)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeExpertName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeExpertName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeDaos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeDaos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeDoare)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeDoare)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeTimeTaken)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeTimeTaken)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PePDecisoion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PePDecisoion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeAssignto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeAssignto)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CCLegaladvicesId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

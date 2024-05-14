@@ -1,19 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ExpertManagmentSystem.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpertManagmentSystem.Models.CivilCaseModels
 {
-    public enum DecisionStatus
-    {
-        [Display(Name = "አሸናፊ")]
-        አሸናፊ,
-        [Display(Name = "ተሸናፊ")]
-        ተሸናፊ,
-        [Display(Name = "ወደ ስር ቤት")]
-        ወደ_ስር_ቤት,
-        [Display(Name = "ስልጣን ላለው አካል")]
-        ስልጣን_ላለው_አካል
-    }
+    
     public class CCFreeLegServiceFollowup
     {
 
@@ -47,5 +38,13 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         [ForeignKey("CCFreelServicesId")]
         public Guid CCFreelServicesId { get; set; }
         public CCFreelServices? CCFreelServices { get; set; }
+
+        public Guid? FollupCreatedBy { get; set; }
+        public Guid? FollupUpdatededBy { get; set; }
+        public Guid? FollupDeletedBy { get; set; }
+
+        public DateTime? FollupCreatedAt { get; set; }
+        public DateTime? FollupEdittedAt { get; set; }
+        public DateTime? FollupDeletedAt { get; set; }
     }
 }
