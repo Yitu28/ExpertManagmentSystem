@@ -10,6 +10,17 @@ namespace ExpertManagmentSystem.Enums
         [Display(Name = "መልስ")]
         Response,
     }
+    public enum TypeOfDecission
+    {
+        [Display(Name = "መክፈቻ")]
+        Win,
+        [Display(Name = "መልስ")]
+        Loss,
+        [Display(Name = "መልስ")]
+        ToBreak,
+        [Display(Name = "መልስ")]
+        Power,
+    }
     public enum CustomerType
     {
         [Display(Name = "የመንግስት")]
