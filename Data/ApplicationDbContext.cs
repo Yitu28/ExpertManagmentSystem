@@ -135,6 +135,27 @@ namespace ExpertManagmentSystem.Data
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<ExpertManagmentSystem.ViewModels.CivilCaseViewModels.CCFreeLsfuViewModel>? CCFreeLsfuViewModel { get; set; }
 
+
+
+
+
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.CivilCaseModels.CCdlt>? CCdlt { get; set; }
+
+
+
+
+
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.CivilCaseModels.CCLegaladvices>? CCLegaladvices { get; set; }
+
+
+
+
+
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.CivilCaseModels.CCPetition>? CCPetition { get; set; }
+
     }
 
     public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>

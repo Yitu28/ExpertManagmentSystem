@@ -1,22 +1,22 @@
 //
-// Pages: E-commerce
+// PAges: E-commerce
 //
 
-// product image
-.product-image {
+// product imAge
+.product-imAge {
   @include img-fluid ();
   width: 100%;
 }
 
-// product image thumbnails list
-.product-image-thumbs {
+// product imAge thumbnails list
+.product-imAge-thumbs {
   align-items: stretch;
   display: flex;
   margin-top: 2rem;
 }
 
-// product image thumbnail
-.product-image-thumb {
+// product imAge thumbnail
+.product-imAge-thumb {
   @include box-shadow($thumbnail-box-shadow);
   @include border-radius($thumbnail-border-radius);
 

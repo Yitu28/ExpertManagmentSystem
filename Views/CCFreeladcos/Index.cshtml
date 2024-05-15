@@ -1,4 +1,5 @@
-﻿@using ExpertManagmentSystem.Models.CivilCaseModels
+﻿@using ExpertManagmentSystem.Enums
+@using ExpertManagmentSystem.Models.CivilCaseModels
 @model IEnumerable<ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices>
 
 @{
@@ -102,7 +103,7 @@
                                         @Html.DisplayFor(modelItem => item.Gender)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.age)
+                                        @Html.DisplayFor(modelItem => item.Age)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.SupportType)
@@ -138,12 +139,9 @@
                                         @Html.DisplayFor(modelItem => item.PDecission)
                                     </td>
                                     <td>
-                                        <a asp-action="Edit" data-toggle="modal" data-target="@("#EditRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Edit/{item.CCFreelServicesId}")"><li class="fa fa-edit bg-warning" title="ማስተካከል"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
-                                        <a asp-action="Details" data-toggle="modal" data-target="@("#DetailRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Detail/{item.CCFreelServicesId}")"><li class="fa fa-eye bg-info" title="ዝርዝር መረጃ"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
-                                        <a asp-action="Delete" data-toggle="modal" data-target="@("#DeleteRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Delete/{item.CCFreelServicesId}")"><li class="fa fa-trash bg-red" title="ይሰረዝ"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
+                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId"> ወደ ፍርድ ቤት </a>
+                                        <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId"> ወደ ፍርድ ቤት ዝርዝር </a>
+                                        <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId"> መሰረዝ </a>
                                     </td>
                                 </tr>
 
@@ -156,7 +154,7 @@
 
             <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
 
-                <table id="example3" class="table  table-bordered table-striped">
+                <table id="example77" class="table  table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>
@@ -235,7 +233,7 @@
                                         @Html.DisplayFor(modelItem => item.Gender)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.age)
+                                        @Html.DisplayFor(modelItem => item.Age)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.SupportType)
@@ -271,12 +269,9 @@
                                         @Html.DisplayFor(modelItem => item.PDecission)
                                     </td>
                                     <td>
-                                        <a asp-action="Edit" data-toggle="modal" data-target="@("#EditRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Edit/{item.CCFreelServicesId}")"><li class="fa fa-edit bg-warning" title="ማስተካከል"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
-                                        <a asp-action="Details" data-toggle="modal" data-target="@("#DetailRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Detail/{item.CCFreelServicesId}")"><li class="fa fa-eye bg-info" title="ዝርዝር መረጃ"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
-                                        <a asp-action="Delete" data-toggle="modal" data-target="@("#DeleteRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Delete/{item.CCFreelServicesId}")"><li class="fa fa-trash bg-red" title="ይሰረዝ"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
+                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId"> ወደ ፍርድ ቤት </a>
+                                        <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId"> ወደ ፍርድ ቤት ዝርዝር </a>
+                                        <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId"> መሰረዝ </a>
                                     </td>
                                 </tr>
 

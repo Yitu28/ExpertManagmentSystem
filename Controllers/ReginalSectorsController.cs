@@ -30,20 +30,10 @@ namespace ExpertManagmentSystem.Controllers
             return _context.ReginaslSector != null ?
                         View(await _context.ReginaslSector.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.ReginaslSector'  is null.");
-
-            //var user = await _userManager.GetUserAsync(User);
-
-            //if (User.IsInRole("Super Administrator"))
-            //{
-            //    return _context.ReginaslSector != null ?
-            //            View(await _context.ReginaslSector.ToListAsync()) :
-            //            Problem("Entity set 'ApplicationDbContext.ReginaslSector'  is null.");
-            //}
-            //return View();
         }
 
             // GET: ReginalSectors/Details/5
-            public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null || _context.ReginaslSector == null)
             {
