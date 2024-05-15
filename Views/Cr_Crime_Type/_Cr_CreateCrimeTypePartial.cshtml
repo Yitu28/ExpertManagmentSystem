@@ -1,0 +1,33 @@
+﻿
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@model ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type
+
+
+<div class="modal fade" id="CrimeTypeRegistration" aria-labelledby="addRegionLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content" style="width:850px">
+            <div class="card card-success">
+                <div class="card-header">
+                    <h3 class="card-title"> የወንጀል አይነቶች መመዝግቢያ ፎርም </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:white;">×</span></button>
+                </div>
+                  <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card-body">
+                    
+                    <div class="form-group">
+                        <label asp-for="CrimeTypeName" class="control-label">የወንጀል አይነቱን ያስገቡ</label>
+                        <input asp-for="CrimeTypeName" class="form-control" />
+                        <span asp-validation-for="CrimeTypeName" class="text-danger"></span>
+                    </div>
+                    
+                    </div>
+                    <div class="card-footer">
+                        <i class="fa fa-floppy-disk"></i>
+                        <input type="submit" value="ይመዝግቡ" class="btn float-left btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

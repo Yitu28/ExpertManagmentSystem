@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.CrimeModels.Cr_JudicalAppealOpening>
+
+@{
+    ViewData["Title"] = "ProsecuterBrakeIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+-
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">የፍርደኛ ሰበር መዛግብት መክፈቻ </h3>
+        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#ProsecuterBrake"> <i class="fa fa-plus"></i> አዲስ መዝግብ</button>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="DecidedJudicialAndProsecuterTable" class="table table-bordered table-striped" style="width:130%">
+            <thead>
+                <tr>
+                    <th>
+                        ፋይሉ የተከፈተበት ቀን
+                    </th>
+                    <th>
+                        የዐ/ህግ መ/ቁጥር
+                    </th>
+                    <th>
+                        የፍ/ቤት መ/ቁጥር
+                    </th>
+                    <th>
+                        ይግባኝ ባይ
+                    </th>
+                    <th>
+                        መልስ ሰጭ
+                    </th>
+                    <th>
+                        ዞን
+                    </th>
+                    <th>
+                        የወንጀል አይነት
+                    </th>
+                    <th>
+                        የይግባኝ አይነት
+                    </th>
+                    <th>
+                        የስራ ክፍል
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OpeninigDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProcsecuterNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CourtNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Applicant)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Respondant)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Zone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cr_Crime_Type.CrimeTypeName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AppealType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SectrorsDepartment.DepartmentName)
+                        </td>
+                        <td>
+                            <a asp-action="CrFollowupCreate" asp-route-id="@item.Cr_JudicalAppealOpeningId">ይግባኝ</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Cr_JudicalAppealOpeningId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@await Html.PartialAsync("_Cr_JudicialBrakeCreatPartial", new Cr_JudicalAppealOpening ())
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

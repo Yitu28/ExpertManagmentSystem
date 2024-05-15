@@ -8,7 +8,7 @@ namespace ExpertManagmentSystem.Models.CrimeModels
         public string CrimeTypeName { get; set; }
 
         public virtual ICollection<Cr_Decided_Judicial_and_Prosecuter>? Cr_Decided_Judicial_and_Prosecuters { get; set; }
-        public virtual ICollection<Cr_JudicalAppealDirectCharege>? Cr_JudicalAppealDirectChareges { get; set; }
+        public virtual ICollection<Cr_JudicalAppealOpening>? Cr_JudicalAppealOpening { get; set; }
 
   
 

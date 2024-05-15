@@ -1,0 +1,70 @@
+﻿@model ExpertManagmentSystem.Models.CrimeModels.Cr_JudicalAppealOpening
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Cr_JudicalAppealOpening</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Cr_JudicalAppealOpeningId" />
+            <div class="form-group">
+                <label asp-for="OpeninigDate" class="control-label"></label>
+                <input asp-for="OpeninigDate" class="form-control" />
+                <span asp-validation-for="OpeninigDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProcsecuterNo" class="control-label"></label>
+                <input asp-for="ProcsecuterNo" class="form-control" />
+                <span asp-validation-for="ProcsecuterNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourtNo" class="control-label"></label>
+                <input asp-for="CourtNo" class="form-control" />
+                <span asp-validation-for="CourtNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Applicant" class="control-label"></label>
+                <input asp-for="Applicant" class="form-control" />
+                <span asp-validation-for="Applicant" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Respondant" class="control-label"></label>
+                <input asp-for="Respondant" class="form-control" />
+                <span asp-validation-for="Respondant" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zone" class="control-label"></label>
+                <input asp-for="Zone" class="form-control" />
+                <span asp-validation-for="Zone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cr_Crime_TypeId" class="control-label"></label>
+                <select asp-for="Cr_Crime_TypeId" class="form-control" asp-items="ViewBag.Cr_Crime_TypeId"></select>
+                <span asp-validation-for="Cr_Crime_TypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SectrorsDepartmentId" class="control-label"></label>
+                <select asp-for="SectrorsDepartmentId" class="form-control" asp-items="ViewBag.SectrorsDepartmentId"></select>
+                <span asp-validation-for="SectrorsDepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

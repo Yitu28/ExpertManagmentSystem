@@ -4,7 +4,7 @@
     {
         ወንድ, ሴት 
     }
-    public enum ProsecutorComment
+    public enum Cr_ProsecutorComment
     {
         እንዲፀና, እንዲሻሻል, እንዲሻር  
     }
@@ -23,5 +23,14 @@
     public enum HighCourtDecission
     {
          በማፅናት, በማሻሻል, በመሻር 
+    }
+
+    public enum AppealType
+    {
+        የፍርደኛ_ይግባኝ,የዐቃቢህግ_ይግባኝ,የዐቃቢህግ_ሰበር,የፍርደኛ_ሰበር
+    }
+    public enum CivilCaseCategory
+    {
+        DirectChargeOpenning, DirectChargeResponseOpenning, GeneralAppealOpenning,GeneralAppealResponseOpenning, BrekingApplicantOpenning, BrekingRespondentOpenning
     }
 }

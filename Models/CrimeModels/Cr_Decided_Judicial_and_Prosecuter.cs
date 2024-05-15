@@ -20,7 +20,7 @@ namespace ExpertManagmentSystem.Models.CrimeModels
         public string? Applicant { get; set; }
         public string? Respondant { get; set; }
         public string? CrimeType { get; set; }      
-        public ProsecutorComment? ProsecutorComment { get; set; }
+        public Cr_ProsecutorComment? Cr_ProsecutorComment { get; set; }
         public string? Other { get; set; }
         public string? WhoLawyeCommented { get; set; }
         public  HighCourtDecission HighCourtDecission { get; set; }

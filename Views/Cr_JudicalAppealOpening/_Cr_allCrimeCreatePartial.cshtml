@@ -1,0 +1,70 @@
+﻿@using ExpertManagmentSystem.Enums
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@model ExpertManagmentSystem.Models.CrimeModels.Cr_JudicalAppealOpening
+
+
+<div class="modal fade" id="AllCrimefileOpenining" aria-labelledby="addRegionLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content" style="width:850px">
+            <div class="card card-success">
+                <div class="card-header">
+                    <h3 class="card-title"> የፍርደኛ ይግባኝ መመዝግቢያ ፎርም </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:white;">×</span></button>
+                </div>
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly " class="text-danger"></div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label asp-for="OpeninigDate" class="control-label"></label>
+                                <input type="date" asp-for="OpeninigDate" class="form-control" />
+                                <span asp-validation-for="OpeninigDate" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="ProcsecuterNo" class="control-label"></label>
+                                <input asp-for="ProcsecuterNo" class="form-control" />
+                                <span asp-validation-for="ProcsecuterNo" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label asp-for="CourtNo" class="control-label"></label>
+                                <input asp-for="CourtNo" class="form-control" />
+                                <span asp-validation-for="CourtNo" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="Applicant" class="control-label">ይግባኝ ባይ</label>
+                                <input asp-for="Applicant" class="form-control" />
+                                <span asp-validation-for="Applicant" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="Respondant" class="control-label"> መልስ ሰጭ</label>
+                                <input asp-for="Respondant" class="form-control" />
+                                <span asp-validation-for="Respondant" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label asp-for="Cr_Crime_TypeId" class="control-label">የወንጀል አይነት</label>
+                                <select asp-for="Cr_Crime_TypeId" class="form-control Cr_Crime_TypeId" asp-items="ViewBag.Cr_Crime_TypeId"></select>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label asp-for="AppealType" class="control-label">የይግባኝ አይነት</label>
+                                @Html.DropDownList("AppealType", Html.GetEnumSelectList<AppealType>(), /*"የጠ/ፍ/ቤት ውሳኔ ይምረጡ !",*/ new { @class = "form-control Mapandplans", id = "DepartmentCategory" })
+                                <span asp-validation-for="AppealType" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="SectrorsDepartmentId" class="control-label">የስራ ክፍል</label>
+                                <select asp-for="SectrorsDepartmentId" class="form-control SectrorsDepartmentId" asp-items="ViewBag.SectrorsDepartmentId"></select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i class="fa fa-floppy-disk"></i>
+                        <input type="submit" value="ይመዝግቡ" class="btn float-right btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

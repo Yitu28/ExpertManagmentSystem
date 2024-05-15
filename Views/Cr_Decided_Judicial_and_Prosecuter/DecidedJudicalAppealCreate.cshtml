@@ -44,10 +44,10 @@
                 <span asp-validation-for="CrimeType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProsecutorComment" class="control-label">የዐ/ህግ አስተያየት ይምረጡ </label>
-                @Html.DropDownList("ProsecutorComment", Html.GetEnumSelectList<ProsecutorComment>(), /*"የዐ/ህግ አስተያየት ይምረጡ !",*/ new { @class = "form-control Mapandplans", id = "DepartmentCategory" })
+                <label asp-for="Cr_ProsecutorComment" class="control-label">የዐ/ህግ አስተያየት ይምረጡ </label>
+                @Html.DropDownList("Cr_ProsecutorComment", Html.GetEnumSelectList<Cr_ProsecutorComment>(), /*"የዐ/ህግ አስተያየት ይምረጡ !",*/ new { @class = "form-control Mapandplans", id = "DepartmentCategory" })
                 @*<input asp-for="ProsecutorComment" class="form-control" />*@
-                <span asp-validation-for="ProsecutorComment" class="text-danger"></span>
+                <span asp-validation-for="Cr_ProsecutorComment" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Other" class="control-label">ልዩልዩ</label>

@@ -87,7 +87,7 @@ namespace ExpertManagmentSystem.Controllers
      
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
+        public async Task<IActionResult> Create([Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,Cr_ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +114,7 @@ namespace ExpertManagmentSystem.Controllers
         // POST: DecidedJudicalAppealCreate
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DecidedJudicalAppealCreate([Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
+        public async Task<IActionResult> DecidedJudicalAppealCreate([Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,Cr_ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
         {
             if (ModelState.IsValid)
             {
@@ -143,7 +143,7 @@ namespace ExpertManagmentSystem.Controllers
         // Post: Decided Procsecuter Break
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DecidedProcsecuterBreakCreate([Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
+        public async Task<IActionResult> DecidedProcsecuterBreakCreate([Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,Cr_ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
         {
             if (ModelState.IsValid)
             {
@@ -171,7 +171,7 @@ namespace ExpertManagmentSystem.Controllers
         // Post: Decided Judical Break
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DecidedJudicalBreakCreate([Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
+        public async Task<IActionResult> DecidedJudicalBreakCreate([Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,Cr_ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
         {
             if (ModelState.IsValid)
             {
@@ -207,7 +207,7 @@ namespace ExpertManagmentSystem.Controllers
         // POST: Cr_Decided_Judicial_and_Prosecuter/Edit/5     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,Cr_ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
         {
             if (id != cr_Decided_Judicial_and_Prosecuter.Cr_Decided_Judicial_and_ProsecuterId)
             {
@@ -260,7 +260,7 @@ namespace ExpertManagmentSystem.Controllers
         // POST: Decided Judicial Appeal Edit 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DecidedJudicialAppealEdit(Guid id, [Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
+        public async Task<IActionResult> DecidedJudicialAppealEdit(Guid id, [Bind("Cr_Decided_Judicial_and_ProsecuterId,OpeningDate,ProsocuterNo,Court_No,Applicant,Respondant,CrimeType,Cr_ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,FederalBreakingRequest,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_Decided_Judicial_and_Prosecuter cr_Decided_Judicial_and_Prosecuter)
         {
             if (id != cr_Decided_Judicial_and_Prosecuter.Cr_Decided_Judicial_and_ProsecuterId)
             {

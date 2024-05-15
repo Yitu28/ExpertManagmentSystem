@@ -8,7 +8,7 @@
     function getworedadepartments() {
         $('.SectrorsDepartmentId').empty();
     $.ajax({
-        url: '/Cr_Decided_Judicial_and_Prosecuter/Departmentslists',
+        url: '/Cr_JudicalAppealOpening/Departmentslists',
     success: function (response) {
             if (response != null && response != undefined && response.length > 0) {
         $('.SectrorsDepartmentId').attr('disabled', false);
@@ -38,7 +38,7 @@ $(document).ready(function () {
 function GetCrimeType() {
     $('.Cr_Crime_TypeId').empty();
     $.ajax({
-        url: '/Cr_Decided_Judicial_and_Prosecuter/CrimeTypeList',
+        url: '/Cr_JudicalAppealOpening/CrimeTypeList',
         success: function (response) {
             if (response != null && response != undefined && response.length > 0) {
                 $('.Cr_Crime_TypeId').attr('disabled', false);

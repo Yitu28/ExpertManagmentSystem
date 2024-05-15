@@ -1,0 +1,124 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.CrimeModels.Cr_CrimeFollowUpModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+-
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">የይግባኝ የተጠየቁ የወንጀል መዛግብት </h3>
+        @*<button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#AllCrimefileOpenining"> <i class="fa fa-plus"></i> አዲስ መዝግብ</button>*@
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="DecidedJudicialAndProsecuterTable" class="table table-bordered table-striped" style="width:130%">
+            <thead>
+        <tr>
+            <th>
+              የዐ/ህግ አስተያየት
+            </th>
+            <th>
+                ልዩልዩ
+            </th>
+            <th>
+               አስተያየት የሰጠው የዐ/ህግ 
+            </th>
+            <th>
+                የጠ/ፍ/ቤት ውሳኔ
+            </th>
+            <th>
+                ልዩልዩ
+            </th>
+            <th>
+                አስተያየት የሰጠው ዳኛ
+            </th>
+            <th>
+                ይግባኝ ባዮች ብዛት(ሴት)
+            </th>
+            <th>
+               ይግባኝ ባዮች ብዛት(ወንድ)
+            </th>
+            <th>
+               አዲስ/ነባር
+            </th>
+            <th>
+                አሸናፊ/ተሸናፊ
+            </th>
+            <th>
+               የቀጠሮ ቀን
+            </th>
+            <th>
+              የተሰጠበት ቀን
+            </th>
+            <th>
+               የተመለሰበት ቀን
+            </th>
+            <th>
+                ለፌደራል ሰበር የተጠየቀ/ያልተጠየቀ
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.Cr_JudicalAppealOpening)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cr_ProsecutorComment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Other)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhoLawyeCommented)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HighCourtDecission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherCourtDecition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhoJudgeCommentedOnDecision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfFemaleAppellants)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfMaleAppellants)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileEndResult)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfAppointment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileIssuedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileReturnedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FederalBreakingRequest)
+            </td>
+          @*  <td>
+                @Html.DisplayFor(modelItem => item.Cr_JudicalAppealOpening.Cr_JudicalAppealOpeningId)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Cr_CrimeFollowUpModelId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Cr_CrimeFollowUpModelId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Cr_CrimeFollowUpModelId">Delete</a>
+            </td>
+        </tr>
+}
+            </tbody>
+        </table>
+    </div>
+</div>

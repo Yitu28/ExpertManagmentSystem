@@ -1,53 +1,16 @@
-﻿@model ExpertManagmentSystem.Models.CrimeModels.Cr_Decided_Judicial_and_Prosecuter
+﻿@model ExpertManagmentSystem.Models.CrimeModels.Cr_CrimeFollowUpModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Delete</h1>
+<h1>Details</h1>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Cr_Decided_Judicial_and_Prosecuter</h4>
+    <h4>Cr_CrimeFollowUpModel</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OpeningDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OpeningDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProsocuterNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProsocuterNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Court_No)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Court_No)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Applicant)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Applicant)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Respondant)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Respondant)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CrimeType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CrimeType)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Cr_ProsecutorComment)
         </dt>
@@ -109,28 +72,38 @@
             @Html.DisplayFor(model => model.FileEndResult)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfAppointment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateOfAppointment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FileIssuedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FileIssuedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FileReturnedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FileReturnedDate)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FederalBreakingRequest)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FederalBreakingRequest)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cr_Crime_Type)
+            @Html.DisplayNameFor(model => model.Cr_JudicalAppealOpening)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cr_Crime_Type.Cr_Crime_TypeId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SectrorsDepartment)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SectrorsDepartment.SectrorsDepartmentId)
+            @Html.DisplayFor(model => model.Cr_JudicalAppealOpening.Cr_JudicalAppealOpeningId)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Cr_Decided_Judicial_and_ProsecuterId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Cr_CrimeFollowUpModelId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
 </div>

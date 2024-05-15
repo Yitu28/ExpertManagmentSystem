@@ -4,18 +4,15 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@*<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
+-
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">የወንጀል አይነቶች ዝርዝር ማውጫ</h3>
-        <a asp-action="Create" class="btn btn-success float-right btn-circle  text-light btn-sm">የወንጀል አይነት መዝግብ</a>
+        <h3 class="card-title">የወንጀል አይነቶች ዝርዝር ማውጫ </h3>
+        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#CrimeTypeRegistration"> <i class="fa fa-plus"></i> አዲስ መዝግብ</button>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
+        <table id="DecidedJudicialAndProsecuterTable" class="table table-bordered table-striped" style="width:100%">
             <thead>
         <tr>
             <th>
@@ -31,8 +28,7 @@
                 @Html.DisplayFor(modelItem => item.CrimeTypeName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Cr_Crime_TypeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Cr_Crime_TypeId">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.Cr_Crime_TypeId">Edit</a> |             
                 <a asp-action="Delete" asp-route-id="@item.Cr_Crime_TypeId">Delete</a>
             </td>
         </tr>
@@ -41,3 +37,10 @@
         </table>
     </div>
 </div>
+@await Html.PartialAsync("_Cr_CreateCrimeTypePartial", new Cr_Crime_Type ())
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

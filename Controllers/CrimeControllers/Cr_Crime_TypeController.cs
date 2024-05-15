@@ -23,8 +23,8 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
         public async Task<IActionResult> Index()
         {
               return _context.Cr_Crime_Types != null ? 
-                          View(await _context.Cr_Crime_Types.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Cr_Crime_Types'  is null.");
+              View(await _context.Cr_Crime_Types.ToListAsync()) :
+             Problem("Entity set 'ApplicationDbContext.Cr_Crime_Types'  is null.");
         }
 
         // GET: Cr_Crime_Type/Details/5
@@ -48,12 +48,12 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
         // GET: Cr_Crime_Type/Create
         public IActionResult Create()
         {
-            return View();
+            Cr_Crime_Type Laaos = new();
+            return PartialView("_Cr_CreateCrimeTypePartial", Laaos);
+            //return View();
         }
 
-        // POST: Cr_Crime_Type/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Cr_Crime_Type/Create   
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Cr_Crime_TypeId,CrimeTypeName")] Cr_Crime_Type cr_Crime_Type)
