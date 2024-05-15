@@ -1,0 +1,161 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.EconomyModels.Eco_DirectChargeDecission>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የኢኮኖሚ ወንጀል ክስ መዝገብ  </h5>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example3" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.OpeningDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PoliceNo)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ProsocuterNo)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CourtNo)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DefendantName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DefendantGender)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DefendantAge)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.RespodentName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.RespodentGender)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.RespodentAge)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Zone)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Woreda)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AdmissionExpert)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.NumberOfWitnesses)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Exhibit)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ProsecutorDecission)
+                                    </th>
+                                    <th>
+                                        የወንጀል አይነት 
+                                        @* @Html.DisplayNameFor(model => model.Cr_Crime_Type) *@
+                                    </th>
+                                    <th>
+                                        ዲፓርትመንት 
+                                        @* @Html.DisplayNameFor(model => model.SectrorsDepartment) *@
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OpeningDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PoliceNo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProsocuterNo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CourtNo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DefendantName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DefendantGender)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DefendantAge)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RespodentName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RespodentGender)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RespodentAge)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Zone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Woreda)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AdmissionExpert)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NumberOfWitnesses)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Exhibit)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProsecutorDecission)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cr_Crime_Type.CrimeTypeName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SectrorsDepartment.SectrorsDepartmentId)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Eco_DirectChargeDecissionId">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.Eco_DirectChargeDecissionId">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Eco_DirectChargeDecissionId">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+
+
+

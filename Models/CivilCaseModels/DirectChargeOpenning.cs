@@ -4,8 +4,11 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 {
     public class DirectChargeOpenning : Audit
     {
+        [Key]
+        public Guid DirectChargeOpenningId { get; set; }
         [Required]
         [Display(Name = "የዐ/ግ ቁጥር")]
+
         public string ProsecutorsSRecordNumber { get; set; }
 
         [Required]

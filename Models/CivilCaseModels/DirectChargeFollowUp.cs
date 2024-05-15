@@ -7,6 +7,8 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 {
     public class DirectChargeFollowUp : Audit
     {
+        [Key]
+        public Guid DirectChargeFollowUpId { get; set; }
         [Required]
         [Display(Name = "ጉዳዩ የቀረበበት ፍ/ቤት የተጻፈለት ተቋም")]
         public string IssuedCourtWrittenForOrganization { get; set; }

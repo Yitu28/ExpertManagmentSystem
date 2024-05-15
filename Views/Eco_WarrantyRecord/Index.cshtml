@@ -1,0 +1,125 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.EconomyModels.Eco_WarrantyRecord>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የዋስትና መዝገብ  </h5>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+         <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        መዝገብ የተከፈተበት ቀን
+                                    </th>
+                                    <th>
+                                        የዐ/ህ/መ/ቁጥር
+                                    </th>
+                                    <th>
+                                        የፖ/መ/ቁ
+                                    </th>
+                                    <th>
+                                        ፍ/ቤት/መቁ
+                                    </th>
+                                    <th>
+                                        የተከሳሽ ስም
+
+                                    </th>
+                                    <th>
+                                        ክልል
+                                    </th>
+                                    <th>
+                                        ዞን
+                                    </th>
+                                    <th>
+                                        ወረዳ
+                                    </th>
+                                    <th>
+                                        ለዐ/ህግ የተመራበት ቀን
+                                    </th>
+                                    <th>
+                                        ተሰርቶ የተመለሰበት ቀንና ሰዓት
+                                    </th>
+                                    <th>
+                                        ለዐ/ህግ አስተያየት
+                                    </th>
+                                    <th>
+                                        የወንጀል አይነት
+                                    </th>
+                                    <th>
+                                        የስራ ክፍል
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OpeningDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Prosocuters_No)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Police_No)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Court_No)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DefendentName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Region)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Zone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Woreda)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AdmissionDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ReturnDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProsecutorComment)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cr_Crime_Type.CrimeTypeName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SectrorsDepartment.DepartmentName)
+                                        </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Eco_WarrantyRecordId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Eco_WarrantyRecordId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Eco_WarrantyRecordId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+<!-- /.card-body -->
+                </div>
+            </div>
+<!-- /.col -->
+        </div>
+<!-- /.row -->
+    </div>
+<!-- /.container-fluid -->
+</section>

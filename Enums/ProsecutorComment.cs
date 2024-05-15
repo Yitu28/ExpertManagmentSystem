@@ -1,4 +1,6 @@
-﻿namespace ExpertManagmentSystem.Enums
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ExpertManagmentSystem.Enums
 {
     public enum Gender
     {
@@ -23,6 +25,26 @@
     public enum HighCourtDecission
     {
          በማፅናት, በማሻሻል, በመሻር 
+    }
+    public enum CrimeEconomy
+    {
+        CrimeDept, EconomyDept
+    }
+    //public enum PetWarranty
+    //{
+    //    Warranty, pitition
+    //}
+    public enum EcochargeAge
+    {
+      
+         [Display(Name = "እስከ 29 ዓመት ")]
+        Under_29,
+        [Display(Name = "ከ 29 ዓመት በላይ ")]
+        Above_29,
+        [Display(Name = "ከ 60 ዓመት በላይ ")]
+        Above_60
+
+
     }
     public enum CivilCaseCategory
     {

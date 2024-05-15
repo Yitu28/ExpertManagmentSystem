@@ -1,0 +1,99 @@
+﻿@model ExpertManagmentSystem.Models.EconomyModels.Eco_WarrantyRecord
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Eco_WarrantyRecord</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Eco_WarrantyRecordId" />
+            <div class="form-group">
+                <label asp-for="OpeningDate" class="control-label"></label>
+                <input asp-for="OpeningDate" class="form-control" />
+                <span asp-validation-for="OpeningDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prosocuters_No" class="control-label"></label>
+                <input asp-for="Prosocuters_No" class="form-control" />
+                <span asp-validation-for="Prosocuters_No" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Police_No" class="control-label"></label>
+                <input asp-for="Police_No" class="form-control" />
+                <span asp-validation-for="Police_No" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Court_No" class="control-label"></label>
+                <input asp-for="Court_No" class="form-control" />
+                <span asp-validation-for="Court_No" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DefendentName" class="control-label"></label>
+                <input asp-for="DefendentName" class="form-control" />
+                <span asp-validation-for="DefendentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Region" class="control-label"></label>
+                <input asp-for="Region" class="form-control" />
+                <span asp-validation-for="Region" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zone" class="control-label"></label>
+                <input asp-for="Zone" class="form-control" />
+                <span asp-validation-for="Zone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Woreda" class="control-label"></label>
+                <input asp-for="Woreda" class="form-control" />
+                <span asp-validation-for="Woreda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cr_Crime_TypeId" class="control-label"></label>
+                <select asp-for="Cr_Crime_TypeId" class="form-control" asp-items="@ViewBag.Cr_Crime_TypeId"></select>
+                <span asp-validation-for="Cr_Crime_TypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdmissionDate" class="control-label"></label>
+                <input asp-for="AdmissionDate" class="form-control" />
+                <span asp-validation-for="AdmissionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReturnDate" class="control-label"></label>
+                <input asp-for="ReturnDate" class="form-control" />
+                <span asp-validation-for="ReturnDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProsecutorComment" class="control-label"></label>
+                <input asp-for="ProsecutorComment" class="form-control" />
+                <span asp-validation-for="ProsecutorComment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cr_Crime_TypeId" class="control-label"></label>
+                <select asp-for="Cr_Crime_TypeId" class="form-control" asp-items="ViewBag.Cr_Crime_TypeId"></select>
+                <span asp-validation-for="Cr_Crime_TypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SectrorsDepartmentId" class="control-label"></label>
+                <select asp-for="SectrorsDepartmentId" class="form-control" asp-items="ViewBag.SectrorsDepartmentId"></select>
+                <span asp-validation-for="SectrorsDepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

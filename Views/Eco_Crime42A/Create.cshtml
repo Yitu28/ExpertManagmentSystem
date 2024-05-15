@@ -1,0 +1,140 @@
+﻿@model ExpertManagmentSystem.Models.EconomyModels.Eco_Crime42A
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title"> ወንጀል 42/1/ሀ መመዝገቢያ</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="body-box">
+           <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="row">
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="RecordNo" class="control-label"></label>
+                <input asp-for="RecordNo" class="form-control" />
+                <span asp-validation-for="RecordNo" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="PoliceRecordNo" class="control-label"></label>
+                <input asp-for="PoliceRecordNo" class="form-control" />
+                <span asp-validation-for="PoliceRecordNo" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="DefendenNamet" class="control-label"></label>
+                <input asp-for="DefendenNamet" class="form-control" />
+                <span asp-validation-for="DefendenNamet" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="Cr_Crime_TypeId" class="control-label"></label>
+                <select asp-for="Cr_Crime_TypeId" class ="form-control" asp-items="ViewBag.Cr_Crime_TypeId"></select>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="Zone" class="control-label"></label>
+                <input asp-for="Zone" class="form-control" />
+                <span asp-validation-for="Zone" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="ProsecutorAdmissionDate" class="control-label"></label>
+                <input asp-for="ProsecutorAdmissionDate" class="form-control" />
+                <span asp-validation-for="ProsecutorAdmissionDate" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="ProsecutorReturnedDate" class="control-label"></label>
+                <input asp-for="ProsecutorReturnedDate" class="form-control" />
+                <span asp-validation-for="ProsecutorReturnedDate" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="AdmisstionOrderDate" class="control-label"></label>
+                <input asp-for="AdmisstionOrderDate" class="form-control" />
+                <span asp-validation-for="AdmisstionOrderDate" class="text-danger"></span>
+            </div>
+            </div>
+           <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="Persistant" class="control-label"></label>
+                <input asp-for="Persistant" class="form-control" />
+                <span asp-validation-for="Persistant" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="Abrogated" class="control-label"></label>
+                <input asp-for="Abrogated" class="form-control" />
+                <span asp-validation-for="Abrogated" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="OrderedIssue" class="control-label"></label>
+                <input asp-for="OrderedIssue" class="form-control" />
+                <span asp-validation-for="OrderedIssue" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="OnAdmission" class="control-label"></label>
+                <input asp-for="OnAdmission" class="form-control" />
+                <span asp-validation-for="OnAdmission" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="NonOrderedIssue" class="control-label"></label>
+                <input asp-for="NonOrderedIssue" class="form-control" />
+                <span asp-validation-for="NonOrderedIssue" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="SectrorsDepartmentId" class="control-label"></label>
+                <select asp-for="SectrorsDepartmentId" class ="form-control" asp-items="ViewBag.SectrorsDepartmentId"></select>
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            </div>
+            <div class="col-sm-4">
+            <div class="form-group">
+            <a asp-action="Index" class="btn btn-info" style="color:white;"> ወደ ዝርዝር ተመለስ </a>
+            </div>
+            </div>
+            </div>
+             </form>
+               </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

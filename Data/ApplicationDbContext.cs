@@ -1,5 +1,4 @@
-﻿using ExpertManagmentSystem.Models;
-using ExpertManagmentSystem.OrganizationalStructures;
+﻿using ExpertManagmentSystem.OrganizationalStructures;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +11,8 @@ using ExpertManagmentSystem.Models.Corruption;
 
 using ExpertManagmentSystem.Models.CrimeModels;
 using ExpertManagmentSystem.Models.CivilCaseModels;
+using ExpertManagmentSystem.Models.EconomyModels;
+using ExpertManagmentSystem.Models;
 
 
 namespace ExpertManagmentSystem.Data
@@ -50,6 +51,9 @@ namespace ExpertManagmentSystem.Data
         public DbSet<CO_Petition> CO_Petition { get; set; }
         public DbSet<CO_RegionalBreakAppeal> CO_RegionalBreakAppeal { get; set; }
         public DbSet<CO_Warranty> CO_Warranty { get; set; }
+        //public DbSet<Eco_WarrantyRecord> Eco_WarrantyRecords { get; set; }
+        //public DbSet<Eco_directChargeOpening> Eco_directChargeOpening { get; set; }
+        //public DbSet<Eco_DirectChargeDecission> Eco_DirectChargeDecission { get; set; }
 
         public DbSet<Cr_Crime_Type> Cr_Crime_Types { get; set; }
         public DbSet<Cr_Decided_Judicial_and_Prosecuter> Cr_Decided_Judicial_and_Prosecuters { get; set; }
@@ -134,6 +138,23 @@ namespace ExpertManagmentSystem.Data
 
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<ExpertManagmentSystem.ViewModels.CivilCaseViewModels.CCFreeLsfuViewModel>? CCFreeLsfuViewModel { get; set; }
+
+
+
+
+
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.EconomyModels.Eco_DirectChargeDecission>? Eco_DirectChargeDecission { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.EconomyModels.Eco_directChargeOpening>? Eco_directChargeOpening { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.EconomyModels.Eco_WarrantyRecord>? Eco_WarrantyRecord { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.EconomyModels.Eco_Crime42A>? Eco_Crime42A { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.Eco_crimePitition>? Eco_crimePitition { get; set; }
+
+
+
+
+
+        
 
     }
 

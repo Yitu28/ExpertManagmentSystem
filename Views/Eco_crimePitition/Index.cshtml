@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.Eco_crimePitition>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የወንጀል አቤቱታ መዝገብ  </h5>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">           
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicantName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cr_Crime_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PititionPresentBody)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prosecutor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssuedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Decission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecissionOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecissionStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SectrorsDepartment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicantName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cr_Crime_Type.Cr_Crime_TypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PititionPresentBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prosecutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssuedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Decission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecissionOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecissionStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SectrorsDepartment.SectrorsDepartmentId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Eco_crimePititionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Eco_crimePititionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Eco_crimePititionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>

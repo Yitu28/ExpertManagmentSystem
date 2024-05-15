@@ -4,6 +4,7 @@ using ExpertManagmentSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpertManagmentSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240512115219_sunday")]
+    partial class sunday
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -834,127 +836,6 @@ namespace ExpertManagmentSystem.Migrations
                     b.ToTable("Cr_JudicalAppealDirectChareges", "ExpertUserMngt");
                 });
 
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Eco_crimePitition", b =>
-                {
-                    b.Property<Guid>("Eco_crimePititionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ApplicantName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("Cr_Crime_TypeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Decission")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DecissionOrder")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DecissionStatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("IssuedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PititionPresentBody")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Prosecutor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReturedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("SectrorsDepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Eco_crimePititionId");
-
-                    b.HasIndex("Cr_Crime_TypeId");
-
-                    b.HasIndex("SectrorsDepartmentId");
-
-                    b.ToTable("Eco_crimePitition", "ExpertUserMngt");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.EconomyModels.Eco_Crime42A", b =>
-                {
-                    b.Property<Guid>("Eco_Crime42AId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Abrogated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("AdmisstionOrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("Cr_Crime_TypeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("DefendenNamet")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NonOrderedIssue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OnAdmission")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrderedIssue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Persistant")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PoliceRecordNo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ProsecutorAdmissionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ProsecutorReturnedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("RecordNo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("SectrorsDepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Zone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Eco_Crime42AId");
-
-                    b.HasIndex("Cr_Crime_TypeId");
-
-                    b.HasIndex("SectrorsDepartmentId");
-
-                    b.ToTable("Eco_Crime42A", "ExpertUserMngt");
-                });
-
             modelBuilder.Entity("ExpertManagmentSystem.Models.EconomyModels.Eco_DirectChargeDecission", b =>
                 {
                     b.Property<Guid>("Eco_DirectChargeDecissionId")
@@ -1109,6 +990,9 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.Property<DateTime>("OpeningDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("PetWar")
+                        .HasColumnType("int");
 
                     b.Property<int>("Police_No")
                         .HasColumnType("int");
@@ -1625,44 +1509,6 @@ namespace ExpertManagmentSystem.Migrations
                 {
                     b.HasOne("ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type", "Cr_Crime_Type")
                         .WithMany("Cr_JudicalAppealDirectChareges")
-                        .HasForeignKey("Cr_Crime_TypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
-                        .WithMany()
-                        .HasForeignKey("SectrorsDepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cr_Crime_Type");
-
-                    b.Navigation("SectrorsDepartment");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Eco_crimePitition", b =>
-                {
-                    b.HasOne("ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type", "Cr_Crime_Type")
-                        .WithMany()
-                        .HasForeignKey("Cr_Crime_TypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
-                        .WithMany()
-                        .HasForeignKey("SectrorsDepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cr_Crime_Type");
-
-                    b.Navigation("SectrorsDepartment");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.EconomyModels.Eco_Crime42A", b =>
-                {
-                    b.HasOne("ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type", "Cr_Crime_Type")
-                        .WithMany()
                         .HasForeignKey("Cr_Crime_TypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
