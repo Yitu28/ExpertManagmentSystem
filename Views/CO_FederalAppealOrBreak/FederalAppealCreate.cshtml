@@ -1,0 +1,138 @@
+﻿@using ExpertManagmentSystem.Models.Corruption
+@model ExpertManagmentSystem.Models.Corruption.CO_FederalAppealOrBreak
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">የፌደራል ይግባኝ መመዝገቢያ</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="body-box">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="ProsecutorNo" class="control-label"></label>
+                                        <input asp-for="ProsecutorNo" class="form-control" />
+                                        <span asp-validation-for="ProsecutorNo" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="SupremCourtNo" class="control-label"></label>
+                                        <input asp-for="SupremCourtNo" class="form-control" />
+                                        <span asp-validation-for="SupremCourtNo" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="CourtNo" class="control-label"></label>
+                                        <input asp-for="CourtNo" class="form-control" />
+                                        <span asp-validation-for="CourtNo" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label asp-for="Appellant" class="control-label"></label>
+                                    <input asp-for="Appellant" class="form-control" />
+                                    <span asp-validation-for="Appellant" class="text-danger"></span>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="Answerer" class="control-label"></label>
+                                        <input asp-for="Answerer" class="form-control" />
+                                        <span asp-validation-for="Answerer" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="OpeningDate" class="control-label"></label>
+                                        <input asp-for="OpeningDate" class="form-control" />
+                                        <span asp-validation-for="OpeningDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="Gender" class="control-label"></label>
+                                        @Html.DropDownList("Gender", Html.GetEnumSelectList<Gender>(), " ዖታ ይምረጡ ", new { @class = "form-control" })
+                                        <span asp-validation-for="Gender" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="Amount" class="control-label"></label>
+                                        <input asp-for="Amount" class="form-control" />
+                                        <span asp-validation-for="Amount" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="Appointment" class="control-label"></label>
+                                        <input asp-for="Appointment" class="form-control" />
+                                        <span asp-validation-for="Appointment" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="CrimeType" class="control-label"></label>
+                                        <input asp-for="CrimeType" class="form-control" />
+                                        <span asp-validation-for="CrimeType" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="Remark" class="control-label"></label>
+                                        <input asp-for="Remark" class="form-control" />
+                                        <span asp-validation-for="Remark" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="F_AppealOrBreak" class="control-label"></label>
+                                        <select asp-for="F_AppealOrBreak" class="form-control"></select>
+                                        <span asp-validation-for="F_AppealOrBreak" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="SectrorsDepartmentId" class="control-label"></label>
+                                        <select asp-for="SectrorsDepartmentId" class ="form-control" asp-items="ViewBag.SectrorsDepartmentId"></select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input type="submit" value="መዝግብ" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <a asp-action="Index" class="btn btn-info" style="color:white;"> ወደ ዝርዝር ተመለስ </a>
+                                        @*  <a asp-action="Index">Back to List</a> *@
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

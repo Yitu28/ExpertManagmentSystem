@@ -1,0 +1,124 @@
+﻿@model ExpertManagmentSystem.Models.CivilCaseModels.CCdlt
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CCdlt</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CCdltId" />
+            <div class="form-group">
+                <label asp-for="DltFileNo" class="control-label"></label>
+                <input asp-for="DltFileNo" class="form-control" />
+                <span asp-validation-for="DltFileNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltRecorNo" class="control-label"></label>
+                <input asp-for="DltRecorNo" class="form-control" />
+                <span asp-validation-for="DltRecorNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltApplicant" class="control-label"></label>
+                <input asp-for="DltApplicant" class="form-control" />
+                <span asp-validation-for="DltApplicant" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltResponder" class="control-label"></label>
+                <input asp-for="DltResponder" class="form-control" />
+                <span asp-validation-for="DltResponder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltGender" class="control-label"></label>
+                <input asp-for="DltGender" class="form-control" />
+                <span asp-validation-for="DltGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltAge" class="control-label"></label>
+                <input asp-for="DltAge" class="form-control" />
+                <span asp-validation-for="DltAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltSupportType" class="control-label"></label>
+                <input asp-for="DltSupportType" class="form-control" />
+                <span asp-validation-for="DltSupportType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltDoo" class="control-label"></label>
+                <input asp-for="DltDoo" class="form-control" />
+                <span asp-validation-for="DltDoo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DlttypesofIssue" class="control-label"></label>
+                <input asp-for="DlttypesofIssue" class="form-control" />
+                <span asp-validation-for="DlttypesofIssue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltAmountBirr" class="control-label"></label>
+                <input asp-for="DltAmountBirr" class="form-control" />
+                <span asp-validation-for="DltAmountBirr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltAmountKarie" class="control-label"></label>
+                <input asp-for="DltAmountKarie" class="form-control" />
+                <span asp-validation-for="DltAmountKarie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltAddressZone" class="control-label"></label>
+                <input asp-for="DltAddressZone" class="form-control" />
+                <span asp-validation-for="DltAddressZone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltAddressWoreda" class="control-label"></label>
+                <input asp-for="DltAddressWoreda" class="form-control" />
+                <span asp-validation-for="DltAddressWoreda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltExpertName" class="control-label"></label>
+                <input asp-for="DltExpertName" class="form-control" />
+                <span asp-validation-for="DltExpertName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltDoAss" class="control-label"></label>
+                <input asp-for="DltDoAss" class="form-control" />
+                <span asp-validation-for="DltDoAss" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltDoRet" class="control-label"></label>
+                <input asp-for="DltDoRet" class="form-control" />
+                <span asp-validation-for="DltDoRet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltLOS" class="control-label"></label>
+                <input asp-for="DltLOS" class="form-control" />
+                <span asp-validation-for="DltLOS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltPDecission" class="control-label"></label>
+                <input asp-for="DltPDecission" class="form-control" />
+                <span asp-validation-for="DltPDecission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DltAssignto" class="control-label"></label>
+                <input asp-for="DltAssignto" class="form-control" />
+                <span asp-validation-for="DltAssignto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

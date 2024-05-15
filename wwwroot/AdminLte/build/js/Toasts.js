@@ -44,9 +44,9 @@ const Default = {
   delay: 1000,
   fade: true,
   icon: null,
-  image: null,
-  imageAlt: null,
-  imageHeight: '25px',
+  imAge: null,
+  imAgeAlt: null,
+  imAgeHeight: '25px',
   title: null,
   subtitle: null,
   close: true,
@@ -84,14 +84,14 @@ class Toasts {
 
     const toastHeader = $('<div class="toast-header">')
 
-    if (this._config.image != null) {
-      const toastImage = $('<img />').addClass('rounded mr-2').attr('src', this._config.image).attr('alt', this._config.imageAlt)
+    if (this._config.imAge != null) {
+      const toastImAge = $('<img />').addClass('rounded mr-2').attr('src', this._config.imAge).attr('alt', this._config.imAgeAlt)
 
-      if (this._config.imageHeight != null) {
-        toastImage.height(this._config.imageHeight).width('auto')
+      if (this._config.imAgeHeight != null) {
+        toastImAge.height(this._config.imAgeHeight).width('auto')
       }
 
-      toastHeader.append(toastImage)
+      toastHeader.append(toastImAge)
     }
 
     if (this._config.icon != null) {

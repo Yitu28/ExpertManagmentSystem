@@ -1,0 +1,105 @@
+﻿@model ExpertManagmentSystem.Models.CivilCaseModels.CCLegaladvices
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CCLegaladvices</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadFileNo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadFileNo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ladvicerequester)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ladvicerequester)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadDoariv)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadDoariv)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadTypes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadTypes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadAmountBirr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadAmountBirr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadAmountKarie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadAmountKarie)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadAddressZone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadAddressZone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadAddressWoreda)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadAddressWoreda)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadExpertName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadExpertName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadDaos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadDaos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadDoare)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadDoare)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadTimeTaken)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadTimeTaken)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadPDecisoion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadPDecisoion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LadAssignto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LadAssignto)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CCLegaladvicesId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
