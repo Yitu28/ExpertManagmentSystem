@@ -10,6 +10,7 @@ using ExpertManagmentSystem.Models.CivilCaseModels;
 using ExpertManagmentSystem.OrganizationalStructures;
 using ExpertManagmentSystem.ViewModels;
 using ExpertManagmentSystem.ViewModels.CivilCaseViewModels;
+using ExpertManagmentSystem.Enums;
 
 namespace ExpertManagmentSystem.Controllers.CivilCasesController
 {
@@ -74,19 +75,24 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // POST: Post Free Legal Services Follow Up
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateCCFreeLegalServiceFollowup(CCFreeLegServiceFollowup cCFreeLegServiceFollowup)
+        public async Task<IActionResult> CCFreeLegalServiceFollowup([Bind("FreeLegServiceFollowupId,Doc,Doa,AppointmentType,DoD,DecisionStatus,Decisionmadeby,CCFreelServicesId")] CCFreeLegServiceFollowup cCFreeLegServiceFollowup)
         {
             if (ModelState.IsValid)
             {
                 cCFreeLegServiceFollowup.FreeLegServiceFollowupId = Guid.NewGuid();
+                //cCFreeLegServiceFollowup.DecisionStatus = DecisionStatus.አሸናፊ;
                 _context.Add(cCFreeLegServiceFollowup);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(cCFreeLegServiceFollowup);
+            return RedirectToAction(nameof(Index));
         }
 
-
+        public async Task<IActionResult> CCFreeLegalServiceFollowupIndex(Guid id)
+        {
+            var applicationDbContext = _context.CCFreeLegServiceFollowup.Include(c => c.CCFreelServices).Where(x => x.CCFreelServicesId == id);
+            return View(await applicationDbContext.ToListAsync());
+        }
         public JsonResult Departmentslists()
         {
             var regioneslist = _context.SectrorsDepartment.OrderBy(x => x.DepartmentName).ToList();
@@ -176,7 +182,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CCFreelServicesId,FileNo,RecorNo,Applicant,Responder,Gender,age,SupportType,Doo,typesofIssue,apsm,AddressZone,AddressWoreda,ExpertName,DoAss,DoRet,LOS,PDecission,SectrorsDepartmentId,FreelCategory")] CCFreelServices cCFreelServices)
+        public async Task<IActionResult> Edit(Guid id, [Bind("CCFreelServicesId,FileNo,RecorNo,Applicant,Responder,Gender,Age,SupportType,Doo,typesofIssue,apsm,AddressZone,AddressWoreda,ExpertName,DoAss,DoRet,LOS,PDecission,SectrorsDepartmentId,FreelCategory")] CCFreelServices cCFreelServices)
         {
             if (id != cCFreelServices.CCFreelServicesId)
             {
