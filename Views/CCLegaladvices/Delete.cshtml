@@ -4,102 +4,134 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<div class="card card-danger">
+    <div class="card-header card-danger">
+        <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+            <li class="nav-item">
+                <h5> ይህን የህግ ምክረ አገልግሎት ለመሰረዝ እርግጠኛ ነዎት ? </h5>
+                @* <a class="nav-link Freelaaos active" id="custom-content-below-home-tab" data-toggle="pill" href="#customcontent-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">ነፃ የህግ ድጋፍ ይግባኝ አመልካች መሰረዝ  </a> *@
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="tab-content" id="custom-content-below-tabContent">
+            <div class="tab-pane fade show active" id="customcontent-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>CCLegaladvices</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadFileNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadFileNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ladvicerequester)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ladvicerequester)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadDoariv)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadDoariv)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadTypes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadTypes)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadAmountBirr)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadAmountBirr)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadAmountKarie)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadAmountKarie)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadAddressZone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadAddressZone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadAddressWoreda)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadAddressWoreda)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadExpertName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadExpertName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadDaos)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadDaos)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadDoare)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadDoare)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadTimeTaken)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadTimeTaken)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadPDecisoion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadPDecisoion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LadAssignto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LadAssignto)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="CCLegaladvicesId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadFileNo" class="control-label"></label>
+                        <input asp-for="LadFileNo" class="form-control" disabled />
+                        <span asp-validation-for="LadFileNo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="Ladvicerequester" class="control-label"></label>
+                        <input asp-for="Ladvicerequester" class="form-control" disabled />
+                        <span asp-validation-for="Ladvicerequester" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadDoariv" class="control-label"></label>
+                        <input asp-for="LadDoariv" class="form-control" disabled />
+                        <span asp-validation-for="LadDoariv" class="text-danger"></span>
+                        <span asp-validation-for="LadDoariv" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadAmountBirr" class="control-label"></label>
+                        <input asp-for="LadAmountBirr" class="form-control" disabled />
+                        <span asp-validation-for="LadAmountBirr" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadAmountKarie" class="control-label"></label>
+                        <input asp-for="LadAmountKarie" class="form-control" disabled />
+                        <span asp-validation-for="LadAmountKarie" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadAddressZone" class="control-label"></label>
+                        <input asp-for="LadAddressZone" class="form-control" disabled />
+                        <span asp-validation-for="LadAddressZone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadAddressWoreda" class="control-label"></label>
+                        <input asp-for="LadAddressWoreda" class="form-control" disabled />
+                        <span asp-validation-for="LadAddressWoreda" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadExpertName" class="control-label"></label>
+                        <input asp-for="LadExpertName" class="form-control" disabled />
+                        <span asp-validation-for="LadExpertName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadDaos" class="control-label"></label>
+                        <input asp-for="LadDaos" class="form-control" disabled />
+                        <span asp-validation-for="LadDaos" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadAmountBirr" class="control-label"></label>
+                        <input asp-for="LadAmountBirr" class="form-control" disabled />
+                        <span asp-validation-for="LadAmountBirr" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadAmountKarie" class="control-label"></label>
+                        <input asp-for="LadAmountKarie" class="form-control" disabled />
+                        <span asp-validation-for="LadAmountKarie" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadAddressZone" class="control-label"></label>
+                        <input asp-for="LadAddressZone" class="form-control" disabled />
+                        <span asp-validation-for="LadAddressZone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadAddressWoreda" class="control-label"></label>
+                        <input asp-for="LadAddressWoreda" class="form-control" disabled />
+                        <span asp-validation-for="LadAddressWoreda" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadExpertName" class="control-label"></label>
+                        <input asp-for="LadExpertName" class="form-control" disabled />
+                        <span asp-validation-for="LadExpertName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadDoare" class="control-label"></label>
+                        <input asp-for="LadDoare" class="form-control" disabled />
+                        <span asp-validation-for="LadDoare" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="LadTimeTaken" class="control-label"></label>
+                        <input asp-for="LadTimeTaken" class="form-control" disabled />
+                        <span asp-validation-for="LadTimeTaken" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="LadPDecisoion" class="control-label"></label>
+                        <input asp-for="LadPDecisoion" class="form-control" disabled />
+                        <span asp-validation-for="LadPDecisoion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group  col-md-4">
+                        <label asp-for="LadAssignto" class="control-label"></label>
+                        <input asp-for="LadAssignto" class="form-control" disabled />
+                        <span asp-validation-for="LadAssignto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group  col-md-4">
+                        <label asp-for="LadAssignto" class="control-label"></label>
+                        <input asp-for="LadAssignto" class="form-control" disabled />
+                        <span asp-validation-for="LadAssignto" class="text-danger"></span>
+                    </div>
+                </div>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="CCLegaladvicesId" />
+                    <a asp-action="Index" class="btn btn-success"> ወደ ዋናው ተመለስ </a>
+                    <input type="submit" value="ይሰረዝ" class="btn btn-danger float-right" />
+                </form>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
 </div>
+

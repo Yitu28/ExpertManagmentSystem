@@ -49,6 +49,49 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             return View(cCFreelServices);
         }
 
+        public async Task<IActionResult> CCFreeLegalServiceFollowupr(Guid? id)
+        {
+            if (id == null || _context.CCFreelServices == null)
+            {
+                return NotFound();
+            }
+
+            var CcFreeServices = await _context.CCFreelServices.FindAsync(id);
+            if (CcFreeServices == null)
+            {
+                return NotFound();
+            }
+            var model = new CCFreeLsfuViewModel
+            {
+
+                CCFreelServicesId = CcFreeServices.CCFreelServicesId
+            };
+            //return PartialView("_FreeCClsfollowupModalPartial", model);
+            return View(model);
+        }
+        // POST: Post Free Legal Services Follow Up
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CCFreeLegalServiceFollowupr([Bind("FreeLegServiceFollowupId,Doc,Doa,AppointmentType,DoD,DecisionStatus,Decisionmadeby,CCFreelServicesId")] CCFreeLegServiceFollowup cCFreeLegServiceFollowup)
+        {
+            if (ModelState.IsValid)
+            {
+                cCFreeLegServiceFollowup.FreeLegServiceFollowupId = Guid.NewGuid();
+                //cCFreeLegServiceFollowup.DecisionStatus = DecisionStatus.አሸናፊ;
+                _context.Add(cCFreeLegServiceFollowup);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> CCFreeLegalServiceFollowuprIndex(Guid id)
+        {
+            var applicationDbContext = _context.CCFreeLegServiceFollowup.Include(c => c.CCFreelServices).Where(x => x.CCFreelServicesId == id);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+
 
 
         // GET: Get Free Legal Services Follow Up ID/5
@@ -215,6 +258,25 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
 
         // GET: CCFreeLaaos/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
+        {
+            if (id == null || _context.CCFreelServices == null)
+            {
+                return NotFound();
+            }
+
+            var cCFreelServices = await _context.CCFreelServices
+                .Include(c => c.SectrorsDepartment)
+                .FirstOrDefaultAsync(m => m.CCFreelServicesId == id);
+            if (cCFreelServices == null)
+            {
+                return NotFound();
+            }
+
+            return View(cCFreelServices);
+        }
+
+        // GET: CCFreeLaaos/Delete/5
+        public async Task<IActionResult> Deleter(Guid? id)
         {
             if (id == null || _context.CCFreelServices == null)
             {

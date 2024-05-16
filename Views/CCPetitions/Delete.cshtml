@@ -3,109 +3,114 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<div class="card card-danger">
+    <div class="card-header card-danger">
+        <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+            <li class="nav-item">
+                <h5> ይህን አቤቱታ ለመሰረዝ እርግጠኛ ነዎት ? </h5>
+                @* <a class="nav-link Freelaaos active" id="custom-content-below-home-tab" data-toggle="pill" href="#customcontent-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">ነፃ የህግ ድጋፍ ይግባኝ አመልካች መሰረዝ  </a> *@
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="tab-content" id="custom-content-below-tabContent">
+            <div class="tab-pane fade show active" id="customcontent-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
 
-<h1>Delete</h1>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeFileNo" class="control-label"></label>
+                        <input asp-for="PeFileNo" class="form-control" disabled />
+                        <span asp-validation-for="PeFileNo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="Pevicerequester" class="control-label"></label>
+                        <input asp-for="Pevicerequester" class="form-control" disabled />
+                        <span asp-validation-for="Pevicerequester" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeDoariv" class="control-label"></label>
+                        <input asp-for="PeDoariv" class="form-control" disabled />
+                        <span asp-validation-for="PeDoariv" class="text-danger"></span>
+                        <span asp-validation-for="PeDoariv" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeAddressZone" class="control-label"></label>
+                        <input asp-for="PeAddressZone" class="form-control" disabled />
+                        <span asp-validation-for="PeAddressZone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeAddressWoreda" class="control-label"></label>
+                        <input asp-for="PeAddressWoreda" class="form-control" disabled />
+                        <span asp-validation-for="PeAddressWoreda" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeExpertName" class="control-label"></label>
+                        <input asp-for="PeExpertName" class="form-control" disabled />
+                        <span asp-validation-for="PeExpertName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeDaos" class="control-label"></label>
+                        <input asp-for="PeDaos" class="form-control" disabled />
+                        <span asp-validation-for="PeDaos" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeAddressZone" class="control-label"></label>
+                        <input asp-for="PeAddressZone" class="form-control" disabled />
+                        <span asp-validation-for="PeAddressZone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                   
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeAddressWoreda" class="control-label"></label>
+                        <input asp-for="PeAddressWoreda" class="form-control" disabled />
+                        <span asp-validation-for="PeAddressWoreda" class="text-danger"></span>
+                    </div>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>CCPetition</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeFileNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeFileNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pevicerequester)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pevicerequester)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeGender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeGender)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeAge)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeAge)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeSupportType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeSupportType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeDoariv)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeDoariv)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeTypes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeTypes)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeAddressZone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeAddressZone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeAddressWoreda)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeAddressWoreda)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeExpertName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeExpertName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeDaos)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeDaos)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeDoare)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeDoare)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeTimeTaken)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeTimeTaken)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PePDecisoion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PePDecisoion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PeAssignto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PeAssignto)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="CCLegaladvicesId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeExpertName" class="control-label"></label>
+                        <input asp-for="PeExpertName" class="form-control" disabled />
+                        <span asp-validation-for="PeExpertName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeDoare" class="control-label"></label>
+                        <input asp-for="PeDoare" class="form-control" disabled />
+                        <span asp-validation-for="PeDoare" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="PeTimeTaken" class="control-label"></label>
+                        <input asp-for="PeTimeTaken" class="form-control" disabled />
+                        <span asp-validation-for="PeTimeTaken" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="PePDecisoion" class="control-label"></label>
+                        <input asp-for="PePDecisoion" class="form-control" disabled />
+                        <span asp-validation-for="PePDecisoion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group  col-md-4">
+                        <label asp-for="PeAssignto" class="control-label"></label>
+                        <input asp-for="PeAssignto" class="form-control" disabled />
+                        <span asp-validation-for="PeAssignto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group  col-md-4">
+                        <label asp-for="PeAssignto" class="control-label"></label>
+                        <input asp-for="PeAssignto" class="form-control" disabled />
+                        <span asp-validation-for="PeAssignto" class="text-danger"></span>
+                    </div>
+                </div>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="CCPetitionId" />
+                    <a asp-action="Index" class="btn btn-success"> ወደ ዋናው ተመለስ </a>
+                    <input type="submit" value="ይሰረዝ" class="btn btn-danger float-right" />
+                </form>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
 </div>
