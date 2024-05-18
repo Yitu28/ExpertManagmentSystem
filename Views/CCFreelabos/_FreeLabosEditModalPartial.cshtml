@@ -1,4 +1,5 @@
-﻿@using ExpertManagmentSystem.Models.CivilCaseModels
+﻿@using ExpertManagmentSystem.Enums
+@using ExpertManagmentSystem.Models.CivilCaseModels
 @model ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices
 
 
@@ -45,10 +46,10 @@
                                 <span asp-validation-for="Gender" class="text-danger"></span>
                             </div>
                             <div class="form-group col-md-4">
-                                <label asp-for="age" class="control-label"></label>
-                                @* <input asp-for="age" class="form-control" /> *@
-                                @Html.DropDownList("age", Html.GetEnumSelectList<AgeRange>(), " ነፃ የህግ ድጋፍ ፈላጊ ዕድሜ ይምረጡ ", new { @class = "form-control" })
-                                <span asp-validation-for="age" class="text-danger"></span>
+                                <label asp-for="Age" class="control-label"></label>
+                                @* <input asp-for="Age" class="form-control" /> *@
+                                @Html.DropDownList("Age", Html.GetEnumSelectList<AgeRange>(), " ነፃ የህግ ድጋፍ ፈላጊ ዕድሜ ይምረጡ ", new { @class = "form-control" })
+                                <span asp-validation-for="Age" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="row">

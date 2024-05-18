@@ -146,12 +146,9 @@ namespace ExpertManagmentSystem.Data
 
 
 
+
       
       
-
-
-
-
 
 
 
@@ -159,7 +156,26 @@ namespace ExpertManagmentSystem.Data
 
 
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.CivilCaseModels.CCdlt>? CCdlt { get; set; }
+
+
+
+
+
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.CivilCaseModels.CCLegaladvices>? CCLegaladvices { get; set; }
+
+
+
+
+
+
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
        // public DbSet<ExpertManagmentSystem.Models.Corruption.CO_PetitionFollowUp>? CO_PetitionFollowUp { get; set; }
+
+        public DbSet<ExpertManagmentSystem.Models.CivilCaseModels.CCPetition>? CCPetition { get; set; }
+
 
     }
 

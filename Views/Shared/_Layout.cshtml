@@ -52,7 +52,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>  
     </ul>
-      <div><h5>Reporting Management System</h5></div>
+      <div><h5> ሪፖርት አስተዳደር ዜዴ </h5></div>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">  
       <li class="nav-item dropdown">
@@ -161,7 +161,7 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="fa fa-list"></i>
+                                <i class="fa fa-regular fa-folder"></i>
                                 <p>
                                     ነፃ የህግ ድጋፍ 
                                     <i class="fas fa-angle-left right"></i>
@@ -172,70 +172,48 @@
 
                                 <li class="nav-item">
                                     <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fa fa-check"></i>
                                         <p> ይግባኝ </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-controller="CCFreelabos" asp-action="Index" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fa fa-check"></i>
                                         <p> ሰበር </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fa fa-check"></i>
                                         <p> ቀጥታ ክስ </p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ለጠበቃ የተመራ </p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> የህግ ምክር አገልግሎት </p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> አቤቱታ </p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         @*}*@
 
-                        @*{*@
-    <li class="nav-item">
-        <a href="#" class="nav-link">
-            <i class="fa fa-tasks"></i>
-            <p>
-                Settings
-                <i class="fas fa-angle-left right"></i>
-            </p>
-        </a>
 
-        <ul class="nav nav-treeview">
-
-            <li class="nav-item">
-                <a asp-controller="ReginalSectors" asp-action="Index" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>የክልል ቢሮ</p>
-                </a>
-            </li>          
-            <li class="nav-item">
-                <a asp-controller="ZonalSectors" asp-action="Index" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>ዞን መምሪያ</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a asp-controller="WoredaSectors" asp-action="Index" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>የወረዳ ጽ/ቤት</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a asp-controller="Roles" asp-action="Index" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>ሚና ዝርዝር</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a asp-controller="UserRoles" asp-action="Index" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>ተጠቃሚዎች ዝርዝር</p>
-                </a>
-            </li>
-        </ul>
-    </li>
 
 
 
@@ -346,9 +324,12 @@
     <script src="~/AdminLte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script src="~/js/bootstrap-js-min.info.js"></script>
 
-    <script>
+<script>
+
+    
   $(function () {
     $("#example4").DataTable()
+
     $("#example5").DataTable()
     $("#example1").DataTable({
 
@@ -384,17 +365,23 @@
               "responsive": true,
             });
 
+
+    $("#example5").DataTable({
+      "responsive": true, "lengthChange": true, "autoWidth": true,
+      //"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
   });
 
 
-</script>
+  $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": true, "autoWidth": false,
+            //"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
 
 
-<script>
-        $("#example3").DataTable({
-            //"responsive": true,
-             scrollX: true
-        });
 </script>
 <script>
         $("#example33").DataTable({
@@ -403,11 +390,14 @@
         });
 </script>
 
-@* <script>
+<script>
+    @* Civil Case Data Tables  *@
     $(function () {
-        $('#example3').DataTable()
+        $('#example77').DataTable({
+            scrollX: true
+        })
     })
-</script> *@
+</script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

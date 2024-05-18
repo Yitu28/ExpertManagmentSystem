@@ -1,0 +1,154 @@
+﻿@using ExpertManagmentSystem.Models.CivilCaseModels
+@model IEnumerable<ExpertManagmentSystem.Models.CivilCaseModels.CCdlt>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"> ለጠበቃ የተመራ ዝርዝር ማውጫ</h3>
+        <button type="button" class="btn btn-success float-right CCdlt" id="CCdlt" data-toggle="modal" data-target="#addCCdltmodals"> <i class="fa fa-plus"></i> አዲስ ጨምር</button>
+        @* <a asp-action="Create" class="btn btn-success float-right btn-circle  text-light btn-sm">አዲስ ቢሮ </a> *@
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltFileNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltRecorNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltApplicant)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltResponder)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltGender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltAge)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltSupportType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltDoo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DlttypesofIssue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltAmountBirr)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltAmountKarie)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltAddressZone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltAddressWoreda)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltExpertName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltDoAss)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltDoRet)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltLOS)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltPDecission)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DltAssignto)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltFileNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltRecorNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltApplicant)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltResponder)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltGender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltAge)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltSupportType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltDoo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DlttypesofIssue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltAmountBirr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltAmountKarie)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltAddressZone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltAddressWoreda)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltExpertName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltDoAss)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltDoRet)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltLOS)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltPDecission)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DltAssignto)
+                        </td>
+                        <td>
+                            @* <a asp-action="Edit" asp-route-id="@item.CCdltId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.CCdltId">Details</a> | *@
+                            <a asp-action="Delete" asp-route-id="@item.CCdltId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@await Html.PartialAsync("_CcDltCreateModalPartial", new CCdlt())
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
