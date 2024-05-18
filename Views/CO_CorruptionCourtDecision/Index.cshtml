@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.Corruption.CO_CorruptionCourtDecision>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourtsDecision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CO_CorruptionCarge)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourtsDecision.DecisionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CO_CorruptionCarge.ProsecutorsDecision.DecisionName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CO_CorruptionCourtDecisionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CO_CorruptionCourtDecisionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CO_CorruptionCourtDecisionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
