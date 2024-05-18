@@ -12,6 +12,10 @@
     {
         ነባር, አዲስ 
     }
+    public enum CrimeDepartment
+    {
+        ወንጀል, ሙስና, ኢኮኖሚ 
+    }
     public enum FileEndResult
     {
         አሸናፊ, ተሸናፊ   
@@ -27,5 +31,14 @@
     public enum CivilCaseCategory
     {
         DirectChargeOpenning, DirectChargeResponseOpenning, GeneralAppealOpenning,GeneralAppealResponseOpenning, BrekingApplicantOpenning, BrekingRespondentOpenning
+    }
+
+    public enum AppealBreaking
+    {
+        ዐቃቤ_ህግ_ሰበር, ዐቃቤ_ህግ_ግባኝ
+    }
+    public enum J_AppealBreaking
+    {
+        ፍርደኛ_ሰበር, ፍርደኛ_ይግባኝ
     }
 }

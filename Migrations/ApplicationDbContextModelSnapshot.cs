@@ -101,7 +101,6 @@ namespace ExpertManagmentSystem.Migrations
                     b.ToTable("Users", "ExpertUserMngt");
                 });
 
-
             modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCFreeLegServiceFollowup", b =>
                 {
                     b.Property<Guid>("FreeLegServiceFollowupId")
@@ -145,325 +144,6 @@ namespace ExpertManagmentSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_Closed_SentInReverse", b =>
-                {
-                    b.Property<Guid>("CO_Closed_SentInReverseId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Defenedant")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DefenedantZone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("OpinionGiven")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ProsecutorNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RegisterDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("SectrorsDepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CO_Closed_SentInReverseId");
-
-                    b.HasIndex("SectrorsDepartmentId");
-
-                    b.ToTable("CO_Closed_SentInReverse", "ExpertUserMngt");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_CorruptionCharge", b =>
-                {
-                    b.Property<Guid>("CO_CorruptionChargeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CrimeType")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DecisionType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DefendantJob")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DefendentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<string>("InvestigationApproved")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("InvestigationNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("OpeningDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("SectrorsDepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("prosecutorNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CO_CorruptionChargeId");
-
-                    b.HasIndex("SectrorsDepartmentId");
-
-                    b.ToTable("CO_CorruptionCharge", "ExpertUserMngt");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_FederalAppealOrBreak", b =>
-                {
-                    b.Property<Guid>("CO_FederalAppealId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Answerer")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Appellant")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Appointment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CourtNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CrimeType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("F_AppealOrBreak")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("OpeningDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ProsecutorNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("SectrorsDepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("SupremCourtNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CO_FederalAppealId");
-
-                    b.HasIndex("SectrorsDepartmentId");
-
-                    b.ToTable("CO_FederalAppealOrBreak", "ExpertUserMngt");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_FirstOrder", b =>
-                {
-                    b.Property<Guid>("CO_FirstOrderId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Amount")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DefendantName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("OpeningDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ProsecotorRecordNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("SectrorsDepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Zone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ZoneProsecotorRecordNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CO_FirstOrderId");
-
-                    b.HasIndex("SectrorsDepartmentId");
-
-                    b.ToTable("CO_FirstOrder", "ExpertUserMngt");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_Petition", b =>
-                {
-                    b.Property<Guid>("CO_PetitionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ComplainantsName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ExpertName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("LetterDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LetterNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrderContent")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrderedClass")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("SectrorsDepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CO_PetitionId");
-
-                    b.HasIndex("SectrorsDepartmentId");
-
-                    b.ToTable("CO_Petition", "ExpertUserMngt");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_RegionalBreakAppeal", b =>
-                {
-                    b.Property<Guid>("CO_RegionalBreakAppealId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Answerer")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Appellant")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CO_CrimeType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CourtNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("OpeningDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("R_BreakingOrAppeal")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Reasons")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(max)");
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeFollowUp", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ApplicationUserUser")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CivilCaseCategory")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateApointmented")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateSubmittedToCourt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DecissionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("DirectChargeOppeningId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("EdittedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IssuedCourtWrittenForOrganization")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("DirectChargeOppeningId");
-
-                    b.ToTable("DirectChargeFollowUps", "ExpertUserMngt");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeOpenning", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Accused")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("AddressWoreda")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -471,7 +151,6 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<string>("AddressZone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
 
                     b.Property<string>("Applicant")
                         .IsRequired()
@@ -540,6 +219,75 @@ namespace ExpertManagmentSystem.Migrations
                     b.HasIndex("SectrorsDepartmentId");
 
                     b.ToTable("CCFreelServices", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeFollowUp", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ApplicationUserUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CivilCaseCategory")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateApointmented")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateSubmittedToCourt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DecissionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DirectChargeOppeningId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("EdittedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IssuedCourtWrittenForOrganization")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("DirectChargeOppeningId");
+
+                    b.ToTable("DirectChargeFollowUps", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeOpenning", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Accused")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressWoreda")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressZone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("AmountPerBirr")
                         .HasColumnType("decimal(18,2)");
@@ -611,14 +359,423 @@ namespace ExpertManagmentSystem.Migrations
                     b.ToTable("DirectChargeOpennings", "ExpertUserMngt");
                 });
 
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_CorruptionCharge", b =>
+                {
+                    b.Property<Guid>("CO_CorruptionChargeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ApplicantAge")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ApplicantGender")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApplicantName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CourtNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("CourtsDecisionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("Cr_Crime_TypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("DecisionStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DefendentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Exhibit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExpertName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<string>("InvestigationNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Kebele")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberofWitnesses")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OpeningDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ProsecutorsDecisionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Woreda")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Zone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("prosecutorNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CO_CorruptionChargeId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("CourtsDecisionId");
+
+                    b.HasIndex("Cr_Crime_TypeId");
+
+                    b.HasIndex("ProsecutorsDecisionId");
+
+                    b.HasIndex("SectrorsDepartmentId");
+
+                    b.ToTable("CO_CorruptionCharge", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_CorruptionCourtDecision", b =>
+                {
+                    b.Property<Guid>("CO_CorruptionCourtDecisionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("CO_CorruptionChargeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CourtsDecisionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CO_CorruptionCourtDecisionId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("CO_CorruptionChargeId");
+
+                    b.HasIndex("CourtsDecisionId");
+
+                    b.ToTable("CO_CorruptionCourtDecision", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_JudicialAppealOrBreak", b =>
+                {
+                    b.Property<Guid>("CO_JudicialAppealOrBreakId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Answerer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Appellant")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("Cr_Crime_TypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ExpertOpinion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("J_AppealOrBreak")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LowerCourtDecision")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OpeningDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProsecutorComment")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProsecutorNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("SupremCourtNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Various")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CO_JudicialAppealOrBreakId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("Cr_Crime_TypeId");
+
+                    b.HasIndex("SectrorsDepartmentId");
+
+                    b.ToTable("CO_JudicialAppealOrBreak", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_JudicialAppealOrBreakDecision", b =>
+                {
+                    b.Property<Guid>("CO_JudicialAppealOrBreakDecisionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("CO_JudicialAppealOrBreakId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("CourtDecision")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExpertOpinion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FederalRequested")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NewExisting")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Various")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WinnerLoser")
+                        .HasColumnType("int");
+
+                    b.HasKey("CO_JudicialAppealOrBreakDecisionId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("CO_JudicialAppealOrBreakId");
+
+                    b.ToTable("CO_JudicialAppealOrBreakDecision", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_Petition", b =>
+                {
+                    b.Property<Guid>("CO_PetitionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ComplainantsName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ComplaintBody")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CrimeCommitted")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LetterDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LetterNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RecordNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Zone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CO_PetitionId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("SectrorsDepartmentId");
+
+                    b.ToTable("CO_Petition", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_PetitionFollowUp", b =>
+                {
+                    b.Property<Guid>("CO_PetitionFollowUpId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("CO_PetitionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ComeanEnd")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExpertName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("IssueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PetitionDecision")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReturnDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CO_PetitionFollowUpId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("CO_PetitionId");
+
+                    b.ToTable("CO_PetitionFollowUp", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_ProsecutorAppealOrBreak", b =>
+                {
+                    b.Property<Guid>("CO_ProsecutorAppealOrBreakId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Answerer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Appellant")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("Cr_Crime_TypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ExpertOpinion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("F_AppealOrBreak")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LowerCourtDecision")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OpeningDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProsecutorComment")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProsecutorNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("SupremCourtNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Various")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CO_ProsecutorAppealOrBreakId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("Cr_Crime_TypeId");
+
+                    b.HasIndex("SectrorsDepartmentId");
+
+                    b.ToTable("CO_ProsecutorAppealOrBreak", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_ProsecutorAppealOrBreakDecision", b =>
+                {
+                    b.Property<Guid>("CO_ProsecutorAppealOrBreakDecisionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("CO_ProsecutorAppealOrBreakId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("CourtDecision")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExpertOpinion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FederalRequested")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NewExisting")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Various")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WinnerLoser")
+                        .HasColumnType("int");
+
+                    b.HasKey("CO_ProsecutorAppealOrBreakDecisionId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("CO_ProsecutorAppealOrBreakId");
+
+                    b.ToTable("CO_ProsecutorAppealOrBreakDecision", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.CourtsDecision", b =>
+                {
+                    b.Property<Guid>("CourtsDecisionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("DecisionName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CourtsDecisionId");
+
+                    b.ToTable("CourtsDecision", "ExpertUserMngt");
+                });
+
             modelBuilder.Entity("ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type", b =>
                 {
                     b.Property<Guid>("Cr_Crime_TypeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("CrimeDepartment")
+                        .HasColumnType("int");
+
                     b.Property<string>("CrimeTypeName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Cr_Crime_TypeId");
@@ -751,55 +908,8 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<DateTime>("Returen")
                         .HasColumnType("datetime2");
 
-
                     b.Property<Guid>("SectrorsDepartmentId")
                         .HasColumnType("uniqueidentifier");
-
-
-                    b.HasKey("CO_RegionalBreakAppealId");
-
-                    b.HasIndex("SectrorsDepartmentId");
-
-                    b.ToTable("CO_RegionalBreakAppeal", "ExpertUserMngt");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_Warranty", b =>
-                {
-                    b.Property<int>("CO_WarrantyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CO_WarrantyId"), 1L, 1);
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ApplicantName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CourtNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ProsecotorNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("SectrorsDepartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("WarrantyDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("CO_WarrantyId");
-
-                    b.HasIndex("SectrorsDepartmentId");
-
-                    b.ToTable("CO_Warranty", "ExpertUserMngt");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
@@ -819,8 +929,20 @@ namespace ExpertManagmentSystem.Migrations
                     b.HasIndex("SectrorsDepartmentId");
 
                     b.ToTable("Cr_JudicalAppealDirectChareges", "ExpertUserMngt");
+                });
 
+            modelBuilder.Entity("ExpertManagmentSystem.Models.ProsecutorsDecision", b =>
+                {
+                    b.Property<Guid>("ProsecutorsDecisionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("DecisionName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProsecutorsDecisionId");
+
+                    b.ToTable("ProsecutorsDecision", "ExpertUserMngt");
                 });
 
             modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.ReginalSector", b =>
@@ -895,6 +1017,94 @@ namespace ExpertManagmentSystem.Migrations
                     b.HasIndex("ReginalSectorId");
 
                     b.ToTable("ZonalSectors", "ExpertUserMngt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.ViewModels.CivilCaseViewModels.CCFreeLsfuViewModel", b =>
+                {
+                    b.Property<string>("AddressWoreda")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressZone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Applicant")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AppointmentType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CCFreelServicesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("DecisionStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Decisionmadeby")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DoAss")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DoD")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DoRet")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Doa")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Doc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Doo")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExpertName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("FreeLegServiceFollowupId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("FreelCategory")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LOS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PDecission")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RecorNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Responder")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("SupportType")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("apsm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("typesofIssue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasIndex("SectrorsDepartmentId");
+
+                    b.ToTable("CCFreeLsfuViewModel", "ExpertUserMngt");
                 });
 
             modelBuilder.Entity("ExpertManagmentSystem.ViewModels.SectorDepartmentViewModels", b =>
@@ -1065,7 +1275,6 @@ namespace ExpertManagmentSystem.Migrations
                     b.ToTable("UserTokens", "ExpertUserMngt");
                 });
 
-
             modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCFreeLegServiceFollowup", b =>
                 {
                     b.HasOne("ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices", "CCFreelServices")
@@ -1081,57 +1290,12 @@ namespace ExpertManagmentSystem.Migrations
                 {
                     b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
                         .WithMany("CCFreelServices")
-
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_Closed_SentInReverse", b =>
-                {
-                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
-                        .WithMany()
                         .HasForeignKey("SectrorsDepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("SectrorsDepartment");
                 });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_CorruptionCharge", b =>
-                {
-                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
-                        .WithMany()
-
-                        .HasForeignKey("SectrorsDepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SectrorsDepartment");
-                });
-
-
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_FederalAppealOrBreak", b =>
-                {
-                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
-                        .WithMany()
-                        .HasForeignKey("SectrorsDepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SectrorsDepartment");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_FirstOrder", b =>
-                {
-                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
-                        .WithMany()
-                        .HasForeignKey("SectrorsDepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SectrorsDepartment");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_Petition", b =>
-                {
 
             modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeFollowUp", b =>
                 {
@@ -1159,6 +1323,186 @@ namespace ExpertManagmentSystem.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_CorruptionCharge", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("ExpertManagmentSystem.Models.CourtsDecision", null)
+                        .WithMany("CO_CorruptionCharge")
+                        .HasForeignKey("CourtsDecisionId");
+
+                    b.HasOne("ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type", "Cr_Crime_Type")
+                        .WithMany()
+                        .HasForeignKey("Cr_Crime_TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ExpertManagmentSystem.Models.ProsecutorsDecision", "ProsecutorsDecision")
+                        .WithMany("CO_CorruptionCharge")
+                        .HasForeignKey("ProsecutorsDecisionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
+                        .WithMany()
+                        .HasForeignKey("SectrorsDepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Cr_Crime_Type");
+
+                    b.Navigation("ProsecutorsDecision");
+
+                    b.Navigation("SectrorsDepartment");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_CorruptionCourtDecision", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("ExpertManagmentSystem.Models.Corruption.CO_CorruptionCharge", "CO_CorruptionCarge")
+                        .WithMany()
+                        .HasForeignKey("CO_CorruptionChargeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ExpertManagmentSystem.Models.CourtsDecision", "CourtsDecision")
+                        .WithMany()
+                        .HasForeignKey("CourtsDecisionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("CO_CorruptionCarge");
+
+                    b.Navigation("CourtsDecision");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_JudicialAppealOrBreak", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type", "Cr_Crime_Type")
+                        .WithMany()
+                        .HasForeignKey("Cr_Crime_TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
+                        .WithMany()
+                        .HasForeignKey("SectrorsDepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Cr_Crime_Type");
+
+                    b.Navigation("SectrorsDepartment");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_JudicialAppealOrBreakDecision", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("ExpertManagmentSystem.Models.Corruption.CO_JudicialAppealOrBreak", "CO_JudicialAppealOrBreak")
+                        .WithMany("CO_JudicialAppealOrBreakDecision")
+                        .HasForeignKey("CO_JudicialAppealOrBreakId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("CO_JudicialAppealOrBreak");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_Petition", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
+                        .WithMany()
+                        .HasForeignKey("SectrorsDepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("SectrorsDepartment");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_PetitionFollowUp", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("ExpertManagmentSystem.Models.Corruption.CO_Petition", "CO_Petition")
+                        .WithMany("CO_PetitionFollowUp")
+                        .HasForeignKey("CO_PetitionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("CO_Petition");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_ProsecutorAppealOrBreak", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type", "Cr_Crime_Type")
+                        .WithMany()
+                        .HasForeignKey("Cr_Crime_TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
+                        .WithMany()
+                        .HasForeignKey("SectrorsDepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Cr_Crime_Type");
+
+                    b.Navigation("SectrorsDepartment");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_ProsecutorAppealOrBreakDecision", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("ExpertManagmentSystem.Models.Corruption.CO_ProsecutorAppealOrBreak", "CO_ProsecutorAppealOrBreak")
+                        .WithMany("CO_ProsecutorAppealOrBreakDecision")
+                        .HasForeignKey("CO_ProsecutorAppealOrBreakId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("CO_ProsecutorAppealOrBreak");
+                });
+
             modelBuilder.Entity("ExpertManagmentSystem.Models.CrimeModels.Cr_Decided_Judicial_and_Prosecuter", b =>
                 {
                     b.HasOne("ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type", "Cr_Crime_Type")
@@ -1167,30 +1511,11 @@ namespace ExpertManagmentSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-
                     b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
                         .WithMany()
                         .HasForeignKey("SectrorsDepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-
-                    b.Navigation("SectrorsDepartment");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_RegionalBreakAppeal", b =>
-                {
-                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
-                        .WithMany()
-                        .HasForeignKey("SectrorsDepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SectrorsDepartment");
-                });
-
-            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_Warranty", b =>
-                {
 
                     b.Navigation("Cr_Crime_Type");
 
@@ -1205,16 +1530,13 @@ namespace ExpertManagmentSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-
                     b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
                         .WithMany()
                         .HasForeignKey("SectrorsDepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-
                     b.Navigation("Cr_Crime_Type");
-
 
                     b.Navigation("SectrorsDepartment");
                 });
@@ -1239,6 +1561,17 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired();
 
                     b.Navigation("ReginalSector");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.ViewModels.CivilCaseViewModels.CCFreeLsfuViewModel", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
+                        .WithMany()
+                        .HasForeignKey("SectrorsDepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SectrorsDepartment");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1292,14 +1625,34 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired();
                 });
 
-
             modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices", b =>
                 {
                     b.Navigation("FreeLegServiceFollowup");
+                });
 
             modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeOpenning", b =>
                 {
                     b.Navigation("DirectChargeFollowUps");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_JudicialAppealOrBreak", b =>
+                {
+                    b.Navigation("CO_JudicialAppealOrBreakDecision");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_Petition", b =>
+                {
+                    b.Navigation("CO_PetitionFollowUp");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.Corruption.CO_ProsecutorAppealOrBreak", b =>
+                {
+                    b.Navigation("CO_ProsecutorAppealOrBreakDecision");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.CourtsDecision", b =>
+                {
+                    b.Navigation("CO_CorruptionCharge");
                 });
 
             modelBuilder.Entity("ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type", b =>
@@ -1307,7 +1660,11 @@ namespace ExpertManagmentSystem.Migrations
                     b.Navigation("Cr_Decided_Judicial_and_Prosecuters");
 
                     b.Navigation("Cr_JudicalAppealDirectChareges");
+                });
 
+            modelBuilder.Entity("ExpertManagmentSystem.Models.ProsecutorsDecision", b =>
+                {
+                    b.Navigation("CO_CorruptionCharge");
                 });
 
             modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.ReginalSector", b =>

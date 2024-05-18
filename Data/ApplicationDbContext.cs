@@ -31,27 +31,34 @@ namespace ExpertManagmentSystem.Data
         public DbSet<SectrorsDepartment> SectrorsDepartment { get; set; }
 
 
-        //corruption department
-        //public DbSet<CO_Closed_SentInReverse> CO_Closed_SentInReverses { get; set; }
-        //public DbSet<CO_CorruptionCharge> CO_CorruptionCharges { get; set; }
-        //public DbSet<CO_FederalAppealOrBreak> CO_FederalAppealOrBreaks { get; set; }
-        ////public DbSet<CO_FederalBreak> CO_FederalBreak { get; set; }
-        //public DbSet<CO_FirstOrder> CO_FirstOrders { get; set; }
-        //public DbSet<CO_Petition> CO_Petitions { get; set; }
-        //public DbSet<CO_RegionalBreakAppeal> CO_RegionalBreakAppeals { get; set; }
-        //public DbSet<CO_Warranty> CO_Warrantys { get; set; }
+
         //corruption department
 
-        public DbSet<CO_Closed_SentInReverse> CO_Closed_SentInReverse { get; set; }
+        //public DbSet<CO_Closed_SentInReverse> CO_Closed_SentInReverse { get; set; }
         public DbSet<CO_CorruptionCharge> CO_CorruptionCharge { get; set; }
-        public DbSet<CO_FederalAppealOrBreak> CO_FederalAppealOrBreak { get; set; }
-        //public DbSet<CO_FederalBreak> CO_FederalBreak { get; set; }
-        public DbSet<CO_FirstOrder> CO_FirstOrder { get; set; }
+        //public DbSet<CO_JudicialAppealOrBreak> CO_JudicialAppealOrBreak { get; set; }
+        
+        //public DbSet<CO_FirstOrder> CO_FirstOrder { get; set; }
         public DbSet<CO_Petition> CO_Petition { get; set; }
-        public DbSet<CO_RegionalBreakAppeal> CO_RegionalBreakAppeal { get; set; }
-        public DbSet<CO_Warranty> CO_Warranty { get; set; }
+        public DbSet<CO_PetitionFollowUp> CO_PetitionFollowUp { get; set; }
+        //public DbSet<CO_RegionalBreakAppeal> CO_RegionalBreakAppeal { get; set; }
+        //public DbSet<CO_Warranty> CO_Warranty { get; set; }
 
+        //crime type
         public DbSet<Cr_Crime_Type> Cr_Crime_Types { get; set; }
+        public DbSet<ProsecutorsDecision> ProsecutorsDecision { get; set; }
+        public DbSet<CourtsDecision> CourtsDecision { get; set; }
+       //public DbSet<CourtsDecision> CourtsDecision { get; set; }
+
+        public DbSet<CO_CorruptionCourtDecision> CO_CorruptionCourtDecision { get; set; }
+        public DbSet<CO_JudicialAppealOrBreak>? CO_JudicialAppealOrBreak { get; set; }
+        public DbSet<CO_JudicialAppealOrBreakDecision>? CO_JudicialAppealOrBreakDecision { get; set; }
+        public DbSet<CO_ProsecutorAppealOrBreak>? CO_ProsecutorAppealOrBreak { get; set; }
+        public DbSet<CO_ProsecutorAppealOrBreakDecision>? CO_ProsecutorAppealOrBreakDecision { get; set; }
+
+
+
+        //other user dbset
         public DbSet<Cr_Decided_Judicial_and_Prosecuter> Cr_Decided_Judicial_and_Prosecuters { get; set; }
         public DbSet<Cr_JudicalAppealDirectCharege> Cr_JudicalAppealDirectChareges { get; set; }
         public DbSet<DirectChargeOpenning> DirectChargeOpennings { get; set; }
@@ -134,6 +141,25 @@ namespace ExpertManagmentSystem.Data
 
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<ExpertManagmentSystem.ViewModels.CivilCaseViewModels.CCFreeLsfuViewModel>? CCFreeLsfuViewModel { get; set; }
+
+
+
+
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+       // public DbSet<ExpertManagmentSystem.Models.Corruption.CO_PetitionFollowUp>? CO_PetitionFollowUp { get; set; }
 
     }
 
