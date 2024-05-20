@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reporting Management System</title>
+  <title>አብከመ ፍትህ ቢሮ የሪፖርት አስተዳደር ዘዴ </title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -159,7 +159,7 @@
                                 </ul>
                             </li>
 
-                        <li class="nav-item">
+                            <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="fa fa-regular fa-folder"></i>
                                 <p>
@@ -207,6 +207,38 @@
                                     <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
                                         <i class="fa fa-check"></i>
                                         <p> አቤቱታ </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                            <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-regular fa-folder"></i>
+                                <p>
+                                    የመንግስት
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ይግባኝ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="CCGoveLabos" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ሰበር </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ቀጥታ ክስ </p>
                                     </a>
                                 </li>
                             </ul>

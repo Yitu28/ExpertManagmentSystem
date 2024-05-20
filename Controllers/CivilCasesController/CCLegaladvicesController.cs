@@ -59,7 +59,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CCLegaladvicesId,LadFileNo,Ladvicerequester,LadDoariv,LadTypes,LadAmountBirr,LadAmountKarie,LadAddressZone,LadAddressWoreda,LadExpertName,LadDaos,LadDoare,LadTimeTaken,LadPDecisoion,LadAssignto")] CCLegaladvices cCLegaladvices)
+        public async Task<IActionResult> Create(CCLegaladvices cCLegaladvices)
         {
             if (ModelState.IsValid)
             {

@@ -13,8 +13,8 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         [Key]
         public Guid CCFreelServicesId { get; set; }
         // Presecutor's File Number 
-        [Required(ErrorMessage = "እባክዎን የአቃቢ ህግ መዝገብ ቁጥርን ይሙሉ !")]
-        [Display(Name = "የአቃቢ ህግ መዝገብ ቁጥር")]
+        [Required(ErrorMessage = "እባክዎን የዐቃቢ ህግ መዝገብ ቁጥርን ይሙሉ !")]
+        [Display(Name = "የዐቃቢ ህግ መዝገብ ቁጥር")]
         public string? FileNo { get; set; }
 
         // Courrt Record  Number 
@@ -36,43 +36,47 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
 
         // Legal Aid breaking response Openning Sex
-        [Required(ErrorMessage = "እባክዎን ነፃ የህግ ድጋፍ ፈላጊ ፆታን ይምረጡ !")]
+
         [Display(Name = "ነፃ የህግ ድጋፍ ፈላጊ ፆታ")]
         public Genders? Gender { get; set; }
 
         // Legal Aid breaking response Openning Age
-        [Required(ErrorMessage = "እባክዎን ነፃ የህግ ድጋፍ ፈላጊ ዕድሜን ይሙሉ !")]
         [Display(Name = "ነፃ የህግ ድጋፍ ፈላጊ ዕድሜ")]
         public int? Age { get; set; }
 
         // Legal Aid breaking response Openning Support Type
-        [Required(ErrorMessage = "እባክዎን ነፃ የህግ ድጋፍ አይነትን ይሙሉ !")]
         [Display(Name = "ነፃ የህግ ድጋፍ አይነት ")]
         public SupportType? SupportType { get; set; }
 
 
         // Legal Aid breaking response Openning Date of Openning 
-        [Required(ErrorMessage = "እባክዎን በዓቃቢ ህግ የተከፈተበት ቀንን ይሙሉ !")]
-        [Display(Name = "በዓቃቢ ህግ የተከፈተበት ቀን")]
+        [Required(ErrorMessage = "እባክዎን በዐቃቢ ህግ የተከፈተበት ቀንን ይሙሉ !")]
+        [Display(Name = "በዐቃቢ ህግ የተከፈተበት ቀን")]
         public DateTime? Doo { get; set; }
 
         // Legal Aid breaking response Openning Types Off Issue
         [Required(ErrorMessage = "እባክዎን የጉዳዩን አይነት ይሙሉ !")]
         [Display(Name = "የጉዳይ አይነት ")]
-        public string? typesofIssue { get; set; }
+        public CaseTypes? typesofIssue { get; set; }
+
+        public CustomerCategory? CustomerCategory { get; set; }
 
         // Legal Aid breaking response Openning (apsm) Amount Per Birr / Square Meter
-        [Required(ErrorMessage = "እባክዎን የገንዘብ መጠንን ይሙሉ !")]
-        [Display(Name = "የገንዘብ መጠን")]
-        public string? apsm { get; set; }
+
+        [Display(Name = "የገንዘብ መጠን በብር")]
+        public string? AmountinBirr { get; set; }
+
+
+        // Legal Aid breaking response Openning (apsm) Amount Per Birr / Square Meter
+        [Display(Name = "የገንዘብ መጠን በካሬ")]
+        public string? Amountincarie { get; set; }
+
 
         // Legal Aid breaking response Openning Responder
-        [Required(ErrorMessage = "እባክዎን የሚገኝበት ዞንን ይሙሉ !")]
         [Display(Name = "የሚገኝበት ዞን")]
         public string? AddressZone { get; set; }
 
         // Legal Aid breaking response Openning Responder
-        [Required(ErrorMessage = "እባክዎን የሚገኝበት ወረዳን ይሙሉ !")]
         [Display(Name = "የሚገኝበት ወረዳ ")]
         public string? AddressWoreda { get; set; }
 
@@ -101,8 +105,8 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
         // Legal Aid breaking response Openning Date of Presecutor Decisions 
         
-        [Display(Name = "በአቃቢ ህግ የተሰጠ ውሳኔ ")]
-        public string? PDecission { get; set; }
+        [Display(Name = "በዐቃቢ ህግ የተሰጠ ውሳኔ ")]
+        public CCPDecissionTypes? CCPDecissionTypes { get; set; }
 
 
         public Guid? CCServCreatedBy { get; set; }

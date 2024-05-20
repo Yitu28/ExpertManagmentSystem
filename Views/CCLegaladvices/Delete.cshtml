@@ -1,4 +1,5 @@
-﻿@model ExpertManagmentSystem.Models.CivilCaseModels.CCLegaladvices
+﻿@using ExpertManagmentSystem.Enums
+@model ExpertManagmentSystem.Models.CivilCaseModels.CCLegaladvices
 
 @{
     ViewData["Title"] = "Delete";
@@ -109,9 +110,10 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-md-4">
-                        <label asp-for="LadPDecisoion" class="control-label"></label>
-                        <input asp-for="LadPDecisoion" class="form-control" disabled />
-                        <span asp-validation-for="LadPDecisoion" class="text-danger"></span>
+                        <label asp-for="CCLadDecissionTypes" class="control-label"></label>
+                        <input asp-for="CCLadDecissionTypes" class="form-control" />
+                        @* @Html.DropDownList("CCLadDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" }) *@
+                        <span asp-validation-for="CCLadDecissionTypes" class="text-danger"></span>
                     </div>
                     <div class="form-group  col-md-4">
                         <label asp-for="LadAssignto" class="control-label"></label>

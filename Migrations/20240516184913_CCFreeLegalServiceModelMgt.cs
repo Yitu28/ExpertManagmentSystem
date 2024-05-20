@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ExpertManagmentSystem.Migrations
 {
-    public partial class PedladModel : Migration
+    public partial class CCFreeLegalServiceModelMgt : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,7 +20,7 @@ namespace ExpertManagmentSystem.Migrations
                     CCdltId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DltFileNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DltRecorNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DltApplicant = table.Column<int>(type: "int", nullable: false),
+                    DltApplicant = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DltResponder = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DltGender = table.Column<int>(type: "int", nullable: false),
                     DltAge = table.Column<int>(type: "int", nullable: false),
@@ -31,16 +31,87 @@ namespace ExpertManagmentSystem.Migrations
                     DltAmountKarie = table.Column<int>(type: "int", nullable: false),
                     DltAddressZone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DltAddressWoreda = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DltExpertName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    DltExpertName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DltDoAss = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DltDoRet = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DltLOS = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DltPDecission = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    DltAssignto = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    DltPDecission = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DltAssignto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DltCreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DltUpdatededBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DltDeletedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DltCreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DltEdittedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DltDeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CCdlt", x => x.CCdltId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CCLegaladvices",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    CCLegaladvicesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LadFileNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Ladvicerequester = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LadDoariv = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LadTypes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LadAmountBirr = table.Column<int>(type: "int", nullable: false),
+                    LadAmountKarie = table.Column<int>(type: "int", nullable: false),
+                    LadAddressZone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LadAddressWoreda = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LadExpertName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LadDaos = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LadDoare = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LadTimeTaken = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LadPDecisoion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LadAssignto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LadCreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    LaddatededBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    LadDeletedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    LadCreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LadEdittedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LadDeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CCLegaladvices", x => x.CCLegaladvicesId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CCPetition",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    CCPetitionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PeFileNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Pevicerequester = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PeGender = table.Column<int>(type: "int", nullable: false),
+                    PeAge = table.Column<int>(type: "int", nullable: false),
+                    PeSupportType = table.Column<int>(type: "int", nullable: false),
+                    PeDoariv = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PeTypes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PeAddressZone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PeAddressWoreda = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PeExpertName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PeDaos = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PeDoare = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PeTimeTaken = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PePDecisoion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PeAssignto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PeCreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    PeUpdatededBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    PeDeletedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    PeCreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PeEdittedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PeDeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CCPetition", x => x.CCPetitionId);
                 });
 
             migrationBuilder.CreateTable(
@@ -208,14 +279,21 @@ namespace ExpertManagmentSystem.Migrations
                     SupportType = table.Column<int>(type: "int", nullable: false),
                     Doo = table.Column<DateTime>(type: "datetime2", nullable: false),
                     typesofIssue = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    apsm = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AmountinBirr = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Amountincarie = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AddressZone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AddressWoreda = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ExpertName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    ExpertName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DoAss = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DoRet = table.Column<DateTime>(type: "datetime2", nullable: true),
                     LOS = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PDecission = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
+                    CCPDecissionTypes = table.Column<int>(type: "int", nullable: true),
+                    CCServCreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CCServUpdatededBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CCServDeletedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CCServCreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CCServEdittedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CCServDeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     SectrorsDepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FreelCategory = table.Column<int>(type: "int", nullable: true)
                 },
@@ -572,26 +650,27 @@ namespace ExpertManagmentSystem.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProsecutorsSRecordNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CourtRecordNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Plaintiff = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Accused = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OpenningDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TypeOfIssue = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TypeOfCustomer = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AmountPerBirr = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    AmountPerSquerMetter = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    AddressZone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AddressWoreda = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NameOfTheExpert = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateDirected = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CompletionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProsecutorsSRecordNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CourtRecordNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Plaintiff = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Accused = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OpenningDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    TypeOfIssue = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TypeOfCustomer = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AmountPerBirr = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    AmountPerSquerMetter = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    AddressZone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AddressWoreda = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NameOfTheExpert = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateDirected = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CompletionDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     TimeTakenToComplete = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProsecutorDecission = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EdittedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ApplicationUserUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProsecutorDecission = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CivilCaseCategory = table.Column<int>(type: "int", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    EdittedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ApplicationUserUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -732,7 +811,13 @@ namespace ExpertManagmentSystem.Migrations
                     DoD = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DecisionStatus = table.Column<int>(type: "int", nullable: true),
                     Decisionmadeby = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CCFreelServicesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    CCFreelServicesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FollupCreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    FollupUpdatededBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    FollupDeletedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    FollupCreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    FollupEdittedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    FollupDeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -752,16 +837,16 @@ namespace ExpertManagmentSystem.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IssuedCourtWrittenForOrganization = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateSubmittedToCourt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateApointmented = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DecissionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CivilCaseCategory = table.Column<int>(type: "int", nullable: false),
-                    DirectChargeOppeningId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EdittedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ApplicationUserUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IssuedCourtWrittenForOrganization = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateSubmittedToCourt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DateApointmented = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DecissionDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CivilCaseCategory = table.Column<int>(type: "int", nullable: true),
+                    DirectChargeOppeningId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    EdittedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ApplicationUserUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -772,8 +857,7 @@ namespace ExpertManagmentSystem.Migrations
                         column: x => x.DirectChargeOppeningId,
                         principalSchema: "ExpertUserMngt",
                         principalTable: "DirectChargeOpennings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_DirectChargeFollowUps_Users_ApplicationUserId",
                         column: x => x.ApplicationUserId,
@@ -955,6 +1039,14 @@ namespace ExpertManagmentSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "CCFreeLsfuViewModel",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
+                name: "CCLegaladvices",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
+                name: "CCPetition",
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ExpertManagmentSystem.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace ExpertManagmentSystem.Models.CivilCaseModels
 {
@@ -9,7 +10,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public Guid CCLegaladvicesId { get; set; }
 
         [Required(ErrorMessage = "የእባክዎን ዐቃቢ ህግ መዝገብ ቁጥር ይሙሉ")]
-        [Display(Name = "የዐ/ህ/መ/ቁ.")]
+        [Display(Name = "የዐቃቢ ህግ መዝገብ ቁጥር")]
         public string? LadFileNo { get; set; }
 
         [Required(ErrorMessage = "የእባክዎን ህግ ምክር ጠያቂን ይሙሉ ")]
@@ -64,7 +65,8 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
         [Required(ErrorMessage = "የእባክዎን የዐቃቢ ህግ ወሳኔን ይሙሉ")]
         [Display(Name = "የዐቃቢ ህግ ውሳኔ")]
-        public string? LadPDecisoion { get; set; }
+        //public string? LadPDecisoion { get; set; }
+        public string? CCLadDecissionTypes { get; set; }
 
 
         [Required(ErrorMessage = "የእባክዎን የተመራለትን ተቋም ይሙሉ ")]
