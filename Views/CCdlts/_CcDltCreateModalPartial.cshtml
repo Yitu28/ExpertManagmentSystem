@@ -52,7 +52,7 @@
                         <div class="form-group col-md-4">
                             <label asp-for="DltSupportType" class="control-label"></label>
                             @* <input asp-for="DltSupportType" class="form-control" /> *@
-                                @Html.DropDownList("DltSupportType", Html.GetEnumSelectList<SupportType>(), " ነፃ የህግ ድጋፍ የማህበር ክፍለ ይምረጡ ", new { @class = "form-control" })
+                                @Html.DropDownList("DltSupportType", Html.GetEnumSelectList<SupportType>(), " ነፃ የህግ ድጋፍ የማህበረሰብ ክፍል  ይምረጡ ", new { @class = "form-control" })
                             <span asp-validation-for="DltSupportType" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-4">
@@ -115,9 +115,10 @@
                                 <span asp-validation-for="DltLOS" class="text-danger"></span>
                             </div>
                             <div class="form-group col-md-4">
-                                <label asp-for="DltPDecission" class="control-label"></label>
-                                <input asp-for="DltPDecission" class="form-control" />
-                                <span asp-validation-for="DltPDecission" class="text-danger"></span>
+                                <label asp-for="CCDltDecissionTypes" class="control-label"></label>
+                                <input asp-for="CCDltDecissionTypes" class="form-control" />
+                                @* @Html.DropDownList("CCDltDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" }) *@
+                                <span asp-validation-for="CCDltDecissionTypes" class="text-danger"></span>
                             </div>
                         </div>
                     

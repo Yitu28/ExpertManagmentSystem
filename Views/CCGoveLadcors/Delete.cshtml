@@ -1,0 +1,131 @@
+﻿@using ExpertManagmentSystem.Enums
+@model ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card card-danger">
+    <div class="card-header card-danger">
+        <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
+            <li class="nav-item">
+                <h5> ይህን የመንግስት ይግባኝ አመልካች ለመሰረዝ እርግጠኛ ነዎት ? </h5>
+                @* <a class="nav-link Freelaaos active" id="custom-content-below-home-tab" data-toggle="pill" href="#customcontent-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">ነፃ የህግ ድጋፍ ይግባኝ አመልካች መሰረዝ  </a> *@
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="tab-content" id="custom-content-below-tabContent">
+            <div class="tab-pane fade show active" id="customcontent-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+              
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="FileNo" class="control-label"></label>
+                        <input asp-for="FileNo" class="form-control" disabled />
+                        <span asp-validation-for="FileNo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="RecorNo" class="control-label"></label>
+                        <input asp-for="RecorNo" class="form-control" disabled />
+                        <span asp-validation-for="RecorNo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="Applicant" class="control-label"></label>
+                        <input asp-for="Applicant" class="form-control" disabled />
+                        <span asp-validation-for="Applicant" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="Responder" class="control-label"></label>
+                        <input asp-for="Responder" class="form-control" disabled />
+                        <span asp-validation-for="Responder" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="Gender" class="control-label"></label>
+                        <input asp-for="Gender" class="form-control" disabled />
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="Age" class="control-label"></label>
+                        <input asp-for="Age" class="form-control" disabled />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="SupportType" class="control-label"></label>
+                        <input asp-for="SupportType" class="form-control" disabled />
+                        <span asp-validation-for="SupportType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="Doo" class="control-label"></label>
+                        <input asp-for="Doo" class="form-control" disabled />
+                        <span asp-validation-for="Doo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="typesofIssue" class="control-label"></label>
+                        <input asp-for="typesofIssue" class="form-control" disabled />
+                        <span asp-validation-for="typesofIssue" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="AmountinBirr" class="control-label"></label>
+                        <input asp-for="AmountinBirr" class="form-control" />
+                        <span asp-validation-for="AmountinBirr" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label asp-for="Amountincarie" class="control-label"></label>
+                        <input asp-for="Amountincarie" class="form-control" />
+                        <span asp-validation-for="Amountincarie" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="AddressZone" class="control-label"></label>
+                        <input asp-for="AddressZone" class="form-control" disabled />
+                        <span asp-validation-for="AddressZone" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="AddressWoreda" class="control-label"></label>
+                        <input asp-for="AddressWoreda" class="form-control" disabled />
+                        <span asp-validation-for="AddressWoreda" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="ExpertName" class="control-label"></label>
+                        <input asp-for="ExpertName" class="form-control" disabled />
+                        <span asp-validation-for="ExpertName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="DoAss" class="control-label"></label>
+                        <input asp-for="DoAss" class="form-control" disabled />
+                        <span asp-validation-for="DoAss" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="DoRet" class="control-label"></label>
+                        <input asp-for="DoRet" class="form-control" disabled />
+                        <span asp-validation-for="DoRet" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="LOS" class="control-label"></label>
+                        <input asp-for="LOS" class="form-control" disabled />
+                        <span asp-validation-for="LOS" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="CCPDecissionTypes" class="control-label"></label>
+                        @Html.DropDownList("CCPDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" })
+                        <span asp-validation-for="CCPDecissionTypes" class="text-danger"></span>
+                    </div>
+                </div>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="CCFreelServicesId" />
+                    <a asp-action="Index" class="btn btn-success"> ወደ ዋናው ተመለስ </a>
+                    <input type="submit" value="ይሰረዝ" class="btn btn-danger float-right" />
+                </form>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

@@ -30,7 +30,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public DateTime? DoD { get; set; }
 
         [Display(Name = "የወሳኔ አይነት")]
-        public DecisionStatus? DecisionStatus { get; set; }
+        public TypeofDecision? DecisionStatus { get; set; }
 
         [Display(Name = "የወሳኔን የሰጠው ፍርድ ቤት")]
         public string? Decisionmadeby { get; set; }

@@ -38,7 +38,7 @@
                     <div class="form-group col-md-4">
                         <label asp-for="PeSupportType" class="control-label"></label>
                         @* <input asp-for="PeSupportType" class="form-control" /> *@
-                        @Html.DropDownList("PeSupportType", Html.GetEnumSelectList<SupportType>(), " ነፃ የህግ ድጋፍ የማህበር ክፍለ ይምረጡ ", new { @class = "form-control" })
+                        @Html.DropDownList("PeSupportType", Html.GetEnumSelectList<SupportType>(), " ነፃ የህግ ድጋፍ የማህበረሰብ ክፍል  ይምረጡ ", new { @class = "form-control" })
                         <span asp-validation-for="PeSupportType" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-4">
@@ -90,9 +90,10 @@
                         <span asp-validation-for="PeTimeTaken" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-4">
-                        <label asp-for="PePDecisoion" class="control-label"></label>
-                        <input asp-for="PePDecisoion" class="form-control" />
-                        <span asp-validation-for="PePDecisoion" class="text-danger"></span>
+                        <label asp-for="CCPeDecissionTypes" class="control-label"></label>
+                        <input asp-for="CCPeDecissionTypes" class="form-control" />
+                        @* @Html.DropDownList("CCPeDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" }) *@
+                        <span asp-validation-for="CCPeDecissionTypes" class="text-danger"></span>
                     </div>
                    
                     <div class="form-group col-md-4">

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpertManagmentSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240513131048_UpdateDltModelInIt")]
-    partial class UpdateDltModelInIt
+    [Migration("20240520111717_UpdateServiceModel002")]
+    partial class UpdateServiceModel002
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -109,6 +109,9 @@ namespace ExpertManagmentSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("CCDltDecissionTypes")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DltAddressWoreda")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -116,6 +119,10 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<string>("DltAddressZone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DltAge")
+                        .IsRequired()
+                        .HasColumnType("int");
 
                     b.Property<int>("DltAmountBirr")
                         .HasColumnType("int");
@@ -131,6 +138,18 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("DltCreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DltCreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DltDeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DltDeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("DltDoAss")
                         .IsRequired()
                         .HasColumnType("datetime2");
@@ -140,6 +159,9 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.Property<DateTime?>("DltDoo")
                         .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DltEdittedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DltExpertName")
@@ -156,9 +178,6 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<string>("DltLOS")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DltPDecission")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("DltRecorNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -170,9 +189,8 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<int>("DltSupportType")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DltAge")
-                        .IsRequired()
-                        .HasColumnType("int");
+                    b.Property<Guid?>("DltUpdatededBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DlttypesofIssue")
                         .IsRequired()
@@ -213,6 +231,24 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired()
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("FollupCreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("FollupCreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("FollupDeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("FollupDeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("FollupEdittedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("FollupUpdatededBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("FreeLegServiceFollowupId");
 
                     b.HasIndex("CCFreelServicesId");
@@ -227,16 +263,47 @@ namespace ExpertManagmentSystem.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AddressWoreda")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AddressZone")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AmountinBirr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Amountincarie")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Applicant")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CCPDecissionTypes")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CCServCreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CCServCreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CCServDeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CCServDeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CCServEdittedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CCServUpdatededBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("CustomerCategory")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("DoAss")
                         .IsRequired()
@@ -251,8 +318,7 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.Property<string>("ExpertName")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FileNo")
                         .IsRequired()
@@ -261,15 +327,11 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<int?>("FreelCategory")
                         .HasColumnType("int");
 
-                    b.Property<int>("Gender")
+                    b.Property<int?>("Gender")
                         .HasColumnType("int");
 
                     b.Property<string>("LOS")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PDecission")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("RecorNo")
                         .IsRequired()
@@ -282,19 +344,11 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<Guid>("SectrorsDepartmentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("SupportType")
+                    b.Property<int?>("SupportType")
                         .HasColumnType("int");
 
-                    b.Property<int>("Age")
+                    b.Property<int>("typesofIssue")
                         .HasColumnType("int");
-
-                    b.Property<string>("apsm")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("typesofIssue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CCFreelServicesId");
 
@@ -308,6 +362,10 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<Guid>("CCLegaladvicesId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CCLadDecissionTypes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LadAddressWoreda")
                         .IsRequired()
@@ -329,9 +387,21 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("LadCreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("LadCreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("LadDaos")
                         .IsRequired()
                         .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LadDeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("LadDeletedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("LadDoare")
                         .IsRequired()
@@ -339,6 +409,9 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.Property<DateTime?>("LadDoariv")
                         .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LadEdittedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("LadExpertName")
@@ -349,17 +422,16 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LadPDecisoion")
+                    b.Property<string>("LadTimeTaken")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LadTimeTaken")
-                        .IsRequired()
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("LadTypes")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("LaddatededBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Ladvicerequester")
                         .IsRequired()
@@ -372,9 +444,13 @@ namespace ExpertManagmentSystem.Migrations
 
             modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCPetition", b =>
                 {
-                    b.Property<Guid>("CCLegaladvicesId")
+                    b.Property<Guid>("CCPetitionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CCPeDecissionTypes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PeAddressWoreda")
                         .IsRequired()
@@ -384,17 +460,38 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("PeAge")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.Property<string>("PeAssignto")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("PeDaos")
+                    b.Property<DateTime?>("PeCreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("PeDoare")
+                    b.Property<Guid?>("PeCreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("PeDaos")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("PeDeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("PeDeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("PeDoare")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("PeDoariv")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("PeEdittedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PeExpertName")
@@ -408,29 +505,25 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<int>("PeGender")
                         .HasColumnType("int");
 
-                    b.Property<string>("PePDecisoion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("PeSupportType")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("PeTimeTaken")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("PeTimeTaken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PeTypes")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PeAge")
-                        .IsRequired()
-                        .HasColumnType("int");
+                    b.Property<Guid?>("PeUpdatededBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Pevicerequester")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CCLegaladvicesId");
+                    b.HasKey("CCPetitionId");
 
                     b.ToTable("CCPetition", "ExpertUserMngt");
                 });
@@ -445,35 +538,33 @@ namespace ExpertManagmentSystem.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ApplicationUserUser")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CivilCaseCategory")
+                    b.Property<int?>("CivilCaseCategory")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateApointmented")
+                    b.Property<DateTime?>("DateApointmented")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateSubmittedToCourt")
+                    b.Property<DateTime?>("DateSubmittedToCourt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DecissionDate")
+                    b.Property<DateTime?>("DecissionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DirectChargeOppeningId")
+                    b.Property<Guid?>("DirectChargeOppeningId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("EdittedAt")
+                    b.Property<DateTime?>("EdittedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("IssuedCourtWrittenForOrganization")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -492,66 +583,60 @@ namespace ExpertManagmentSystem.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Accused")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AddressWoreda")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AddressZone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("AmountPerBirr")
+                    b.Property<decimal?>("AmountPerBirr")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("AmountPerSquerMetter")
+                    b.Property<decimal?>("AmountPerSquerMetter")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ApplicationUserUser")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CompletionDate")
+                    b.Property<int?>("CivilCaseCategory")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CompletionDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CourtRecordNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateDirected")
+                    b.Property<DateTime?>("DateDirected")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeletedAt")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("EdittedAt")
+                    b.Property<DateTime?>("EdittedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("NameOfTheExpert")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("OpenningDate")
+                    b.Property<DateTime?>("OpenningDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Plaintiff")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProsecutorDecission")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProsecutorsSRecordNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TimeTakenToComplete")
@@ -559,11 +644,9 @@ namespace ExpertManagmentSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TypeOfCustomer")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TypeOfIssue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -1124,6 +1207,9 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<string>("AddressZone")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("Age")
+                        .HasColumnType("int");
+
                     b.Property<string>("Applicant")
                         .HasColumnType("nvarchar(max)");
 
@@ -1188,9 +1274,6 @@ namespace ExpertManagmentSystem.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("SupportType")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Age")
                         .HasColumnType("int");
 
                     b.Property<string>("apsm")
@@ -1402,9 +1485,7 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.HasOne("ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeOpenning", "DirectChargeOpenning")
                         .WithMany("DirectChargeFollowUps")
-                        .HasForeignKey("DirectChargeOppeningId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DirectChargeOppeningId");
 
                     b.Navigation("ApplicationUser");
 

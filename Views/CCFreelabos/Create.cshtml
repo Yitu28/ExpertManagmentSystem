@@ -1,4 +1,5 @@
-﻿@model ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices
+﻿@using ExpertManagmentSystem.Enums
+@model ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices
 
 @{
     ViewData["Title"] = "Create";
@@ -54,13 +55,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="typesofIssue" class="control-label"></label>
-                <input asp-for="typesofIssue" class="form-control" />
+                @Html.DropDownList("typesofIssue", Html.GetEnumSelectList<CaseTypes>(), " የጉዳይ አይነት ይምረጡ ", new { @class = "form-control" })
                 <span asp-validation-for="typesofIssue" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="apsm" class="control-label"></label>
-                <input asp-for="apsm" class="form-control" />
-                <span asp-validation-for="apsm" class="text-danger"></span>
+                <label asp-for="AmountinBirr" class="control-label"></label>
+                <input asp-for="AmountinBirr" class="form-control" />
+                <span asp-validation-for="AmountinBirr" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Amountincarie" class="control-label"></label>
+                <input asp-for="Amountincarie" class="form-control" />
+                <span asp-validation-for="Amountincarie" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AddressZone" class="control-label"></label>
@@ -92,10 +99,10 @@
                 <input asp-for="LOS" class="form-control" />
                 <span asp-validation-for="LOS" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PDecission" class="control-label"></label>
-                <input asp-for="PDecission" class="form-control" />
-                <span asp-validation-for="PDecission" class="text-danger"></span>
+            <div class="form-group col-md-4">
+                <label asp-for="CCPDecissionTypes" class="control-label"></label>
+                @Html.DropDownList("CCPDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" })
+                <span asp-validation-for="CCPDecissionTypes" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SectrorsDepartmentId" class="control-label"></label>

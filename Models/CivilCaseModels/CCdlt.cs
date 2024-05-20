@@ -11,7 +11,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public Guid CCdltId { get; set; }
 
         [Required(ErrorMessage = "የእባክዎን ዐቃቢ ህግ መዝገብ ቁጥር ይሙሉ")]
-        [Display(Name = "የዐ/ህ/መ/ቁ.")]
+        [Display(Name = "የዐቃቢ ህግ መዝገብ ቁጥር")]
         public String? DltFileNo { get; set; }
 
         // Courrt Record  Number 
@@ -20,7 +20,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         [Display(Name = "የፍርድ ቤት መዝገብ ቁጥር")]
         public string? DltRecorNo { get; set; }
 
-        [Required(ErrorMessage = "የእባክዎን አመልካች ይሙሉ ")]
+        [Required(ErrorMessage = "የእባክዎን አመልካችን ይሙሉ ")]
         [Display(Name = "አመልካች")]
         public string? DltApplicant { get; set; }
 
@@ -46,8 +46,8 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
 
         // Legal Aid breaking response Openning Date of Openning 
-        [Required(ErrorMessage = "እባክዎን በዓቃቢ ህግ የተከፈተበት ቀንን ይሙሉ !")]
-        [Display(Name = "በዓቃቢ ህግ የተከፈተበት ቀን")]
+        [Required(ErrorMessage = "እባክዎን በዐቃቢ ህግ የተከፈተበት ቀንን ይሙሉ !")]
+        [Display(Name = "በዐቃቢ ህግ የተከፈተበት ቀን")]
         public DateTime? DltDoo { get; set; }
 
         // Legal Aid breaking response Openning Types Off Issue
@@ -99,8 +99,9 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
         // Legal Aid breaking response Openning Date of Presecutor Decisions 
         
-        [Display(Name = "በአቃቢ ህግ የተሰጠ ውሳኔ ")]
-        public string? DltPDecission { get; set; }
+        [Display(Name = "በዐቃቢ ህግ የተሰጠ ውሳኔ ")]
+        //public string? DltPDecission { get; set; }
+        public string? CCDltDecissionTypes { get; set; }
 
 
         [Required(ErrorMessage = "የእባክዎን የተመራለትን ጠበቃ ይሙሉ ")]

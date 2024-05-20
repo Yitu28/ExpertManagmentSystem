@@ -24,7 +24,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // GET: CCFreelabos
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.CCFreelServices.Include(c => c.SectrorsDepartment);
+            var applicationDbContext = _context.CCFreelServices.Include(c => c.SectrorsDepartment).Where(c => c.CustomerCategory == CustomerCategory.ነፃ);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -152,6 +152,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
                 cCFreelServices.CCFreelServicesId = Guid.NewGuid();
                 cCFreelServices.SectrorsDepartmentId = SectrorsDepartmentId;
                 cCFreelServices.FreelCategory = FreelCategory.ሰበርተጠሪ;
+                cCFreelServices.CustomerCategory = CustomerCategory.ነፃ;
                 _context.Add(cCFreelServices);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -184,6 +185,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
                 cCFreelServices.CCFreelServicesId = Guid.NewGuid();
                 cCFreelServices.SectrorsDepartmentId = SectrorsDepartmentId;
                 cCFreelServices.FreelCategory = FreelCategory.ሰበርአመልካች;
+                cCFreelServices.CustomerCategory = CustomerCategory.ነፃ;
                 _context.Add(cCFreelServices);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -215,7 +217,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CCFreelServicesId,FileNo,RecorNo,Applicant,Responder,Gender,Age,SupportType,Doo,typesofIssue,apsm,AddressZone,AddressWoreda,ExpertName,DoAss,DoRet,LOS,PDecission,SectrorsDepartmentId,FreelCategory")] CCFreelServices cCFreelServices)
+        public async Task<IActionResult> Edit(Guid id, CCFreelServices cCFreelServices)
         {
             if (id != cCFreelServices.CCFreelServicesId)
             {

@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="DecisionStatus" class="control-label"></label>
-                    @Html.DropDownList("DecisionStatus", Html.GetEnumSelectList<DecisionStatus>(), " የውሳኔ አይነት ይምረጡ ", new { @class = "form-control" })
+                    @Html.DropDownList("DecisionStatus", Html.GetEnumSelectList<TypeofDecision>(), " የውሳኔ አይነት ይምረጡ ", new { @class = "form-control" })
                     <span asp-validation-for="DecisionStatus" class="text-danger"></span>
                 </div>
             </div>

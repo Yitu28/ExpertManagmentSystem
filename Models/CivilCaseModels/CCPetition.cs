@@ -10,11 +10,11 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public Guid CCPetitionId { get; set; }
 
         [Required(ErrorMessage = "የእባክዎን ዐቃቢ ህግ መዝገብ ቁጥር ይሙሉ")]
-        [Display(Name = "የዐ/ህ/መ/ቁ.")]
+        [Display(Name = "የዐቃቢ ህግ መዝገብ ቁጥር")]
         public string PeFileNo { get; set; }
 
-        [Required(ErrorMessage = "የእባክዎን ህግ ምክር ጠያቂን ይሙሉ ")]
-        [Display(Name = "የህግ ምክር ጠያቂ")]
+        [Required(ErrorMessage = "የእባክዎን ህግ አቤቱታ አቅራቢን ይሙሉ ")]
+        [Display(Name = "አቤቱታ አቅራቢ")]
         public string Pevicerequester { get; set; }
 
         [Required(ErrorMessage = "እባክዎን ነፃ የህግ ድጋፍ ፈላጊ ፆታን ይምረጡ !")]
@@ -35,24 +35,24 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public SupportType? PeSupportType { get; set; }
 
 
-        [Required(ErrorMessage = "የእባክዎን የመጣበት ቀን ይሙሉ")]
-        [Display(Name = "የመጣበት ቀን")]
+        [Required(ErrorMessage = "የእባክዎን የተከፈተበት ቀን ይሙሉ")]
+        [Display(Name = "የተከፈተበት ቀን")]
         public DateTime PeDoariv { get; set; }
 
 
-        [Required(ErrorMessage = "የእባክዎን የህግ ምክር አይነትን ይሙሉ")]
-        [Display(Name = "የህግ ምክር አይነት")]
+        [Required(ErrorMessage = "የእባክዎን የጉዳይ አይነትን ይሙሉ")]
+        [Display(Name = "የጉዳይ አይነት")]
         public String? PeTypes { get; set; }
 
 
-        [Required(ErrorMessage = "እባክዎን የዞን አድራሻን ይሙሉ !")]
-        [Display(Name = "ዞን")]
+        [Required(ErrorMessage = "እባክዎን የየሚገኝበትን ዞን ይሙሉ !")]
+        [Display(Name = "የሚገኝበት ዞን")]
         public string? PeAddressZone { get; set; }
 
         // Legal Aid breaking response Openning Responder
-        [Required(ErrorMessage = "እባክዎን ወረዳ አድራሻን ይሙሉ !")]
+        [Required(ErrorMessage = "እባክዎን የሚገኝበትን ወረዳ ይሙሉ !")]
 
-        [Display(Name = "ወረዳ ")]
+        [Display(Name = "የሚገኝበት ወረዳ ")]
         public string? PeAddressWoreda { get; set; }
 
 
@@ -60,8 +60,8 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         [Display(Name = "መዝገቡን የስራው ባለሙያ")]
         public string? PeExpertName { get; set; }
 
-        [Required(ErrorMessage = "የእባክዎን የምክር አገልግሎት የተሰጠበትን ቀን ይሙሉ")]
-        [Display(Name = "የምክር አገልግሎት የተሰጠበት ቀን")]
+        [Required(ErrorMessage = "የእባክዎን የተሰጠበትን ቀን ይሙሉ")]
+        [Display(Name = "የተሰጠበት ቀን")]
         public DateTime? PeDaos { get; set; }
 
         [Required(ErrorMessage = "የእባክዎን ተሰርቶ የተመለሰበትን ቀን ይሙሉ")]
@@ -75,7 +75,8 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
         [Required(ErrorMessage = "የእባክዎን የዐቃቢ ህግ ወሳኔን ይሙሉ")]
         [Display(Name = "የዐቃቢ ህግ ውሳኔ")]
-        public string? PePDecisoion { get; set; }
+        public string? CCPeDecissionTypes { get; set; }
+        //public CCPDecissionTypes? CCPeDecissionTypes { get; set; }
 
 
         [Required(ErrorMessage = "የእባክዎን የተመራለትን ተቋም ይሙሉ ")]

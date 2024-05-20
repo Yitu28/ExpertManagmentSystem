@@ -1,4 +1,5 @@
-﻿@model ExpertManagmentSystem.Models.CivilCaseModels.CCLegaladvices
+﻿@using ExpertManagmentSystem.Enums
+@model ExpertManagmentSystem.Models.CivilCaseModels.CCLegaladvices
 
 
 <div class="modal fade" id="addCCLegaladicesmodals" aria-labelledby="addLegaladicesLabel" aria-hidden="true">
@@ -85,10 +86,11 @@
                     </div>
                     </div>
                     <div class="row">
-                    <div class="form-group col-md-6">
-                        <label asp-for="LadPDecisoion" class="control-label"></label>
-                        <input asp-for="LadPDecisoion" class="form-control" />
-                        <span asp-validation-for="LadPDecisoion" class="text-danger"></span>
+                    <div class="form-group col-md-4">
+                        <label asp-for="CCLadDecissionTypes" class="control-label"></label>
+                        <input asp-for="CCLadDecissionTypes" class="form-control" />
+                        @* @Html.DropDownList("CCLadDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" }) *@
+                        <span asp-validation-for="CCLadDecissionTypes" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-6">
                         <label asp-for="LadAssignto" class="control-label"></label>

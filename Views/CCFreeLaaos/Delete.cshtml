@@ -1,4 +1,5 @@
-﻿@model ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices
+﻿@using ExpertManagmentSystem.Enums
+@model ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices
 
 @{
     ViewData["Title"] = "Delete";
@@ -69,22 +70,29 @@
                         <span asp-validation-for="typesofIssue" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-3">
-                        <label asp-for="apsm" class="control-label"></label>
-                        <input asp-for="apsm" class="form-control" disabled />
-                        <span asp-validation-for="apsm" class="text-danger"></span>
+                        <label asp-for="AmountinBirr" class="control-label"></label>
+                        <input asp-for="AmountinBirr" class="form-control" />
+                        <span asp-validation-for="AmountinBirr" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label asp-for="Amountincarie" class="control-label"></label>
+                        <input asp-for="Amountincarie" class="form-control" />
+                        <span asp-validation-for="Amountincarie" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-3">
                         <label asp-for="AddressZone" class="control-label"></label>
                     <input asp-for="AddressZone" class="form-control" disabled />
                         <span asp-validation-for="AddressZone" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label asp-for="AddressWoreda" class="control-label"></label>
-                    <input asp-for="AddressWoreda" class="form-control" disabled />
-                        <span asp-validation-for="AddressWoreda" class="text-danger"></span>
-                    </div>
+                    
                 </div>
                 <div class="row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="AddressWoreda" class="control-label"></label>
+                        <input asp-for="AddressWoreda" class="form-control" disabled />
+                        <span asp-validation-for="AddressWoreda" class="text-danger"></span>
+                    </div>
                     <div class="form-group col-md-3">
                         <label asp-for="ExpertName" class="control-label"></label>
                     <input asp-for="ExpertName" class="form-control" disabled />
@@ -95,20 +103,20 @@
                     <input asp-for="DoAss" class="form-control" disabled />
                         <span asp-validation-for="DoAss" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label asp-for="DoRet" class="control-label"></label>
                     <input asp-for="DoRet" class="form-control" disabled />
                         <span asp-validation-for="DoRet" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-6">
                         <label asp-for="LOS" class="control-label"></label>
                     <input asp-for="LOS" class="form-control" disabled />
                         <span asp-validation-for="LOS" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-2">
-                        <label asp-for="PDecission" class="control-label"></label>
-                        <input asp-for="PDecission" class="form-control" disabled />
-                        <span asp-validation-for="PDecission" class="text-danger"></span>
+                    <div class="form-group col-md-6">
+                        <label asp-for="CCPDecissionTypes" class="control-label"></label>
+                        @Html.DropDownList("CCPDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" })
+                        <span asp-validation-for="CCPDecissionTypes" class="text-danger"></span>
                     </div>
                 </div>
                 <form asp-action="Delete">
