@@ -1,21 +1,19 @@
-﻿@model ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeOpenning
+﻿@model ExpertManagmentSystem.Models.CivilCaseModels.LeadingCommandAndAppealNotSupported
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
-
-<h4>DirectChargeOpenning</h4>
+<h4>Create leading command</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="CreateLeadingCommand">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ProsecutorsRecordNumber" class="control-label"></label>
-                <input asp-for="ProsecutorsRecordNumber" class="form-control" />
-                <span asp-validation-for="ProsecutorsRecordNumber" class="text-danger"></span>
+                <label asp-for="ProsecutorRecordNumber" class="control-label"></label>
+                <input asp-for="ProsecutorRecordNumber" class="form-control" />
+                <span asp-validation-for="ProsecutorRecordNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CourtRecordNumber" class="control-label"></label>
@@ -43,9 +41,9 @@
                 <span asp-validation-for="TypeOfIssue" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TypeOfCustomer" class="control-label"></label>
-                <input asp-for="TypeOfCustomer" class="form-control" />
-                <span asp-validation-for="TypeOfCustomer" class="text-danger"></span>
+                <label asp-for="LeadingCommandAndUnSupportAppeal" class="control-label"></label>
+                <input asp-for="LeadingCommandAndUnSupportAppeal" class="form-control" />
+                <span asp-validation-for="LeadingCommandAndUnSupportAppeal" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AmountPerBirr" class="control-label"></label>
@@ -56,6 +54,11 @@
                 <label asp-for="AmountPerSquerMetter" class="control-label"></label>
                 <input asp-for="AmountPerSquerMetter" class="form-control" />
                 <span asp-validation-for="AmountPerSquerMetter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProsecutorSupportTo" class="control-label"></label>
+                <input asp-for="ProsecutorSupportTo" class="form-control" />
+                <span asp-validation-for="ProsecutorSupportTo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AddressZone" class="control-label"></label>
@@ -73,11 +76,6 @@
                 <span asp-validation-for="NameOfTheExpert" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DateDirected" class="control-label"></label>
-                <input asp-for="DateDirected" class="form-control" />
-                <span asp-validation-for="DateDirected" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="CompletionDate" class="control-label"></label>
                 <input asp-for="CompletionDate" class="form-control" />
                 <span asp-validation-for="CompletionDate" class="text-danger"></span>
@@ -92,7 +90,6 @@
                 <input asp-for="ProsecutorDecission" class="form-control" />
                 <span asp-validation-for="ProsecutorDecission" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="CreatedAt" class="control-label"></label>
                 <input asp-for="CreatedAt" class="form-control" />
@@ -114,7 +111,7 @@
                 <span asp-validation-for="ApplicationUserUser" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

@@ -192,7 +192,56 @@
                         </li>
                         @*}*@
 
-       {*@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-list"></i>
+                                <p>
+                                    ፍታብሄር   
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a asp-controller="DirectChargeOpennings" asp-action="DirectChargeOpenning" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> ቀጥታ ክስ መክፈቻ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="DirectChargeOpennings" asp-action="DirectChargeResponseOpenning" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> ቀጥታ ክስ መልስ መክፈቻ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="DirectChargeOpennings" asp-action="GeneralAppealOpenning" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> ጠቅላይ ይግባኝ መክፈቻ </p>
+                                    </a>
+                                </li> 
+                                <li class="nav-item">
+                                    <a asp-controller="DirectChargeOpennings" asp-action="GeneralAppealResponseOpenning" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> ጠቅላይ ይግባኝ መልስ መክፈቻ  </p>
+                                    </a>
+                                </li> 
+                                <li class="nav-item">
+                                    <a asp-controller="DirectChargeOpennings" asp-action="BreakingApplicantOpenning" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> ሰበር ተጠሪ አመልካች መክፈቻ </p>
+                                    </a>
+                                </li> 
+                                <li class="nav-item">
+                                    <a asp-controller="DirectChargeOpennings" asp-action="BreakingRespondentOpenning" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> ሰበር አመልካች መክፈቻ </p>
+                                    </a>
+                                </li>                                 
+                            </ul>
+                        </li>
+
     <li class="nav-item">
         <a href="#" class="nav-link">
             <i class="fa fa-tasks"></i>
@@ -260,7 +309,7 @@
            
         </ul>
     </li>
-@*}*@
+
 
 
        </ul>

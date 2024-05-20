@@ -1,16 +1,19 @@
-﻿@model IEnumerable<ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeOpenning>
+﻿@model IEnumerable<ExpertManagmentSystem.Models.CivilCaseModels.LeadingCommandAndAppealNotSupported>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Direct charge</h1>
+<h1>Index</h1>
 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProsecutorsRecordNumber)
+                @Html.DisplayNameFor(model => model.ProsecutorRecordNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CourtRecordNumber)
@@ -28,13 +31,16 @@
                 @Html.DisplayNameFor(model => model.TypeOfIssue)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TypeOfCustomer)
+                @Html.DisplayNameFor(model => model.LeadingCommandAndUnSupportAppeal)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AmountPerBirr)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AmountPerSquerMetter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProsecutorSupportTo)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AddressZone)
@@ -46,9 +52,6 @@
                 @Html.DisplayNameFor(model => model.NameOfTheExpert)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateDirected)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.CompletionDate)
             </th>
             <th>
@@ -56,17 +59,27 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProsecutorDecission)
-            </th>            
-            @* <th>
-                <a asp-action="Create" class= "btn btn-success">Add new</a>
-            </th> *@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EdittedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeletedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUserUser)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ProsecutorsRecordNumber)
+                @Html.DisplayFor(modelItem => item.ProsecutorRecordNumber)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CourtRecordNumber)
@@ -84,13 +97,16 @@
                 @Html.DisplayFor(modelItem => item.TypeOfIssue)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TypeOfCustomer)
+                @Html.DisplayFor(modelItem => item.LeadingCommandAndUnSupportAppeal)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AmountPerBirr)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AmountPerSquerMetter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProsecutorSupportTo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AddressZone)
@@ -102,9 +118,6 @@
                 @Html.DisplayFor(modelItem => item.NameOfTheExpert)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateDirected)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.CompletionDate)
             </td>
             <td>
@@ -113,9 +126,22 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ProsecutorDecission)
             </td>
-
             <td>
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EdittedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeletedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUserUser)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

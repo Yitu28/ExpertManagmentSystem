@@ -1,4 +1,4 @@
-﻿@model ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeOpenning
+﻿@model ExpertManagmentSystem.Models.CivilCaseModels.LeadingCommandAndAppealNotSupported
 
 @{
     ViewData["Title"] = "Details";
@@ -7,14 +7,14 @@
 <h1>Details</h1>
 
 <div>
-    <h4>DirectChargeOpenning</h4>
+    <h4>LeadingCommandUnAppealNotSupported</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProsecutorsRecordNumber)
+            @Html.DisplayNameFor(model => model.ProsecutorRecordNumber)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProsecutorsRecordNumber)
+            @Html.DisplayFor(model => model.ProsecutorRecordNumber)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CourtRecordNumber)
@@ -47,10 +47,10 @@
             @Html.DisplayFor(model => model.TypeOfIssue)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TypeOfCustomer)
+            @Html.DisplayNameFor(model => model.LeadingCommandAndUnSupportAppeal)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TypeOfCustomer)
+            @Html.DisplayFor(model => model.LeadingCommandAndUnSupportAppeal)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.AmountPerBirr)
@@ -63,6 +63,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.AmountPerSquerMetter)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProsecutorSupportTo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProsecutorSupportTo)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.AddressZone)
@@ -81,12 +87,6 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NameOfTheExpert)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateDirected)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateDirected)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CompletionDate)

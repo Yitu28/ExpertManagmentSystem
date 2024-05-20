@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using ExpertManagmentSystem.OrganizationalStructures;
 using Microsoft.EntityFrameworkCore;
+using ExpertManagmentSystem.Enums;
 
 namespace ExpertManagmentSystem.ViewModels.CivilCaseViewModels
 {

@@ -1,0 +1,64 @@
+﻿@model ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeFollowUp
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>DirectChargeFollowUp</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row col-md-12">
+                <div class="form-group">
+                    <label asp-for="IssuedCourtWrittenForOrganization" class="control-label"></label>
+                    <input asp-for="IssuedCourtWrittenForOrganization" class="form-control" />
+                    <span asp-validation-for="IssuedCourtWrittenForOrganization" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateSubmittedToCourt" class="control-label"></label>
+                    <input asp-for="DateSubmittedToCourt" class="form-control" />
+                    <span asp-validation-for="DateSubmittedToCourt" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateApointmented" class="control-label"></label>
+                    <input asp-for="DateApointmented" class="form-control" />
+                    <span asp-validation-for="DateApointmented" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row col-md-12">
+                <div class="form-group">
+                    <label asp-for="DecissionDate" class="control-label"></label>
+                    <input asp-for="DecissionDate" class="form-control" />
+                    <span asp-validation-for="DecissionDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CivilCaseCategory" class="control-label"></label>
+                    <input asp-for="CivilCaseCategory" class="form-control" />
+                    <span asp-validation-for="CivilCaseCategory" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DirectChargeOppeningId" class="control-label"></label>
+                    <select asp-for="DirectChargeOppeningId" class="form-control" asp-items="ViewBag.DirectChargeOppeningId"></select>
+                    <span asp-validation-for="CivilCaseCategory" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+            <div>
+                <a asp-action="Index" class="btn-outline-light">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

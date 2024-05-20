@@ -1,4 +1,5 @@
-﻿using ExpertManagmentSystem.OrganizationalStructures;
+﻿using ExpertManagmentSystem.Enums;
+using ExpertManagmentSystem.OrganizationalStructures;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,11 +8,11 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
     // This Class Defines for Civil Case Managment 
     // For Free legal Services 
     // Sex Category with Enumerable List
-    public enum Gender
-    {
-        ሴት,
-        ወንድ
-    }
+    //public enum Gender
+    //{
+    //    ሴት,
+    //    ወንድ
+    //}
     // Types Of Decision with Enumerable List
     public enum TypeofDecision
     {

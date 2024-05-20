@@ -1,12 +1,13 @@
 ﻿using ExpertManagmentSystem.Enums;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace ExpertManagmentSystem.Models.CivilCaseModels
 {
-    public class DirectChargeOpenning : Audit
+    public class LeadingCommandAndAppealNotSupported : Audit
     {
         [Display(Name = "የዐ/ግ ቁጥር")]
-        public string? ProsecutorsRecordNumber { get; set; }
+        public string? ProsecutorRecordNumber { get; set; }
 
         [Display(Name = "የፍ/ቤት ህግ ቁጥር")]
         public string? CourtRecordNumber { get; set; }
@@ -20,19 +21,20 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         [Display(Name = "የተከፈተበት ቀን")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime? OpenningDate  { get; set; }
-        
+        public DateTime? OpenningDate { get; set; }
+
         [Display(Name = "የጉዳዩ አይነት")]
-        public string? TypeOfIssue { get; set;} 
-        
-        [Display(Name = "የተገልጋይ አይነት")]
-        public string? TypeOfCustomer  { get; set;}
+        public string? TypeOfIssue { get; set; }
+
+        public LeadingCommandAndUnSupportAppeal? LeadingCommandAndUnSupportAppeal { get; set; }
 
         [Display(Name = "በብር")]
-        public decimal?   AmountPerBirr { get; set; }
+        public decimal? AmountPerBirr { get; set; }
 
         [Display(Name = "በካሬ")]
         public decimal? AmountPerSquerMetter { get; set; }
+        [Display(Name = "ዐ/ህ ድጋፍ የሚሰጠው አካል")]
+        public string? ProsecutorSupportTo { get; set; }
 
         [Display(Name = "ዞን")]
         public string? AddressZone { get; set; }
@@ -43,10 +45,10 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         [Display(Name = "የሰራው ባለሙያ")]
         public string? NameOfTheExpert { get; set; }
 
-        [Display(Name = "የተመራበት ቀን")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime? DateDirected { get; set; }
+        //[Display(Name = "የተመራበት ቀን")]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        //public DateTime? DateDirected { get; set; }
 
         [Display(Name = "ተሰርቶ የተመለሰበት ቀን")]
         [DataType(DataType.Date)]
@@ -54,11 +56,9 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public DateTime? CompletionDate { get; set; }
 
         [Display(Name = "የወሰደበት ጊዜ")]
-        public string TimeTakenToComplete { get; set;}
-        
+        public string TimeTakenToComplete { get; set; }
+
         [Display(Name = "በዐ/ህግ የተሰጠው ውሳኔ")]
-        public string? ProsecutorDecission { get; set;}
-        public CivilCaseCategory? CivilCaseCategory { get; set; }
-        public virtual ICollection<DirectChargeFollowUp> DirectChargeFollowUps { get; set; }
+        public string? ProsecutorDecission { get; set; }
     }
 }

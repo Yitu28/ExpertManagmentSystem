@@ -2,6 +2,14 @@
 
 namespace ExpertManagmentSystem.Enums
 {
+    public enum LeadingCommandAndUnSupportAppeal
+    {
+        [Display(Name = "መሪ ትዛዝ")]
+        LeadingCommand,
+
+        [Display(Name = "ይግባኝ አንደግፍም")]
+        AppealNotSupported,
+    }
     public enum TypeOfPerformanceCgarge
     {
         [Display(Name = "መክፈቻ")]

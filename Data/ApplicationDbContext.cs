@@ -56,6 +56,10 @@ namespace ExpertManagmentSystem.Data
         public DbSet<Cr_JudicalAppealDirectCharege> Cr_JudicalAppealDirectChareges { get; set; }
         public DbSet<DirectChargeOpenning> DirectChargeOpennings { get; set; }
         public DbSet<DirectChargeFollowUp> DirectChargeFollowUps { get; set; }
+        public DbSet<PerformanceChargeOpenning> PerformanceChargeOpennings { get; set; }
+        public DbSet<PerformanceChargeFollowUp> PerformanceChargeFollowUps { get; set; }
+        public DbSet<ContractInvestigation> ContractInvestigations { get; set; }
+        public DbSet<LeadingCommandAndAppealNotSupported> LeadingCommandUnAppealNotSupporteds { get; set; }
 
 
 

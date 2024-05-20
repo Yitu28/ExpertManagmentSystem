@@ -1,129 +1,119 @@
 ﻿@model ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeOpenning
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
 
-<h4>DirectChargeOpenning</h4>
+<h4>Add Direct Charge Openning</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+<a as-action="DirectChargeOpenning"></a>
+<div class="col-md-12">
+    <form asp-action="DirectChargeOpenning">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row col-md-12">
+            <div class="form-group col-md-4">
                 <label asp-for="ProsecutorsRecordNumber" class="control-label"></label>
                 <input asp-for="ProsecutorsRecordNumber" class="form-control" />
                 <span asp-validation-for="ProsecutorsRecordNumber" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="CourtRecordNumber" class="control-label"></label>
                 <input asp-for="CourtRecordNumber" class="form-control" />
                 <span asp-validation-for="CourtRecordNumber" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="Plaintiff" class="control-label"></label>
                 <input asp-for="Plaintiff" class="form-control" />
                 <span asp-validation-for="Plaintiff" class="text-danger"></span>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="row col-md-12">
+            <div class="form-group col-md-4">
                 <label asp-for="Accused" class="control-label"></label>
                 <input asp-for="Accused" class="form-control" />
                 <span asp-validation-for="Accused" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="OpenningDate" class="control-label"></label>
                 <input asp-for="OpenningDate" class="form-control" />
                 <span asp-validation-for="OpenningDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="TypeOfIssue" class="control-label"></label>
                 <input asp-for="TypeOfIssue" class="form-control" />
                 <span asp-validation-for="TypeOfIssue" class="text-danger"></span>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="row col-md-12">
+            <div class="form-group col-md-4">
                 <label asp-for="TypeOfCustomer" class="control-label"></label>
                 <input asp-for="TypeOfCustomer" class="form-control" />
                 <span asp-validation-for="TypeOfCustomer" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="AmountPerBirr" class="control-label"></label>
                 <input asp-for="AmountPerBirr" class="form-control" />
                 <span asp-validation-for="AmountPerBirr" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="AmountPerSquerMetter" class="control-label"></label>
                 <input asp-for="AmountPerSquerMetter" class="form-control" />
                 <span asp-validation-for="AmountPerSquerMetter" class="text-danger"></span>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="row col-md-12">
+            <div class="form-group col-md-4">
                 <label asp-for="AddressZone" class="control-label"></label>
                 <input asp-for="AddressZone" class="form-control" />
                 <span asp-validation-for="AddressZone" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="AddressWoreda" class="control-label"></label>
                 <input asp-for="AddressWoreda" class="form-control" />
                 <span asp-validation-for="AddressWoreda" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="NameOfTheExpert" class="control-label"></label>
                 <input asp-for="NameOfTheExpert" class="form-control" />
                 <span asp-validation-for="NameOfTheExpert" class="text-danger"></span>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="row col-md-12">
+            <div class="form-group col-md-4">
                 <label asp-for="DateDirected" class="control-label"></label>
                 <input asp-for="DateDirected" class="form-control" />
                 <span asp-validation-for="DateDirected" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="CompletionDate" class="control-label"></label>
                 <input asp-for="CompletionDate" class="form-control" />
                 <span asp-validation-for="CompletionDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label asp-for="TimeTakenToComplete" class="control-label"></label>
                 <input asp-for="TimeTakenToComplete" class="form-control" />
                 <span asp-validation-for="TimeTakenToComplete" class="text-danger"></span>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="row col-md-12">
+            <div class="form-group col-md-4">
                 <label asp-for="ProsecutorDecission" class="control-label"></label>
                 <input asp-for="ProsecutorDecission" class="form-control" />
                 <span asp-validation-for="ProsecutorDecission" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EdittedAt" class="control-label"></label>
-                <input asp-for="EdittedAt" class="form-control" />
-                <span asp-validation-for="EdittedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeletedAt" class="control-label"></label>
-                <input asp-for="DeletedAt" class="form-control" />
-                <span asp-validation-for="DeletedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ApplicationUserUser" class="control-label"></label>
-                <input asp-for="ApplicationUserUser" class="form-control" />
-                <span asp-validation-for="ApplicationUserUser" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+            <div class="form-group">
+                <br />
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-light">Back to List</a>
+            </div>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpertManagmentSystem.Data;
 using ExpertManagmentSystem.Models.CivilCaseModels;
+using ExpertManagmentSystem.Enums;
 
 namespace ExpertManagmentSystem.Controllers
 {
@@ -27,26 +28,9 @@ namespace ExpertManagmentSystem.Controllers
                           Problem("Entity set 'ApplicationDbContext.DirectChargeOpennings'  is null.");
         }
 
-        // GET: DirectChargeOpennings/Details/5
-        public async Task<IActionResult> Details(Guid? id)
-        {
-            if (id == null || _context.DirectChargeOpennings == null)
-            {
-                return NotFound();
-            }
-
-            var directChargeOpenning = await _context.DirectChargeOpennings
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (directChargeOpenning == null)
-            {
-                return NotFound();
-            }
-
-            return View(directChargeOpenning);
-        }
 
         // GET: DirectChargeOpennings/Create
-        public IActionResult Create()
+        public IActionResult DirectChargeOpenning()
         {
             return View();
         }
@@ -56,11 +40,12 @@ namespace ExpertManagmentSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProsecutorsSRecordNumber,CourtRecordNumber,Plaintiff,Accused,OpenningDate,TypeOfIssue,TypeOfCustomer,AmountPerBirr,AmountPerSquerMetter,AddressZone,AddressWoreda,NameOfTheExpert,DateDirected,CompletionDate,TimeTakenToComplete,ProsecutorDecission,Id,CreatedAt,EdittedAt,DeletedAt,ApplicationUserUser")] DirectChargeOpenning directChargeOpenning)
+        public async Task<IActionResult> DirectChargeOpenning(DirectChargeOpenning directChargeOpenning)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 directChargeOpenning.Id = Guid.NewGuid();
+                directChargeOpenning.CivilCaseCategory = 0;
                 _context.Add(directChargeOpenning);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -68,56 +53,122 @@ namespace ExpertManagmentSystem.Controllers
             return View(directChargeOpenning);
         }
 
-        // GET: DirectChargeOpennings/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
-        {
-            if (id == null || _context.DirectChargeOpennings == null)
-            {
-                return NotFound();
-            }
 
-            var directChargeOpenning = await _context.DirectChargeOpennings.FindAsync(id);
-            if (directChargeOpenning == null)
-            {
-                return NotFound();
-            }
-            return View(directChargeOpenning);
+        // GET: DirectChargeOpennings/Create
+        public IActionResult DirectChargeResponseOpenning()
+        {
+            return View();
         }
 
-        // POST: DirectChargeOpennings/Edit/5
+        // POST: DirectChargeOpennings/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ProsecutorsSRecordNumber,CourtRecordNumber,Plaintiff,Accused,OpenningDate,TypeOfIssue,TypeOfCustomer,AmountPerBirr,AmountPerSquerMetter,AddressZone,AddressWoreda,NameOfTheExpert,DateDirected,CompletionDate,TimeTakenToComplete,ProsecutorDecission,Id,CreatedAt,EdittedAt,DeletedAt,ApplicationUserUser")] DirectChargeOpenning directChargeOpenning)
+        public async Task<IActionResult> DirectChargeResponseOpenning(DirectChargeOpenning directChargeOpenning)
         {
-            if (id != directChargeOpenning.Id)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                directChargeOpenning.Id = Guid.NewGuid();
+                directChargeOpenning.CivilCaseCategory = (CivilCaseCategory)1;
+                _context.Add(directChargeOpenning);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
+            return View(directChargeOpenning);
+        }// GET: DirectChargeOpennings/Create
+        public IActionResult GeneralAppealOpenning()
+        {
+            return View();
+        }
 
-            if (ModelState.IsValid)
+        // POST: DirectChargeOpennings/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> GeneralAppealOpenning(DirectChargeOpenning directChargeOpenning)
+        {
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(directChargeOpenning);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!DirectChargeOpenningExists(directChargeOpenning.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                directChargeOpenning.Id = Guid.NewGuid();
+                directChargeOpenning.CivilCaseCategory = (CivilCaseCategory)2;
+                _context.Add(directChargeOpenning);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(directChargeOpenning);
         }
+        // GET: DirectChargeOpennings/Create
+        public IActionResult GeneralAppealResponseOpenning()
+        {
+            return View();
+        }
+
+        // POST: DirectChargeOpennings/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> GeneralAppealResponseOpenning(DirectChargeOpenning directChargeOpenning)
+        {
+            if (!ModelState.IsValid)
+            {
+                directChargeOpenning.Id = Guid.NewGuid();
+                directChargeOpenning.CivilCaseCategory = (CivilCaseCategory)3;
+                _context.Add(directChargeOpenning);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(directChargeOpenning);
+        }   
+        // GET: DirectChargeOpennings/Create
+        public IActionResult BreakingApplicantOpenning()
+        {
+            return View();
+        }
+
+        // POST: DirectChargeOpennings/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BreakingApplicantOpenning(DirectChargeOpenning directChargeOpenning)
+        {
+            if (!ModelState.IsValid)
+            {
+                directChargeOpenning.Id = Guid.NewGuid();
+                directChargeOpenning.CivilCaseCategory = (CivilCaseCategory)4;
+                _context.Add(directChargeOpenning);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(directChargeOpenning);
+        }
+        // GET: DirectChargeOpennings/Create
+        public IActionResult BreakingRespondentOpenning()
+        {
+            return View();
+        }
+
+        // POST: DirectChargeOpennings/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BreakingRespondentOpenning(DirectChargeOpenning directChargeOpenning)
+        {
+            if (!ModelState.IsValid)
+            {
+                directChargeOpenning.Id = Guid.NewGuid();
+                directChargeOpenning.CivilCaseCategory = (CivilCaseCategory)5;
+                _context.Add(directChargeOpenning);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(directChargeOpenning);
+        } 
+        
 
         // GET: DirectChargeOpennings/Delete/5
         public async Task<IActionResult> Delete(Guid? id)

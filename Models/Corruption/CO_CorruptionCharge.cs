@@ -1,4 +1,5 @@
-﻿using ExpertManagmentSystem.OrganizationalStructures;
+﻿using ExpertManagmentSystem.Enums;
+using ExpertManagmentSystem.OrganizationalStructures;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
