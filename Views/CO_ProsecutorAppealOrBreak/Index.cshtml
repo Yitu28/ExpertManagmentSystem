@@ -1,0 +1,121 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.Corruption.CO_ProsecutorAppealOrBreak>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የቀረቡ የዐቃቤ ህግ ይግባኝ መዝገብ  </h5>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example33" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ProsecutorNo)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SupremCourtNo)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Appellant)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Answerer)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.OpeningDate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Cr_Crime_Type)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.LowerCourtDecision)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ProsecutorComment)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Various)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ExpertOpinion)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.F_AppealOrBreak)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SectrorsDepartment)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                            @foreach (var item in Model) {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProsecutorNo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SupremCourtNo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Appellant)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Answerer)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OpeningDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cr_Crime_Type.CrimeTypeName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LowerCourtDecision)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProsecutorComment)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Various)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ExpertOpinion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.F_AppealOrBreak)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SectrorsDepartment.DepartmentName)
+                                        </td>
+                                        <td>
+                                            <a asp-controller="CO_ProsecutorAppealOrBreakDecision" asp-action="Create" asp-route-id="@item.CO_ProsecutorAppealOrBreakId" title="ፍ/ቤት ውሳኔ">
+                                                <i class="fa fa-arrow-right"></i>
+
+                                            </a>
+                                            <a asp-action="Edit" asp-route-id="@item.CO_ProsecutorAppealOrBreakId">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.CO_ProsecutorAppealOrBreakId">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.CO_ProsecutorAppealOrBreakId">Delete</a>
+                                        </td>
+                                    </tr>
+                            }
+                                </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>

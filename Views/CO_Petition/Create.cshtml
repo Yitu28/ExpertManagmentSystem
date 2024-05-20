@@ -1,4 +1,5 @@
-﻿@using ExpertManagmentSystem.Models.Corruption
+﻿@using ExpertManagmentSystem.Enums
+@using ExpertManagmentSystem.Models.Corruption
 @model ExpertManagmentSystem.Models.Corruption.CO_Petition
 
 @{
@@ -23,12 +24,40 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
+                                        <label asp-for="RecordNo" class="control-label"></label>
+                                        <input asp-for="RecordNo" class="form-control" />
+                                        <span asp-validation-for="RecordNo" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
                                         <label asp-for="ComplainantsName" class="control-label"></label>
                                         <input asp-for="ComplainantsName" class="form-control" />
                                         <span asp-validation-for="ComplainantsName" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="CrimeCommitted" class="control-label"></label>
+                                        <input asp-for="CrimeCommitted" class="form-control" />
+                                        <span asp-validation-for="CrimeCommitted" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="ComplaintBody" class="control-label"></label>
+                                        <input asp-for="ComplaintBody" class="form-control" />
+                                        <span asp-validation-for="ComplaintBody" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label asp-for="LetterNo" class="control-label"></label>
+                                        <input asp-for="LetterNo" class="form-control" />
+                                        <span asp-validation-for="LetterNo" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                @* <div class="col-sm-4">
                                     <div class="form-group">
                                         <label asp-for="Gender" class="control-label"></label>
                                         @Html.DropDownList("Gender", Html.GetEnumSelectList<Gender>(), " ዖታ ይምረጡ ", new { @class = "form-control" })
@@ -55,14 +84,14 @@
                                         <input asp-for="OrderContent" class="form-control" />
                                         <span asp-validation-for="OrderContent" class="text-danger"></span>
                                     </div>
-                                </div>
+                                </div> 
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label asp-for="LetterNo" class="control-label"></label>
                                         <input asp-for="LetterNo" class="form-control" />
                                         <span asp-validation-for="LetterNo" class="text-danger"></span>
                                     </div>
-                                </div>
+                                    </div>*@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label asp-for="LetterDate" class="control-label"></label>
@@ -70,26 +99,28 @@
                                         <span asp-validation-for="LetterDate" class="text-danger"></span>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <label asp-for="ExpertName" class="control-label"></label>
-                                        <input asp-for="ExpertName" class="form-control" />
-                                        <span asp-validation-for="ExpertName" class="text-danger"></span>
+                                        <label asp-for="Zone" class="control-label"></label>
+                                        <input asp-for="Zone" class="form-control" />
+                                        <span asp-validation-for="Zone" class="text-danger"></span>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                @*<div class="col-sm-4">
                                     <div class="form-group">
                                         <label asp-for="Remark" class="control-label"></label>
                                         <input asp-for="Remark" class="form-control" />
                                         <span asp-validation-for="Remark" class="text-danger"></span>
                                     </div>
-                                </div>
+                                </div> *@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label asp-for="SectrorsDepartmentId" class="control-label"></label>
                                         <select asp-for="SectrorsDepartmentId" class ="form-control" asp-items="ViewBag.SectrorsDepartmentId"></select>
                                     </div>
                                 </div>
+                            </div>
+                                <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <input type="submit" value="መዝግብ" class="btn btn-primary" />

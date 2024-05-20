@@ -1,4 +1,5 @@
-﻿@using ExpertManagmentSystem.Models.CivilCaseModels
+﻿@using ExpertManagmentSystem.Enums
+@using ExpertManagmentSystem.Models.CivilCaseModels
 @model IEnumerable<ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices>
 
 @{
@@ -21,64 +22,74 @@
     </div>
     <div class="card-body">
         <div class="tab-content" id="custom-content-below-tabContent">
-            <div class="tab-pane fade show active" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
-
+            <div class="tab-pane fade show active" id="customcontent-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
                 <table class="table  table-bordered table-striped" id="example1">
                     <thead>
                         <tr>
-                            <th>
-                                የዐ/ህ/መ/ቁጥር
+                            <th colspan="2">
+                                መዝገብ ቁጥር 
                             </th>
-                            <th>
-                                የፍ/ቤት/መ/ቁጥር
+                            <th rowspan="2">
+                                ከሳሽ
                             </th>
-                            <th>
-                                ይግባኝ ባይ
+                            <th rowspan="2">
+                                ተከሳሽ
                             </th>
-                            <th>
-                                መልስ ሰጪ
-                            </th>
-                            <th>
-                                ፆታ
-                            </th>
-                            <th>
-                                የዕድሜ ምደብ
-                            </th>
-                            <th>
-                                የድጋፍ አይነት
-                            </th>
-                            <th>
+                            <th rowspan="2">
                                 በዐ.ህ.የተ.ቀን
                             </th>
-                            <th>
+                            <th rowspan="2"r>
                                 የጉዳይ አይነት
                             </th>
-                            <th>
-                                የገንዘብ መጠን
+                            <th rowspan="2">
+                                ፆታ
                             </th>
-                            <th>
+                            <th colspan="2"> የገንዘብ መጠን  </th>
+                            <th rowspan="2">
+                                ዕድሜ
+                            </th>
+                            <th rowspan="2">
+                                የህብረተሰብ ክፍል
+                            </th>
+                            <th rowspan="2">
                                 ዞን
                             </th>
-                            <th>
+                            <th rowspan="2">
                                 ወረዳ
                             </th>
-                            <th>
+                            <th rowspan="2">
                                 የተመራለት ባለሙያ
                             </th>
-                            <th>
+                            <th rowspan="2">
                                 የተመራበት ቀን
+                            </th rowspan="2">
+                            <th  rowspan="2">
+                                ተሰርቶ የተመለሰበት ቀን
                             </th>
-                            <th>
-                                የተመለሰበት ቀን
+                            <th rowspan="2">
+                                የወሰደው ጊዜ
                             </th>
-                            <th>
-                                የፈጀወ ጊዜ
+                            <th rowspan="2">
+                                በዐቃቢ ህግ የተሰጠ ውሳኔ
                             </th>
-                            <th>
-                                የዐቃቢ ህግ ውሳኔ
-                            </th>
-                            <th></th>
+                            <th rowspan="2"></th>
                         </tr>
+                         <tr>
+                            <th >
+                                የዐ/ህግ
+                            </th>
+                            <th>
+                                የፍ/ቤት
+                            </th>
+
+                            <th>
+                                በብር
+                            </th>
+                            <th >
+                               በካሬ
+                            </th>
+                        </tr>
+                       
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
@@ -99,22 +110,28 @@
                                         @Html.DisplayFor(modelItem => item.Responder)
                                     </td>
                                     <td>
+                                        @Html.DisplayFor(modelItem => item.Doo)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.typesofIssue)
+                                    </td>
+
+                                    <td>
                                         @Html.DisplayFor(modelItem => item.Gender)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.age)
+                                        @Html.DisplayFor(modelItem => item.Age)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.SupportType)
                                     </td>
+
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Doo)
+                                        @Html.DisplayFor(modelItem => item.AmountinBirr)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.typesofIssue)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.apsm)
+                                        @Html.DisplayFor(modelItem => item.Amountincarie)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.AddressZone)
@@ -135,15 +152,12 @@
                                         @Html.DisplayFor(modelItem => item.LOS)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.PDecission)
+                                        @Html.DisplayFor(modelItem => item.CCPDecissionTypes)
                                     </td>
                                     <td>
-                                        <a asp-action="Edit" data-toggle="modal" data-target="@("#EditRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Edit/{item.CCFreelServicesId}")"><li class="fa fa-edit bg-warning" title="ማስተካከል"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
-                                        <a asp-action="Details" data-toggle="modal" data-target="@("#DetailRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Detail/{item.CCFreelServicesId}")"><li class="fa fa-eye bg-info" title="ዝርዝር መረጃ"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
-                                        <a asp-action="Delete" data-toggle="modal" data-target="@("#DeleteRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Delete/{item.CCFreelServicesId}")"><li class="fa fa-trash bg-red" title="ይሰረዝ"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
+                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት"> <i class="fa fa-plus" style="color:green;"></i> </a>
+                                        <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
+                                        <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId" title="ሰረዝ">  <i class="fa fa-trash" style="color:red;"></i>  </a>
                                     </td>
                                 </tr>
 
@@ -153,66 +167,77 @@
                     </tbody>
                 </table>
             </div>
-
             <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
-
-                <table id="example3" class="table  table-bordered table-striped">
-                    <thead>
+                <table class="table  table-bordered table-striped" id="example77">
+                   
+                   <thead>
                         <tr>
-                            <th>
-                                የዐ/ህ/መ/ቁጥር
+                            <th colspan="2">
+                                መዝገብ ቁጥር 
                             </th>
-                            <th>
-                                የፍ/ቤት/መ/ቁጥር
+                            <th rowspan="2">
+                                ከሳሽ
                             </th>
-                            <th>
-                                ይግባኝ ባይ
+                            <th rowspan="2">
+                                ተከሳሽ
                             </th>
-                            <th>
-                                መልስ ሰጪ
-                            </th>
-                            <th>
-                                ፆታ
-                            </th>
-                            <th>
-                                የዕድሜ ምደብ
-                            </th>
-                            <th>
-                                የድጋፍ አይነት
-                            </th>
-                            <th>
+                            <th rowspan="2">
                                 በዐ.ህ.የተ.ቀን
                             </th>
-                            <th>
+                            <th rowspan="2"r>
                                 የጉዳይ አይነት
                             </th>
-                            <th>
-                                የገንዘብ መጠን
+                            <th rowspan="2">
+                                ፆታ
                             </th>
-                            <th>
+                            <th colspan="2"> የገንዘብ መጠን  </th>
+                            <th rowspan="2">
+                                ዕድሜ
+                            </th>
+                            <th rowspan="2">
+                                የህብረተሰብ ክፍል
+                            </th>
+                            <th rowspan="2">
                                 ዞን
                             </th>
-                            <th>
+                            <th rowspan="2">
                                 ወረዳ
                             </th>
-                            <th>
+                            <th rowspan="2">
                                 የተመራለት ባለሙያ
                             </th>
-                            <th>
+                            <th rowspan="2">
                                 የተመራበት ቀን
+                            </th rowspan="2">
+                            <th  rowspan="2">
+                                ተሰርቶ የተመለሰበት ቀን
                             </th>
-                            <th>
-                                የተመለሰበት ቀን
+                            <th rowspan="2">
+                                የወሰደው ጊዜ
                             </th>
-                            <th>
-                                የፈጀወ ጊዜ
+                            <th rowspan="2">
+                                በዐቃቢ ህግ የተሰጠ ውሳኔ
                             </th>
-                            <th>
-                                የዐቃቢ ህግ ውሳኔ
-                            </th>
-                            <th></th>
+                            <th rowspan="2"></th>
                         </tr>
+                         <tr>
+                            <th >
+                                የዐ/ህግ
+                            </th>
+                            <th>
+                                የፍ/ቤት
+                            </th>
+
+                            <th>
+                                በብር
+                            </th>
+                            <th >
+                               በካሬ
+                            </th>
+                        </tr>
+                       
                     </thead>
+                    
                     <tbody>
                         @foreach (var item in Model)
                         {
@@ -232,22 +257,28 @@
                                         @Html.DisplayFor(modelItem => item.Responder)
                                     </td>
                                     <td>
+                                        @Html.DisplayFor(modelItem => item.Doo)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.typesofIssue)
+                                    </td>
+
+                                    <td>
                                         @Html.DisplayFor(modelItem => item.Gender)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.age)
+                                        @Html.DisplayFor(modelItem => item.Age)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.SupportType)
                                     </td>
+
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Doo)
+                                        @Html.DisplayFor(modelItem => item.AmountinBirr)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.typesofIssue)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.apsm)
+                                        @Html.DisplayFor(modelItem => item.Amountincarie)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.AddressZone)
@@ -268,15 +299,12 @@
                                         @Html.DisplayFor(modelItem => item.LOS)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.PDecission)
+                                        @Html.DisplayFor(modelItem => item.CCPDecissionTypes)
                                     </td>
                                     <td>
-                                        <a asp-action="Edit" data-toggle="modal" data-target="@("#EditRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Edit/{item.CCFreelServicesId}")"><li class="fa fa-edit bg-warning" title="ማስተካከል"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
-                                        <a asp-action="Details" data-toggle="modal" data-target="@("#DetailRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Detail/{item.CCFreelServicesId}")"><li class="fa fa-eye bg-info" title="ዝርዝር መረጃ"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
-                                        <a asp-action="Delete" data-toggle="modal" data-target="@("#DeleteRegionmodals-"+item.CCFreelServicesId)" data-url="@Url.Action($"Delete/{item.CCFreelServicesId}")"><li class="fa fa-trash bg-red" title="ይሰረዝ"></li></a>
-                                        @await Html.PartialAsync("_FreeLabosEditModalPartial", item)
+                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት"> <i class="fa fa-plus" style="color:green;"></i> </a>
+                                        <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
+                                        <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId" title="ሰረዝ">  <i class="fa fa-trash" style="color:red;"></i>  </a>
                                     </td>
                                 </tr>
 

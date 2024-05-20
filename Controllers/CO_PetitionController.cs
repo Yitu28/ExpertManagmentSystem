@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpertManagmentSystem.Data;
 using ExpertManagmentSystem.Models.Corruption;
+using ExpertManagmentSystem.ViewModels.CorruptionViewModel;
 
 namespace ExpertManagmentSystem.Controllers
 {
@@ -44,6 +45,64 @@ namespace ExpertManagmentSystem.Controllers
 
             return View(cO_Petition);
         }
+
+        public async Task<IActionResult> CreateFollowUp(Guid? id)
+        {
+            if (id == null || _context.CO_Petition == null)
+            {
+                return NotFound();
+            }
+
+            var cO_Petition = await _context.CO_Petition.FindAsync(id);
+            if (cO_Petition == null)
+            {
+                return NotFound();
+            }
+            var PetitionVM = new CO_PetitionFollowUpViewModel
+                {
+                CO_PetitionId= cO_Petition.CO_PetitionId,
+                SectrorsDepartmentId=cO_Petition.SectrorsDepartmentId
+            };
+            ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", cO_Petition.SectrorsDepartmentId);
+            return View(PetitionVM);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateFollowUp([Bind("CO_PetitionFollowUpId,CO_PetitionId,ExpertName,IssueDate,ReturnDate,PetitionDecision,ComeanEnd,SectrorsDepartmentId")] CO_PetitionFollowUp cO_PetitionFollowUp)
+        {
+            if (ModelState.IsValid)
+            {
+               
+                cO_PetitionFollowUp.CO_PetitionFollowUpId = Guid.NewGuid();
+
+
+                //cO_PetitionFollowUp.SectrorsDepartmentId = _context.CO_Petition.First(i => i.CO_PetitionId == cO_PetitionFollowUp.CO_PetitionId).SectrorsDepartmentId;
+
+
+                //CO_PetitionFollowUp pfu = new CO_PetitionFollowUp();
+                //pfu.CO_PetitionFollowUpId = cO_PetitionFollowUp.CO_PetitionFollowUpId;
+                //pfu.CO_PetitionId = cO_PetitionFollowUp.CO_PetitionId;
+                //pfu.ExpertName = cO_PetitionFollowUp.ExpertName;
+                //pfu.SectrorsDepartmentId = cO_PetitionFollowUp.SectrorsDepartmentId;
+                //pfu.IssueDate = cO_PetitionFollowUp.IssueDate;
+                //pfu.ReturnDate = cO_PetitionFollowUp.ReturnDate;
+                //pfu.PetitionDecision = (Models.Corruption.PetitionDecision)cO_PetitionFollowUp.PetitionDecision;
+                //pfu.ComeanEnd = (Models.Corruption.ComeanEnd)cO_PetitionFollowUp.ComeanEnd;
+
+
+
+                _context.Add(cO_PetitionFollowUp);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["CO_PetitionId"] = new SelectList(_context.CO_Petition, "CO_PetitionId", "CO_PetitionId", cO_PetitionFollowUp.CO_PetitionId);
+            ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", cO_PetitionFollowUp.SectrorsDepartmentId);
+            return RedirectToAction(nameof(Index));
+            //return View(cO_PetitionFollowUp);
+        }
+
+
+
 
         // GET: CO_Petition/Create
         public IActionResult Create()
