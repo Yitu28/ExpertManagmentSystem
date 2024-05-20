@@ -11,17 +11,17 @@ using ExpertManagmentSystem.Enums;
 
 namespace ExpertManagmentSystem.Controllers
 {
-    public class LeadingCommandUnAppealNotSupportedsController : Controller
+    public class LeadingCommandAndAppealNotSupportedsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public LeadingCommandUnAppealNotSupportedsController(ApplicationDbContext context)
+        public LeadingCommandAndAppealNotSupportedsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // GET: LeadingCommandUnAppealNotSupporteds
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> AppealNotSupported()
         {
               return _context.LeadingCommandUnAppealNotSupporteds != null ? 
                           View(await _context.LeadingCommandUnAppealNotSupporteds.ToListAsync()) :
