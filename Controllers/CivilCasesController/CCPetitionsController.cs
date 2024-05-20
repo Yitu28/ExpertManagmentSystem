@@ -36,7 +36,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             }
 
             var cCPetition = await _context.CCPetition
-                .FirstOrDefaultAsync(m => m.CCLegaladvicesId == id);
+                .FirstOrDefaultAsync(m => m.CCPetitionId == id);
             if (cCPetition == null)
             {
                 return NotFound();
@@ -58,11 +58,11 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CCLegaladvicesId,PeFileNo,Pevicerequester,PeGender,PeAge,PeSupportType,PeDoariv,PeTypes,PeAddressZone,PeAddressWoreda,PeExpertName,PeDaos,PeDoare,PeTimeTaken,PePDecisoion,PeAssignto")] CCPetition cCPetition)
+        public async Task<IActionResult> Create([Bind("CCPetitionId,PeFileNo,Pevicerequester,PeGender,PeAge,PeSupportType,PeDoariv,PeTypes,PeAddressZone,PeAddressWoreda,PeExpertName,PeDaos,PeDoare,PeTimeTaken,PePDecisoion,PeAssignto")] CCPetition cCPetition)
         {
             if (ModelState.IsValid)
             {
-                cCPetition.CCLegaladvicesId = Guid.NewGuid();
+                cCPetition.CCPetitionId = Guid.NewGuid();
                 _context.Add(cCPetition);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -94,7 +94,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("CCLegaladvicesId,PeFileNo,Pevicerequester,PeGender,PeAge,PeSupportType,PeDoariv,PeTypes,PeAddressZone,PeAddressWoreda,PeExpertName,PeDaos,PeDoare,PeTimeTaken,PePDecisoion,PeAssignto")] CCPetition cCPetition)
         {
-            if (id != cCPetition.CCLegaladvicesId)
+            if (id != cCPetition.CCPetitionId)
             {
                 return NotFound();
             }
@@ -108,7 +108,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CCPetitionExists(cCPetition.CCLegaladvicesId))
+                    if (!CCPetitionExists(cCPetition.CCPetitionId))
                     {
                         return NotFound();
                     }
@@ -131,7 +131,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             }
 
             var cCPetition = await _context.CCPetition
-                .FirstOrDefaultAsync(m => m.CCLegaladvicesId == id);
+                .FirstOrDefaultAsync(m => m.CCPetitionId == id);
             if (cCPetition == null)
             {
                 return NotFound();
@@ -161,7 +161,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
 
         private bool CCPetitionExists(Guid id)
         {
-          return (_context.CCPetition?.Any(e => e.CCLegaladvicesId == id)).GetValueOrDefault();
+          return (_context.CCPetition?.Any(e => e.CCPetitionId == id)).GetValueOrDefault();
         }
     }
 }

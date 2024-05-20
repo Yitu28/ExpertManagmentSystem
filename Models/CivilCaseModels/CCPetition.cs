@@ -7,7 +7,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
     {
         // Pet Stands for Petition
         [Key]
-        public Guid CCLegaladvicesId { get; set; }
+        public Guid CCPetitionId { get; set; }
 
         [Required(ErrorMessage = "የእባክዎን ዐቃቢ ህግ መዝገብ ቁጥር ይሙሉ")]
         [Display(Name = "የዐ/ህ/መ/ቁ.")]

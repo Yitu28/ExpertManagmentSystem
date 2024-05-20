@@ -8,7 +8,25 @@ namespace ExpertManagmentSystem.Enums
         ሴት,
         ወንድ
     }
-    // Types Of Decision with Enumerable List
+
+    // 
+    public enum PreqTypeofDecision
+    {
+        [Display(Name = "ክስ ይመስረት")]
+        ክስ_ይመስረት,
+        [Display(Name = "የማየት ስልጣን ላለው አካል ይተላለፍ")]
+        የማየት_ስልጣን_ላለው_አካል_ይተላለፍ,
+        [Display(Name = "ከክስ በፊት በድርድር ፣ በስምምነት የተቋጨ")]
+        ከክስ_በፊት_በድርድር_በስምምነት_የተቋጨ,
+        [Display(Name = "የክስ / ይግባኝ አይቀርብም ውሳኔ የተሰጠው")]
+        የክስ_ይግባኝ_አይቀርብም_ውሳኔ_የተሰጠው,
+        [Display(Name = "ተጨማሪ ማስረጃ የተጠየቀበት ")]
+        ተጨማሪ_ማስረጃ_የተጠየቀበት,
+        [Display(Name = "በዐቃቤ ህግ እጅ ሳይሰራ በምርመራ ላይ ያለ ")]
+        በዐቃቤ_ህግ_እጅ_ሳይሰራ_በምርመራ_ላይ_ያለ
+    }
+    // Types Of Decision with Enumerable
+    //
     public enum TypeofDecision
     {
         [Display(Name = "አሸናፊ")]

@@ -138,9 +138,9 @@
                                         @Html.DisplayFor(modelItem => item.PDecission)
                                     </td>
                                     <td>
-                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId"> ወደ ፍርድ ቤት </a>
-                                        <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId"> ወደ ፍርድ ቤት ዝርዝር </a>
-                                        <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId"> መሰረዝ </a>
+                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት"> <i class="fa fa-plus" style="color:green;"></i> </a>
+                                        <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
+                                        <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId" title="ሰረዝ">  <i class="fa fa-trash" style="color:red;"></i>  </a>
                                     </td>
                                 </tr>
 
@@ -266,9 +266,9 @@
                                         @Html.DisplayFor(modelItem => item.PDecission)
                                     </td>
                                     <td>
-                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId"> ወደ ፍርድ ቤት </a>
-                                        <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-primary btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId"> ወደ ፍርድ ቤት ዝርዝር </a>
-                                        <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId"> መሰረዝ </a>
+                                        <a asp-action="CCFreeLegalServiceFollowupr" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት"> <i class="fa fa-plus" style="color:green;"></i> </a>
+                                        <a asp-action="CCFreeLegalServiceFollowuprIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
+                                        <a asp-action="Deleter" asp-route-id="@item.CCFreelServicesId" title="ሰረዝ">  <i class="fa fa-trash" style="color:red;"></i>  </a>
                                     </td>
                                 </tr>
 
