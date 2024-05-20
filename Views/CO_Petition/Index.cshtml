@@ -19,20 +19,18 @@
                             <thead>
                                 <tr>
                                     <th>
+                                        @Html.DisplayNameFor(model => model.RecordNo)
+                                    </th>
+                                    <th>
                                         @Html.DisplayNameFor(model => model.ComplainantsName)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Gender)
+                                        @Html.DisplayNameFor(model => model.CrimeCommitted)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Amount)
+                                        @Html.DisplayNameFor(model => model.ComplaintBody)
                                     </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.OrderedClass)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.OrderContent)
-                                    </th>
+                                    
                                     <th>
                                         @Html.DisplayNameFor(model => model.LetterNo)
                                     </th>
@@ -40,15 +38,14 @@
                                         @Html.DisplayNameFor(model => model.LetterDate)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.ExpertName)
+                                        @Html.DisplayNameFor(model => model.Zone)
                                     </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Remark)
-                                    </th>
+                                    
                                     <th>
                                         SD
                                         @* @Html.DisplayNameFor(model => model.SectrorsDepartment) *@
                                     </th>
+                                    <th></th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -56,20 +53,18 @@
                                  @foreach (var item in Model) {
                                     <tr>
                                         <td>
+                                            @Html.DisplayFor(modelItem => item.RecordNo)
+                                        </td>
+                                        <td>
                                             @Html.DisplayFor(modelItem => item.ComplainantsName)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Gender)
+                                            @Html.DisplayFor(modelItem => item.CrimeCommitted)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Amount)
+                                            @Html.DisplayFor(modelItem => item.ComplaintBody)
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.OrderedClass)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.OrderContent)
-                                        </td>
+                                        
                                         <td>
                                             @Html.DisplayFor(modelItem => item.LetterNo)
                                         </td>
@@ -77,16 +72,18 @@
                                             @Html.DisplayFor(modelItem => item.LetterDate)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ExpertName)
+                                            @Html.DisplayFor(modelItem => item.Zone)
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Remark)
-                                        </td>
+                                        
                                         <td>
                                             @Html.DisplayFor(modelItem => item.SectrorsDepartment.DepartmentName)
                                         </td>
                                         <td>
+                                            <div class="btn btn-outline-light"> @Html.ActionLink(" መድብ", "Create", "CO_PetitionFollowUp", new { id = item.CO_PetitionId }, null)</div>
+                                        </td>
+                                        <td>
                                             <a asp-action="Edit" asp-route-id="@item.CO_PetitionId">Edit</a> |
+                                            
                                             <a asp-action="Details" asp-route-id="@item.CO_PetitionId">Details</a> |
                                             <a asp-action="Delete" asp-route-id="@item.CO_PetitionId">Delete</a>
                                         </td>

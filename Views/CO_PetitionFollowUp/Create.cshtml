@@ -1,0 +1,84 @@
+﻿@using ExpertManagmentSystem.Models.Corruption
+@model ExpertManagmentSystem.ViewModels.CorruptionViewModel.CO_PetitionFollowUpViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@using (Html.BeginForm("Create", "CO_PetitionFollowUp", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">የአቤቱታ መከታተያ</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="body-box">
+                         <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                             @* <div class="form-group">
+                                    <label asp-for="CO_PetitionId" class="control-label"></label>
+                                    <input asp-for="CO_PetitionId" class="form-control" />
+                            </div> *@ 
+                          <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label asp-for="ExpertName" class="control-label"></label>
+                                <input asp-for="ExpertName" class="form-control" />
+                                <span asp-validation-for="ExpertName" class="text-danger"></span>
+                            </div>
+                                <div class="form-group col-sm-4">
+                                <label asp-for="IssueDate" class="control-label"></label>
+                                <input asp-for="IssueDate" class="form-control" />
+                                <span asp-validation-for="IssueDate" class="text-danger"></span>
+                            </div>
+                                <div class="form-group col-sm-4">
+                                <label asp-for="ReturnDate" class="control-label"></label>
+                                <input asp-for="ReturnDate" class="form-control" />
+                                <span asp-validation-for="ReturnDate" class="text-danger"></span>
+                            </div>
+                                <div class="form-group col-sm-4">
+                                <label asp-for="PetitionDecision" class="control-label"></label>
+                                    @Html.DropDownList("PetitionDecision", Html.GetEnumSelectList<PetitionDecision>(), " ውሳኔ ", new { @class = "form-control" })
+                                <span asp-validation-for="PetitionDecision" class="text-danger"></span>
+                            </div>
+                                <div class="form-group col-sm-4">
+                                <label asp-for="ComeanEnd" class="control-label"></label>
+                                    @Html.DropDownList("ComeanEnd", Html.GetEnumSelectList<ComeanEnd>(), " ፍፃሜ ያገኘ ", new { @class = "form-control" })
+                                <span asp-validation-for="ComeanEnd" class="text-danger"></span>
+                            </div>
+                                <div class="form-group col-sm-4">
+                                <label asp-for="SectrorsDepartmentId" class="control-label"></label>
+                                <select asp-for="SectrorsDepartmentId" class ="form-control" asp-items="ViewBag.SectrorsDepartmentId"></select>
+                            </div>
+                                <div class="form-group col-sm-4">
+                                        <input type="submit" value="Create" class="btn btn-primary float-right" />
+                            </div>
+                                    <div class="form-group col-sm-4">
+
+                                        <div class="btn btn-outline-info"> @Html.ActionLink(" መድብ", "Index", "CO_PetitionFollowUp")</div>
+                                    </div>
+                          </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

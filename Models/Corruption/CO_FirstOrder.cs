@@ -1,10 +1,13 @@
-﻿using ExpertManagmentSystem.OrganizationalStructures;
+﻿using ExpertManagmentSystem.Data;
+using ExpertManagmentSystem.OrganizationalStructures;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ExpertManagmentSystem.Enums;
+
 
 namespace ExpertManagmentSystem.Models.Corruption
 {
-    public enum Gender { ወንድ, ሴት }
+    public enum Sex { ወንድ, ሴት }
 
     public class CO_FirstOrder
     {
@@ -39,6 +42,8 @@ namespace ExpertManagmentSystem.Models.Corruption
         public Guid SectrorsDepartmentId { get; set; }
         [ForeignKey(nameof(SectrorsDepartmentId))]
         public virtual SectrorsDepartment? SectrorsDepartment { get; set; }
+        public string? UserId { get; set; }
+        public virtual ApplicationUser? ApplicationUser { get; set; }
 
     }
 }
