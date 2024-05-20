@@ -1,12 +1,12 @@
 ﻿using ExpertManagmentSystem.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace ExpertManagmentSystem.Models
+namespace ExpertManagmentSystem.Models.CivilCaseModels
 {
     public class ContractInvestigation : Audit
     {
         [Display(Name = "የዐ/ግ/መ ቁጥር")]
-        public string? ProsecutorIdentityNumber { get; set; }        
+        public string? ProsecutorIdentityNumber { get; set; }
 
         [Display(Name = "ውል ሰጭ")]
         public string? Contractor { get; set; }
@@ -24,7 +24,7 @@ namespace ExpertManagmentSystem.Models
 
         [Display(Name = "የገንዘብ መጠን")]
         public decimal? AmountPerMoney { get; set; }
-        
+
         [Display(Name = "እንዲመረመርለት የጠየቀው ተቋም")]
         public string? TheInstitutionRequestedForExamination { get; set; }
 

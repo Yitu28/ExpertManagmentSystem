@@ -32,4 +32,12 @@
     <Folder Include="ViewModels\CorruptionViewModels\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\systems\Desktop\Development\2016\ExpertManagmentSystem\Models\CivilCaseModels\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\systems\Desktop\Development\2016\ExpertManagmentSystem\Models\CivilCaseModels\.editorconfig" />
+  </ItemGroup>
+
 </Project>

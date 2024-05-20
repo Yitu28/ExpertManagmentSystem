@@ -1,5 +1,4 @@
-﻿using ExpertManagmentSystem.Models;
-using ExpertManagmentSystem.OrganizationalStructures;
+﻿using ExpertManagmentSystem.OrganizationalStructures;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +10,6 @@ using ExpertManagmentSystem.ViewModels.CivilCaseViewModels;
 using ExpertManagmentSystem.Models.Corruption;
 
 using ExpertManagmentSystem.Models.CrimeModels;
-using ExpertManagmentSystem.Models.CivilCaseModels;
 
 
 namespace ExpertManagmentSystem.Data
