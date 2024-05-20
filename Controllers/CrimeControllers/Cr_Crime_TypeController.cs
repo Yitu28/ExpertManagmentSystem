@@ -56,7 +56,7 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Cr_Crime_TypeId,CrimeTypeName")] Cr_Crime_Type cr_Crime_Type)
+        public async Task<IActionResult> Create([Bind("Cr_Crime_TypeId,CrimeTypeName,CrimeDepartment")] Cr_Crime_Type cr_Crime_Type)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Cr_Crime_TypeId,CrimeTypeName")] Cr_Crime_Type cr_Crime_Type)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Cr_Crime_TypeId,CrimeTypeName,CrimeDepartment")] Cr_Crime_Type cr_Crime_Type)
         {
             if (id != cr_Crime_Type.Cr_Crime_TypeId)
             {

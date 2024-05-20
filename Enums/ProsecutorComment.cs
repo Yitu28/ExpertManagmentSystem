@@ -48,6 +48,10 @@ namespace ExpertManagmentSystem.Enums
     {
         ነባር, አዲስ 
     }
+    public enum CrimeDepartment
+    {
+        ወንጀል, ሙስና, ኢኮኖሚ 
+    }
     public enum FileEndResult
     {
         አሸናፊ, ተሸናፊ   
@@ -79,5 +83,14 @@ namespace ExpertManagmentSystem.Enums
 
         [Display(Name = "ሰበር አመልካች መክፈቻ")]
         BreakingRespondentOpenning
+    }
+
+    public enum AppealBreaking
+    {
+        ዐቃቤ_ህግ_ሰበር, ዐቃቤ_ህግ_ግባኝ
+    }
+    public enum J_AppealBreaking
+    {
+        ፍርደኛ_ሰበር, ፍርደኛ_ይግባኝ
     }
 }

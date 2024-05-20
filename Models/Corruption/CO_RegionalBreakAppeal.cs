@@ -1,4 +1,7 @@
-﻿using ExpertManagmentSystem.OrganizationalStructures;
+﻿using ExpertManagmentSystem.Data;
+using ExpertManagmentSystem.Enums;
+using ExpertManagmentSystem.Models.CrimeModels;
+using ExpertManagmentSystem.OrganizationalStructures;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,8 +21,8 @@ namespace ExpertManagmentSystem.Models.Corruption
         [Display(Name = "መልስ ሰጭ")]
         public string? Answerer { get; set; }
 
-        [Display(Name = "ወንጀሉ")]
-        public string? CO_CrimeType { get; set; }
+        //[Display(Name = "ወንጀሉ")]
+        //public CrimeDepartment CO_CrimeType { get; set; }
 
         [Display(Name = "ይግባኝ የተጠየቀበት ምክንያት")]
         public string? Reasons { get; set; }
@@ -44,5 +47,12 @@ namespace ExpertManagmentSystem.Models.Corruption
         public Guid SectrorsDepartmentId { get; set; }
         [ForeignKey(nameof(SectrorsDepartmentId))]
         public virtual SectrorsDepartment? SectrorsDepartment { get; set; }
+        [Display(Name = "ወንጀሉ")]
+        public Guid Cr_Crime_TypeId { get; set; }
+        [ForeignKey(nameof(Cr_Crime_TypeId))]
+        public virtual Cr_Crime_Type? Cr_Crime_Type { get; set; }
+
+        //public string? UserId { get; set; }
+        public virtual ApplicationUser? ApplicationUser { get; set; }
     }
 }

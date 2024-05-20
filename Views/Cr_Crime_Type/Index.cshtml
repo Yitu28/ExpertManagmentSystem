@@ -21,6 +21,9 @@
             <th>
                 የወንጀል አይነቶች
             </th>
+                    <th>
+                        የወንጀል ክፍል
+                    </th>
             <th></th>
         </tr>
     </thead>
@@ -30,6 +33,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CrimeTypeName)
             </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CrimeDepartment)
+                        </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Cr_Crime_TypeId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Cr_Crime_TypeId">Details</a> |

@@ -1,0 +1,114 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.Corruption.CO_PetitionFollowUp>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የአቤቱታ መዝገብ  </h5>
+                        
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CO_Petition.RecordNo)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CO_Petition.ComplainantsName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CO_Petition.ComplaintBody)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CO_Petition.Zone)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ExpertName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IssueDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ReturnDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PetitionDecision)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ComeanEnd)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CO_Petition.SectrorsDepartment.DepartmentName)
+                                    </th>
+                                    @* <th>
+                                        @Html.DisplayNameFor(model => model.CO_Petition)
+                                    </th> *@
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                         @foreach (var item in Model) {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CO_Petition.RecordNo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CO_Petition.ComplainantsName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CO_Petition.ComplaintBody)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CO_Petition.Zone)
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ExpertName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IssueDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ReturnDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PetitionDecision)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ComeanEnd)
+                                    </td>
+                                    <td>
+                                            @Html.DisplayFor(modelItem => item.CO_Petition.SectrorsDepartment.DepartmentName)
+                                    </td>
+                                    @* <td>
+                                        @Html.DisplayFor(modelItem => item.CO_Petition.CO_PetitionId)
+                                    </td> *@
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.CO_PetitionFollowUpId">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.CO_PetitionFollowUpId">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.CO_PetitionFollowUpId">Delete</a>
+                                    </td>
+                                </tr>
+                        }
+                            </tbody>
+                      </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>

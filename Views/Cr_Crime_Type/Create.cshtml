@@ -1,4 +1,5 @@
-﻿@model ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type
+﻿@using ExpertManagmentSystem.Enums
+@model ExpertManagmentSystem.Models.CrimeModels.Cr_Crime_Type
 
 @{
     ViewData["Title"] = "Create";
@@ -14,6 +15,13 @@
                 <label asp-for="CrimeTypeName" class="control-label">የወንጀል አይነቱን ያስገቡ</label>
                 <input asp-for="CrimeTypeName" class="form-control" />
                 <span asp-validation-for="CrimeTypeName" class="text-danger"></span>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label asp-for="CrimeDepartment" class="control-label"></label>
+                    @Html.DropDownList("CrimeDepartment", Html.GetEnumSelectList<CrimeDepartment>(), " የወንጀል ክፍል ይምረጡ ", new { @class = "form-control" })
+                    <span asp-validation-for="CrimeDepartment" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="መዝግብ" class="btn btn-primary" />
