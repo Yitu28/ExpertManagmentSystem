@@ -6,7 +6,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
     public class DirectChargeOpenning : Audit
     {
         [Display(Name = "የዐ/ግ ቁጥር")]
-        public string? ProsecutorsRecordNumber { get; set; }
+        public string? ProsecutorsSRecordNumber { get; set; }
 
         [Display(Name = "የፍ/ቤት ህግ ቁጥር")]
         public string? CourtRecordNumber { get; set; }
