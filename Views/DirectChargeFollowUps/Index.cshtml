@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeFollowUp>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Direct charge follow ups</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IssuedCourtWrittenForOrganization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateSubmittedToCourt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateApointmented)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecissionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CivilCaseCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DirectChargeOpenning)
+            </th>
+            <th>
+                <a asp-action="Create" class="btn btn-success">Create New</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssuedCourtWrittenForOrganization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateSubmittedToCourt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateApointmented)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecissionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CivilCaseCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectChargeOpenning.ProsecutorsRecordNumber)
+            </td>            
+            <td>
+                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
