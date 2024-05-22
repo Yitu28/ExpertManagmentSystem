@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ExpertManagmentSystem.Data;
 using ExpertManagmentSystem.Models.CivilCaseModels;
 using ExpertManagmentSystem.Enums;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace ExpertManagmentSystem.Controllers
 {
@@ -23,12 +24,48 @@ namespace ExpertManagmentSystem.Controllers
         // GET: DirectChargeOpennings
         public async Task<IActionResult> Index()
         {
+            
               return _context.DirectChargeOpennings != null ? 
                           View(await _context.DirectChargeOpennings.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.DirectChargeOpennings'  is null.");
         }
 
-
+        public async Task<IActionResult> DirectChargeResponseOpenningIndex()
+        {
+            return _context.DirectChargeOpennings != null ?
+                        View(await _context.DirectChargeOpennings.Where(dc => dc.CivilCaseCategory == 0).ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.DirectChargeOpennings'  is null.");
+        }
+        public async Task<IActionResult> DirectChargeOpenningIndex()
+        {
+            return _context.DirectChargeOpennings != null ?
+                        View(await _context.DirectChargeOpennings.Where(dc => dc.CivilCaseCategory == CivilCaseCategory.DirectChargeResponseOpenning ).ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.DirectChargeOpennings'  is null.");
+        }
+        public async Task<IActionResult> GeneralAppealOpenningIndex()
+        {
+            return _context.DirectChargeOpennings != null ?
+                        View(await _context.DirectChargeOpennings.Where(dc => dc.CivilCaseCategory == CivilCaseCategory.GeneralAppealOpenning).ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.DirectChargeOpennings'  is null.");
+        }
+        public async Task<IActionResult> GeneralAppealResponseOpenningIndex()
+        {
+            return _context.DirectChargeOpennings != null ?
+                        View(await _context.DirectChargeOpennings.Where(dc => dc.CivilCaseCategory == CivilCaseCategory.GeneralAppealResponseOpenning).ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.DirectChargeOpennings'  is null.");
+        }
+        public async Task<IActionResult> BreakingApplicantOpenningIndex()
+        {
+            return _context.DirectChargeOpennings != null ?
+                        View(await _context.DirectChargeOpennings.Where(dc => dc.CivilCaseCategory == CivilCaseCategory.BreakingApplicantOpenning).ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.DirectChargeOpennings'  is null.");
+        }
+        public async Task<IActionResult> BreakingRespondentOpenningIndex()
+        {
+            return _context.DirectChargeOpennings != null ?
+                        View(await _context.DirectChargeOpennings.Where(dc => dc.CivilCaseCategory == CivilCaseCategory.BreakingApplicantOpenning).ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.DirectChargeOpennings'  is null.");
+        }
         // GET: DirectChargeOpennings/Create
         public IActionResult DirectChargeOpenning()
         {
@@ -48,7 +85,7 @@ namespace ExpertManagmentSystem.Controllers
                 directChargeOpenning.CivilCaseCategory = 0;
                 _context.Add(directChargeOpenning);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(DirectChargeOpenningIndex));
             }
             return View(directChargeOpenning);
         }
@@ -73,7 +110,7 @@ namespace ExpertManagmentSystem.Controllers
                 directChargeOpenning.CivilCaseCategory = (CivilCaseCategory)1;
                 _context.Add(directChargeOpenning);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(DirectChargeResponseOpenning));
             }
             return View(directChargeOpenning);
         }// GET: DirectChargeOpennings/Create
@@ -95,7 +132,7 @@ namespace ExpertManagmentSystem.Controllers
                 directChargeOpenning.CivilCaseCategory = (CivilCaseCategory)2;
                 _context.Add(directChargeOpenning);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(GeneralAppealOpenningIndex));
             }
             return View(directChargeOpenning);
         }
@@ -118,7 +155,7 @@ namespace ExpertManagmentSystem.Controllers
                 directChargeOpenning.CivilCaseCategory = (CivilCaseCategory)3;
                 _context.Add(directChargeOpenning);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(GeneralAppealResponseOpenningIndex));
             }
             return View(directChargeOpenning);
         }   
@@ -141,7 +178,7 @@ namespace ExpertManagmentSystem.Controllers
                 directChargeOpenning.CivilCaseCategory = (CivilCaseCategory)4;
                 _context.Add(directChargeOpenning);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(BreakingApplicantOpenningIndex));
             }
             return View(directChargeOpenning);
         }
@@ -164,7 +201,7 @@ namespace ExpertManagmentSystem.Controllers
                 directChargeOpenning.CivilCaseCategory = (CivilCaseCategory)5;
                 _context.Add(directChargeOpenning);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(BreakingRespondentOpenningIndex));
             }
             return View(directChargeOpenning);
         } 
