@@ -19,7 +19,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             _context = context;
         }
 
-        // GET: CCdlts
+        // GET: CCdlts  Comments 
         public async Task<IActionResult> Index()
         {
               return _context.CCdlt != null ? 
