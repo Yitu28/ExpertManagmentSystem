@@ -25,7 +25,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
         [Display(Name = "የጉዳዩ አይነት")]
         public string? TypeOfIssue { get; set; }
-
+        [Display(Name = "የጉዳዩ አይነት")]
         public LeadingCommandAndUnSupportAppeal? LeadingCommandAndUnSupportAppeal { get; set; }
 
         [Display(Name = "በብር")]
