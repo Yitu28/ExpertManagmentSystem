@@ -8,6 +8,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\CivilCaseContrrollers\**" />
+    <Compile Remove="Controllers\CorruptionControllers\**" />
+    <Compile Remove="Models\CorruptionModels\**" />
+    <Compile Remove="ViewModels\CorruptionViewModels\**" />
+    <Compile Remove="ViewModels\CrimeViewModels\**" />
+    <Compile Remove="ViewModels\EconomyViewModels\**" />
+    <Content Remove="Controllers\CivilCaseContrrollers\**" />
+    <Content Remove="Controllers\CorruptionControllers\**" />
+    <Content Remove="Models\CorruptionModels\**" />
+    <Content Remove="ViewModels\CorruptionViewModels\**" />
+    <Content Remove="ViewModels\CrimeViewModels\**" />
+    <Content Remove="ViewModels\EconomyViewModels\**" />
+    <EmbeddedResource Remove="Controllers\CivilCaseContrrollers\**" />
+    <EmbeddedResource Remove="Controllers\CorruptionControllers\**" />
+    <EmbeddedResource Remove="Models\CorruptionModels\**" />
+    <EmbeddedResource Remove="ViewModels\CorruptionViewModels\**" />
+    <EmbeddedResource Remove="ViewModels\CrimeViewModels\**" />
+    <EmbeddedResource Remove="ViewModels\EconomyViewModels\**" />
+    <None Remove="Controllers\CivilCaseContrrollers\**" />
+    <None Remove="Controllers\CorruptionControllers\**" />
+    <None Remove="Models\CorruptionModels\**" />
+    <None Remove="ViewModels\CorruptionViewModels\**" />
+    <None Remove="ViewModels\CrimeViewModels\**" />
+    <None Remove="ViewModels\EconomyViewModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.27" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.27" />
@@ -19,15 +46,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
     <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\CorruptionControllers\" />
-    <Folder Include="Controllers\CivilCaseContrrollers\" />
-    <Folder Include="Models\CorruptionModels\" />
-    <Folder Include="ViewModels\CrimeViewModels\" />
-    <Folder Include="ViewModels\EconomyViewModels\" />
-    <Folder Include="ViewModels\CorruptionViewModels\" />
   </ItemGroup>
 
 </Project>
