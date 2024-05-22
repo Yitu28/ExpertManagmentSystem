@@ -41,9 +41,13 @@ namespace ExpertManagmentSystem.Models.EconomyModels
         public int NumberOfWitnesses { get; set; }
         [Display(Name = "ኢግዚቢት")]  
          public string? Exhibit { get; set; }
-        [Display(Name = "የዐ/ህግ አስተያየት ")]
-        public string? ProsecutorDecission { get; set; }
+        [Display(Name = "የዐ/ህግ ውሳኔ አይነት ")]
+       
+        public Guid Eco_ProsecutorDecisionId { get; set; }
+        [ForeignKey(nameof(Eco_ProsecutorDecisionId))]
+        public virtual Eco_ProsecutorDecision? Eco_ProsecutorDecision { get; set; }
         [Display(Name = "የወንጀል አይነት ")]
+
         public Guid Cr_Crime_TypeId { get; set; }
         [ForeignKey(nameof(Cr_Crime_TypeId))]
         public virtual Cr_Crime_Type? Cr_Crime_Type { get; set; }

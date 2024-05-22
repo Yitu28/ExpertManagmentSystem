@@ -1,0 +1,132 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.DocumentModel.ProsecutorLisenceUpdate>
+
+@{
+    ViewData["Title"] = "IndexUpdate";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የእድሳት  መዝገብ  </h5>
+                        
+                        <a asp-action="Index"  style="color:green;">ወደ ዋናው ገጽ ተመለስ</a>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table  id="example3" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+               የፍቃድ ቁጥር 
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LisenceLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.people)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FreeServantGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FreeServantAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.disablity)
+            </th>
+            <th>
+             @Html.DisplayNameFor(model => model.IssuedType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssuedLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.decide)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OnAppointment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoneyAmmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayedtaxAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicePayed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lisenceUpdateDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProsecutorLisence.LisenceNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LisenceLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.people)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FreeServantGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FreeServantAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.disablity)
+            </td>
+            <td>
+             @Html.DisplayFor(modelItem => item.IssuedType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssuedLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.decide)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OnAppointment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoneyAmmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayedtaxAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServicePayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lisenceUpdateDate)
+            </td>
+            <td>
+                <a asp-action="EditUpdate" asp-route-id="@item.ProsecutorLisenceUpdateId">Edit</a> |
+                <a asp-action="DetailsUpdate" asp-route-id="@item.ProsecutorLisenceUpdateId">Details</a> |
+                <a asp-action="DeleteUpdate" asp-route-id="@item.ProsecutorLisenceUpdateId">Delete</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>

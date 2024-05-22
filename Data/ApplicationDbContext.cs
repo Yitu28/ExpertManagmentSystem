@@ -13,6 +13,7 @@ using ExpertManagmentSystem.Models.CrimeModels;
 using ExpertManagmentSystem.Models.CivilCaseModels;
 using ExpertManagmentSystem.Models.EconomyModels;
 using ExpertManagmentSystem.Models;
+using ExpertManagmentSystem.Models.DocumentModel;
 
 
 namespace ExpertManagmentSystem.Data
@@ -149,6 +150,15 @@ namespace ExpertManagmentSystem.Data
         public DbSet<ExpertManagmentSystem.Models.EconomyModels.Eco_WarrantyRecord>? Eco_WarrantyRecord { get; set; }
         public DbSet<ExpertManagmentSystem.Models.EconomyModels.Eco_Crime42A>? Eco_Crime42A { get; set; }
         public DbSet<ExpertManagmentSystem.Models.Eco_crimePitition>? Eco_crimePitition { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.EconomyModels.Eco_ProsecutorDecision>? Eco_ProsecutorDecision { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.EconomyModels.Eco_GeneralCourtDecission>? Eco_GeneralCourtDecission { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.EconomyModels.Eco_prosecutorComment>? Eco_prosecutorComment { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.EconomyModels.Eco_ProsecutorAppeals>? Eco_ProsecutorAppeals { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.DocumentModel.ProsecutorLisence>? ProsecutorLisence { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.DocumentModel.ProsecutorLisenceUpdate>? ProsecutorLisenceUpdate { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.DocumentModel.Doc_WarrantyDocument>? Doc_WarrantyDocument { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.DocumentModel.Doc_CivilAssosation>? Doc_CivilAssosation { get; set; }
+        public DbSet<ExpertManagmentSystem.Models.DocumentModel.Doc_serviceType>? Doc_serviceType { get; set; }
 
 
 

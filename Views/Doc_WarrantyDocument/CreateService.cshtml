@@ -1,0 +1,45 @@
+﻿@model ExpertManagmentSystem.Models.DocumentModel.Doc_serviceType
+
+@{
+    ViewData["Title"] = "CreateService";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">የሰነዶች ክፍል የሚሰጥ አገልግሎት መመዝገቢያ</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="body-box">
+        <form asp-action="CreateService">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Doc_serviceTypeName" class="control-label"></label>
+                <input asp-for="Doc_serviceTypeName" class="form-control" />
+                <span asp-validation-for="Doc_serviceTypeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <a asp-action="IndexService" class="btn btn-info" style="color:white;"> ወደ ዝርዝር ተመለስ </a>
+                                </div>
+                            </div>
+        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

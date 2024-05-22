@@ -1,0 +1,101 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.DocumentModel.ProsecutorLisence>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የዐ/ህግ ፍቃድ  መዝገብ  </h5>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+<table id="example3" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProsecutorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.job)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProffissionalLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GivingDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProsecutorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EducationLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.job)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProffissionalLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GivingDate)
+            </td>
+            <td>
+                   
+                <a asp-action="Edit" asp-route-id="@item.LisenceNo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LisenceNo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LisenceNo">Delete</a>
+                    <a asp-action="UpdateLicence" asp-route-id="@item.LisenceNo">ወደ ፍቃድ እድሳት</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>

@@ -197,7 +197,7 @@
         <a href="#" class="nav-link">
             <i class="fa fa-tasks"></i>
             <p>
-                Settings
+                የሰነዶች ጉዳይ አገልግሎት 
                 <i class="fas fa-angle-left right"></i>
             </p>
         </a>
@@ -205,37 +205,116 @@
         <ul class="nav nav-treeview">
 
             <li class="nav-item">
-                <a asp-controller="ReginalSectors" asp-action="Index" class="nav-link">
+            <a asp-controller="Doc_WarrantyDocument" asp-action="Index" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>የክልል ቢሮ</p>
+                    <p>የሰነዶች አገልግሎት</p>
                 </a>
             </li>          
             <li class="nav-item">
-                <a asp-controller="ZonalSectors" asp-action="Index" class="nav-link">
+             <a asp-controller="ProsecutorLisences" asp-action="Index" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>ዞን መምሪያ</p>
+                    <p>የጠበቆች ፍቃድና እድሳት </p>
                 </a>
             </li>
+              
             <li class="nav-item">
-                <a asp-controller="WoredaSectors" asp-action="Index" class="nav-link">
+             <a asp-controller="Doc_CivilAssosation" asp-action="Index" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>የወረዳ ጽ/ቤት</p>
+                    <p>የሲቪል ማህበራት ፍቃድና እድሳት </p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a asp-controller="Roles" asp-action="Index" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>ሚና ዝርዝር</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a asp-controller="UserRoles" asp-action="Index" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>ተጠቃሚዎች ዝርዝር</p>
-                </a>
-            </li>
+            
         </ul>
     </li>
+    @* end documentation *@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-tasks"></i>
+                                <p>
+                                    የውሳኔ አይነቶች
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a asp-controller="Eco_ProsecutorDecision" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>የዐ/ህግ ውሳኔ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Eco_GeneralCourtDecission" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>የፍርድ ቤት ውሳኔ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Eco_prosecutorComment" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>የዐ/ህግ አስተያየት  </p>
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                        </li>
+
+
+
+
+   @*  end decission *@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-tasks"></i>
+                                <p>
+                                    የኢኮኖሚ ጉዳዮች አገልግሎት
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a asp-controller="Eco_Crime42A" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>በ42/1/ሀ መሰረት ማስተናገድ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Eco_DirectChargeDecission" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>የቀጥታ ክስ መዝገብ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Eco_ProsecutorAppeals" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>የዐ/ህግ ይግባኝ መመዝገብ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Eco_DecideProsecutorBreak" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>የዐ/ህግ ሰበር ውሳኔ መመዝገብ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Eco_WarrantyRecord" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>የኢኮኖሚ ዋስትና መመዝገብ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Eco_crimePitition" asp-action="Index" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>የኢኮኖሚ አቢቱታ መመዝገብ </p>
+                                    </a>
+                                </li>
+                               
+
+                            </ul>
+                        </li>
 
 
 

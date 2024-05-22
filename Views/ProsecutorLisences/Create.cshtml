@@ -1,0 +1,115 @@
+﻿@using ExpertManagmentSystem.Enums
+@model ExpertManagmentSystem.Models.DocumentModel.ProsecutorLisence
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">የዐ/ህግ ፍቃድ መመዝገቢያ</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="body-box">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row">
+                            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="LisenceNo" class="control-label"></label>
+                <input asp-for="LisenceNo" class="form-control" />
+                <span asp-validation-for="LisenceNo" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="ProsecutorName" class="control-label"></label>
+                <input asp-for="ProsecutorName" class="form-control" />
+                <span asp-validation-for="ProsecutorName" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+         @Html.DropDownList("FreeServantGender", Html.GetEnumSelectList<Gender>(), " ጾታ  ይምረጡ ", new { @class = "form-control" })
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="PhoneNo" class="control-label"></label>
+                <input asp-for="PhoneNo" class="form-control" />
+                <span asp-validation-for="PhoneNo" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="EducationLevel" class="control-label"></label>
+                <input asp-for="EducationLevel" class="form-control" />
+                <span asp-validation-for="EducationLevel" class="text-danger"></span>
+            </div>
+            </div>
+                            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="job" class="control-label"></label>
+                @Html.DropDownList("Jobclass", Html.GetEnumSelectList<Jobclass>(), " የስራ  አይነት ይምረጡ ", new { @class = "form-control" })
+                <span asp-validation-for="job" class="text-danger"></span>
+            </div>
+            </div>
+                            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="ProffissionalLevel" class="control-label"></label>
+                <input asp-for="ProffissionalLevel" class="form-control" />
+                <span asp-validation-for="ProffissionalLevel" class="text-danger"></span>
+            </div>
+            </div>
+                            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="GivingDate" class="control-label"></label>
+                <input asp-for="GivingDate" class="form-control" />
+                <span asp-validation-for="GivingDate" class="text-danger"></span>
+            </div>
+            </div>
+                            <div class="col-sm-4">
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            </div>
+             <div class="col-sm-4">
+              <div class="form-group">
+                <a asp-action="Index" class="btn btn-info" style="color:white;"> ወደ ዝርዝር ተመለስ </a>
+              </div>
+              </div>
+              </div>
+        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

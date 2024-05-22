@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.EconomyModels.Eco_ProsecutorDecision>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a asp-Controller="Eco_DirectChargeDecission" asp-action="Index" class="btn btn-info" style="color:white;"> ወደ ዋናው ተመለስ </a>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProsecutorDecisionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dept)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProsecutorDecisionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dept)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Eco_ProsecutorDecisionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Eco_ProsecutorDecisionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Eco_ProsecutorDecisionId">Delete</a>
+            </td>
+        </tr>
+
+               
+                                    
+                                   
+}
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.DocumentModel.Doc_serviceType>
+
+@{
+    ViewData["Title"] = "IndexService";
+}
+
+<h1>IndexService</h1>
+
+<p>
+    <a asp-action="CreateService">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Doc_serviceTypeName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc_serviceTypeName)
+            </td>
+            <td>
+                <a asp-action="EditService" asp-route-id="@item.Doc_serviceTypeId">Edit</a> | 
+                <a asp-action="DeleteService" asp-route-id="@item.Doc_serviceTypeId">Delete</a>
+            </td>
+        </tr>
+        }
+        <div class="col-sm-4">
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-info" style="color:white;"> ወደ ዝርዝር ተመለስ </a>
+            </div>
+        </div>
+    </tbody>
+</table>

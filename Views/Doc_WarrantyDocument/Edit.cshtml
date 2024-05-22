@@ -1,0 +1,109 @@
+﻿@model ExpertManagmentSystem.Models.DocumentModel.Doc_WarrantyDocument
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">የዋስትና ውል መረጃ መለወጥ  </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="body-box">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Doc_WarrantyDocumentId" />
+                            <div class="row">
+                                <div class="col-sm-4">
+            <div class="form-group">
+                                        <label asp-for="Doc_serviceTypeId" class="control-label"></label>
+                                        <select asp-for="Doc_serviceTypeId" class="form-control" asp-items="ViewBag.Doc_serviceTypeId"></select>
+                                        <span asp-validation-for="Doc_serviceTypeId" class="text-danger"></span>
+            </div>
+            </div>
+                                    <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="ServerName" class="control-label"></label>
+                <input asp-for="ServerName" class="form-control" />
+                <span asp-validation-for="ServerName" class="text-danger"></span>
+            </div>
+            </div>
+                                <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="sex" class="control-label"></label>
+                <select asp-for="sex" class="form-control"></select>
+                <span asp-validation-for="sex" class="text-danger"></span>
+            </div>
+            </div>
+                                <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="serverAge" class="control-label"></label>
+                <input asp-for="serverAge" class="form-control" />
+                <span asp-validation-for="serverAge" class="text-danger"></span>
+            </div>
+            </div>
+                                <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="TemperFee" class="control-label"></label>
+                <input asp-for="TemperFee" class="form-control" />
+                <span asp-validation-for="TemperFee" class="text-danger"></span>
+            </div>
+            </div>
+                                <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="ServiceFee" class="control-label"></label>
+                <input asp-for="ServiceFee" class="form-control" />
+                <span asp-validation-for="ServiceFee" class="text-danger"></span>
+            </div>
+            </div>
+                                <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="Expert" class="control-label"></label>
+                <input asp-for="Expert" class="form-control" />
+                <span asp-validation-for="Expert" class="text-danger"></span>
+            </div>
+            </div>
+                                <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="workedDate" class="control-label"></label>
+                <input asp-for="workedDate" class="form-control" />
+                <span asp-validation-for="workedDate" class="text-danger"></span>
+            </div>
+            </div>
+              
+                                <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="SectrorsDepartmentId" class="control-label"></label>
+                <select asp-for="SectrorsDepartmentId" class="form-control" asp-items="ViewBag.SectrorsDepartmentId"></select>
+                <span asp-validation-for="SectrorsDepartmentId" class="text-danger"></span>
+            </div>
+            </div>
+                            <div class="col-sm-4">
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            </div>
+             <div class="col-sm-4">
+               <div class="form-group">
+                    <a asp-action="Index" class="btn btn-info" style="color:white;"> ወደ ዝርዝር ተመለስ </a>
+               </div>
+                </div>
+                </div>
+        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

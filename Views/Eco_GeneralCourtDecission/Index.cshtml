@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.EconomyModels.Eco_GeneralCourtDecission>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የጠቅላይ ፍ/ቤት ውሳኔ  </h5>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                        <a asp-controller="Eco_ProsecutorAppeals" asp-action="Index" class="btn btn-success float-right" style="color:white;"> ወደ ዋናው ተመለስ </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GeneralCourtDecissionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeneralCourtDecissionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Eco_GeneralCourtDecissionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Eco_GeneralCourtDecissionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Eco_GeneralCourtDecissionId">Delete</a>
+            </td>
+        </tr>
+
+}
+    </tbody>
+</table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>

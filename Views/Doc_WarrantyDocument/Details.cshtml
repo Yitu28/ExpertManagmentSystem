@@ -1,0 +1,73 @@
+﻿@model ExpertManagmentSystem.Models.DocumentModel.Doc_WarrantyDocument
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Doc_WarrantyDocument</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ServerName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ServerName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sex)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sex)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.serverAge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.serverAge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TemperFee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TemperFee)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ServiceFee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ServiceFee)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Expert)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Expert)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.workedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.workedDate)
+        </dd>
+      
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SectrorsDepartment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SectrorsDepartment.SectrorsDepartmentId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Doc_serviceType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Doc_serviceType.Doc_serviceTypeId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Doc_WarrantyDocumentId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

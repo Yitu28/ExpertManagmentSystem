@@ -1,0 +1,147 @@
+﻿@using ExpertManagmentSystem.Enums
+
+@model ExpertManagmentSystem.Models.DocumentModel.ProsecutorLisenceUpdate
+
+@{
+    ViewData["Title"] = "UpdateLicence";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">የዐ/ህግ ፍቃድ እድሳት መመዝግብ</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="body-box">
+                        <form asp-action="UpdateLicence">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row">
+                                <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="LisenceNo" class="control-label"></label>
+                <input asp-for="LisenceNo" class="form-control"/>
+                @* <select asp-for="LisenceNo" class ="form-control" asp-items="ViewBag.LisenceNo"></select> *@
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="LisenceLevel" class="control-label"></label>
+                <input asp-for="LisenceLevel" class="form-control" />
+                <span asp-validation-for="LisenceLevel" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="people" class="control-label"></label>
+             @Html.DropDownList("people", Html.GetEnumSelectList<FreeServant>(), " ተገልጋይ  ይምረጡ ", new { @class = "form-control" })
+                <span asp-validation-for="people" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="FreeServantGender" class="control-label"></label>
+                @Html.DropDownList("FreeServantGender", Html.GetEnumSelectList<Gender>(), " ጾታ  ይምረጡ ", new { @class = "form-control" })
+                <span asp-validation-for="FreeServantGender" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="FreeServantAge" class="control-label"></label>
+                <input asp-for="FreeServantAge" class="form-control" />
+                <span asp-validation-for="FreeServantAge" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="disablity" class="control-label"></label>
+                @Html.DropDownList("disablity", Html.GetEnumSelectList<DisablityStatus>(), " ጾታ  ይምረጡ ", new { @class = "form-control" })
+                <span asp-validation-for="disablity" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                                        <label asp-for="IssuedType" class="control-label"></label>
+                                        <input asp-for="IssuedType" class="form-control" />
+                                        <span asp-validation-for="IssuedType" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="IssuedLevel" class="control-label"></label>
+                <input asp-for="IssuedLevel" class="form-control" />
+                <span asp-validation-for="IssuedLevel" class="text-danger"></span>
+            </div>
+            </div>
+                               
+            <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="decide" class="control-label"></label>
+                 @Html.DropDownList("decide", Html.GetEnumSelectList<FileEndResult>(), " ውሳኔ   ይምረጡ ", new { @class = "form-control" })
+                <span asp-validation-for="decide" class="text-danger"></span>
+            </div>
+            </div>
+              <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="OnAppointment" class="control-label"></label>
+                <input asp-for="OnAppointment" class="form-control" />
+                <span asp-validation-for="OnAppointment" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="MoneyAmmount" class="control-label"></label>
+                <input asp-for="MoneyAmmount" class="form-control" />
+                <span asp-validation-for="MoneyAmmount" class="text-danger"></span>
+            </div>
+            </div>
+              <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="PayedtaxAmount" class="control-label"></label>
+                <input asp-for="PayedtaxAmount" class="form-control" />
+                <span asp-validation-for="PayedtaxAmount" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="ServicePayed" class="control-label"></label>
+                <input asp-for="ServicePayed" class="form-control" />
+                <span asp-validation-for="ServicePayed" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <label asp-for="lisenceUpdateDate" class="control-label"></label>
+                <input asp-for="lisenceUpdateDate" class="form-control" />
+                <span asp-validation-for="lisenceUpdateDate" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-sm-4">
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            </div>
+          <div class="col-sm-4">
+         <div class="form-group">
+             <a asp-action="IndexUpdate" class="btn btn-info" style="color:white;"> ወደ ዝርዝር ተመለስ </a>
+          </div>
+           </div>
+            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ExpertManagmentSystem.Migrations
 {
-    public partial class sunday : Migration
+    public partial class Documentwaranty : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,6 +23,82 @@ namespace ExpertManagmentSystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cr_Crime_Types", x => x.Cr_Crime_TypeId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Doc_serviceType",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    Doc_serviceTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Doc_serviceTypeName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Doc_serviceType", x => x.Doc_serviceTypeId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Eco_GeneralCourtDecission",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    Eco_GeneralCourtDecissionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GeneralCourtDecissionName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Department = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Eco_GeneralCourtDecission", x => x.Eco_GeneralCourtDecissionId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Eco_prosecutorComment",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    Eco_prosecutorCommentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProsecutorComment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Department = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Eco_prosecutorComment", x => x.Eco_prosecutorCommentId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Eco_ProsecutorDecision",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    Eco_ProsecutorDecisionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProsecutorDecisionName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Dept = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Eco_ProsecutorDecision", x => x.Eco_ProsecutorDecisionId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProsecutorLisence",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    LisenceNo = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProsecutorName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Gender = table.Column<int>(type: "int", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EducationLevel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    job = table.Column<int>(type: "int", nullable: false),
+                    ProffissionalLevel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GivingDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProsecutorLisence", x => x.LisenceNo);
                 });
 
             migrationBuilder.CreateTable(
@@ -116,6 +192,78 @@ namespace ExpertManagmentSystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Eco_ProsecutorAppeals",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    Eco_ProsecutorAppealsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FileOpeningDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProsecutorNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CourtNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Applicant = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Respondant = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cr_Crime_TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CourtDecission = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ExpertName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Eco_GeneralCourtDecissionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MaleApplicant = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FemaleApplicant = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AppealStatus = table.Column<int>(type: "int", nullable: false),
+                    FederalBreakingRequest = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Eco_ProsecutorAppeals", x => x.Eco_ProsecutorAppealsId);
+                    table.ForeignKey(
+                        name: "FK_Eco_ProsecutorAppeals_Cr_Crime_Types_Cr_Crime_TypeId",
+                        column: x => x.Cr_Crime_TypeId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "Cr_Crime_Types",
+                        principalColumn: "Cr_Crime_TypeId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Eco_ProsecutorAppeals_Eco_GeneralCourtDecission_Eco_GeneralCourtDecissionId",
+                        column: x => x.Eco_GeneralCourtDecissionId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "Eco_GeneralCourtDecission",
+                        principalColumn: "Eco_GeneralCourtDecissionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProsecutorLisenceUpdate",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    ProsecutorLisenceUpdateId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LisenceNo = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LisenceLevel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    people = table.Column<int>(type: "int", nullable: false),
+                    FreeServantGender = table.Column<int>(type: "int", nullable: false),
+                    FreeServantAge = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    disablity = table.Column<int>(type: "int", nullable: false),
+                    IssuedType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IssuedLevel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    decide = table.Column<int>(type: "int", nullable: false),
+                    OnAppointment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MoneyAmmount = table.Column<double>(type: "float", nullable: false),
+                    PayedtaxAmount = table.Column<double>(type: "float", nullable: false),
+                    ServicePayed = table.Column<double>(type: "float", nullable: false),
+                    lisenceUpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProsecutorLisenceUpdate", x => x.ProsecutorLisenceUpdateId);
+                    table.ForeignKey(
+                        name: "FK_ProsecutorLisenceUpdate_ProsecutorLisence_LisenceNo",
+                        column: x => x.LisenceNo,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "ProsecutorLisence",
+                        principalColumn: "LisenceNo",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -536,6 +684,153 @@ namespace ExpertManagmentSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Doc_CivilAssosation",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    CivilLicenseNo = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AssosationName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    licensedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    licensedUpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ServiceFee = table.Column<double>(type: "float", nullable: false),
+                    RecietNo = table.Column<int>(type: "int", nullable: false),
+                    AssosationAim = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ManagerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Expert = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AssosationMember = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    gender = table.Column<int>(type: "int", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    DisablityStatus = table.Column<int>(type: "int", nullable: false),
+                    SectrorsDepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Doc_CivilAssosation", x => x.CivilLicenseNo);
+                    table.ForeignKey(
+                        name: "FK_Doc_CivilAssosation_SectrorsDepartment_SectrorsDepartmentId",
+                        column: x => x.SectrorsDepartmentId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "SectrorsDepartment",
+                        principalColumn: "SectrorsDepartmentId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Doc_WarrantyDocument",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    Doc_WarrantyDocumentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Doc_serviceTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ServerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    sex = table.Column<int>(type: "int", nullable: false),
+                    serverAge = table.Column<int>(type: "int", nullable: false),
+                    TemperFee = table.Column<double>(type: "float", nullable: false),
+                    ServiceFee = table.Column<double>(type: "float", nullable: false),
+                    Expert = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    workedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TypeOfService = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SectrorsDepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Doc_WarrantyDocument", x => x.Doc_WarrantyDocumentId);
+                    table.ForeignKey(
+                        name: "FK_Doc_WarrantyDocument_Doc_serviceType_Doc_serviceTypeId",
+                        column: x => x.Doc_serviceTypeId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "Doc_serviceType",
+                        principalColumn: "Doc_serviceTypeId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Doc_WarrantyDocument_SectrorsDepartment_SectrorsDepartmentId",
+                        column: x => x.SectrorsDepartmentId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "SectrorsDepartment",
+                        principalColumn: "SectrorsDepartmentId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Eco_Crime42A",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    Eco_Crime42AId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RecordNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PoliceRecordNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DefendenNamet = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cr_Crime_TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Zone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProsecutorAdmissionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProsecutorReturnedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AdmisstionOrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Persistant = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Abrogated = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OrderedIssue = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OnAdmission = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NonOrderedIssue = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SectrorsDepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Eco_Crime42A", x => x.Eco_Crime42AId);
+                    table.ForeignKey(
+                        name: "FK_Eco_Crime42A_Cr_Crime_Types_Cr_Crime_TypeId",
+                        column: x => x.Cr_Crime_TypeId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "Cr_Crime_Types",
+                        principalColumn: "Cr_Crime_TypeId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Eco_Crime42A_SectrorsDepartment_SectrorsDepartmentId",
+                        column: x => x.SectrorsDepartmentId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "SectrorsDepartment",
+                        principalColumn: "SectrorsDepartmentId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Eco_crimePitition",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    Eco_crimePititionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ApplicantName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cr_Crime_TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PititionPresentBody = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Prosecutor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IssuedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ReturedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Decission = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DecissionOrder = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DecissionStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SectrorsDepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Eco_crimePitition", x => x.Eco_crimePititionId);
+                    table.ForeignKey(
+                        name: "FK_Eco_crimePitition_Cr_Crime_Types_Cr_Crime_TypeId",
+                        column: x => x.Cr_Crime_TypeId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "Cr_Crime_Types",
+                        principalColumn: "Cr_Crime_TypeId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Eco_crimePitition_SectrorsDepartment_SectrorsDepartmentId",
+                        column: x => x.SectrorsDepartmentId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "SectrorsDepartment",
+                        principalColumn: "SectrorsDepartmentId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Eco_DirectChargeDecission",
                 schema: "ExpertUserMngt",
                 columns: table => new
@@ -557,7 +852,7 @@ namespace ExpertManagmentSystem.Migrations
                     AdmissionExpert = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NumberOfWitnesses = table.Column<int>(type: "int", nullable: false),
                     Exhibit = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProsecutorDecission = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Eco_ProsecutorDecisionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Cr_Crime_TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SectrorsDepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -570,6 +865,13 @@ namespace ExpertManagmentSystem.Migrations
                         principalSchema: "ExpertUserMngt",
                         principalTable: "Cr_Crime_Types",
                         principalColumn: "Cr_Crime_TypeId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Eco_DirectChargeDecission_Eco_ProsecutorDecision_Eco_ProsecutorDecisionId",
+                        column: x => x.Eco_ProsecutorDecisionId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "Eco_ProsecutorDecision",
+                        principalColumn: "Eco_ProsecutorDecisionId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Eco_DirectChargeDecission_SectrorsDepartment_SectrorsDepartmentId",
@@ -639,8 +941,7 @@ namespace ExpertManagmentSystem.Migrations
                     ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ProsecutorComment = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cr_Crime_TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SectrorsDepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PetWar = table.Column<int>(type: "int", nullable: false)
+                    SectrorsDepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -982,10 +1283,58 @@ namespace ExpertManagmentSystem.Migrations
                 column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Doc_CivilAssosation_SectrorsDepartmentId",
+                schema: "ExpertUserMngt",
+                table: "Doc_CivilAssosation",
+                column: "SectrorsDepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Doc_WarrantyDocument_Doc_serviceTypeId",
+                schema: "ExpertUserMngt",
+                table: "Doc_WarrantyDocument",
+                column: "Doc_serviceTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Doc_WarrantyDocument_SectrorsDepartmentId",
+                schema: "ExpertUserMngt",
+                table: "Doc_WarrantyDocument",
+                column: "SectrorsDepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Eco_Crime42A_Cr_Crime_TypeId",
+                schema: "ExpertUserMngt",
+                table: "Eco_Crime42A",
+                column: "Cr_Crime_TypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Eco_Crime42A_SectrorsDepartmentId",
+                schema: "ExpertUserMngt",
+                table: "Eco_Crime42A",
+                column: "SectrorsDepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Eco_crimePitition_Cr_Crime_TypeId",
+                schema: "ExpertUserMngt",
+                table: "Eco_crimePitition",
+                column: "Cr_Crime_TypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Eco_crimePitition_SectrorsDepartmentId",
+                schema: "ExpertUserMngt",
+                table: "Eco_crimePitition",
+                column: "SectrorsDepartmentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Eco_DirectChargeDecission_Cr_Crime_TypeId",
                 schema: "ExpertUserMngt",
                 table: "Eco_DirectChargeDecission",
                 column: "Cr_Crime_TypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Eco_DirectChargeDecission_Eco_ProsecutorDecisionId",
+                schema: "ExpertUserMngt",
+                table: "Eco_DirectChargeDecission",
+                column: "Eco_ProsecutorDecisionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Eco_DirectChargeDecission_SectrorsDepartmentId",
@@ -1006,6 +1355,18 @@ namespace ExpertManagmentSystem.Migrations
                 column: "SectrorsDepartmentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Eco_ProsecutorAppeals_Cr_Crime_TypeId",
+                schema: "ExpertUserMngt",
+                table: "Eco_ProsecutorAppeals",
+                column: "Cr_Crime_TypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Eco_ProsecutorAppeals_Eco_GeneralCourtDecissionId",
+                schema: "ExpertUserMngt",
+                table: "Eco_ProsecutorAppeals",
+                column: "Eco_GeneralCourtDecissionId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Eco_WarrantyRecord_Cr_Crime_TypeId",
                 schema: "ExpertUserMngt",
                 table: "Eco_WarrantyRecord",
@@ -1016,6 +1377,12 @@ namespace ExpertManagmentSystem.Migrations
                 schema: "ExpertUserMngt",
                 table: "Eco_WarrantyRecord",
                 column: "SectrorsDepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProsecutorLisenceUpdate_LisenceNo",
+                schema: "ExpertUserMngt",
+                table: "ProsecutorLisenceUpdate",
+                column: "LisenceNo");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RoleClaims_RoleId",
@@ -1127,6 +1494,22 @@ namespace ExpertManagmentSystem.Migrations
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(
+                name: "Doc_CivilAssosation",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
+                name: "Doc_WarrantyDocument",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
+                name: "Eco_Crime42A",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
+                name: "Eco_crimePitition",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
                 name: "Eco_DirectChargeDecission",
                 schema: "ExpertUserMngt");
 
@@ -1135,7 +1518,19 @@ namespace ExpertManagmentSystem.Migrations
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(
+                name: "Eco_ProsecutorAppeals",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
+                name: "Eco_prosecutorComment",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
                 name: "Eco_WarrantyRecord",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
+                name: "ProsecutorLisenceUpdate",
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(
@@ -1175,7 +1570,23 @@ namespace ExpertManagmentSystem.Migrations
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(
+                name: "Doc_serviceType",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
+                name: "Eco_ProsecutorDecision",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
+                name: "Eco_GeneralCourtDecission",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
                 name: "Cr_Crime_Types",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
+                name: "ProsecutorLisence",
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(

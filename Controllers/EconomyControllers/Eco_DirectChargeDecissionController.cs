@@ -18,12 +18,12 @@ namespace ExpertManagmentSystem.Controllers.EconomyControllers
         // GET: Eco_DirectChargeDecission
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Eco_DirectChargeDecission.Include(e => e.Cr_Crime_Type).Include(e => e.SectrorsDepartment).Where(a => a.Ecocrime == Enums.CrimeEconomy.EconomyDept);
+            var applicationDbContext = _context.Eco_DirectChargeDecission.Include(e => e.Eco_ProsecutorDecision).Include(e => e.Eco_ProsecutorDecision).Include(e => e.SectrorsDepartment).Where(a => a.Ecocrime == Enums.CrimeEconomy.EconomyDept);
             return View(await applicationDbContext.ToListAsync());
         }
         public async Task<IActionResult> Cr_Index()
         {
-            var applicationDbContext = _context.Eco_DirectChargeDecission.Include(e => e.Cr_Crime_Type).Include(e => e.SectrorsDepartment).Where(a => a.Ecocrime == Enums.CrimeEconomy.CrimeDept);
+            var applicationDbContext = _context.Eco_DirectChargeDecission.Include(e => e.Eco_ProsecutorDecision).Include(e => e.Eco_ProsecutorDecision).Include(e => e.SectrorsDepartment).Where(a => a.Ecocrime == Enums.CrimeEconomy.CrimeDept);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -52,6 +52,7 @@ namespace ExpertManagmentSystem.Controllers.EconomyControllers
         {
             ViewData["Cr_Crime_TypeId"] = new SelectList(_context.Cr_Crime_Types, "Cr_Crime_TypeId", "CrimeTypeName");
             ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "DepartmentName");
+            ViewData["Eco_ProsecutorDecisionId"] = new SelectList(_context.Eco_ProsecutorDecision, "Eco_ProsecutorDecisionId", "ProsecutorDecisionName");
             return View();
         }
 
@@ -73,6 +74,7 @@ namespace ExpertManagmentSystem.Controllers.EconomyControllers
             }
             ViewData["Cr_Crime_TypeId"] = new SelectList(_context.Cr_Crime_Types, "Cr_Crime_TypeId", "Cr_Crime_TypeId", eco_DirectChargeDecission.Cr_Crime_TypeId);
             ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", eco_DirectChargeDecission.SectrorsDepartmentId);
+            ViewData["Eco_ProsecutorDecisionId"] = new SelectList(_context.Eco_ProsecutorDecision, "Eco_ProsecutorDecisionId", "Eco_ProsecutorDecisionId", eco_DirectChargeDecission.Eco_ProsecutorDecisionId);
             return View(eco_DirectChargeDecission);
         }
 
@@ -91,6 +93,7 @@ namespace ExpertManagmentSystem.Controllers.EconomyControllers
             }
             ViewData["Cr_Crime_TypeId"] = new SelectList(_context.Cr_Crime_Types, "Cr_Crime_TypeId", "CrimeTypeName", eco_DirectChargeDecission.Cr_Crime_TypeId);
             ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "DepartmentName", eco_DirectChargeDecission.SectrorsDepartmentId);
+            ViewData["Eco_ProsecutorDecisionId"] = new SelectList(_context.Eco_ProsecutorDecision, "Eco_ProsecutorDecisionId", "ProsecutorDecisionName", eco_DirectChargeDecission.Eco_ProsecutorDecisionId);
             return View(eco_DirectChargeDecission);
         }
 
@@ -124,10 +127,11 @@ namespace ExpertManagmentSystem.Controllers.EconomyControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index)); 
             }
             ViewData["Cr_Crime_TypeId"] = new SelectList(_context.Cr_Crime_Types, "Cr_Crime_TypeId", "CrimeTypeName", eco_DirectChargeDecission.Cr_Crime_TypeId);
             ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "DepartmentName", eco_DirectChargeDecission.SectrorsDepartmentId);
+            ViewData["Eco_ProsecutorDecisionId"] = new SelectList(_context.Eco_ProsecutorDecision, "Eco_ProsecutorDecisionId", "ProsecutorDecisionName", eco_DirectChargeDecission.Eco_ProsecutorDecisionId);
             return View(eco_DirectChargeDecission);
         }
 
@@ -136,6 +140,7 @@ namespace ExpertManagmentSystem.Controllers.EconomyControllers
         {
             ViewData["Cr_Crime_TypeId"] = new SelectList(_context.Cr_Crime_Types, "Cr_Crime_TypeId", "CrimeTypeName");
             ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "DepartmentName");
+            ViewData["Eco_ProsecutorDecisionId"] = new SelectList(_context.Eco_ProsecutorDecision, "Eco_ProsecutorDecisionId", "ProsecutorDecisionName");
             return View();
         }
 
@@ -153,10 +158,11 @@ namespace ExpertManagmentSystem.Controllers.EconomyControllers
 
                 _context.Add(eco_DirectChargeDecission);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index)); 
             }
             ViewData["Cr_Crime_TypeId"] = new SelectList(_context.Cr_Crime_Types, "Cr_Crime_TypeId", "Cr_Crime_TypeId", eco_DirectChargeDecission.Cr_Crime_TypeId);
             ViewData["SectrorsDepartmentId"] = new SelectList(_context.SectrorsDepartment, "SectrorsDepartmentId", "SectrorsDepartmentId", eco_DirectChargeDecission.SectrorsDepartmentId);
+            ViewData["Eco_ProsecutorDecisionId"] = new SelectList(_context.Eco_ProsecutorDecision, "Eco_ProsecutorDecisionId", "Eco_ProsecutorDecisionId", eco_DirectChargeDecission.Eco_ProsecutorDecisionId);
             return View(eco_DirectChargeDecission);
         }
 

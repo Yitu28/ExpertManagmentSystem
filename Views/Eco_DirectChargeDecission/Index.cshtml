@@ -12,6 +12,7 @@
                 <div class="card">
                     <div class="card-header" style="background-color:#123456;color:white;">
                         <h5 class="card-title">የኢኮኖሚ ወንጀል ክስ መዝገብ  </h5>
+                        <a asp-controller="Eco_ProsecutorDecision" asp-action="Create" class="btn btn-success float-right" style="color:white;"> የዐ/ህግ ውሳኔ ጨምር </a>
                         <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
                     </div>
                     <!-- /.card-header -->
@@ -65,7 +66,7 @@
                                         @Html.DisplayNameFor(model => model.Exhibit)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.ProsecutorDecission)
+                                       የአዐ/ህግ ውሳኔ 
                                     </th>
                                     <th>
                                         የወንጀል አይነት 
@@ -128,7 +129,7 @@
                                             @Html.DisplayFor(modelItem => item.Exhibit)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.ProsecutorDecission)
+                                            @Html.DisplayFor(modelItem => item.Eco_ProsecutorDecision.ProsecutorDecisionName)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Cr_Crime_Type.CrimeTypeName)

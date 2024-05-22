@@ -1,0 +1,124 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.EconomyModels.Eco_ProsecutorAppeals>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የዐ/ህግ ይግባኝ መመዝገቢያ  </h5>
+                        <a asp-controller="Eco_GeneralCourtDecission" asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ የፍ/ቤት ውሳኔ ጨምር </a>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+   <table id="example3" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FileOpeningDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProsecutorNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourtNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Applicant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Respondant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cr_Crime_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourtDecission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpertName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Eco_GeneralCourtDecission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaleApplicant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FemaleApplicant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppealStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FederalBreakingRequest)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileOpeningDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProsecutorNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourtNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Applicant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Respondant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cr_Crime_Type.Cr_Crime_TypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourtDecission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpertName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eco_GeneralCourtDecission.Eco_GeneralCourtDecissionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaleApplicant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FemaleApplicant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppealStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FederalBreakingRequest)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Eco_ProsecutorAppealsId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Eco_ProsecutorAppealsId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Eco_ProsecutorAppealsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>

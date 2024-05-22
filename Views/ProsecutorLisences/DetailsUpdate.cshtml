@@ -1,0 +1,102 @@
+﻿@model ExpertManagmentSystem.Models.DocumentModel.ProsecutorLisenceUpdate
+
+@{
+    ViewData["Title"] = "DetailsUpdate";
+}
+
+<h1>DetailsUpdate</h1>
+
+<div>
+    <h4>ProsecutorLisenceUpdate</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProsecutorLisence)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProsecutorLisence.LisenceNo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LisenceLevel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LisenceLevel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.people)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.people)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FreeServantGender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FreeServantGender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FreeServantAge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FreeServantAge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.disablity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.disablity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IssuedType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IssuedType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IssuedLevel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IssuedLevel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.decide)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.decide)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OnAppointment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OnAppointment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MoneyAmmount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MoneyAmmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PayedtaxAmount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PayedtaxAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ServicePayed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ServicePayed)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.lisenceUpdateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.lisenceUpdateDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditUpdate" asp-route-id="@Model.ProsecutorLisenceUpdateId">Edit</a> |
+    <a asp-action="IndexUpdate">Back to List</a>
+</div>

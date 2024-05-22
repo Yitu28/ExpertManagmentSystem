@@ -24,13 +24,13 @@ namespace ExpertManagmentSystem.Models
         [Display(Name = "የተመለሰበት ቀን ")]
         public DateTime ReturedDate { get; set; }
         [Display(Name = "የተሰጠ ውሳኔ")]
-        public string Decission { get; set; }
+        public string? Decission { get; set; }
         [Display(Name = "የተሰጠው ውሳኔ ትዛዘ")]
-        public string DecissionOrder { get; set; }
+        public string? DecissionOrder { get; set; }
         [Display(Name = "የተሰጠው ውሳኔ ፍጸሜ ያገኘ ")]
-        public string DecissionStatus { get; set; }
+        public string? DecissionStatus { get; set; }
         [Display(Name = "ዞን/ክልል")]
-        public string Address { get; set; }
+        public string? Address { get; set; }
         [Display(Name = "ዲፓርትመንት")]
         public Guid SectrorsDepartmentId { get; set; }
         [ForeignKey(nameof(SectrorsDepartmentId))]

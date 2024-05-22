@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.DocumentModel.Doc_WarrantyDocument>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የዋስትና ውል ሰነዶች መረጃ ዝርዝር  </h5>
+                        <a asp-action="CreateService" class="btn btn-success float-right" style="color:white;"> አገልግሎት ጨምር </a>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example3" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.serverAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TemperFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expert)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.workedDate)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.SectrorsDepartment.DepartmentName )
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doc_serviceType.Doc_serviceTypeName )
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.serverAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TemperFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expert)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.workedDate)
+            </td>
+           
+            <td>
+               @Html.DisplayFor(modelItem => item.SectrorsDepartment.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc_serviceType.Doc_serviceTypeName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Doc_WarrantyDocumentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Doc_WarrantyDocumentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Doc_WarrantyDocumentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
