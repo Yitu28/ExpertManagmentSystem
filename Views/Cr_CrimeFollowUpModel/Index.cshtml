@@ -4,15 +4,15 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
--
+<br />
 <div class="card">
-    <div class="card-header">
+    <div class="card-header" >
         <h3 class="card-title">የይግባኝ የተጠየቁ የወንጀል መዛግብት </h3>
         @*<button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#AllCrimefileOpenining"> <i class="fa fa-plus"></i> አዲስ መዝግብ</button>*@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <table id="DecidedJudicialAndProsecuterTable" class="table table-bordered table-striped" style="width:130%">
+        <table id="DecidedJudicialAndProsecuterTable" class="table table-bordered table-striped" style="width:200%">
             <thead>
         <tr>
             <th>
@@ -112,8 +112,7 @@
                 @Html.DisplayFor(modelItem => item.Cr_JudicalAppealOpening.Cr_JudicalAppealOpeningId)
             </td>*@
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Cr_CrimeFollowUpModelId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Cr_CrimeFollowUpModelId">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.Cr_CrimeFollowUpModelId">Edit</a> |           
                 <a asp-action="Delete" asp-route-id="@item.Cr_CrimeFollowUpModelId">Delete</a>
             </td>
         </tr>

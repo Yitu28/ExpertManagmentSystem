@@ -1,0 +1,116 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.CrimeModels.AllDepartmentWarrantyModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">የአቤቱታ መዝገብ </h3>
+        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#CrimeCopliantCreate"> <i class="fa fa-plus"></i> አዲስ መዝግብ</button>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="DecidedJudicialAndProsecuterTable" class="table table-bordered table-striped" style="width:150%">
+            <thead>
+                <tr>
+                    <th>
+                        ፋይሉ የተከፈተበት ቀን
+                    </th>
+                    <th>
+                        የዐ/ህግ መ/ቁጥር
+                    </th>
+                    <th>
+                        የፖ/መ/ቁ
+                    </th>
+                    <th>
+                        የፍ/ቤት መ/ቁጥር
+                    </th>
+
+                    <th>
+                        አቤቱታ አቅራቢ ስም
+                    </th>
+                    <th>
+                        ጾታ
+                    </th>
+                    <th>
+                        የመጣበት ዞን
+                    </th>
+                    <th>
+                        የወንጅሉ አይነት
+                    </th>
+                    <th>
+                        ለዐ/ህግ የተመራበት ቀን
+                    </th>
+                    <th>
+                        ተሰርቶ የተመለሰበት ቀን
+                    </th>
+                    <th>
+                        የዐ/ህግ አስተያየት
+                    </th>
+                    @*  <th>
+                    የስራ ክፍል
+                    </th>*@
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OpeninigDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProcsecuterNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PoliceRecordNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CourtNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ApplicantName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WhereItCameFrom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cr_Crime_Type.CrimeTypeName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateOfDirectedToProsecuter)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateOfDoneAndReturned)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cr_ProsecutorComment)
+                        </td>
+
+                        @* <td>
+                    @Html.DisplayFor(modelItem => item.SectrorsDepartment.DepartmentName)
+                    </td>*@
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.AllDepartmentWarrantyModelId">Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@item.AllDepartmentWarrantyModelId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@await Html.PartialAsync("_Cr_allCompliantPartialCreate", new AllDepartmentWarrantyModel ())
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+

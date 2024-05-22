@@ -4,10 +4,11 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
--
+<br />
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">የፍርደኛ ይግባኝ መዛግብት </h3>
+        <h3 class="card-title">የፍርደኛ ይግባኝ መዛግብት </h3>      
+        <a button type="button" class="btn btn-info float-right ml-3" id="Btn" asp-controller="Cr_CrimeFollowUpModel" asp-action="Index">ይግባኝ የተጠየቁ ዝርዝር</a>
         <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#AllCrimefileOpenining"> <i class="fa fa-plus"></i> አዲስ መዝግብ</button>
     </div>
     <!-- /.card-header -->
@@ -79,7 +80,8 @@
             <td>
                 @* <a asp-action="Edit" asp-route-id="@item.Cr_JudicalAppealOpeningId">Edit</a> |*@
                 <a asp-action="CrFollowupCreate" asp-route-id="@item.Cr_JudicalAppealOpeningId">ይግባኝ</a> |
-                <a asp-action="Delete" asp-route-id="@item.Cr_JudicalAppealOpeningId">Delete</a>
+             @*   <a asp-action="Delete" asp-route-id="@item.Cr_JudicalAppealOpeningId">Delete</a>*@
+              @*  <a asp-controller="Cr_CrimeFollowUpModel" asp-action="Index" class="nav-link">ዝርዝር</a>*@
             </td>
         </tr>
 }

@@ -10,6 +10,7 @@ using ExpertManagmentSystem.Models.CrimeModels;
 using ExpertManagmentSystem.OrganizationalStructures;
 using ExpertManagmentSystem.ViewModels;
 using ExpertManagmentSystem.ViewModels.CrimeViewModels;
+using ExpertManagmentSystem.Enums;
 
 namespace ExpertManagmentSystem.Controllers.CrimeControllers
 {
@@ -111,7 +112,7 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CrFollowupCreate([Bind("Cr_CrimeFollowUpModelId,Cr_ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,DateOfAppointment,FileIssuedDate,FileReturnedDate,FederalBreakingRequest,Cr_JudicalAppealOpeningId")] Cr_CrimeFollowUpModel cr_CrimeFollowUpModel)
+        public async Task<IActionResult> CrFollowupCreate([Bind("dateOfAppointment,WhoWorked,DateOfAdmit,DateOfReturen,Cr_ProsecutorComment,Cr_CrimeFollowUpModelId,Cr_ProsecutorComment,Other,WhoLawyeCommented,HighCourtDecission,OtherCourtDecition,WhoJudgeCommentedOnDecision,NumberOfFemaleAppellants,NumberOfMaleAppellants,FileStatus,FileEndResult,DateOfAppointment,FileIssuedDate,FileReturnedDate,FederalBreakingRequest,Cr_JudicalAppealOpeningId")] Cr_CrimeFollowUpModel cr_CrimeFollowUpModel)
         {
             if (ModelState.IsValid)
             {
@@ -136,11 +137,12 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
         //Post: Judical Appeal Using Partial
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AppealType,Cr_JudicalAppealOpeningId,OpeninigDate,ProcsecuterNo,CourtNo,Applicant,Respondant,Zone,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_JudicalAppealOpening cr_JudicalAppealOpening)
+        public async Task<IActionResult> Create([Bind("dateOfAppointment,WhoWorked,DateOfAdmit,DateOfReturen,Cr_ProsecutorComment,AppealType,Cr_JudicalAppealOpeningId,OpeninigDate,ProcsecuterNo,CourtNo,Applicant,Respondant,Zone,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_JudicalAppealOpening cr_JudicalAppealOpening)
         {
             if (ModelState.IsValid)
             {
                 cr_JudicalAppealOpening.Cr_JudicalAppealOpeningId = Guid.NewGuid();
+                cr_JudicalAppealOpening.AppealType = AppealType.የፍርደኛ_ይግባኝ;
                 _context.Add(cr_JudicalAppealOpening);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -162,10 +164,11 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
         //Post: Prosecuter Registration form using Partial 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ProsecuterApealCreate([Bind("AppealType,Cr_JudicalAppealOpeningId,OpeninigDate,ProcsecuterNo,CourtNo,Applicant,Respondant,Zone,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_JudicalAppealOpening cr_JudicalAppealOpening)
+        public async Task<IActionResult> ProsecuterApealCreate([Bind("dateOfAppointment,WhoWorked,DateOfAdmit,DateOfReturen,Cr_ProsecutorComment,AppealType,Cr_JudicalAppealOpeningId,OpeninigDate,ProcsecuterNo,CourtNo,Applicant,Respondant,Zone,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_JudicalAppealOpening cr_JudicalAppealOpening)
         {
             if (ModelState.IsValid)
             {
+                cr_JudicalAppealOpening.AppealType =AppealType.የዐቃቢህግ_ይግባኝ;
                 cr_JudicalAppealOpening.Cr_JudicalAppealOpeningId = Guid.NewGuid();
                 _context.Add(cr_JudicalAppealOpening);
                 await _context.SaveChangesAsync();
@@ -189,10 +192,12 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
         //Post: Prosecuter Brake Registration form using Partial 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ProsecuterBrakeCreate([Bind("AppealType,Cr_JudicalAppealOpeningId,OpeninigDate,ProcsecuterNo,CourtNo,Applicant,Respondant,Zone,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_JudicalAppealOpening cr_JudicalAppealOpening)
+        public async Task<IActionResult> ProsecuterBrakeCreate([Bind("dateOfAppointment,WhoWorked,DateOfAdmit,DateOfReturen,Cr_ProsecutorComment,AppealType,Cr_JudicalAppealOpeningId,OpeninigDate,ProcsecuterNo,CourtNo,Applicant,Respondant,Zone,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_JudicalAppealOpening cr_JudicalAppealOpening)
         {
             if (ModelState.IsValid)
             {
+                cr_JudicalAppealOpening.AppealType = AppealType.የዐቃቢህግ_ሰበር;
+
                 cr_JudicalAppealOpening.Cr_JudicalAppealOpeningId = Guid.NewGuid();
                 _context.Add(cr_JudicalAppealOpening);
                 await _context.SaveChangesAsync();
@@ -216,10 +221,11 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
         //Post: Judicial Brake Registration form using Partial 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> JudicialBrakeCreate([Bind("AppealType,Cr_JudicalAppealOpeningId,OpeninigDate,ProcsecuterNo,CourtNo,Applicant,Respondant,Zone,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_JudicalAppealOpening cr_JudicalAppealOpening)
+        public async Task<IActionResult> JudicialBrakeCreate([Bind("dateOfAppointment,WhoWorked,DateOfAdmit,DateOfReturen,Cr_ProsecutorComment,AppealType,Cr_JudicalAppealOpeningId,OpeninigDate,ProcsecuterNo,CourtNo,Applicant,Respondant,Zone,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_JudicalAppealOpening cr_JudicalAppealOpening)
         {
             if (ModelState.IsValid)
             {
+                cr_JudicalAppealOpening.AppealType = AppealType.የፍርደኛ_ሰበር;
                 cr_JudicalAppealOpening.Cr_JudicalAppealOpeningId = Guid.NewGuid();
                 _context.Add(cr_JudicalAppealOpening);
                 await _context.SaveChangesAsync();
@@ -231,7 +237,7 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
         }
 
 
-        // GET: Cr_JudicalAppealOpening/Edit/5
+        // GET: Adding Prosecuter Comments
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null || _context.Cr_JudicalAppealOpenings == null)
@@ -252,7 +258,7 @@ namespace ExpertManagmentSystem.Controllers.CrimeControllers
         // POST: Cr_JudicalAppealOpening/Edit/5     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("AppealType,Cr_JudicalAppealOpeningId,OpeninigDate,ProcsecuterNo,CourtNo,Applicant,Respondant,Zone,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_JudicalAppealOpening cr_JudicalAppealOpening)
+        public async Task<IActionResult> Edit(Guid id, [Bind("dateOfAppointment,WhoWorked,DateOfAdmit,DateOfReturen,Cr_ProsecutorComment,AppealType,Cr_JudicalAppealOpeningId,OpeninigDate,ProcsecuterNo,CourtNo,Applicant,Respondant,Zone,Cr_Crime_TypeId,SectrorsDepartmentId")] Cr_JudicalAppealOpening cr_JudicalAppealOpening)
         {
             if (id != cr_JudicalAppealOpening.Cr_JudicalAppealOpeningId)
             {

@@ -6,16 +6,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ExpertManagmentSystem.ViewModels;
 using ExpertManagmentSystem.Models.CivilCaseModels;
-using ExpertManagmentSystem.ViewModels.CivilCaseViewModels;
+
 
 using ExpertManagmentSystem.Models.Corruption;
 
 using ExpertManagmentSystem.Models.CrimeModels;
-using ExpertManagmentSystem.Models.CivilCaseModels;
-<<<<<<< HEAD
-=======
 
->>>>>>> 4c8794817593bd4c18309f86c4832bd63a5f5879
+
 
 namespace ExpertManagmentSystem.Data
 {
@@ -56,19 +53,18 @@ namespace ExpertManagmentSystem.Data
 
         public DbSet<Cr_Crime_Type> Cr_Crime_Types { get; set; }
         public DbSet<Cr_Decided_Judicial_and_Prosecuter> Cr_Decided_Judicial_and_Prosecuters { get; set; }
-<<<<<<< HEAD
+
         //public DbSet<Cr_JudicalAppealDirectCharege> Cr_JudicalAppealDirectChareges { get; set; }
         public DbSet<DirectChargeOpenning> DirectChargeOpennings { get; set; }
         public DbSet<DirectChargeFollowUp> DirectChargeFollowUps { get; set; }
-=======
-        public DbSet<Cr_JudicalAppealDirectCharege> Cr_JudicalAppealDirectChareges { get; set; }
-        public DbSet<DirectChargeOpenning> DirectChargeOpennings { get; set; }
-        public DbSet<DirectChargeFollowUp> DirectChargeFollowUps { get; set; }
+        public DbSet<AllDepartmentWarrantyModel> AllDepartmentWarrantyModels { get; set; }
+
+       
 
 
 
 
->>>>>>> 4c8794817593bd4c18309f86c4832bd63a5f5879
+
 
         public DbSet<Cr_JudicalAppealOpening> Cr_JudicalAppealOpenings { get; set; }
         public DbSet<Cr_CrimeFollowUpModel> Cr_CrimeFollowUpModels { get; set; }

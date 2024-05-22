@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ExpertManagmentSystem.Migrations
 {
-    public partial class AddingFirstMigration : Migration
+    public partial class _1stMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,7 +18,7 @@ namespace ExpertManagmentSystem.Migrations
                 columns: table => new
                 {
                     Cr_Crime_TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CrimeTypeName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    CrimeTypeName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -163,6 +163,44 @@ namespace ExpertManagmentSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AllDepartmentWarrantyModels",
+                schema: "ExpertUserMngt",
+                columns: table => new
+                {
+                    AllDepartmentWarrantyModelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    OpeninigDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProcsecuterNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PoliceRecordNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CourtNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ApplicantName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Gender = table.Column<int>(type: "int", nullable: false),
+                    WhereItCameFrom = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateOfDirectedToProsecuter = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateOfDoneAndReturned = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Cr_ProsecutorComment = table.Column<int>(type: "int", nullable: false),
+                    Cr_Crime_TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SectrorsDepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AllDepartmentWarrantyModels", x => x.AllDepartmentWarrantyModelId);
+                    table.ForeignKey(
+                        name: "FK_AllDepartmentWarrantyModels_Cr_Crime_Types_Cr_Crime_TypeId",
+                        column: x => x.Cr_Crime_TypeId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "Cr_Crime_Types",
+                        principalColumn: "Cr_Crime_TypeId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AllDepartmentWarrantyModels_SectrorsDepartment_SectrorsDepartmentId",
+                        column: x => x.SectrorsDepartmentId,
+                        principalSchema: "ExpertUserMngt",
+                        principalTable: "SectrorsDepartment",
+                        principalColumn: "SectrorsDepartmentId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cr_Decided_Judicial_and_Prosecuters",
                 schema: "ExpertUserMngt",
                 columns: table => new
@@ -219,6 +257,11 @@ namespace ExpertManagmentSystem.Migrations
                     Applicant = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Respondant = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Zone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    dateOfAppointment = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    WhoWorked = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateOfAdmit = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateOfReturen = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Cr_ProsecutorComment = table.Column<int>(type: "int", nullable: true),
                     AppealType = table.Column<int>(type: "int", nullable: true),
                     Cr_Crime_TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SectrorsDepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -240,45 +283,6 @@ namespace ExpertManagmentSystem.Migrations
                         principalTable: "SectrorsDepartment",
                         principalColumn: "SectrorsDepartmentId",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "DirectChargeOpennings",
-                schema: "ExpertUserMngt",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProsecutorsSRecordNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CourtRecordNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Plaintiff = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Accused = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OpenningDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TypeOfIssue = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TypeOfCustomer = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AmountPerBirr = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    AmountPerSquerMetter = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    AddressZone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AddressWoreda = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NameOfTheExpert = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateDirected = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CompletionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TimeTakenToComplete = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProsecutorDecission = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EdittedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ApplicationUserUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DirectChargeOpennings", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_DirectChargeOpennings_Users_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalSchema: "ExpertUserMngt",
-                        principalTable: "Users",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -430,41 +434,17 @@ namespace ExpertManagmentSystem.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "DirectChargeFollowUps",
+            migrationBuilder.CreateIndex(
+                name: "IX_AllDepartmentWarrantyModels_Cr_Crime_TypeId",
                 schema: "ExpertUserMngt",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IssuedCourtWrittenForOrganization = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateSubmittedToCourt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateApointmented = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DecissionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CivilCaseCategory = table.Column<int>(type: "int", nullable: false),
-                    DirectChargeOppeningId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EdittedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ApplicationUserUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DirectChargeFollowUps", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_DirectChargeFollowUps_DirectChargeOpennings_DirectChargeOppeningId",
-                        column: x => x.DirectChargeOppeningId,
-                        principalSchema: "ExpertUserMngt",
-                        principalTable: "DirectChargeOpennings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_DirectChargeFollowUps_Users_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalSchema: "ExpertUserMngt",
-                        principalTable: "Users",
-                        principalColumn: "Id");
-                });
+                table: "AllDepartmentWarrantyModels",
+                column: "Cr_Crime_TypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AllDepartmentWarrantyModels_SectrorsDepartmentId",
+                schema: "ExpertUserMngt",
+                table: "AllDepartmentWarrantyModels",
+                column: "SectrorsDepartmentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cr_CrimeFollowUpModels_Cr_JudicalAppealOpeningId",
@@ -495,24 +475,6 @@ namespace ExpertManagmentSystem.Migrations
                 schema: "ExpertUserMngt",
                 table: "Cr_JudicalAppealOpenings",
                 column: "SectrorsDepartmentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DirectChargeFollowUps_ApplicationUserId",
-                schema: "ExpertUserMngt",
-                table: "DirectChargeFollowUps",
-                column: "ApplicationUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DirectChargeFollowUps_DirectChargeOppeningId",
-                schema: "ExpertUserMngt",
-                table: "DirectChargeFollowUps",
-                column: "DirectChargeOppeningId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DirectChargeOpennings_ApplicationUserId",
-                schema: "ExpertUserMngt",
-                table: "DirectChargeOpennings",
-                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RoleClaims_RoleId",
@@ -576,15 +538,15 @@ namespace ExpertManagmentSystem.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AllDepartmentWarrantyModels",
+                schema: "ExpertUserMngt");
+
+            migrationBuilder.DropTable(
                 name: "Cr_CrimeFollowUpModels",
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(
                 name: "Cr_Decided_Judicial_and_Prosecuters",
-                schema: "ExpertUserMngt");
-
-            migrationBuilder.DropTable(
-                name: "DirectChargeFollowUps",
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(
@@ -620,11 +582,11 @@ namespace ExpertManagmentSystem.Migrations
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(
-                name: "DirectChargeOpennings",
+                name: "Roles",
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(
-                name: "Roles",
+                name: "Users",
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(
@@ -637,10 +599,6 @@ namespace ExpertManagmentSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "SectrorsDepartment",
-                schema: "ExpertUserMngt");
-
-            migrationBuilder.DropTable(
-                name: "Users",
                 schema: "ExpertUserMngt");
 
             migrationBuilder.DropTable(

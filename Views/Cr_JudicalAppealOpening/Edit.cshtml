@@ -1,59 +1,73 @@
-﻿@model ExpertManagmentSystem.Models.CrimeModels.Cr_JudicalAppealOpening
-
+﻿@using ExpertManagmentSystem.Enums
+@model ExpertManagmentSystem.Models.CrimeModels.Cr_JudicalAppealOpening
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
-
-<h4>Cr_JudicalAppealOpening</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Cr_JudicalAppealOpeningId" />
             <div class="form-group">
-                <label asp-for="OpeninigDate" class="control-label"></label>
-                <input asp-for="OpeninigDate" class="form-control" />
+                @*<label asp-for="OpeninigDate" class="control-label"></label>*@
+                <input asp-for="OpeninigDate" class="form-control" style="display:none" />
                 <span asp-validation-for="OpeninigDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProcsecuterNo" class="control-label"></label>
-                <input asp-for="ProcsecuterNo" class="form-control" />
+                @*<label asp-for="ProcsecuterNo" class="control-label"></label>*@
+                <input asp-for="ProcsecuterNo" class="form-control" style="display:none" />
                 <span asp-validation-for="ProcsecuterNo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CourtNo" class="control-label"></label>
-                <input asp-for="CourtNo" class="form-control" />
+                @*<label asp-for="CourtNo" class="control-label"></label>*@
+                <input asp-for="CourtNo" class="form-control" style="display:none" />
                 <span asp-validation-for="CourtNo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Applicant" class="control-label"></label>
-                <input asp-for="Applicant" class="form-control" />
+                @*<label asp-for="Applicant" class="control-label"></label>*@
+                <input asp-for="Applicant" class="form-control" style="display:none"/>
                 <span asp-validation-for="Applicant" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Respondant" class="control-label"></label>
-                <input asp-for="Respondant" class="form-control" />
+                @*<label asp-for="Respondant" class="control-label"></label>*@
+                <input asp-for="Respondant" class="form-control" style="display:none" />
                 <span asp-validation-for="Respondant" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Zone" class="control-label"></label>
-                <input asp-for="Zone" class="form-control" />
+                @*<label asp-for="Zone" class="control-label"></label>*@
+                <input asp-for="Zone" class="form-control" style="display:none"/>
                 <span asp-validation-for="Zone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cr_Crime_TypeId" class="control-label"></label>
-                <select asp-for="Cr_Crime_TypeId" class="form-control" asp-items="ViewBag.Cr_Crime_TypeId"></select>
+                @*<label asp-for="WhoWorked" class="control-label"></label>*@
+                <input asp-for="WhoWorked" class="form-control" style="display:none" />
+                <span asp-validation-for="WhoWorked" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="AppealType" class="control-label"></label>*@
+                <input asp-for="AppealType" class="form-control" style="display:none" />
+                <span asp-validation-for="AppealType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Cr_Crime_TypeId" class="control-label"></label>*@
+                <select asp-for="Cr_Crime_TypeId" class="form-control" asp-items="ViewBag.Cr_Crime_TypeId" style="display:none"></select>
                 <span asp-validation-for="Cr_Crime_TypeId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SectrorsDepartmentId" class="control-label"></label>
-                <select asp-for="SectrorsDepartmentId" class="form-control" asp-items="ViewBag.SectrorsDepartmentId"></select>
+                @*<label asp-for="SectrorsDepartmentId" class="control-label"></label>*@
+                <select asp-for="SectrorsDepartmentId" class="form-control" asp-items="ViewBag.SectrorsDepartmentId" style="display:none"></select>
                 <span asp-validation-for="SectrorsDepartmentId" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Cr_ProsecutorComment" class="control-label">የዐ/ህግ አስተያየት</label>
+                @Html.DropDownList("Cr_ProsecutorComment", Html.GetEnumSelectList<Cr_ProsecutorComment>(), /*"የጠ/ፍ/ቤት ውሳኔ ይምረጡ !",*/ new { @class = "form-control Mapandplans", id = "DepartmentCategory" })
+                <span asp-validation-for="Cr_ProsecutorComment" class="text-danger"></span>
+            </div>
+
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

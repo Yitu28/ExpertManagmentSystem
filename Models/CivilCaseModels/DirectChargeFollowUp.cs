@@ -7,45 +7,45 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 {
     public class DirectChargeFollowUp : Audit
     {
-<<<<<<< HEAD
-        [Required]
-        [Display(Name = "ጉዳዩ የቀረበበት ፍ/ቤት የተጻፈለት ተቋም")]
-        public string IssuedCourtWrittenForOrganization { get; set; }
 
-        [Required]
-        [Display(Name = "ለፍ/ቤት የቀረበበት ቀን")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime DateSubmittedToCourt { get; set; } 
+        //[Required]
+        //[Display(Name = "ጉዳዩ የቀረበበት ፍ/ቤት የተጻፈለት ተቋም")]
+        //public string IssuedCourtWrittenForOrganization { get; set; }
+
+        //[Required]
+        //[Display(Name = "ለፍ/ቤት የቀረበበት ቀን")]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        //public DateTime DateSubmittedToCourt { get; set; } 
         
-        [Required]
-        [Display(Name = "የቀጠሮ ቀን")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime DateApointmented { get; set; }
+        //[Required]
+        //[Display(Name = "የቀጠሮ ቀን")]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        //public DateTime DateApointmented { get; set; }
 
-        [Required]
-        [Display(Name = "የቀጠሮ አይነት")]        
-        public string AppointmentType { get;}
+        //[Required]
+        //[Display(Name = "የቀጠሮ አይነት")]        
+        //public string AppointmentType { get;}
 
-        [Required]
-        [Display(Name = "የተወሰነበት ቀን")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime DecissionDate { get; set; }
+        //[Required]
+        //[Display(Name = "የተወሰነበት ቀን")]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        //public DateTime DecissionDate { get; set; }
 
-        public CivilCaseCategory CivilCaseCategory { get; set; }
+        //public CivilCaseCategory CivilCaseCategory { get; set; }
 
-        [Required]
-        [Display(Name = "የውሳኔው አይነት")]
-        public string TypeOfDecission { get; }
+        //[Required]
+        //[Display(Name = "የውሳኔው አይነት")]
+        //public string TypeOfDecission { get; }
         
-        [Required]
-        [Display(Name = "ውሳኔውን የሰጠው ፍ/ቤት")]
-        public string CourtDecided { get; }
+        //[Required]
+        //[Display(Name = "ውሳኔውን የሰጠው ፍ/ቤት")]
+        //public string CourtDecided { get; }
 
-        public Guid DirectChargeOppeningId { get; set; }
-=======
+        //public Guid DirectChargeOppeningId { get; set; }
+
         [Display(Name = "ጉዳዩ የቀረበበት ፍ/ቤት የተጻፈለት ተቋም")]
         public string? IssuedCourtWrittenForOrganization { get; set; }
 
@@ -76,7 +76,7 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public string? CourtDecided { get; }
 
         public Guid? DirectChargeOppeningId { get; set; }
->>>>>>> 4c8794817593bd4c18309f86c4832bd63a5f5879
+
         [ForeignKey(nameof(DirectChargeOppeningId))]
         [ValidateNever]
         public DirectChargeOpenning? DirectChargeOpenning { get; set; }

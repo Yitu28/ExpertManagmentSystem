@@ -60,16 +60,18 @@ namespace ExpertManagmentSystem.Enums
     {
          በማፅናት, በማሻሻል, በመሻር 
     }
-<<<<<<< HEAD
+
 
     public enum AppealType
     {
         የፍርደኛ_ይግባኝ,የዐቃቢህግ_ይግባኝ,የዐቃቢህግ_ሰበር,የፍርደኛ_ሰበር
     }
-    public enum CivilCaseCategory
-    {
-        DirectChargeOpenning, DirectChargeResponseOpenning, GeneralAppealOpenning,GeneralAppealResponseOpenning, BrekingApplicantOpenning, BrekingRespondentOpenning
-=======
+    //public enum CivilCaseCategory
+    //{
+    //    DirectChargeOpenning, DirectChargeResponseOpenning, GeneralAppealOpenning, GeneralAppealResponseOpenning, BrekingApplicantOpenning, BrekingRespondentOpenning
+    //}
+
+
     public enum CivilCaseCategory
     {
         [Display(Name = "የቀጥታ ክስ መክፈቻ")]
@@ -89,6 +91,6 @@ namespace ExpertManagmentSystem.Enums
 
         [Display(Name = "ሰበር አመልካች መክፈቻ")]
         BreakingRespondentOpenning
->>>>>>> 4c8794817593bd4c18309f86c4832bd63a5f5879
+
     }
 }

@@ -8,6 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\CivilCaseContrrollers\**" />
+    <Compile Remove="Controllers\CorruptionControllers\**" />
+    <Compile Remove="Controllers\EconomyControllers\**" />
+    <Content Remove="Controllers\CivilCaseContrrollers\**" />
+    <Content Remove="Controllers\CorruptionControllers\**" />
+    <Content Remove="Controllers\EconomyControllers\**" />
+    <EmbeddedResource Remove="Controllers\CivilCaseContrrollers\**" />
+    <EmbeddedResource Remove="Controllers\CorruptionControllers\**" />
+    <EmbeddedResource Remove="Controllers\EconomyControllers\**" />
+    <None Remove="Controllers\CivilCaseContrrollers\**" />
+    <None Remove="Controllers\CorruptionControllers\**" />
+    <None Remove="Controllers\EconomyControllers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.27" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.27" />
@@ -22,9 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\CorruptionControllers\" />
-    <Folder Include="Controllers\CivilCaseContrrollers\" />
-    <Folder Include="Controllers\EconomyControllers\" />
     <Folder Include="Models\CorruptionModels\" />
     <Folder Include="Models\EconomyModels\" />
 
