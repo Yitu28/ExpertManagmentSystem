@@ -10,90 +10,91 @@ using ExpertManagmentSystem.Models.CivilCaseModels;
 
 namespace ExpertManagmentSystem.Controllers.CivilCasesController
 {
-    public class CCdltsController : Controller
+    public class CCPetitionsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CCdltsController(ApplicationDbContext context)
+        public CCPetitionsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: CCdlts
+        // GET: CCPetitions
         public async Task<IActionResult> Index()
         {
-              return _context.CCdlt != null ? 
-                          View(await _context.CCdlt.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.CCdlt'  is null.");
+              return _context.CCPetition != null ? 
+                          View(await _context.CCPetition.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.CCPetition'  is null.");
         }
 
-        // GET: CCdlts/Details/5
+        // GET: CCPetitions/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.CCdlt == null)
+            if (id == null || _context.CCPetition == null)
             {
                 return NotFound();
             }
 
-            var cCdlt = await _context.CCdlt
-                .FirstOrDefaultAsync(m => m.CCdltId == id);
-            if (cCdlt == null)
+            var cCPetition = await _context.CCPetition
+                .FirstOrDefaultAsync(m => m.CCPetitionId == id);
+            if (cCPetition == null)
             {
                 return NotFound();
             }
 
-            return View(cCdlt);
+            return View(cCPetition);
         }
 
-        // GET: CCdlts/Create
+        // GET: CCPetitions/Create
         public IActionResult Create()
         {
             //return View();
-            CCdlt Dlt = new();
-            return PartialView("_CcDltCreateModalPartial", Dlt);
+            CCPetition Pet = new();
+            return PartialView("_CcPetCreateModalPartial", Pet);
         }
 
-        // POST: CCdlts/Create
+        // POST: CCPetitions/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CCdlt cCdlt)
+        public async Task<IActionResult> Create([Bind("CCPetitionId,PeFileNo,Pevicerequester,PeGender,PeAge,PeSupportType,PeDoariv,PeTypes,PeAddressZone,PeAddressWoreda,PeExpertName,PeDaos,PeDoare,PeTimeTaken,PePDecisoion,PeAssignto")] CCPetition cCPetition)
         {
             if (ModelState.IsValid)
             {
-                cCdlt.CCdltId = Guid.NewGuid();
-                _context.Add(cCdlt);
+                cCPetition.CCPetitionId = Guid.NewGuid();
+                _context.Add(cCPetition);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            //return View(cCPetition);
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: CCdlts/Edit/5
+        // GET: CCPetitions/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.CCdlt == null)
+            if (id == null || _context.CCPetition == null)
             {
                 return NotFound();
             }
 
-            var cCdlt = await _context.CCdlt.FindAsync(id);
-            if (cCdlt == null)
+            var cCPetition = await _context.CCPetition.FindAsync(id);
+            if (cCPetition == null)
             {
                 return NotFound();
             }
-            return View(cCdlt);
+            return View(cCPetition);
         }
 
-        // POST: CCdlts/Edit/5
+        // POST: CCPetitions/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CCdltId,DltFileNo,DltRecorNo,DltApplicant,DltResponder,DltGender,DltAge,DltSupportType,DltDoo,DlttypesofIssue,DltAmountBirr,DltAmountKarie,DltAddressZone,DltAddressWoreda,DltExpertName,DltDoAss,DltDoRet,DltLOS,DltPDecission,DltAssignto")] CCdlt cCdlt)
+        public async Task<IActionResult> Edit(Guid id, [Bind("CCLegaladvicesId,PeFileNo,Pevicerequester,PeGender,PeAge,PeSupportType,PeDoariv,PeTypes,PeAddressZone,PeAddressWoreda,PeExpertName,PeDaos,PeDoare,PeTimeTaken,PePDecisoion,PeAssignto")] CCPetition cCPetition)
         {
-            if (id != cCdlt.CCdltId)
+            if (id != cCPetition.CCPetitionId)
             {
                 return NotFound();
             }
@@ -102,12 +103,12 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
             {
                 try
                 {
-                    _context.Update(cCdlt);
+                    _context.Update(cCPetition);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CCdltExists(cCdlt.CCdltId))
+                    if (!CCPetitionExists(cCPetition.CCPetitionId))
                     {
                         return NotFound();
                     }
@@ -118,49 +119,49 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(cCdlt);
+            return View(cCPetition);
         }
 
-        // GET: CCdlts/Delete/5
+        // GET: CCPetitions/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.CCdlt == null)
+            if (id == null || _context.CCPetition == null)
             {
                 return NotFound();
             }
 
-            var cCdlt = await _context.CCdlt
-                .FirstOrDefaultAsync(m => m.CCdltId == id);
-            if (cCdlt == null)
+            var cCPetition = await _context.CCPetition
+                .FirstOrDefaultAsync(m => m.CCPetitionId == id);
+            if (cCPetition == null)
             {
                 return NotFound();
             }
 
-            return View(cCdlt);
+            return View(cCPetition);
         }
 
-        // POST: CCdlts/Delete/5
+        // POST: CCPetitions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.CCdlt == null)
+            if (_context.CCPetition == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.CCdlt'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.CCPetition'  is null.");
             }
-            var cCdlt = await _context.CCdlt.FindAsync(id);
-            if (cCdlt != null)
+            var cCPetition = await _context.CCPetition.FindAsync(id);
+            if (cCPetition != null)
             {
-                _context.CCdlt.Remove(cCdlt);
+                _context.CCPetition.Remove(cCPetition);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CCdltExists(Guid id)
+        private bool CCPetitionExists(Guid id)
         {
-          return (_context.CCdlt?.Any(e => e.CCdltId == id)).GetValueOrDefault();
+          return (_context.CCPetition?.Any(e => e.CCPetitionId == id)).GetValueOrDefault();
         }
     }
 }

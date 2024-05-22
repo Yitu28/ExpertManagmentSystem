@@ -1,0 +1,113 @@
+﻿@using ExpertManagmentSystem.Enums
+@model ExpertManagmentSystem.Models.CivilCaseModels.CCPetition
+<div class="modal fade" id="addCCPetitionmodals" aria-labelledby="addCCPetitionLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content" style="width:850px">
+            <div class="card card-success">
+                <div class="card-header">
+                    <h3 class="card-title"> አቤቱታ </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:white;">×</span></button>
+                </div>
+                <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeFileNo" class="control-label"></label>
+                        <input asp-for="PeFileNo" class="form-control" />
+                        <span asp-validation-for="PeFileNo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="Pevicerequester" class="control-label"></label>
+                        <input asp-for="Pevicerequester" class="form-control" />
+                        <span asp-validation-for="Pevicerequester" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeGender" class="control-label"></label>
+                        @* <input asp-for="PeGender" class="form-control" /> *@
+                                @Html.DropDownList("PeGender", Html.GetEnumSelectList<Gender>(), " ነፃ የህግ ድጋፍ ፈላጊ ፆታ ይምረጡ ", new { @class = "form-control" })
+                        <span asp-validation-for="PeGender" class="text-danger"></span>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeAge" class="control-label"></label>
+                        <input asp-for="PeAge" class="form-control" />
+                        <span asp-validation-for="PeAge" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeSupportType" class="control-label"></label>
+                        @* <input asp-for="PeSupportType" class="form-control" /> *@
+                        @Html.DropDownList("PeSupportType", Html.GetEnumSelectList<SupportType>(), " ነፃ የህግ ድጋፍ የማህበረሰብ ክፍል  ይምረጡ ", new { @class = "form-control" })
+                        <span asp-validation-for="PeSupportType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeDoariv" class="control-label"></label>
+                        <input type="Date" asp-for="PeDoariv" class="form-control" />
+                        <span asp-validation-for="PeDoariv" class="text-danger"></span>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeTypes" class="control-label"></label>
+                        <input asp-for="PeTypes" class="form-control" />
+                        <span asp-validation-for="PeTypes" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeAddressZone" class="control-label"></label>
+                        <input asp-for="PeAddressZone" class="form-control" />
+                        <span asp-validation-for="PeAddressZone" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeAddressWoreda" class="control-label"></label>
+                        <input asp-for="PeAddressWoreda" class="form-control" />
+                        <span asp-validation-for="PeAddressWoreda" class="text-danger"></span>
+                    </div>
+                        </div>
+                        <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeExpertName" class="control-label"></label>
+                        <input asp-for="PeExpertName" class="form-control" />
+                        <span asp-validation-for="PeExpertName" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeDaos" class="control-label"></label>
+                        <input type="Date" asp-for="PeDaos" class="form-control" />
+                        <span asp-validation-for="PeDaos" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeDoare" class="control-label"></label>
+                         <input type="Date" asp-for="PeDoare" class="form-control" />
+                        <span asp-validation-for="PeDoare" class="text-danger"></span>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeTimeTaken" class="control-label"></label>
+                        <input asp-for="PeTimeTaken" class="form-control" />
+                        <span asp-validation-for="PeTimeTaken" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="CCPeDecissionTypes" class="control-label"></label>
+                        <input asp-for="CCPeDecissionTypes" class="form-control" />
+                        @* @Html.DropDownList("CCPeDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" }) *@
+                        <span asp-validation-for="CCPeDecissionTypes" class="text-danger"></span>
+                    </div>
+                   
+                    <div class="form-group col-md-4">
+                        <label asp-for="PeAssignto" class="control-label"></label>
+                        <input asp-for="PeAssignto" class="form-control" />
+                        <span asp-validation-for="PeAssignto" class="text-danger"></span>
+                    </div>
+                   </div>
+                    <div class="form-group col-md-4">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
