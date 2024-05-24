@@ -1,0 +1,107 @@
+﻿@model IEnumerable<ExpertManagmentSystem.Models.CivilCaseModels.CCFreeLegServiceFollowup>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Doc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecisionStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Decisionmadeby)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCFreelServices)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FollupCreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FollupUpdatededBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FollupDeletedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FollupCreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FollupEdittedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FollupDeletedAt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecisionStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Decisionmadeby)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCFreelServices.Applicant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FollupCreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FollupUpdatededBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FollupDeletedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FollupCreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FollupEdittedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FollupDeletedAt)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FreeLegServiceFollowupId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FreeLegServiceFollowupId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FreeLegServiceFollowupId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

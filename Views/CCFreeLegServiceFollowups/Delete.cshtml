@@ -1,0 +1,99 @@
+﻿@model ExpertManagmentSystem.Models.CivilCaseModels.CCFreeLegServiceFollowup
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CCFreeLegServiceFollowup</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Doc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Doc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Doa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Doa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AppointmentType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AppointmentType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DoD)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DoD)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DecisionStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DecisionStatus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Decisionmadeby)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Decisionmadeby)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CCFreelServices)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CCFreelServices.Applicant)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FollupCreatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FollupCreatedBy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FollupUpdatededBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FollupUpdatededBy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FollupDeletedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FollupDeletedBy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FollupCreatedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FollupCreatedAt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FollupEdittedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FollupEdittedAt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FollupDeletedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FollupDeletedAt)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="FreeLegServiceFollowupId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

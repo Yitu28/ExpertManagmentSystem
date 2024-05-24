@@ -156,9 +156,16 @@
                                         @Html.DisplayFor(modelItem => item.CCPDecissionTypes)
                                     </td>
                                     <td>
-                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት"> <i class="fa fa-plus" style="color:green;"></i> </a>
-                                        <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
-                                        <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId" title="ሰረዝ">  <i class="fa fa-trash" style="color:red;"></i>  </a>
+                                        @if(@item.CCPDecissionStatus == 1)
+                                        {
+                                            <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት"> <i class="fa fa-plus" style="color:green;"></i> </a>
+                                            <a asp-action="CCFreeLegalServiceFollowuprIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="የዐቃቢ ህግ ውሳኔ"> <i class="fa fa-plus" style="color:blue;"></i> </a>
+                                           <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId" title="ሰረዝ">  <i class="fa fa-trash" style="color:red;"></i>  </a>
+                                        }
                                     </td>
                                 </tr>
 
@@ -302,9 +309,17 @@
                                         @Html.DisplayFor(modelItem => item.CCPDecissionTypes)
                                     </td>
                                     <td>
-                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት"> <i class="fa fa-plus" style="color:green;"></i> </a>
-                                        <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
-                                        <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId" title="ሰረዝ">  <i class="fa fa-trash" style="color:red;"></i>  </a>
+                                        @if(@item.CCPDecissionStatus == 1)
+                                        {
+                                            <a asp-action="CCFreeLegalServiceFollowupr" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት"> <i class="fa fa-plus" style="color:green;"></i> </a>
+                                            <a asp-action="CCFreeLegalServiceFollowuprIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="CCFreeLegalServiceFollowupr" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="የዐቃቢ ህግ ውሳኔ"> <i class="fa fa-plus" style="color:blue;"></i> </a>
+                                           <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId" title="ሰረዝ">  <i class="fa fa-trash" style="color:red;"></i>  </a>
+                                        }
+                                        
                                     </td>
                                 </tr>
 
