@@ -12,7 +12,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <form asp-action="Edit">
+        <form asp-action="CCFreeLaaorsEditr">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CCFreelServicesId" />
             <div class="form-group">
@@ -29,8 +29,8 @@
     <!-- /.card-body -->
 </div>
 <!-- /.card -->
-
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

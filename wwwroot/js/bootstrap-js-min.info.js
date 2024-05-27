@@ -10,6 +10,9 @@
          $("#Freelaaos").hide();
          $("#Freelaars").show();
      });
+
+   
+
    $(".FRbreak").click(function () {
          $("#FRbreakbtn").show();
          $("#FRappealbtn").hide();

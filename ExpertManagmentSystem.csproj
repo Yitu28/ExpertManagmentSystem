@@ -43,6 +43,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\CCFreeladcos\Edit.cshtml" />
+    <Content Remove="Views\CCGoveLaaors\Edit.cshtml" />
+    <Content Remove="Views\CCGoveLabos\Edit.cshtml" />
+    <Content Remove="Views\CCGoveLadcors\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.27" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.27" />
@@ -114,7 +121,6 @@
     <None Include="Views\CCFreeLaaos\Delete.cshtml" />
     <None Include="Views\CCFreeLaaos\Deleter.cshtml" />
     <None Include="Views\CCFreeLaaos\Details.cshtml" />
-    <None Include="Views\CCFreeLaaos\Edit.cshtml" />
     <None Include="Views\CCFreeLaaos\Index.cshtml" />
     <None Include="Views\CCFreeLaaos\_FreeLaaosCreateModalPartial.cshtml" />
     <None Include="Views\CCFreeLaaos\_FreeLaaosEditModalPartial.cshtml" />
@@ -154,7 +160,6 @@
     <None Include="Views\CCGoveLaaors\Deleter.cshtml" />
     <None Include="Views\CCGoveLaaors\Details.cshtml" />
     <None Include="Views\CCGoveLaaors\Edit.cshtml" />
-    <None Include="Views\CCGoveLaaors\Index.cshtml" />
     <None Include="Views\CCGoveLaaors\_FreeLaaosCreateModalPartial.cshtml" />
     <None Include="Views\CCGoveLaaors\_FreeLaaosEditModalPartial.cshtml" />
     <None Include="Views\CCGoveLaaors\_FreeLaarsCreateModalPartial.cshtml" />
@@ -167,7 +172,6 @@
     <None Include="Views\CCGoveLabos\Deleter.cshtml" />
     <None Include="Views\CCGoveLabos\Details.cshtml" />
     <None Include="Views\CCGoveLabos\Edit.cshtml" />
-    <None Include="Views\CCGoveLabos\Index.cshtml" />
     <None Include="Views\CCGoveLabos\_FreeLabosCreateModalPartial.cshtml" />
     <None Include="Views\CCGoveLabos\_FreeLabosEditModalPartial.cshtml" />
     <None Include="Views\CCGoveLabos\_FreeLabrsCreateModalPartial.cshtml" />
@@ -180,7 +184,6 @@
     <None Include="Views\CCGoveLadcors\Deleter.cshtml" />
     <None Include="Views\CCGoveLadcors\Details.cshtml" />
     <None Include="Views\CCGoveLadcors\Edit.cshtml" />
-    <None Include="Views\CCGoveLadcors\Index.cshtml" />
     <None Include="Views\CCGoveLadcors\_FreeLabosEditModalPartial.cshtml" />
     <None Include="Views\CCGoveLadcors\_FreeLadcosCreateModalPartial.cshtml" />
     <None Include="Views\CCGoveLadcors\_FreeLadcrsCreateModalPartial.cshtml" />
@@ -196,6 +199,25 @@
     <None Include="Views\CCPetitions\Edit.cshtml" />
     <None Include="Views\CCPetitions\Index.cshtml" />
     <None Include="Views\CCPetitions\_CcPetCreateModalPartial.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\CCFreeladcos\Editr.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\CCGoveLaaors\Editr.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\CCGoveLabos\Editr.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\CCGoveLadcors\Editr.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

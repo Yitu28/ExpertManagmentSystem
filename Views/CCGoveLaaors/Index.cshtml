@@ -6,13 +6,23 @@
     ViewData["Title"] = "Index";
 }
 <div class="card card-primary card-outline">
+    <div style="background:#157DEC;">
+        <h4 style="color: white;padding-left:10px;"> የመንግስት ድጋፍ ይግባኝ አግልግሎት  </h4>
+    </div>
     <div class="card-header">
         <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link Freelaaos active" id="custom-content-below-home-tab" data-toggle="pill" href="#customcontent-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">የመንግስት  ይግባኝ አመልካች</a>
+                <a class="nav-link Freelaaos active" id="custom-content-below-home-tab" data-toggle="pill" href="#customcontent-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">  አመልካች</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link Freelaars" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">የመንግስት  ይግባኝ ተጠሪ</a>
+                <a class="nav-link Freelaars" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false"> ተጠሪ</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">  ለአመልካች የዐቃቢ ህግ ውሳኔ  </a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false"> ለተጠሪ የዐቃቢ ህግ ውሳኔ</a>
             </li>
             <li class="nav-item">
                 <button type="button" class="btn btn-success float-right Freelaaos" id="Freelaaos" data-toggle="modal" data-target="#addFreeLaaosmodals"> <i class="fa fa-plus"></i> አዲስ ጨምር</button>
@@ -24,6 +34,151 @@
         <div class="tab-content" id="custom-content-below-tabContent">
             <div class="tab-pane fade show active" id="customcontent-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
                 <table class="table  table-bordered table-striped" id="example1">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                መዝገብ ቁጥር 
+                            </th>
+                            <th rowspan="2">
+                                ይግባኝ ባይ
+                            </th>
+                             <th rowspan="2">
+                                መልስ ሰጭ
+                            </th>
+                            <th rowspan="2">
+                                በዐ.ህ.የተ.ቀን
+                            </th>
+                            <th rowspan="2"r>
+                                የጉዳይ አይነት
+                           @*  </th>
+                            <th rowspan="2">
+                                ፆታ
+                            </th>
+                            <th rowspan="2">
+                                ዕድሜ
+                            </th>
+                            <th rowspan="2">
+                                የህብረተሰብ ክፍል
+                            </th> *@
+                            <th colspan="2"> የገንዘብ መጠን  </th>
+                            
+                            <th rowspan="2">
+                                ዞን
+                            </th>
+                            <th rowspan="2">
+                                ወረዳ
+                            </th>
+                            <th rowspan="2">
+                                የተመራለት ባለሙያ
+                            </th>
+                            <th rowspan="2">
+                                የተመራበት ቀን
+                            </th rowspan="2">
+                            <th  rowspan="2">
+                                ተሰርቶ የተመለሰበት ቀን
+                            </th>
+                            <th rowspan="2">
+                                የወሰደው ጊዜ
+                            </th>
+                            <th rowspan="2">
+                                በዐቃቢ ህግ የተሰጠ ውሳኔ
+                            </th>
+                            <th rowspan="2"></th>
+                        </tr>
+                         <tr>
+                            <th >
+                                የዐ/ህግ
+                            </th>
+                            <th>
+                                የፍ/ቤት
+                            </th>
+
+                            <th>
+                                በብር
+                            </th>
+                            <th >
+                               በካሬ
+                            </th>
+                        </tr>
+                       
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.FreelCategory == FreelCategory.ይግባኝአመልካች && @item.CCPDecissionStatus == 1 )
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FileNo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RecorNo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Applicant)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Responder)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Doo)
+                                    </td>
+
+                                     <td>
+                                        @Html.DisplayFor(modelItem => item.typesofIssue)
+                                    </td>
+@* 
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Gender)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Age)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SupportType)
+                                    </td> *@
+                                                                       
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AmountinBirr)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Amountincarie)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AddressZone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AddressWoreda)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ExpertName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DoAss)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DoRet)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.LOS)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CCPDecissionTypes)
+                                    </td>
+                                    <td>
+                                        <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት">  <i class="fa fa-wallet"  style="color:green;" > </i> </a>
+                                        <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
+                                    </td>
+                                </tr>
+
+                            }
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
+                <table class="table  table-bordered table-striped" id="example77">
                     <thead>
                         <tr>
                             <th colspan="2">
@@ -95,7 +250,155 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            if (item.FreelCategory == FreelCategory.ይግባኝአመልካች)
+                            if (item.FreelCategory == FreelCategory.ይግባኝመልስ  && @item.CCPDecissionStatus == 1  )
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FileNo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RecorNo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Applicant)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Responder)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Doo)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.typesofIssue)
+                                    </td>
+
+                                    @* <td>
+                                        @Html.DisplayFor(modelItem => item.Gender)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Age)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SupportType)
+                                    </td> *@
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AmountinBirr)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Amountincarie)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AddressZone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AddressWoreda)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ExpertName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DoAss)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DoRet)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.LOS)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CCPDecissionTypes)
+                                    </td>
+                                    <td>
+                                           <a asp-action="CCFreeLegalServiceFollowupr" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት">  <i class="fa fa-wallet"  style="color:green;" > </i> </a>
+                                        <a asp-action="CCFreeLegalServiceFollowuprIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>  
+                                        
+                                    </td>
+                                </tr>
+
+                            }
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
+                <div class="tab-pane fade show active" id="customcontent-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+                <table class="table  table-bordered table-striped" id="example707">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                መዝገብ ቁጥር 
+                            </th>
+                            <th rowspan="2">
+                                ይግባኝ ባይ
+                            </th>
+                             <th rowspan="2">
+                                መልስ ሰጭ
+                            </th>
+                            <th rowspan="2">
+                                በዐ.ህ.የተ.ቀን
+                            </th>
+                            <th rowspan="2"r>
+                                የጉዳይ አይነት
+                            </th>
+                            @* <th rowspan="2">
+                                ፆታ
+                            </th>
+                            <th rowspan="2">
+                                ዕድሜ
+                            </th>
+                            <th rowspan="2">
+                                የህብረተሰብ ክፍል
+                            </th> *@
+                            <th colspan="2"> የገንዘብ መጠን  </th>
+                            
+                            <th rowspan="2">
+                                ዞን
+                            </th>
+                            <th rowspan="2">
+                                ወረዳ
+                            </th>
+                            <th rowspan="2">
+                                የተመራለት ባለሙያ
+                            </th>
+                            <th rowspan="2">
+                                የተመራበት ቀን
+                            </th rowspan="2">
+                            <th  rowspan="2">
+                                ተሰርቶ የተመለሰበት ቀን
+                            </th>
+                            <th rowspan="2">
+                                የወሰደው ጊዜ
+                            </th>
+                            <th rowspan="2">
+                                በዐቃቢ ህግ የተሰጠ ውሳኔ
+                            </th>
+                            <th rowspan="2"></th>
+                        </tr>
+                         <tr>
+                            <th >
+                                የዐ/ህግ
+                            </th>
+                            <th>
+                                የፍ/ቤት
+                            </th>
+
+                            <th>
+                                በብር
+                            </th>
+                            <th >
+                               በካሬ
+                            </th>
+                        </tr>
+                       
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.FreelCategory == FreelCategory.ይግባኝአመልካች  && @item.CCPDecissionStatus == 0 )
                             {
                                 <tr>
                                     <td>
@@ -156,18 +459,11 @@
                                         @Html.DisplayFor(modelItem => item.CCPDecissionTypes)
                                     </td>
                                     <td>
+                                            @* <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት">  <i class="fa fa-wallet"  style="color:green;" > </i> </a>
+                                            <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a> *@
 
-                                        @if(@item.CCPDecissionStatus == 1)
-                                        {
-                                            <a asp-action="CCFreeLegalServiceFollowup" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት"> <i class="fa fa-plus" style="color:green;"></i> </a>
-                                            <a asp-action="CCFreeLegalServiceFollowupIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
-                                        }
-                                        else
-                                        {
-                                            <a asp-action="CCFreeLegalServiceFollowupr" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="የዐቃቢ ህግ ውሳኔ"> <i class="fa fa-plus" style="color:blue;"></i> </a>
+                                            <a asp-action="CCFreeLaaorsEdit" title="የዐቃቢ ህግ ውሳኔ" asp-route-id="@item.CCFreelServicesId">  <i class="fa fa-question"  style="color:green;" ></i> </a> 
                                            <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId" title="ሰረዝ">  <i class="fa fa-trash" style="color:red;"></i>  </a>
-                                        }
-                                       
                                     </td>
                                 </tr>
 
@@ -177,8 +473,9 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
-                <table class="table  table-bordered table-striped" id="example77">
+            </div>
+            <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+               <table class="table  table-bordered table-striped" id="example770">
                     <thead>
                         <tr>
                             <th colspan="2">
@@ -196,7 +493,7 @@
                             <th rowspan="2"r>
                                 የጉዳይ አይነት
                             </th>
-                           @*  <th rowspan="2">
+                          @*   <th rowspan="2">
                                 ፆታ
                             </th>
                             <th rowspan="2">
@@ -250,7 +547,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            if (item.FreelCategory == FreelCategory.ይግባኝመልስ)
+                            if (item.FreelCategory == FreelCategory.ይግባኝመልስ  && @item.CCPDecissionStatus == 0)
                             {
                                 <tr>
                                     <td>
@@ -311,17 +608,8 @@
                                         @Html.DisplayFor(modelItem => item.CCPDecissionTypes)
                                     </td>
                                     <td>
-                                        @if(@item.CCPDecissionStatus == 1)
-                                        {
-                                            <a asp-action="CCFreeLegalServiceFollowupr" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት"> <i class="fa fa-plus" style="color:green;"></i> </a>
-                                            <a asp-action="CCFreeLegalServiceFollowuprIndex" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="ወደ ፍርድ ቤት ዝርዝር "> <i class="fa fa-eye" style="color:InfoText;"></i>  </a>
-                                        }
-                                        else
-                                        {
-                                            <a asp-action="CCFreeLegalServiceFollowupr" class="btn btn-circle  text-light btn-sm" asp-route-id="@item.CCFreelServicesId" title="የዐቃቢ ህግ ውሳኔ"> <i class="fa fa-plus" style="color:blue;"></i> </a>
+                                           <a asp-action="CCFreeLaaorsEditr" title="የዐቃቢ ህግ ውሳኔ" asp-route-id="@item.CCFreelServicesId">  <i class="fa fa-question"  style="color:green;" ></i> </a> 
                                            <a asp-action="Delete" asp-route-id="@item.CCFreelServicesId" title="ሰረዝ">  <i class="fa fa-trash" style="color:red;"></i>  </a>
-                                        }
-                                        
                                     </td>
                                 </tr>
 
