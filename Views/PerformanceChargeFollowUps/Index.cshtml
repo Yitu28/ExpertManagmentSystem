@@ -1,0 +1,92 @@
+﻿@model IEnumerable<PerformanceChargeFollowUp>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የአፈጻጸም ክስ ክትትል  </h5>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                    </div>
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>                                   
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ApointmentType)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ApointmentDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.HasDecissionMade)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TypeOfDecission)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DecidedBy)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.MoneyGained)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ProperyClosed)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DiffrenetReasons)
+                                    </th>
+                                    <th>
+                                        የዐ/ህ/መ/ቁ
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ApointmentType)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ApointmentDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.HasDecissionMade)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TypeOfDecission)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DecidedBy)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MoneyGained)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProperyClosed)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DiffrenetReasons)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PerformanceChargeOpenning.ProsecutorsSRecordNumber)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

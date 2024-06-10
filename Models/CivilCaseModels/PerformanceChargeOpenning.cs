@@ -1,11 +1,12 @@
 ﻿using ExpertManagmentSystem.Enums;
+using ExpertManagmentSystem.OrganizationalStructures;
 using System.ComponentModel.DataAnnotations;
 
 namespace ExpertManagmentSystem.Models.CivilCaseModels
 {
     public class PerformanceChargeOpenning : Audit
     {
-        [Display(Name = "የዐ/ግ ቁጥር")]
+        [Display(Name = "የዐ/ህግ ቁጥር")]
         public string? ProsecutorsSRecordNumber { get; set; }
 
         [Display(Name = "የፍ/ቤት ህግ ቁጥር")]
@@ -36,7 +37,27 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
         [Display(Name = "ወረዳ")]
         public string? AddressWoreda { get; set; }
-        public TypeOfPerformanceCgarge TypeOfPerformanceCgarge { get; set; }
+        [Display(Name = "የአፈጻጸም ክስ አይነት")]
+        public TypeOfPerformanceCharge TypeOfPerformanceCharge { get; set; }
+
+        [Display(Name = "የተምራለት ባለሙያ")]
+        public string? NameOfTheExpert { get; set; }
+
+        [Display(Name = "የስራ ክፍል")]
+        public Guid? SectorDepartmentId { get; set; }
+        public SectrorsDepartment? SectorDepartment { get; set; }
+
+        [Display(Name = "የፋይል ሁኔታ")]
+        public PerformanceChargeStatus? PerformanceChargeStatus { get; set; }
+
+        [Display(Name = "የጉዳዩ አይነት")]
+        public CaseType? CaseType { get; set; }
+
+        [Display(Name = "የውሳኔ አይነት")]
+        public TypeOfDecission? TypeofDecission { get; set; }
+
+        [Display(Name = "ጉዳዩ የቀረበበት ፍ/ቤት")]
+        public string? NameOfCourtCasePresented { get; set; }
         public virtual ICollection<PerformanceChargeFollowUp> PerformanceChargeFollowUp { get; set; }
     }
 }

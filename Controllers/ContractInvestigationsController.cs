@@ -7,46 +7,42 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpertManagmentSystem.Data;
 using ExpertManagmentSystem.Models.CivilCaseModels;
+using ExpertManagmentSystem.Enums;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.VisualBasic;
 
 namespace ExpertManagmentSystem.Controllers
 {
     public class ContractInvestigationsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ContractInvestigationsController(ApplicationDbContext context)
+        public ContractInvestigationsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: ContractInvestigations
         public async Task<IActionResult> Index()
         {
-              return _context.ContractInvestigations != null ? 
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            return _context.ContractInvestigations != null ? 
+                          View(await _context.ContractInvestigations.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.ContractInvestigations'  is null.");
+        }
+        public async Task<IActionResult> ReportIndex()
+        {
+            //var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            return _context.ContractInvestigations != null ?
                           View(await _context.ContractInvestigations.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.ContractInvestigations'  is null.");
         }
 
-        // GET: ContractInvestigations/Details/5
-        public async Task<IActionResult> Details(Guid? id)
-        {
-            if (id == null || _context.ContractInvestigations == null)
-            {
-                return NotFound();
-            }
-
-            var contractInvestigation = await _context.ContractInvestigations
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (contractInvestigation == null)
-            {
-                return NotFound();
-            }
-
-            return View(contractInvestigation);
-        }
 
         // GET: ContractInvestigations/Create
-        public IActionResult Create()
+        public IActionResult ContractDocumentPreparationCreate()
         {
             return View();
         }
@@ -56,18 +52,51 @@ namespace ExpertManagmentSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProsecutorIdentityNumber,Contractor,ContractReciepient,OpenningDate,TypeOfContract,AmountPerMoney,TheInstitutionRequestedForExamination,NameOfTheExpert,CompletionDate,TimeTakenToComplete,Id,CreatedAt,EdittedAt,DeletedAt,ApplicationUserUser")] ContractInvestigation contractInvestigation)
+        public async Task<IActionResult> ContractDocumentPreparationCreate(ContractInvestigation contractInvestigation)
         {
-            if (ModelState.IsValid)
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            if (!ModelState.IsValid)
             {
                 contractInvestigation.Id = Guid.NewGuid();
+                contractInvestigation.ContractInvestigationDocumentType = ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት;
+                contractInvestigation.OpenningDate = DateTime.Now;
+                contractInvestigation.CreatedAt = DateTime.Now;
+                contractInvestigation.ApplicationUserId = currentUser.Id;
+                contractInvestigation.ContractInvestigationDocumentStatus = 0;
                 _context.Add(contractInvestigation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(contractInvestigation);
         }
+        // GET: ContractInvestigations/Create
+        public IActionResult ContractDocumentInvestigationCreate()
+        {
+            return View();
+        }
 
+        // POST: ContractInvestigations/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ContractDocumentInvestigationCreate(ContractInvestigation contractInvestigation)
+        {
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            if (ModelState.IsValid)
+            {
+                contractInvestigation.Id = Guid.NewGuid();
+                contractInvestigation.ContractInvestigationDocumentType = ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ;
+                contractInvestigation.EdittedAt = DateAndTime.Now;
+                contractInvestigation.EditedBy = currentUser.Id;
+                contractInvestigation.ApplicationUserId = currentUser.Id;
+                _context.Add(contractInvestigation);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(contractInvestigation);
+        }
+        
         // GET: ContractInvestigations/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
@@ -89,8 +118,9 @@ namespace ExpertManagmentSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ProsecutorIdentityNumber,Contractor,ContractReciepient,OpenningDate,TypeOfContract,AmountPerMoney,TheInstitutionRequestedForExamination,NameOfTheExpert,CompletionDate,TimeTakenToComplete,Id,CreatedAt,EdittedAt,DeletedAt,ApplicationUserUser")] ContractInvestigation contractInvestigation)
+        public async Task<IActionResult> Edit(Guid id, ContractInvestigation contractInvestigation)
         {
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
             if (id != contractInvestigation.Id)
             {
                 return NotFound();
@@ -100,6 +130,9 @@ namespace ExpertManagmentSystem.Controllers
             {
                 try
                 {
+                    contractInvestigation.EdittedAt = DateTime.UtcNow;
+                    contractInvestigation.EditedBy = currentUser.Id;
+                    contractInvestigation.ApplicationUserId = currentUser.Id;
                     _context.Update(contractInvestigation);
                     await _context.SaveChangesAsync();
                 }

@@ -1,0 +1,1061 @@
+﻿@using ExpertManagmentSystem.Models.CivilCaseModels
+@model IEnumerable<PerformanceChargeFollowUp>
+@{
+    ViewData["Title"] = "ReportIndex";
+}
+
+<div class="card card-primary card-outline">
+    <div style="background:#157DEC;">
+        <h6 style="color: white;padding-left:10px;">
+            በፍትህ ቢሮ ከክልል እስከ ወረዳ ፍትሐብሔር ዳይሬክቶሬት የአፈጻጸም ክስ ሪፖርት
+        </h6>
+    </div>
+    <div class="card-body">
+        <div class="tab-content" id="custom-content-below-tabContent">
+            <div class="tab-pane fade show active" id="customcontent-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <tr>
+                            <th rowspan="3">ተ.ቁ</th>
+                            <th rowspan="3">የተከናወኑ ተግባራት</th>
+                            <th colspan="9" align="center">መክፈቻ</th>
+                            <th colspan="9" align="center">መልስ</th>
+                            <th colspan="9" rowspan="2" align="center">ጠቅላላ ድምር</th>
+                        </tr>
+                        <tr>                                
+                            <th colspan="3" align="center">አፈጻጸም ከሳሽ</th>
+                            <th colspan="3" align="center">አፈጻጸም ተከሳሽ</th>
+                            <th colspan="3" align="center">ድምር</th>
+
+                            <th colspan="3" align="center">አፈጻጸም ከሳሽ</th>
+                            <th colspan="3" align="center">አፈጻጸም ተከሳሽ</th>
+                            <th colspan="3" align="center">ድምር</th>
+                             
+                            <th colspan="9" align="center"></th>
+                        </tr>
+                        <tr>
+                            <th>መዝገብ</th>
+                            <th>ብር</th>
+                            <th>ድምር</th>
+
+                            <th>መዝገብ</th>
+                            <th>ብር</th>
+                            <th>ድምር</th>
+
+                            <th>መዝገብ</th>
+                            <th>ብር</th>
+                            <th>ድምር</th> 
+                                
+                            <th>መዝገብ</th>
+                            <th>ብር</th>
+                            <th>ድምር</th>
+                                
+                            <th>መዝገብ</th>
+                            <th>ብር</th>
+                            <th>ድምር</th> 
+                                
+                            <th>መዝገብ</th>
+                            <th>ብር</th>
+                            <th>ድምር</th>
+
+                            <th>መዝገብ</th>
+                            <th>ብር</th>
+                            <th>ድምር</th>
+                                
+                                @*<th>መዝገብ</th>
+                            <th>ብር</th>
+                            <th>ድምር</th> 
+                                
+                             <th>መዝገብ</th>
+                            <th>ብር</th>
+                            <th>ድምር</th> *@
+                        </tr>
+                        <tr>
+                            <th colspan="2">ድምር</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>                            
+                        </tr>
+                    </tr>
+                    </thead>
+                    <tbody>
+                         <tr>
+                            <td>1</td>
+                            <td>
+                                በአሸናፊነት የተወሰነ
+                            </td>
+                            @* Openning plaint  *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }else{
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else{
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else{
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                               @*  Openning accused *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else{
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }else{
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else{
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                                @*  Total *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @* Response plaint  *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Response accused *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Total *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+
+                            @* Subtotal*@
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.Win).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.Win).Count()</td>
+                            }
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.Win).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+                         </tr>
+                         <tr>
+                            <td>2</td>
+                            <td>
+                                በተሸናፊነት የተወሰነ
+                            </td>
+                            @* Openning plaint  *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }else{
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else{
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else{
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                               @*  Openning accused *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else{
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }else{
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else{
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                                @*  Total *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                            <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+
+                            @* Response plaint  *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Response accused *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Total *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @* sub total*@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.Loss).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+                         </tr>
+                         <tr>
+                            <td>3</td>
+                            <td>
+                                ወደ ሰበር 
+                            </td>
+                            @* Openning plaint  *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Openning accused *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Total *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @* Response plaint  *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Response accused *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Total *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+
+                            @* Subtotal*@
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Count()</td>
+                            }
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToBreak).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+                        </tr>
+                         <tr>
+                            <td>4</td>
+                            <td>
+                                ስልጣን ላለው ፍ/ቤትእንዲያየው የተወሰነ
+                            </td>
+                            @* Openning plaint  *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Openning accused *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Total *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @* Response plaint  *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Response accused *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Total *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+
+                            @* Subtotal*@
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Count()</td>
+                            }
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.ToOneWithPower).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+                        </tr>
+                         <tr>
+                            <td>5</td>
+                            <td>
+                                ሌሎች የፍርድ ቤት ውሳኔዎች
+                            </td>
+                            @* Openning plaint  *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Openning accused *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Total *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Openning).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @* Response plaint  *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻስተም_ከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Response accused *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Count()</td>
+                            }
+
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Where(x => x.PerformanceChargeOpenning.CaseType == CaseType.አፈጻጸም_ተከሳሽ).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+                            @*  Total *@
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Count()</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(d => d.PerformanceChargeOpenning.TypeOfPerformanceCharge == TypeOfPerformanceCharge.Response).Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+
+
+                            @* Subtotal*@
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Count() == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Count()</td>
+                            }
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountInBirr) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountInBirr)</td>
+                            }
+                            @if (@Model.Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter) == 0)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@Model.Where(x => x.TypeOfDecission == TypeOfDecission.OtherDecission).Sum(t => t.PerformanceChargeOpenning.AmountPerSquerMetter)</td>
+                            }
+                        </tr>
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

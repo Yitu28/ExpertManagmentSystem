@@ -1,13 +1,22 @@
-﻿using ExpertManagmentSystem.Enums;
-using ExpertManagmentSystem.OrganizationalStructures;
+﻿using ExpertManagmentSystem.Data;
+using ExpertManagmentSystem.Enums;
+using ExpertManagmentSystem.Models.CivilCaseModels;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ExpertManagmentSystem.Models.CivilCaseModels
+namespace ExpertManagmentSystem.ViewModels.CivilCaseViewModels
 {
-    public class PerformanceChargeFollowUp : Audit
+    public class PerformanceChargeViewModel
     {
+        public Guid Id { get; set; }
+
+        [Display(Name = "የተምራለት ባለሙያ")]
+        public string? NameOfTheExpert { get; set; }
+
+        [Display(Name = "ጉዳዩ የቀረበበት ፍ/ቤት")]
+        public string? NameOfCourtCasePresented { get; set; }
+
         [Display(Name = "የቀጠሮ አይነት")]
         public string? ApointmentType { get; set; }
 
@@ -34,18 +43,9 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         [Display(Name = "በልዩዩ ምክኛት")]
         public string? DiffrenetReasons { get; set; }
         public bool? HasBeenAppointed { get; set; }
-
-        [Display(Name = "የፋይል ሁኔታ")]
-        public PerformanceChargeStatus PerformanceChargeStatus { get; set; }
-
-        [Display(Name = "የአፈጻጸም ክስ")]
         public Guid? PerformanceChargeOpenningId { get; set; }
         [ForeignKey(nameof(PerformanceChargeOpenningId))]
         [ValidateNever]
-        public PerformanceChargeOpenning PerformanceChargeOpenning { get; set; }
-
-        [Display(Name = "የስራ ክፍል")]
-        public Guid? SectorDepartmentId { get; set; }
-        public SectrorsDepartment? SectorDepartment { get; set; }
+        public PerformanceChargeOpenning? PerformanceChargeOpenning { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using ExpertManagmentSystem.Enums;
+using ExpertManagmentSystem.OrganizationalStructures;
+using ExpertManagmentSystem.ViewModels;
 using System.ComponentModel.DataAnnotations;
 
 namespace ExpertManagmentSystem.Models.CivilCaseModels
@@ -37,6 +39,17 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
         public DateTime? CompletionDate { get; set; }
 
         [Display(Name = "የወሰደበት ጊዜ")]
-        public string TimeTakenToComplete { get; set; }
+        public string? TimeTakenToComplete { get; set; } 
+        [Display(Name = "ብር")]
+        public decimal? AmountInBirr { get; set; }
+
+        [Display(Name = "የሰነድ ምርመራ አይነት")]
+        public ContractInvestigationDocumentType? ContractInvestigationDocumentType { get; set; }
+
+        [Display(Name = "የሰነድ ሁኔታ")]
+        public ContractInvestigationDocumentStatus? ContractInvestigationDocumentStatus { get; set; }
+
+        public Guid? SectorDepartmentId { get; set; }
+        public SectrorsDepartment? SectorDepartment { get; set; }
     }
 }

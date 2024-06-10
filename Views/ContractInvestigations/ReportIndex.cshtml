@@ -1,0 +1,214 @@
+﻿@using ExpertManagmentSystem.Models.CivilCaseModels
+@model IEnumerable<ContractInvestigation>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card card-primary card-outline">
+    <div style="background:#157DEC;">
+        <h6 style="color: white;padding-left:10px;">
+            በፍትህ ቢሮ ከክልል እስከ ወረዳ ፍትሐብሔር ዳይሬክቶሬት የሕግ ምክር አገልግሎት፣ የውል ሰነድ ዝግጅት እና ረቂቅ ውል ምርመራ ማጠቃለያ
+        </h6>
+    </div>
+    <div class="card-body">
+        <div class="tab-content" id="custom-content-below-tabContent">
+            <div class="tab-pane fade show active" id="customcontent-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                                <tr>
+                                    <tr>
+                                        <th rowspan="2">የመዛግብት ሁኔታ</th>
+                                        <th colspan="2">
+                                            የሕግ ምክር አገልግሎት
+                                        </th> 
+                                        <th colspan="2">
+                                            የውል ሰነድ ዝግጅት
+                                        </th>
+                                        <th colspan="2">
+                                            ረቂቅ ውል ምርመራ
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>መዝገብ</th>
+                                        <th>ብር</th>
+                                        <th>መዝገብ</th>
+                                        <th>ብር</th>
+                                        <th>መዝገብ</th>
+                                        <th>ብር</th>                                                       
+                                    </tr>
+                                </tr>                                    
+                            </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                ካለፈው በጀት ዓመት የዞረ
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ካለፈው_በጀት_ዓመት_የዞረ).Count()
+                            </td>                                   
+                                @if (@Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ካለፈው_በጀት_ዓመት_የዞረ).Count() == 0)
+                                {
+                                    <td> 0</td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ካለፈው_በጀት_ዓመት_የዞረ).Sum(a => a.AmountInBirr)
+                                    </td>
+                                }                                    
+                                    <td>
+                                        @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ካለፈው_በጀት_ዓመት_የዞረ).Count()
+                                    </td>
+                                    
+                                @if (@Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ካለፈው_በጀት_ዓመት_የዞረ).Count() == 0)
+                                {
+                                    <td>0</td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ካለፈው_በጀት_ዓመት_የዞረ).Sum(a => a.AmountInBirr)
+                                    </td>
+                                }                                    
+                        </tr>
+                        <tr>
+                            <td>
+                                የተከናወነ
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.የተከናወነ).Count()
+                            </td>
+                                    
+                                @if (@Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.የተከናወነ).Count() == 0)
+                                {
+                                    <td>0</td>    
+                                } else{
+                                    <td>
+                                        @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.የተከናወነ).Sum(a => a.AmountInBirr)
+                                    </td>
+                                }
+                                    
+                            <td>
+                                @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.የተከናወነ).Count()
+                            </td>
+                                @if (@Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.የተከናወነ).Count() == 0)
+                                {                                    
+                                    <td>
+                                        0
+                                    </td>
+                                } 
+                                else{
+                                <td>
+                                    @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.የተከናወነ).Sum(a => a.AmountInBirr);
+                                </td>
+                                }
+                        </tr>
+                        <tr>
+                            <td>
+                                ድምር
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Count()
+                            </td>
+                                @if (@Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Count() == 0)
+                                {
+                                    <td>0</td>
+                                }
+                                else
+                                {
+                                <td>
+                                    @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Sum(d => d.AmountInBirr)
+                                </td>
+                                }
+
+                            <td>
+                                @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Count()
+                            </td>
+                                @if (@Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Count() == 0)
+                                {
+                                    <td> 0</td>
+                                }
+                                else
+                                {
+                                <td>
+                                    @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Sum(d => d.AmountInBirr)
+                                </td>  
+                                }
+                        </tr>
+                        <tr>
+                            <td>
+                                አዲስ የቀረበ
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.አዲስ_የቀረበ).Count()
+                            </td>
+                                @if (@Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.አዲስ_የቀረበ).Count() == 0)
+                                {
+                                    <td> 0</td>
+                                }
+                                else
+                                {
+                                <td>
+                                    @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.አዲስ_የቀረበ).Sum(a => a.AmountInBirr)
+                                </td>
+                                }
+                            <td>
+                                @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.አዲስ_የቀረበ).Count()
+                            </td>
+                                @if (@Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.አዲስ_የቀረበ).Count() == 0)
+                                {
+                                    <td>0</td>
+                                }
+                                else
+                                {
+                                <td>
+                                        @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.አዲስ_የቀረበ).Count()
+                                </td>
+                                }
+
+                        </tr>                               
+                        <tr>
+                            <td>
+                                ወደ ሚቀጥለው ሩብ ዓመት በቀጠሮ የዞረ
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ወደሚቀጥለው_ሩብ_ዓመት_በቀጠሮ_የዞረ).Count()
+                            </td>                                    
+                                @if (@Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ወደሚቀጥለው_ሩብ_ዓመት_በቀጠሮ_የዞረ).Count() == 0 )
+                                {
+                                <td>0</td>  
+                                }else{
+                                <td>
+                                    @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.የውል_ሰነድ_ዝግጅት).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ወደሚቀጥለው_ሩብ_ዓመት_በቀጠሮ_የዞረ).Sum(a => a.AmountInBirr)
+                                </td>
+                                }
+                            <td>
+                                @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ወደሚቀጥለው_ሩብ_ዓመት_በቀጠሮ_የዞረ).Count()
+                            </td>
+                                @if (@Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ወደሚቀጥለው_ሩብ_ዓመት_በቀጠሮ_የዞረ).Count() == 0)
+                                {
+                                <td>0</td>
+                                    }
+                                else
+                                {
+                                <td>
+                                    @Model.Where(x => x.ContractInvestigationDocumentType == ContractInvestigationDocumentType.ረቂቅ_ውል_ምርመራ).Where(d => d.ContractInvestigationDocumentStatus == ContractInvestigationDocumentStatus.ወደሚቀጥለው_ሩብ_ዓመት_በቀጠሮ_የዞረ).Sum(a => a.AmountInBirr)
+                                </td>                                    
+                                }
+                        </tr>                               
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

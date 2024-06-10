@@ -1,0 +1,108 @@
+﻿@model IEnumerable<PerformanceChargeOpenning>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header" style="background-color:#123456;color:white;">
+                        <h5 class="card-title">የአፈጻጸም ክስ መዝገብ  </h5>
+                        <a asp-action="Create" class="btn btn-success float-right" style="color:white;"> አዲስ ጨምር </a>
+                    </div>
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ProsecutorsSRecordNumber)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CourtRecordNumber)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Plaintiff)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Accused)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CustomerType)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.OpenningDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AmountInBirr)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AmountPerSquerMetter)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AddressZone)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AddressWoreda)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TypeOfPerformanceCharge)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProsecutorsSRecordNumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CourtRecordNumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Plaintiff)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Accused)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CustomerType)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OpenningDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AmountInBirr)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AmountPerSquerMetter)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AddressZone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AddressWoreda)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TypeOfPerformanceCharge)
+                                        </td>
+                                        <td>
+                                            <div class="btn btn-outline-light"> @Html.ActionLink("ቀጠሮ", "Create", "PerformanceChargeFollowUps", new { id = item.Id }, null)</div>
+                                        </td>
+                                        <td>
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

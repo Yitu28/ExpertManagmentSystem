@@ -1,4 +1,4 @@
-﻿@model ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeFollowUp
+﻿@model ExpertManagmentSystem.Models.CivilCaseModels.PerformanceChargeFollowUp
 
 @{
     ViewData["Title"] = "Delete";
@@ -8,44 +8,63 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>DirectChargeFollowUp</h4>
+    <h4>PerformanceChargeFollowUp</h4>
     <hr />
     <dl class="row">
+        
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IssuedCourtWrittenForOrganization)
+            @Html.DisplayNameFor(model => model.ApointmentType)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IssuedCourtWrittenForOrganization)
+            @Html.DisplayFor(model => model.ApointmentType)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateSubmittedToCourt)
+            @Html.DisplayNameFor(model => model.ApointmentDate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateSubmittedToCourt)
+            @Html.DisplayFor(model => model.ApointmentDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateApointmented)
+            @Html.DisplayNameFor(model => model.HasDecissionMade)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateApointmented)
+            @Html.DisplayFor(model => model.HasDecissionMade)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DecissionDate)
+            @Html.DisplayNameFor(model => model.TypeOfDecission)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DecissionDate)
+            @Html.DisplayFor(model => model.TypeOfDecission)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CivilCaseCategory)
+            @Html.DisplayNameFor(model => model.DecidedBy)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CivilCaseCategory)
+            @Html.DisplayFor(model => model.DecidedBy)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DirectChargeOpenning)
+            @Html.DisplayNameFor(model => model.MoneyGained)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DirectChargeOpenning.Id)
+            @Html.DisplayFor(model => model.MoneyGained)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProperyClosed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProperyClosed)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DiffrenetReasons)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DiffrenetReasons)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PerformanceChargeOpenning)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PerformanceChargeOpenning.Id)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CreatedAt)

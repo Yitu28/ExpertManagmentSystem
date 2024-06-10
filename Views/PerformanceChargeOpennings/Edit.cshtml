@@ -1,4 +1,4 @@
-﻿@model ExpertManagmentSystem.Models.CivilCaseModels.DirectChargeOpenning
+﻿@model ExpertManagmentSystem.Models.CivilCaseModels.PerformanceChargeOpenning
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,16 +6,16 @@
 
 <h1>Edit</h1>
 
-<h4>DirectChargeOpenning</h4>
+<h4>PerformanceChargeOpenning</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ProsecutorsRecordNumber" class="control-label"></label>
-                <input asp-for="ProsecutorsRecordNumber" class="form-control" />
-                <span asp-validation-for="ProsecutorsRecordNumber" class="text-danger"></span>
+                <label asp-for="ProsecutorsSRecordNumber" class="control-label"></label>
+                <input asp-for="ProsecutorsSRecordNumber" class="form-control" />
+                <span asp-validation-for="ProsecutorsSRecordNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CourtRecordNumber" class="control-label"></label>
@@ -33,24 +33,19 @@
                 <span asp-validation-for="Accused" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="CustomerType" class="control-label"></label>
+                <select asp-for="CustomerType" class="form-control"></select>
+                <span asp-validation-for="CustomerType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="OpenningDate" class="control-label"></label>
                 <input asp-for="OpenningDate" class="form-control" />
                 <span asp-validation-for="OpenningDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TypeOfIssue" class="control-label"></label>
-                <input asp-for="TypeOfIssue" class="form-control" />
-                <span asp-validation-for="TypeOfIssue" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TypeOfCustomer" class="control-label"></label>
-                <input asp-for="TypeOfCustomer" class="form-control" />
-                <span asp-validation-for="TypeOfCustomer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AmountPerBirr" class="control-label"></label>
-                <input asp-for="AmountPerBirr" class="form-control" />
-                <span asp-validation-for="AmountPerBirr" class="text-danger"></span>
+                <label asp-for="AmountInBirr" class="control-label"></label>
+                <input asp-for="AmountInBirr" class="form-control" />
+                <span asp-validation-for="AmountInBirr" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AmountPerSquerMetter" class="control-label"></label>
@@ -68,29 +63,9 @@
                 <span asp-validation-for="AddressWoreda" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NameOfTheExpert" class="control-label"></label>
-                <input asp-for="NameOfTheExpert" class="form-control" />
-                <span asp-validation-for="NameOfTheExpert" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateDirected" class="control-label"></label>
-                <input asp-for="DateDirected" class="form-control" />
-                <span asp-validation-for="DateDirected" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CompletionDate" class="control-label"></label>
-                <input asp-for="CompletionDate" class="form-control" />
-                <span asp-validation-for="CompletionDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TimeTakenToComplete" class="control-label"></label>
-                <input asp-for="TimeTakenToComplete" class="form-control" />
-                <span asp-validation-for="TimeTakenToComplete" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProsecutorDecission" class="control-label"></label>
-                <input asp-for="ProsecutorDecission" class="form-control" />
-                <span asp-validation-for="ProsecutorDecission" class="text-danger"></span>
+                <label asp-for="TypeOfPerformanceCharge" class="control-label"></label>
+                <select asp-for="TypeOfPerformanceCharge" class="form-control"></select>
+                <span asp-validation-for="TypeOfPerformanceCharge" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -108,7 +83,7 @@
                 <input asp-for="DeletedAt" class="form-control" />
                 <span asp-validation-for="DeletedAt" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

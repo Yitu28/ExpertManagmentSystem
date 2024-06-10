@@ -1,4 +1,5 @@
 ﻿using ExpertManagmentSystem.Enums;
+using ExpertManagmentSystem.OrganizationalStructures;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
@@ -60,5 +61,11 @@ namespace ExpertManagmentSystem.Models.CivilCaseModels
 
         [Display(Name = "በዐ/ህግ የተሰጠው ውሳኔ")]
         public string? ProsecutorDecission { get; set; }
+        [Display(Name = "የሰነድ ምርመራ አይነት")]
+        public ContractInvestigationDocumentType? ContractInvestigationDocumentType { get; set; }
+        [Display(Name = "የሰነድ ሁኔታ")]
+        public ContractInvestigationDocumentStatus? ContractInvestigationDocumentStatus { get; set; }
+        public Guid? SectorDepartmentId { get; set; }
+        public SectrorsDepartment? SectorDepartment { get; set; }
     }
 }

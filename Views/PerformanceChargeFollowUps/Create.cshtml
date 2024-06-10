@@ -1,0 +1,96 @@
+﻿@model PerformanceChargeFollowUp
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<hr />
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">የአፈጻጸም ክስ መመዝገቢያ</h3>
+                    </div>
+                    <div class="body-box">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row col-md-12">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="ApointmentType" class="control-label"></label>
+                                    <input asp-for="ApointmentType" class="form-control" />
+                                    <span asp-validation-for="ApointmentType" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="ApointmentDate" class="control-label"></label>
+                                    <input asp-for="ApointmentDate" class="form-control" />
+                                    <span asp-validation-for="ApointmentDate" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="HasDecissionMade" class="control-label"></label>
+                                    <input asp-for="HasDecissionMade" class="form-control" />
+                                    <span asp-validation-for="HasDecissionMade" class="text-danger"></span>
+                                </div>                                
+                            </div>
+                            <div class="row col-md-12">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="TypeOfDecission" class="control-label"></label>
+                                    <input asp-for="TypeOfDecission" class="form-control" />
+                                    <span asp-validation-for="TypeOfDecission" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="DecidedBy" class="control-label"></label>
+                                    <input asp-for="DecidedBy" class="form-control" />
+                                    <span asp-validation-for="DecidedBy" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="MoneyGained" class="control-label"></label>
+                                    <input asp-for="MoneyGained" class="form-control" />
+                                    <span asp-validation-for="MoneyGained" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row col-md-12">                                
+                                <div class="form-group col-md-4">
+                                    <label asp-for="ProperyClosed" class="control-label"></label>
+                                    <input asp-for="ProperyClosed" class="form-control" />
+                                    <span asp-validation-for="ProperyClosed" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="DiffrenetReasons" class="control-label"></label>
+                                    <input asp-for="DiffrenetReasons" class="form-control" />
+                                    <span asp-validation-for="DiffrenetReasons" class="text-danger"></span>
+                                </div>
+
+                                <div class="row col-md-12">
+                                  @*   <div class="form-group col-md-4">
+                                        <label asp-for="PerformanceChargeOpenningId" class="control-label"></label>
+                                        <select asp-for="PerformanceChargeOpenningId" class="form-control" asp-items="ViewBag.PerformanceChargeOpenningId"></select>
+                                    </div> *@
+                                    <div class="form-group col-md-8">
+                                        <div class="form-group col-md-4 btn btn-success">
+                                            <input type="submit" value="Create" class="btn btn-success" />
+                                        </div>
+                                        <div class="form-group col-md-4 btn btn-dark">
+                                            <a asp-action="Index">ወደ ዝርዝር ተመለስ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                         
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

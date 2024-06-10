@@ -48,7 +48,7 @@ namespace ExpertManagmentSystem.Controllers
         // GET: DirectChargeFollowUps/Create
         public IActionResult Create()
         {
-            ViewData["DirectChargeOppeningId"] = new SelectList(_context.DirectChargeOpennings, "Id", "Id");
+            ViewData["DirectChargeOppeningId"] = new SelectList(_context.DirectChargeOpennings, "Id", "Plaintiff");
             return View();
         }
 
@@ -66,7 +66,7 @@ namespace ExpertManagmentSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DirectChargeOppeningId"] = new SelectList(_context.DirectChargeOpennings, "Id", "Id", directChargeFollowUp.DirectChargeOppeningId);
+            ViewData["DirectChargeOppeningId"] = new SelectList(_context.DirectChargeOpennings, "Id", "Plaintiff", directChargeFollowUp.DirectChargeOppeningId);
             return View(directChargeFollowUp);
         }
 

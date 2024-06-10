@@ -9,7 +9,9 @@ namespace ExpertManagmentSystem.Models
         public DateTime? CreatedAt { get; set; }
         public DateTime? EdittedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
-        public string? ApplicationUserUser { get; set; }
+        public string? CreatedBy { get; set; }
+        public string? EditedBy { get; set; }
+        public string? ApplicationUserId { get; set; }
         public virtual ApplicationUser? ApplicationUser { get; set; }
     }
 }
