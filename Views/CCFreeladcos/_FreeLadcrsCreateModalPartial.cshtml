@@ -1,147 +1,187 @@
 ﻿@using ExpertManagmentSystem.Enums
 @using ExpertManagmentSystem.Models.CivilCaseModels
 @model ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices
-
+@using ExpertManagmentSystem.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 <div class="modal fade" id="addFreeLadcrsmodals" aria-labelledby="addFreeLadcrsLabel" aria-hidden="true">
     <div class="modal-dialog ">
         <div class="modal-content" style="width:850px">
             <div class="card card-success">
                 <div class="card-header">
-                    <h3 class="card-title"> ነፃ የህግ ደጋፍ ቀጥታ ክስ ተጠሪ </h3>
+                    <h3 class="card-title"> ነፃ የህግ ደጋፍ ቀጥታ ክስ ተከሳሽ </h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:white;">×</span></button>
                 </div>
                 <div class="card-body">
-                    <form asp-action="FreeLadcrsCreate" method="post">
-                    <div asp-validation-summary="ModelOnly " class="text-danger"></div>
-                   
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label class="control-label"> የዐ/ህ/መ/ቁጥር  </label>
-                                <input asp-for="FileNo" class="form-control" />
-                                <span asp-validation-for="FileNo" class="text-danger"></span>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        var user = await UserManager.GetUserAsync(User);
+                        var userDepartment = (DepartmentCategory)user.DepartmentCategory;
+                        <form asp-action="FreeLadcrsCreate" method="post">
+                            <div asp-validation-summary="ModelOnly " class="text-danger"></div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="control-label"> የዐ/ህ/መ/ቁጥር  </label>
+                                    <input asp-for="FileNo" class="form-control" />
+                                    <span asp-validation-for="FileNo" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="control-label"> የፍ/ቤት/መ/ቁጥር  </label>
+                                    <input asp-for="RecorNo" class="form-control" />
+                                    <span asp-validation-for="RecorNo" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="control-label"> ከሳሽ </label>
+                                    <input asp-for="Applicant" class="form-control" />
+                                    <span asp-validation-for="Applicant" class="text-danger"></span>
+                                </div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label class="control-label"> የፍ/ቤት/መ/ቁጥር  </label>
-                                <input asp-for="RecorNo" class="form-control" />
-                                <span asp-validation-for="RecorNo" class="text-danger"></span>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="control-label"> ተከሳሽ </label>
+                                    <input asp-for="Responder" class="form-control" />
+                                    <span asp-validation-for="Responder" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="Gender" class="control-label"></label>
+                                    @Html.DropDownList("Gender", Html.GetEnumSelectList<Gender>(), " ነፃ የህግ ድጋፍ ፈላጊ ፆታ ይምረጡ ", new { @class = "form-control" })
+                                    <span asp-validation-for="Gender" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="Age" class="control-label"></label>
+                                    <input asp-for="Age" class="form-control" />
+                                    @* @Html.DropDownList("Age", Html.GetEnumSelectList<AgeRange>(), " ነፃ የህግ ድጋፍ ፈላጊ ዕድሜ ይምረጡ ", new { @class = "form-control" }) *@
+                                    <span asp-validation-for="Age" class="text-danger"></span>
+                                </div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label asp-for="Applicant" class="control-label"></label>
-                                <input asp-for="Applicant" class="form-control" />
-                                <span asp-validation-for="Applicant" class="text-danger"></span>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="SupportType" class="control-label"></label>
+                                    @* <input asp-for="SupportType" class="form-control" /> *@
+                                    @Html.DropDownList("SupportType", Html.GetEnumSelectList<SupportType>(), " ነፃ የህግ ድጋፍ የማህበረሰብ ክፍል  ይምረጡ ", new { @class = "form-control" })
+                                    <span asp-validation-for="SupportType" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="Flservreq" class="control-label"></label>
+                                    @Html.DropDownList("Flservreq", Html.GetEnumSelectList<Flservreq>(), " ነፃ የህግ ድጋፍ የተጠየቀ በማን እንደሆነ ይምረጡ ", new { @class = "form-control" })
+                                    <span asp-validation-for="Flservreq" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="Doo" class="control-label"></label>
+                                    <input type="Date" asp-for="Doo" class="form-control" />
+                                    <span asp-validation-for="Doo" class="text-danger"></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label asp-for="Responder" class="control-label"></label>
-                                <input asp-for="Responder" class="form-control" />
-                                <span asp-validation-for="Responder" class="text-danger"></span>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="typesofIssue" class="control-label"></label>
+                                    @Html.DropDownList("typesofIssue", Html.GetEnumSelectList<FreeCaseTypes>(), " የጉዳይ አይነት ይምረጡ ", new { @class = "form-control" })
+                                    <span asp-validation-for="typesofIssue" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="AmountinBirr" class="control-label"></label>
+                                    <input asp-for="AmountinBirr" class="form-control" />
+                                    <span asp-validation-for="AmountinBirr" class="text-danger"></span>
+                                </div>
+                                <div class="form-group  col-md-4">
+                                    <label asp-for="Amountincarie" class="control-label"></label>
+                                    <input asp-for="Amountincarie" class="form-control" />
+                                    <span asp-validation-for="Amountincarie" class="text-danger"></span>
+                                </div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label asp-for="Gender" class="control-label"></label>
-                                @Html.DropDownList("Gender", Html.GetEnumSelectList<Gender>(), " ነፃ የህግ ድጋፍ ፈላጊ ፆታ ይምረጡ ", new { @class = "form-control" })
-                                <span asp-validation-for="Gender" class="text-danger"></span>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label asp-for="Age" class="control-label"></label>
-                                <input asp-for="Age" class="form-control" />
-                                @* @Html.DropDownList("Age", Html.GetEnumSelectList<AgeRange>(), " ነፃ የህግ ድጋፍ ፈላጊ ዕድሜ ይምረጡ ", new { @class = "form-control" }) *@
-                                <span asp-validation-for="Age" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label asp-for="SupportType" class="control-label"></label>
-                                @* <input asp-for="SupportType" class="form-control" /> *@
-                                @Html.DropDownList("SupportType", Html.GetEnumSelectList<SupportType>(), " ነፃ የህግ ድጋፍ የማህበረሰብ ክፍል  ይምረጡ ", new { @class = "form-control" })
-                                <span asp-validation-for="SupportType" class="text-danger"></span>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label asp-for="Flservreq" class="control-label"></label>
-                                @Html.DropDownList("Flservreq", Html.GetEnumSelectList<Flservreq>(), " ነፃ የህግ ድጋፍ የተጠየቀ በማን እንደሆነ ይምረጡ ", new { @class = "form-control" })
-                                <span asp-validation-for="Flservreq" class="text-danger"></span>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label asp-for="Doo" class="control-label"></label>
-                                <input type="Date" asp-for="Doo" class="form-control" />
-                                <span asp-validation-for="Doo" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label asp-for="typesofIssue" class="control-label"></label>
-                                @Html.DropDownList("typesofIssue", Html.GetEnumSelectList<CaseTypes>(), " የጉዳይ አይነት ይምረጡ ", new { @class = "form-control" })
-                                <span asp-validation-for="typesofIssue" class="text-danger"></span>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label asp-for="AmountinBirr" class="control-label"></label>
-                                <input asp-for="AmountinBirr" class="form-control" />
-                                <span asp-validation-for="AmountinBirr" class="text-danger"></span>
-                            </div>
-                            <div class="form-group  col-md-4">
-                                <label asp-for="Amountincarie" class="control-label"></label>
-                                <input asp-for="Amountincarie" class="form-control" />
-                                <span asp-validation-for="Amountincarie" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-4">
+                            <div class="row">
+                                @* <div class="form-group col-md-4">
                                 <label asp-for="AmountinOther" class="control-label"></label>
                                 <input asp-for="AmountinOther" class="form-control" />
                                 <span asp-validation-for="AmountinOther" class="text-danger"></span>
+                            </div> *@
+                                @if (userDepartment == DepartmentCategory.ቢሮ)
+                                {
+                                    <div class="form-group col-md-4">
+                                        <label asp-for="ZonalSectorsId" class="control-label"></label>
+                                        <select asp-for="ZonalSectorsId" class="form-control ZonalSectorsId" id="ZonalSectorsId"></select>
+                                        <span asp-validation-for="ZonalSectorsId" class="text-danger"></span>
+                                    </div>
+
+
+                                    <div class="form-group col-md-4">
+                                        <label asp-for="WoredaSectorsId" class="control-label"></label>
+                                        <select asp-for="WoredaSectorsId" class="form-control WoredaSectorsIds" id="WoredaSectorsIds"></select>
+                                        @* <select asp-for="WoredaSectorsId" class="form-control WoredaSectorsId" id="WoredaSectorsId"></select> *@
+                                        <span asp-validation-for="WoredaSectorsId" class="text-danger"></span>
+                                    </div>
+                                }
+                                else if (userDepartment == DepartmentCategory.መምሪያ)
+                                {
+                                    <div class="form-group col-md-8">
+                                        <label asp-for="WoredaSectorsId" class="control-label"></label>
+                                        <select asp-for="WoredaSectorsId" class="form-control WoredaSectorsIds" id="WoredaSectorsIds"></select>
+                                        <span asp-validation-for="WoredaSectorsId" class="text-danger"></span>
+                                    </div>
+                                }
+                                else
+                                {
+                                }
+                                @* <div class="form-group col-md-4">
+                                    <label asp-for="ZonalSectorsId" class="control-label"></label>
+                                    <input asp-for="ZonalSectorsId" class="form-control" />
+                                    <span asp-validation-for="ZonalSectorsId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="WoredaSectorsId" class="control-label"></label>
+                                    <input asp-for="WoredaSectorsId" class="form-control" />
+                                    <span asp-validation-for="WoredaSectorsId" class="text-danger"></span>
+                                </div> *@
+                                <div class="form-group col-md-4">
+                                    <label asp-for="Doa" class="control-label"></label>
+                                    <input type="Date" asp-for="Doa" class="form-control" />
+                                    <span asp-validation-for="Doa" class="text-danger"></span>
+                                </div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label asp-for="AddressZone" class="control-label"></label>
-                                <input asp-for="AddressZone" class="form-control" />
-                                <span asp-validation-for="AddressZone" class="text-danger"></span>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="ExpertName" class="control-label"></label>
+                                    <input asp-for="ExpertName" class="form-control" />
+                                    <span asp-validation-for="ExpertName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="DoAss" class="control-label"></label>
+                                    <input type="Date" asp-for="DoAss" class="form-control" />
+                                    <span asp-validation-for="DoAss" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="DoRet" class="control-label"></label>
+                                    <input type="Date" asp-for="DoRet" class="form-control" />
+                                    <span asp-validation-for="DoRet" class="text-danger"></span>
+                                </div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label asp-for="AddressWoreda" class="control-label"></label>
-                                <input asp-for="AddressWoreda" class="form-control" />
-                                <span asp-validation-for="AddressWoreda" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label asp-for="ExpertName" class="control-label"></label>
-                                <input asp-for="ExpertName" class="form-control" />
-                                <span asp-validation-for="ExpertName" class="text-danger"></span>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label asp-for="DoAss" class="control-label"></label>
-                                <input type="Date" asp-for="DoAss" class="form-control" />
-                                <span asp-validation-for="DoAss" class="text-danger"></span>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label asp-for="DoRet" class="control-label"></label>
-                                <input type="Date" asp-for="DoRet" class="form-control" />
-                                <span asp-validation-for="DoRet" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label asp-for="LOS" class="control-label"></label>
-                                <input type="text" asp-for="LOS" class="form-control" />
-                                <span asp-validation-for="LOS" class="text-danger"></span>
-                            </div>
-                            <div class="form-group col-md-4">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="LOS" class="control-label"></label>
+                                    <input type="text" asp-for="LOS" class="form-control" />
+                                    <span asp-validation-for="LOS" class="text-danger"></span>
+                                </div>
+                                @*   <div class="form-group col-md-4">
                                 <label asp-for="CCPDecissionTypes" class="control-label"></label>
                                 @Html.DropDownList("CCPDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" })
                                 <span asp-validation-for="CCPDecissionTypes" class="text-danger"></span>
+                            </div> *@
+                                <div class="form-group col-md-4">
+                                    <label class="control-label"> የስራ ክፍል </label>
+                                    <select asp-for="SectrorsDepartmentId" class="form-control SectrorsDepartmentId"></select>
+                                </div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label class="control-label"> የስራ ክፍል </label>
-                                <select asp-for="SectrorsDepartmentId" class="form-control SectrorsDepartmentId"></select>
-                            </div>
-                        </div>
 
-                   
-                    <div class="card-footer">
-                        <i class="fa fa-floppy-disk"></i>
-                        <input type="submit" value="ይመዝግቡ" class="btn float-right btn-primary" />
-                    </div>
-                    </form>
+
+                            <div class="card-footer">
+                                <i class="fa fa-floppy-disk"></i>
+                                <input type="submit" value="ይመዝግቡ" class="btn float-right btn-primary" />
+                            </div>
+                        </form>
+                    }
                 </div>
             </div>
         </div>

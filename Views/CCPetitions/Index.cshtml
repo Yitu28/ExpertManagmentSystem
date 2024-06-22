@@ -37,10 +37,13 @@
                         @Html.DisplayNameFor(model => model.PeTypes)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.PeAddressZone)
+                        @Html.DisplayNameFor(model => model.ZonalSectors.ZonalSectorName)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.PeAddressWoreda)
+                        @Html.DisplayNameFor(model => model.WoredaSectors.WoredaSectorsName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Petitionrespons)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.PeExpertName)
@@ -57,6 +60,11 @@
                     <th>
                         @Html.DisplayNameFor(model => model.CCPeDecissionTypes)
                     </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.PetitionPrespons)
+                    </th>
+
                     <th>
                         @Html.DisplayNameFor(model => model.PeAssignto)
                     </th>
@@ -89,10 +97,14 @@
                             @Html.DisplayFor(modelItem => item.PeTypes)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.PeAddressZone)
+                            @Html.DisplayFor(modelItem => item.ZonalSectors.ZonalSectorName)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.PeAddressWoreda)
+                            @Html.DisplayFor(modelItem => item.WoredaSectors.WoredaSectorsName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Petitionrespons)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.PeExpertName)
@@ -109,6 +121,11 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.CCPeDecissionTypes)
                         </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PetitionPrespons)
+                        </td>
+
                         <td>
                             @Html.DisplayFor(modelItem => item.PeAssignto)
                         </td>

@@ -6,7 +6,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">  የመንግስት  ይግባኝ መለስ ሰጪ ፍርድ ቤት ክትትል ዝርዝር ማውጫ </h3>
+        <h3 class="card-title">  የመንግስት  ይግባኝ መልስ ሰጪ ፍርድ ቤት ክትትል ዝርዝር ማውጫ </h3>
         <a asp-action="Index" class="btn btn-success float-right btn-circle  text-light btn-sm"> ወደ ዋናው ተመለስ </a>
     </div>
     <!-- /.card-header -->
@@ -61,7 +61,7 @@
                             @Html.DisplayFor(modelItem => item.Decisionmadeby)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.CCFreelServices.AddressWoreda)
+                            @Html.DisplayFor(modelItem => item.CCFreelServices.WoredaSectors.WoredaSectorsName)
                         </td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.FreeLegServiceFollowupId">Edit</a> |

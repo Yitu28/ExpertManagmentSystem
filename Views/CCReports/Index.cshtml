@@ -1,0 +1,191 @@
+﻿@using ExpertManagmentSystem.Enums
+@using ExpertManagmentSystem.Models.CivilCaseModels
+@model IEnumerable<ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices>
+@using Microsoft.AspNetCore.Identity
+@using ExpertManagmentSystem.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Index";
+}
+ @if (SignInManager.IsSignedIn(User))
+ {
+    var user = await UserManager.GetUserAsync(User);
+    var userDepartment = (DepartmentCategory)user.DepartmentCategory;
+    <div class="card card-primary card-outline">
+        <div style="background:#157DEC;">
+            <h4 style="color: white;padding-left:10px;"> የፍትህ @userDepartment ሪፖርት </h4>
+        </div>
+        <div class="card-body">
+       
+                <div class="tab-content" id="custom-content-below-tabContent">
+                    <div class="row"> 
+                        <div class="form-group col-md-6">
+                            <label class="control-label"> የሪፖርት አይነት </label>
+                            <select class="form-control ReportTypes" id="ReportTypes">
+                                <option value="">  የሪፖርት አይነት ይምረጡ </option>
+                                <option value="PresecutorDecisions"> የዐቃቢ ህግ ውሳኔ </option>
+                                <option value="CourtDecisions"> የፍርድ ቤት ውሳኔ </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label"> የሪፖርት ይዘት </label>
+                            <select class="form-control ReportContents" id="ReportContents">
+                                <option value="">  የሪፖርት ይዘት ይምረጡ </option>
+                                @if (userDepartment == DepartmentCategory.ቢሮ)
+                                {
+                                    <option value="RegZoneWoreda"> በቢሮ፣ በዞን እና በወረዳ ማጠቃለያ </option>
+                                    <option value="Regions"> በቢሮ ማጠቃለያ </option>
+                                    <option value="Zones"> በዞን ማጠቃለያ </option>
+                                    <option value="Woredas"> በወረዳ ማጠቃለያ</option>
+                                }
+                                else if (userDepartment == DepartmentCategory.መምሪያ)
+                                {
+                                    <option value="Zones"> በዞን ማጠቃለያ </option>
+                                    <option value="Woredas"> በወረዳ ማጠቃለያ</option>
+                                }
+                                else if (userDepartment == DepartmentCategory.ጽህፈት_ቤት)
+                                {
+                                    <option value="Woredas"> በወረዳ ማጠቃለያ</option>
+                                }
+                                else
+                                {
+                                    <option value="RegZoneWoreda"> በቢሮ፣ በዞን እና በወረዳ ማጠቃለያ </option>
+                                    <option value="Regions"> በቢሮ ማጠቃለያ </option>
+                                    <option value="Zones"> በዞን ማጠቃለያ </option>
+                                    <option value="Woredas"> በወረዳ ማጠቃለያ</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="row" id="ReportsIndex" style="display:none;">
+                        <form asp-action="ReportIndexo">
+                            <div class="form-group col-md-6">
+                                <label  class="control-label"> ከጀምሮ </label>
+                                <input type="Date" class="form-control"  name="Reportfrom" id="Reportfrom" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> እስከ </label>
+                                <input type="Date" class="form-control" name="ReportTo" id="ReportTo" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="አጠናክር" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row" id="CourtReportsIndex" style="display:none;">
+                        <form asp-action="CourtReportIndexo">
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> ከጀምሮ </label>
+                                <input type="Date" name="CourtReportfrom" id="CourtReportfrom" class="form-control" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> እስከ </label>
+                                <input type="Date" name="CourtReportTo" id="CourtReportTo" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="አጠናክር" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row" id="RegReports" style="display:none;">
+                        <form asp-action="RegReporto">
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> ከጀምሮ </label>
+                                <input type="Date" name="RegReportfrom" id="RegReportfrom" class="form-control" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> እስከ </label>
+                                <input type="Date" name="RegReportTo" id="RegReportTo" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="አጠናክር" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row" id="RegCourtReports" style="display:none;">
+                        <form asp-action="RegCourtReporto">
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> ከጀምሮ </label>
+                                <input type="Date" name="RegCourtReportfrom" id="RegCourtReportfrom" class="form-control" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> እስከ </label>
+                                <input type="Date" name="RegCourtReportTo" id="RegCourtReportTo" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="አጠናክር" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                    <div class="row" id="ZoneReports" style="display:none;">
+                        <form asp-action="ZoneReporto">
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> ከጀምሮ </label>
+                                <input type="Date" name="ZoneReportsfrom" id="ZoneReportsfrom" class="form-control" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> እስከ </label>
+                                <input type="Date" name="ZoneReportsTo" id="ZoneReportsTo" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="አጠናክር" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row" id="ZoneCourtReports" style="display:none;">
+                        <form asp-action="ZoneCourtReporto">
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> ከጀምሮ </label>
+                                <input type="Date" name="ZoneCourtReportfrom" id="ZoneCourtReportfrom" class="form-control" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> እስከ </label>
+                                <input type="Date" name="ZoneCourtReportTo" id="ZoneCourtReportTo" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="አጠናክር" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row" id="WoredaReports" style="display:none;">
+                        <form asp-action="WoredaReporto">
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> ከጀምሮ </label>
+                                <input type="Date" name="WoredaReportfrom" id="WoredaReportfrom" class="form-control" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> እስከ </label>
+                                <input type="Date" name="WoredaReportTo" id="WoredaReportTo" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="አጠናክር" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row" id="WoredaCourtReports" style="display:none;">
+                        <form asp-action="WoredaCourtReporto">
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> ከጀምሮ </label>
+                                <input type="Date" name="WoredaCourtReportfrom" id="WoredaCourtReportfrom" class="form-control" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label"> እስከ </label>
+                                <input type="Date" name="WoredaCourtReportTo" id="WoredaCourtReportTo" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="አጠናክር" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.card -->
+        
+        </div>
+    </div>
+}

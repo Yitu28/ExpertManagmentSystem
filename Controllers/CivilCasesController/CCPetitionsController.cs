@@ -58,9 +58,9 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CCPetitionId,PeFileNo,Pevicerequester,PeGender,PeAge,PeSupportType,PeDoariv,PeTypes,PeAddressZone,PeAddressWoreda,PeExpertName,PeDaos,PeDoare,PeTimeTaken,PePDecisoion,PeAssignto")] CCPetition cCPetition)
+        public async Task<IActionResult> Create(CCPetition cCPetition)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 cCPetition.CCPetitionId = Guid.NewGuid();
                 _context.Add(cCPetition);
@@ -92,14 +92,14 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CCLegaladvicesId,PeFileNo,Pevicerequester,PeGender,PeAge,PeSupportType,PeDoariv,PeTypes,PeAddressZone,PeAddressWoreda,PeExpertName,PeDaos,PeDoare,PeTimeTaken,PePDecisoion,PeAssignto")] CCPetition cCPetition)
+        public async Task<IActionResult> Edit(Guid id, CCPetition cCPetition)
         {
             if (id != cCPetition.CCPetitionId)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {

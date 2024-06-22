@@ -7,24 +7,132 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpertManagmentSystem.Data;
 using ExpertManagmentSystem.Models.CivilCaseModels;
+using Microsoft.AspNetCore.Identity;
+using ExpertManagmentSystem.Enums;
+using ExpertManagmentSystem.OrganizationalStructures;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ExpertManagmentSystem.Controllers.CivilCasesController
 {
     public class CCdltsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public CCdltsController(ApplicationDbContext context)
+        public CCdltsController(UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager, ApplicationDbContext context)
         {
             _context = context;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         // GET: CCdlts
+        [Authorize]
         public async Task<IActionResult> Index()
         {
-              return _context.CCdlt != null ? 
-                          View(await _context.CCdlt.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.CCdlt'  is null.");
+            var currentuser = await _userManager.GetUserAsync(User);
+            if (User.IsInRole("Super Administrator"))
+            {
+                var applicationDbContext = _context.CCdlt
+                .Include(c => c.SectrorsDepartment)
+                //.Where(c => c.CustomerCategory == CustomerCategory.ነፃ)
+                .Where(c => c.SectrorsDepartmentId == currentuser.UserDepartmentId)
+                .Where(c => c.SectrorsDepartment.DepartmentCategory == currentuser.DepartmentCategory);
+                return View(await applicationDbContext.ToListAsync());
+            }
+            else if (User.IsInRole("Administrator") && currentuser.DepartmentCategory == DepartmentCategory.ቢሮ)
+            {
+
+                var applicationDbContext = _context.CCdlt
+               .Include(c => c.SectrorsDepartment)
+               .Where(c => c.SectrorsDepartmentId == currentuser.UserDepartmentId)
+               .Where(c => currentuser.DepartmentCategory == DepartmentCategory.ቢሮ);
+                return View(await applicationDbContext.ToListAsync());
+            }
+            else if (User.IsInRole("Administrator") && currentuser.DepartmentCategory == DepartmentCategory.መምሪያ)
+            {
+
+                var applicationDbContext = _context.CCdlt
+               .Include(c => c.SectrorsDepartment)
+               .Where(c => c.SectrorsDepartmentId == currentuser.UserDepartmentId)
+               .Where(c => currentuser.DepartmentCategory == DepartmentCategory.መምሪያ);
+                return View(await applicationDbContext.ToListAsync());
+            }
+            else if (User.IsInRole("Administrator") && currentuser.DepartmentCategory == DepartmentCategory.ጽህፈት_ቤት)
+            {
+
+                var applicationDbContext = _context.CCdlt
+               .Include(c => c.SectrorsDepartment)
+               .Where(c => c.SectrorsDepartmentId == currentuser.UserDepartmentId)
+               .Where(c => currentuser.DepartmentCategory == DepartmentCategory.ጽህፈት_ቤት);
+                return View(await applicationDbContext.ToListAsync());
+            }
+
+            else if (User.IsInRole("Civil Cases") && currentuser.DepartmentCategory == DepartmentCategory.ቢሮ)
+            {
+
+                var applicationDbContext = _context.CCdlt
+               .Include(c => c.SectrorsDepartment)
+               .Include(c => c.WoredaSectors)
+               .Include(c => c.ZonalSectors)
+               .Where(c => c.SectrorsDepartmentId == currentuser.UserDepartmentId)
+               .Where(c => currentuser.DepartmentCategory == DepartmentCategory.ቢሮ);
+                return View(await applicationDbContext.ToListAsync());
+            }
+            else if (User.IsInRole("Civil Cases") && currentuser.DepartmentCategory == DepartmentCategory.መምሪያ)
+            {
+                var applicationDbContext = _context.CCdlt
+                    .Include(c => c.WoredaSectors)
+                    .Include(c => c.ZonalSectors)
+                    .Include(c => c.SectrorsDepartment)
+                    .Where(c => c.SectrorsDepartmentId == currentuser.UserDepartmentId)
+                    .Where(c => currentuser.DepartmentCategory == DepartmentCategory.መምሪያ);
+                return View(await applicationDbContext.ToListAsync());
+            }
+            else if (User.IsInRole("Civil Cases") && currentuser.DepartmentCategory == DepartmentCategory.ጽህፈት_ቤት)
+            {
+
+                var applicationDbContext = _context.CCdlt
+               .Include(c => c.SectrorsDepartment)
+               .Where(c => c.SectrorsDepartmentId == currentuser.UserDepartmentId)
+               .Where(c => currentuser.DepartmentCategory == DepartmentCategory.ጽህፈት_ቤት);
+                return View(await applicationDbContext.ToListAsync());
+            }
+            
+            else if (User.IsInRole("Civil Cases Expert") && currentuser.DepartmentCategory == DepartmentCategory.ቢሮ)
+            {
+
+                var applicationDbContext = _context.CCdlt
+               .Include(c => c.SectrorsDepartment)
+               .Where(c => c.SectrorsDepartmentId == currentuser.UserDepartmentId)
+               .Where(c => currentuser.DepartmentCategory == DepartmentCategory.ቢሮ);
+                return View(await applicationDbContext.ToListAsync());
+            }
+            else if (User.IsInRole("Civil Cases Expert") && currentuser.DepartmentCategory == DepartmentCategory.መምሪያ)
+            {
+
+                var applicationDbContext = _context.CCdlt
+               .Include(c => c.SectrorsDepartment)
+               .Where(c => c.SectrorsDepartmentId == currentuser.UserDepartmentId)
+               .Where(c => currentuser.DepartmentCategory == DepartmentCategory.መምሪያ);
+                return View(await applicationDbContext.ToListAsync());
+            }
+            else if (User.IsInRole("Civil Cases Expert") && currentuser.DepartmentCategory == DepartmentCategory.ጽህፈት_ቤት)
+            {
+
+                var applicationDbContext = _context.CCdlt
+               .Include(c => c.SectrorsDepartment)
+               .Where(c => c.SectrorsDepartmentId == currentuser.UserDepartmentId)
+               .Where(c => currentuser.DepartmentCategory == DepartmentCategory.ጽህፈት_ቤት);
+                return View(await applicationDbContext.ToListAsync());
+            }
+
+            else
+            {
+                return View();
+            }
         }
 
         // GET: CCdlts/Details/5
@@ -46,9 +154,11 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         }
 
         // GET: CCdlts/Create
+        [Authorize]
         public IActionResult Create()
         {
             //return View();
+            ViewData["WoredaSectorsId"] = new SelectList(_context.WoredaSectors, "WoredaSectorsId", "WoredaSectorsName");
             CCdlt Dlt = new();
             return PartialView("_CcDltCreateModalPartial", Dlt);
         }
@@ -56,21 +166,140 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // POST: CCdlts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CCdlt cCdlt)
         {
-            if (ModelState.IsValid)
+            var currentuser = await _userManager.GetUserAsync(User);
+            if (User.IsInRole("Super Administrator"))
             {
-                cCdlt.CCdltId = Guid.NewGuid();
-                _context.Add(cCdlt);
-                await _context.SaveChangesAsync();
+                if (!ModelState.IsValid)
+                {
+                    cCdlt.CCdltId = Guid.NewGuid();
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    _context.Add(cCdlt);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            else if (User.IsInRole("Administrator") && currentuser.DepartmentCategory == DepartmentCategory.ቢሮ)
+            {
+                if (!ModelState.IsValid)
+                {
+                    cCdlt.CCdltId = Guid.NewGuid();
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    _context.Add(cCdlt);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            else if (User.IsInRole("Administrator") && currentuser.DepartmentCategory == DepartmentCategory.መምሪያ)
+            {
+                if (!ModelState.IsValid)
+                {
+                    cCdlt.CCdltId = Guid.NewGuid();
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    _context.Add(cCdlt);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            else if (User.IsInRole("Administrator") && currentuser.DepartmentCategory == DepartmentCategory.ጽህፈት_ቤት)
+            {
+                if (!ModelState.IsValid)
+                {
+                    cCdlt.CCdltId = Guid.NewGuid();
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    _context.Add(cCdlt);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+            else if (User.IsInRole("Civil Cases") && currentuser.DepartmentCategory == DepartmentCategory.ቢሮ)
+            {
+                if (!ModelState.IsValid)
+                {
+                    cCdlt.CCdltId = Guid.NewGuid();
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    _context.Add(cCdlt);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            else if (User.IsInRole("Civil Cases") && currentuser.DepartmentCategory == DepartmentCategory.መምሪያ)
+            {
+                if (!ModelState.IsValid)
+                {
+                    cCdlt.CCdltId = Guid.NewGuid();
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    _context.Add(cCdlt);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            else if (User.IsInRole("Civil Cases") && currentuser.DepartmentCategory == DepartmentCategory.ጽህፈት_ቤት)
+            {
+                if (!ModelState.IsValid)
+                {
+                    cCdlt.CCdltId = Guid.NewGuid();
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    _context.Add(cCdlt);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+
+            else if (User.IsInRole("Civil Cases Expert") && currentuser.DepartmentCategory == DepartmentCategory.ቢሮ)
+            {
+                if (!ModelState.IsValid)
+                {
+                    cCdlt.CCdltId = Guid.NewGuid();
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    _context.Add(cCdlt);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            else if (User.IsInRole("Civil Cases Expert") && currentuser.DepartmentCategory == DepartmentCategory.መምሪያ)
+            {
+                if (!ModelState.IsValid)
+                {
+                    cCdlt.CCdltId = Guid.NewGuid();
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    _context.Add(cCdlt);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            else if (User.IsInRole("Civil Cases Expert") && currentuser.DepartmentCategory == DepartmentCategory.ጽህፈት_ቤት)
+            {
+                if (!ModelState.IsValid)
+                {
+                    cCdlt.CCdltId = Guid.NewGuid();
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    _context.Add(cCdlt);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
                 return RedirectToAction(nameof(Index));
             }
             return RedirectToAction(nameof(Index));
         }
 
         // GET: CCdlts/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null || _context.CCdlt == null)
@@ -89,20 +318,24 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         // POST: CCdlts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CCdltId,DltFileNo,DltRecorNo,DltApplicant,DltResponder,DltGender,DltAge,DltSupportType,DltDoo,DlttypesofIssue,DltAmountBirr,DltAmountKarie,DltAddressZone,DltAddressWoreda,DltExpertName,DltDoAss,DltDoRet,DltLOS,DltPDecission,DltAssignto")] CCdlt cCdlt)
+        public async Task<IActionResult> Edit(Guid id, CCdlt cCdlt)
         {
             if (id != cCdlt.CCdltId)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(cCdlt);
+                    var currentuser = await _userManager.GetUserAsync(User);
+                    cCdlt.SectrorsDepartmentId = currentuser.UserDepartmentId;
+                    //cCdlt.DltUpdatededBy = currentuser.Id;
+;                    _context.Update(cCdlt);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

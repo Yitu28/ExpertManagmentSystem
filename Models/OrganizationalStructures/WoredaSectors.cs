@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ExpertManagmentSystem.Models.CivilCaseModels;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpertManagmentSystem.OrganizationalStructures
@@ -17,7 +18,11 @@ namespace ExpertManagmentSystem.OrganizationalStructures
         public ZonalSectors ZonalSectors { get; set; }
 
 
-        //public Guid WoredaSectorZoneId { get; set; }
+        public virtual ICollection<CCFreelServices>? CCFreelServices { get; set; }
+        public virtual ICollection<CCdlt>? CCdlt { get; set; }
+        public virtual ICollection<CCLegaladvices>? CCLegaladvices { get; set; }
+        public virtual ICollection<CCPetition>? CCPetition { get; set; }
+
 
 
     }

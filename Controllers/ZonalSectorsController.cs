@@ -59,7 +59,7 @@ namespace ExpertManagmentSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Createzonedepartment([Bind("SectrorsDepartmentId,DepartmentName,DepartmentParentId,DepartmentCategory")] SectrorsDepartment sectrorsDepartment)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 sectrorsDepartment.SectrorsDepartmentId = Guid.NewGuid();
                 sectrorsDepartment.DepartmentCategory = DepartmentCategory.መምሪያ;
@@ -143,7 +143,7 @@ namespace ExpertManagmentSystem.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {

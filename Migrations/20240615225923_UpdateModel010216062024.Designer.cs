@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpertManagmentSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240523210730_UpdateAppointments")]
-    partial class UpdateAppointments
+    [Migration("20240615225923_UpdateModel010216062024")]
+    partial class UpdateModel010216062024
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -112,14 +112,6 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<string>("CCDltDecissionTypes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DltAddressWoreda")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DltAddressZone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("DltAge")
                         .IsRequired()
                         .HasColumnType("int");
@@ -192,11 +184,26 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<Guid?>("DltUpdatededBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("DlttypesofIssue")
+                    b.Property<int>("DlttypesofIssue")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("WoredaSectorsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ZonalSectorsId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("CCdltId");
+
+                    b.HasIndex("SectrorsDepartmentId");
+
+                    b.HasIndex("WoredaSectorsId");
+
+                    b.HasIndex("ZonalSectorsId");
 
                     b.ToTable("CCdlt", "ExpertUserMngt");
                 });
@@ -212,6 +219,10 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.Property<Guid>("CCFreelServicesId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Courts")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("DecisionStatus")
                         .HasColumnType("int");
@@ -248,9 +259,14 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<Guid?>("FollupUpdatededBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("SectrorsDepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("FreeLegServiceFollowupId");
 
                     b.HasIndex("CCFreelServicesId");
+
+                    b.HasIndex("SectrorsDepartmentId");
 
                     b.ToTable("CCFreeLegServiceFollowup", "ExpertUserMngt");
                 });
@@ -261,24 +277,24 @@ namespace ExpertManagmentSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("AddressWoreda")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AddressZone")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("AmountinBirr")
+                    b.Property<int?>("AmountinBirr")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AmountinOther")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Amountincarie")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("Amountincarie")
+                        .HasColumnType("int");
 
                     b.Property<string>("Applicant")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CCPDecissionStatus")
+                        .HasColumnType("int");
 
                     b.Property<int?>("CCPDecissionTypes")
                         .HasColumnType("int");
@@ -311,6 +327,10 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<DateTime?>("DoRet")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("Doa")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime?>("Doo")
                         .IsRequired()
                         .HasColumnType("datetime2");
@@ -322,6 +342,9 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<string>("FileNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Flservreq")
+                        .HasColumnType("int");
 
                     b.Property<int?>("FreelCategory")
                         .HasColumnType("int");
@@ -346,12 +369,23 @@ namespace ExpertManagmentSystem.Migrations
                     b.Property<int?>("SupportType")
                         .HasColumnType("int");
 
+                    b.Property<Guid?>("WoredaSectorsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ZonalSectorsId")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("typesofIssue")
                         .HasColumnType("int");
 
                     b.HasKey("CCFreelServicesId");
 
                     b.HasIndex("SectrorsDepartmentId");
+
+                    b.HasIndex("WoredaSectorsId");
+
+                    b.HasIndex("ZonalSectorsId");
 
                     b.ToTable("CCFreelServices", "ExpertUserMngt");
                 });
@@ -363,14 +397,6 @@ namespace ExpertManagmentSystem.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CCLadDecissionTypes")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LadAddressWoreda")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LadAddressZone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -436,7 +462,18 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("WoredaSectorsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ZonalSectorsId")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("CCLegaladvicesId");
+
+                    b.HasIndex("WoredaSectorsId");
+
+                    b.HasIndex("ZonalSectorsId");
 
                     b.ToTable("CCLegaladvices", "ExpertUserMngt");
                 });
@@ -451,13 +488,13 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PeAddressWoreda")
+                    b.Property<int?>("LadAmountBirr")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int");
 
-                    b.Property<string>("PeAddressZone")
+                    b.Property<int?>("LadAmountKarie")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int");
 
                     b.Property<int?>("PeAge")
                         .IsRequired()
@@ -511,18 +548,34 @@ namespace ExpertManagmentSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PeTypes")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PeTypes")
+                        .HasColumnType("int");
 
                     b.Property<Guid?>("PeUpdatededBy")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("PetitionPrespons")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Petitionrespons")
+                        .HasColumnType("int");
 
                     b.Property<string>("Pevicerequester")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("WoredaSectorsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ZonalSectorsId")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("CCPetitionId");
+
+                    b.HasIndex("WoredaSectorsId");
+
+                    b.HasIndex("ZonalSectorsId");
 
                     b.ToTable("CCPetition", "ExpertUserMngt");
                 });
@@ -603,12 +656,6 @@ namespace ExpertManagmentSystem.Migrations
 
             modelBuilder.Entity("ExpertManagmentSystem.ViewModels.CivilCaseViewModels.CCFreeLsfuViewModel", b =>
                 {
-                    b.Property<string>("AddressWoreda")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AddressZone")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("Age")
                         .HasColumnType("int");
 
@@ -620,6 +667,9 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.Property<Guid>("CCFreelServicesId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Courts")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("DecisionStatus")
                         .HasColumnType("int");
@@ -677,6 +727,12 @@ namespace ExpertManagmentSystem.Migrations
 
                     b.Property<int?>("SupportType")
                         .HasColumnType("int");
+
+                    b.Property<string>("WoredaSectorsId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ZonalSectorsId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("apsm")
                         .HasColumnType("nvarchar(max)");
@@ -857,6 +913,31 @@ namespace ExpertManagmentSystem.Migrations
                     b.ToTable("UserTokens", "ExpertUserMngt");
                 });
 
+            modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCdlt", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
+                        .WithMany()
+                        .HasForeignKey("SectrorsDepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.WoredaSectors", "WoredaSectors")
+                        .WithMany("CCdlt")
+                        .HasForeignKey("WoredaSectorsId");
+
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.ZonalSectors", "ZonalSectors")
+                        .WithMany("CCdlt")
+                        .HasForeignKey("ZonalSectorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SectrorsDepartment");
+
+                    b.Navigation("WoredaSectors");
+
+                    b.Navigation("ZonalSectors");
+                });
+
             modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCFreeLegServiceFollowup", b =>
                 {
                     b.HasOne("ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices", "CCFreelServices")
@@ -865,7 +946,15 @@ namespace ExpertManagmentSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", "SectrorsDepartment")
+                        .WithMany()
+                        .HasForeignKey("SectrorsDepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("CCFreelServices");
+
+                    b.Navigation("SectrorsDepartment");
                 });
 
             modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCFreelServices", b =>
@@ -876,7 +965,55 @@ namespace ExpertManagmentSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.WoredaSectors", "WoredaSectors")
+                        .WithMany("CCFreelServices")
+                        .HasForeignKey("WoredaSectorsId");
+
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.ZonalSectors", "ZonalSectors")
+                        .WithMany("CCFreelServices")
+                        .HasForeignKey("ZonalSectorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("SectrorsDepartment");
+
+                    b.Navigation("WoredaSectors");
+
+                    b.Navigation("ZonalSectors");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCLegaladvices", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.WoredaSectors", "WoredaSectors")
+                        .WithMany("CCLegaladvices")
+                        .HasForeignKey("WoredaSectorsId");
+
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.ZonalSectors", "ZonalSectors")
+                        .WithMany("CCLegaladvices")
+                        .HasForeignKey("ZonalSectorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WoredaSectors");
+
+                    b.Navigation("ZonalSectors");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.Models.CivilCaseModels.CCPetition", b =>
+                {
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.WoredaSectors", "WoredaSectors")
+                        .WithMany("CCPetition")
+                        .HasForeignKey("WoredaSectorsId");
+
+                    b.HasOne("ExpertManagmentSystem.OrganizationalStructures.ZonalSectors", "ZonalSectors")
+                        .WithMany("CCPetition")
+                        .HasForeignKey("ZonalSectorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WoredaSectors");
+
+                    b.Navigation("ZonalSectors");
                 });
 
             modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.WoredaSectors", b =>
@@ -976,6 +1113,28 @@ namespace ExpertManagmentSystem.Migrations
             modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.SectrorsDepartment", b =>
                 {
                     b.Navigation("CCFreelServices");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.WoredaSectors", b =>
+                {
+                    b.Navigation("CCFreelServices");
+
+                    b.Navigation("CCLegaladvices");
+
+                    b.Navigation("CCPetition");
+
+                    b.Navigation("CCdlt");
+                });
+
+            modelBuilder.Entity("ExpertManagmentSystem.OrganizationalStructures.ZonalSectors", b =>
+                {
+                    b.Navigation("CCFreelServices");
+
+                    b.Navigation("CCLegaladvices");
+
+                    b.Navigation("CCPetition");
+
+                    b.Navigation("CCdlt");
                 });
 #pragma warning restore 612, 618
         }

@@ -60,7 +60,7 @@ namespace ExpertManagmentSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateWoredadepartment([Bind("SectrorsDepartmentId,DepartmentName,DepartmentParentId,DepartmentCategory")] SectrorsDepartment sectrorsDepartment)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 sectrorsDepartment.DepartmentCategory = DepartmentCategory.ጽህፈት_ቤት;
                 sectrorsDepartment.SectrorsDepartmentId = Guid.NewGuid();

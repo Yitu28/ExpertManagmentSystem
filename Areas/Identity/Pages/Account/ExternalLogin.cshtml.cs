@@ -119,7 +119,7 @@ namespace ExpertManagmentSystem.Areas.Identity.Pages.Account
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
 

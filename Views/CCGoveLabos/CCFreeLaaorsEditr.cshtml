@@ -17,7 +17,7 @@
             <input type="hidden" asp-for="CCFreelServicesId" />
             <div class="form-group">
                 <label asp-for="CCPDecissionTypes" class="control-label"></label>
-                @Html.DropDownList("CCPDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" })
+                @Html.DropDownList("CCPDecissionTypes", Html.GetEnumSelectList<CCPDecissionrTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" })
                 <span asp-validation-for="CCPDecissionTypes" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -63,7 +63,7 @@ namespace ExpertManagmentSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ReginalSectorId,ReginalSectorName")] ReginalSector reginalSector)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 reginalSector.ReginalSectorId = Guid.NewGuid();
                 _context.Add(reginalSector);
@@ -107,7 +107,7 @@ namespace ExpertManagmentSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Createregdepartment([Bind("SectrorsDepartmentId,DepartmentName,DepartmentParentId,DepartmentCategory")] SectrorsDepartment sectrorsDepartment)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 sectrorsDepartment.SectrorsDepartmentId = Guid.NewGuid();
                 sectrorsDepartment.DepartmentCategory = DepartmentCategory.ቢሮ;
@@ -149,7 +149,7 @@ namespace ExpertManagmentSystem.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {

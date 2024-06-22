@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Claims;
 
 namespace ExpertManagmentSystem.Data
 {
@@ -19,4 +20,6 @@ namespace ExpertManagmentSystem.Data
 
 
     }
+    
+
 }

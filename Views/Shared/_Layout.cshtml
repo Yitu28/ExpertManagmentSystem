@@ -35,6 +35,8 @@
   <link rel="stylesheet" href="~/AdminLte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="~/AdminLte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
+    <link href="~/css/datatables.datatables.css" rel="stylesheet" />
+    <link href="~/css/buttons.datatables.css" rel="stylesheet" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -49,7 +51,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>  
     </ul>
-      <div><h5> ሪፖርት አስተዳደር ዜዴ </h5></div>
+      <div><h5> የአብክመ ፍትህ ቢሮ ሪፖርት አስተዳደር ዜዴ </h5></div>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">  
       <li class="nav-item dropdown">
@@ -87,80 +89,392 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
        <img src="~/adminlte/dist/img/adminltelogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8" />
-      <span class="brand-text font-weight-light">RMS</span>
+      <span class="brand-text font-weight-light"> ፍትህ ቢሮ </span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-         @*<img src="~AdminLte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">*@
-         <img src="~/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"/>
-        </div>
-        <div class="info">
-          <a href="#" class="d-block"> ሞገስ መኮንን  </a>
-        </div>
-      </div>
+        @if (SignInManager.IsSignedIn(User))
+        {
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+             @*<img src="~AdminLte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">*@
+             <img src="~/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"/>
+            </div>
+            <div class="info">
+                <a href="#" class="d-block"> @User.Identity?.Name  </a>
+            </div>
+          </div>
+          
+          var user = await UserManager.GetUserAsync(User);
+          var userDepartment = (DepartmentCategory)user.DepartmentCategory;
+          <!-- Sidebar Menu --> 
+         @if (User.IsInRole("Super Administrator"))
+         {
+             <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-   
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa fa-cog"></i>
+                            <p>
+                                መቼት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <ul class="nav nav-treeview">
 
-   @* @if (SignInManager.IsSignedIn(User))
-
-                        {*@
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="fa fa-list"></i>
-                                    <p>
-                                        Settings
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
+                                <a asp-controller="ReginalSectors" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>የክልል ቢሮ</p>
                                 </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="ZonalSectors" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ዞን መምሪያ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="WoredaSectors" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>የወረዳ ጽ/ቤት</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Roles" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ሚና ዝርዝር</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="UserRoles" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ተጠቃሚዎች ዝርዝር</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
-                                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
 
-                                    <li class="nav-item">
-                                        <a asp-controller="ReginalSectors" asp-action="Index" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>የክልል ቢሮ</p>
-                                        </a>
-                                    </li>          
-                                    <li class="nav-item">
-                                        <a asp-controller="ZonalSectors" asp-action="Index" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>ዞን መምሪያ</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-controller="WoredaSectors" asp-action="Index" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>የወረዳ ጽ/ቤት</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-controller="Roles" asp-action="Index" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>ሚና ዝርዝር</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a asp-controller="UserRoles" asp-action="Index" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>ተጠቃሚዎች ዝርዝር</p>
-                                        </a>
-                                    </li>
-                                </ul>
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
                             </li>
 
                             <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLabos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ሰበር </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreelabos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ሰበር </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+         }
+          else if (User.IsInRole("Administrator") && userDepartment == DepartmentCategory.ቢሮ)
+          {
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa fa-cog"></i>
+                            <p>
+                                መቼት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="ReginalSectors" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>የክልል ቢሮ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="ZonalSectors" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ዞን መምሪያ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="WoredaSectors" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>የወረዳ ጽ/ቤት</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Roles" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ሚና ዝርዝር</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="UserRoles" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ተጠቃሚዎች ዝርዝር</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLabos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ሰበር </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreelabos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ሰበር </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+       }
+          else if (User.IsInRole("Administrator") && userDepartment == DepartmentCategory.መምሪያ)
+        {
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        }
+          else if (User.IsInRole("Administrator") && userDepartment == DepartmentCategory.ጽህፈት_ቤት)
+          {
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="fa fa-regular fa-folder"></i>
                                 <p>
-                                    ነፃ የህግ ድጋፍ 
+                                    የመንግስት
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -168,17 +482,31 @@
                             <ul class="nav nav-treeview">
 
                                 <li class="nav-item">
-                                    <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ቀጥታ ክስ </p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
                                         <i class="fa fa-check"></i>
                                         <p> ይግባኝ </p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a asp-controller="CCFreelabos" asp-action="Index" class="nav-link">
-                                        <i class="fa fa-check"></i>
-                                        <p> ሰበር </p>
-                                    </a>
-                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-regular fa-folder"></i>
+                                <p>
+                                    ነፃ የህግ ድጋፍ
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
                                         <i class="fa fa-check"></i>
@@ -208,8 +536,282 @@
                                 </li>
                             </ul>
                         </li>
+                    </ul>
+                </nav>
+          }
+          
+          else if (User.IsInRole("Civil Cases") && userDepartment == DepartmentCategory.ቢሮ)
+          {
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa fa-cog"></i>
+                            <p>
+                                መቼት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
 
                             <li class="nav-item">
+                                <a asp-controller="ReginalSectors" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>የክልል ቢሮ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="ZonalSectors" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ዞን መምሪያ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="WoredaSectors" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>የወረዳ ጽ/ቤት</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Roles" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ሚና ዝርዝር</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="UserRoles" asp-action="Index" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ተጠቃሚዎች ዝርዝር</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLabos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ሰበር </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreelabos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ሰበር </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-regular fa-flag"></i>
+                                    <p>
+                                        ሪፖርት 
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+
+                                <ul class="nav nav-treeview">
+
+                                    <li class="nav-item">
+                                        <a asp-controller="CCReports" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-check"></i>
+                                            <p> የፍትሐብሔር ሪፖርት  </p>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a asp-controller="CCReports" asp-action="Indexo" class="nav-link">
+                                            <i class="fa fa-check"></i>
+                                            <p> የፍትሐብሔር ሪፖርት 01  </p>
+                                        </a>
+                                    </li>
+                                    
+
+                                </ul>
+                            </li>
+                </ul>
+            </nav>
+       }
+          else if (User.IsInRole("Civil Cases") && userDepartment == DepartmentCategory.መምሪያ)
+          {
+              <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-regular fa-flag"></i>
+                                    <p>
+                                        ሪፖርት 
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+
+                                <ul class="nav nav-treeview">
+
+                                    <li class="nav-item">
+                                        <a asp-controller="CCReports" asp-action="Index" class="nav-link">
+                                            <i class="fa fa-check"></i>
+                                            <p> የፍትሐብሔር ሪፖርት  </p>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                </ul>
+            </nav>
+          }
+          else if (User.IsInRole("Civil Cases") && userDepartment == DepartmentCategory.ጽህፈት_ቤት)
+          {
+              <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="fa fa-regular fa-folder"></i>
                                 <p>
@@ -219,6 +821,87 @@
                             </a>
 
                             <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ቀጥታ ክስ </p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ይግባኝ </p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-regular fa-folder"></i>
+                                <p>
+                                    ነፃ የህግ ድጋፍ
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ቀጥታ ክስ </p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ለጠበቃ የተመራ </p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> የህግ ምክር አገልግሎት </p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> አቤቱታ </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+          }
+          
+          else if (User.IsInRole("Civil Cases Expert") && userDepartment == DepartmentCategory.ቢሮ)
+          {
+            <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-regular fa-folder"></i>
+                                <p>
+                                    የመንግስት
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ቀጥታ ክስ </p>
+                                    </a>
+                                </li>
 
                                 <li class="nav-item">
                                     <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
@@ -232,47 +915,714 @@
                                         <p> ሰበር </p>
                                     </a>
                                 </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-regular fa-folder"></i>
+                                <p>
+                                    ነፃ የህግ ድጋፍ
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
                                         <i class="fa fa-check"></i>
                                         <p> ቀጥታ ክስ </p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ይግባኝ </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="CCFreelabos" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ሰበር </p>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> ለጠበቃ የተመራ </p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> የህግ ምክር አገልግሎት </p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                        <i class="fa fa-check"></i>
+                                        <p> አቤቱታ </p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
-                        @*}*@
+                    </ul>
+                </nav>
+          }
+          else if (User.IsInRole("Civil Cases Expert") && userDepartment == DepartmentCategory.መምሪያ)
+          {
+              <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+          }
+          else if (User.IsInRole("Civil Cases Expert") && userDepartment == DepartmentCategory.ጽህፈት_ቤት)
+          {
+              <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+          }
 
 
 
+        else if (User.IsInRole("Vise Manager") && userDepartment == DepartmentCategory.ቢሮ)
+        {
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLabos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ሰበር </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreelabos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ሰበር </p>
+                                </a>
+                            </li>
 
 
-     <li class="nav-item">
-        <a href="#" class="nav-link">
-            <i class="fa fa-regular fa-folder-open"></i>
-            <p>
-                ወንጀል ነክ
-                <i class="fas fa-angle-left right"></i>
-            </p>
-        </a>
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
 
-        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
 
-            <li class="nav-item">
-                <a asp-controller="Cr_Crime_Type" asp-action="Index" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                                        
-                    <p>የወንጀል አይነቶች</p>
-                </a>
-            </li>          
-           
-        </ul>
-    </li>
-@*}*@
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        }
+        else if (User.IsInRole("Vise Manager") && userDepartment == DepartmentCategory.መምሪያ)
+        {
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
 
 
-       </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        }
+        else if (User.IsInRole("Vise Manager") && userDepartment == DepartmentCategory.ጽህፈት_ቤት)
+        {
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        }
+
+
+
+        else if (User.IsInRole("Plan") && userDepartment == DepartmentCategory.ቢሮ)
+        {
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLabos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ሰበር </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreelabos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ሰበር </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        }
+        else if (User.IsInRole("Plan") && userDepartment == DepartmentCategory.መምሪያ)
+        {
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeLaaos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        }
+        else if (User.IsInRole("Plan") && userDepartment == DepartmentCategory.ጽህፈት_ቤት)
+        {
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                የመንግስት
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLadcors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCGoveLaaors" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ይግባኝ </p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-regular fa-folder"></i>
+                            <p>
+                                ነፃ የህግ ድጋፍ
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="CCFreeladcos" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ቀጥታ ክስ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCdlts" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> ለጠበቃ የተመራ </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCLegaladvices" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> የህግ ምክር አገልግሎት </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="CCPetitions" asp-action="Index" class="nav-link">
+                                    <i class="fa fa-check"></i>
+                                    <p> አቤቱታ </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        }
+}
     </div>
     <!-- /.sidebar -->
   </aside>
@@ -287,7 +1637,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <footer class="main-footer no-print">
     <strong>Copyright &copy; @DateTime.Now.Year <a href="">Design and Developed by ASTC </a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
@@ -353,8 +1703,18 @@
     <script src="~/AdminLte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script src="~/js/bootstrap-js-min.info.js"></script>
 
-<script>
+    <script src="~/js/datatables.js"></script>
+    <script src="~/js/datatables.buttons.js"></script>
+    <script src="~/js/fixedcolumns.datatables.js"></script>
+    <script src="~/js/datatables.buttons.js"></script>
+    <script src="~/js/buttons.datatables.js"></script>
+    <script src="~/js/jszip.min.js"></script>
+    <script src="~/js/pdfmake.min.js"></script>
+    <script src="~/js/vfs_fonts.js"></script>
+    <script src="~/js/buttons.html5.min.js"></script>
+    <script src="~/js/buttons.print.min.js"></script>
 
+<script>
     
   $(function () {
     $("#example4").DataTable()
@@ -421,6 +1781,17 @@
 </script>
 
 <script>
+    @* Civil Case Data Tables  *@
+        $(function () {
+            $('#example111').DataTable({
+                    "responsive": true, "lengthChange": true, "autoWidth": true,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#example111_wrapper .col-md-6:eq(0)');
+            })
+        })
+</script>
+
+<script>
     $(function () {
         $('#example770').DataTable({
             scrollX: true
@@ -436,8 +1807,58 @@
     })
 </script>
 
+<script>
+        $(function () {
+            $('#example077').DataTable({
+                scrollX: true
+            })
+        })
+    </script>
+
+<script>
+    $(function () {
+        $('#example0707').DataTable({
+            scrollX: true
+        })
+    })
+</script>
 
 
+<script>
+        new DataTable('#example7777', {
+            layout: {
+                topStart: {
+                    buttons: [
+                        {
+                            extend: 'excelHtml5',
+                            customize: function (xlsx) {
+                                var sheet = xlsx.xl.worksheets['sheet1.xml'];
+
+                                // Selector to add a border
+                                sheet.querySelectorAll('row c[r*="10"]').forEach((el) => {
+                                    el.setAttribute('s', '25');
+                                });
+                            }
+                        },
+                        {
+                            extend: 'print'
+                        },
+                        {
+                            extend: 'pdfHtml5',
+                            orientation: 'landscape',
+                            font: 'AmharicFont',
+                            pageSize: 'LEGAL',
+                            download: 'open'
+                        }
+                    ]
+                },
+            },
+             responsive: true,
+             lengthChange: false,
+             autoWidth: false,
+             scrollX: true
+        });
+</script>
  
     @await RenderSectionAsync("Scripts", required: false)
 </body>

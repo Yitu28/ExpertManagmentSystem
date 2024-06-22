@@ -8,10 +8,9 @@
     ViewData["Title"] = "ReginalDepartment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="card card-success">
     <div class="card-header">
-        <h3 class="card-title">ነፃ የህግ ድጋፍ ቀጥታ ክስ አመልካች ፍርድ ቤት መከታተያ </h3>
+        <h3 class="card-title">ነፃ የህግ ድጋፍ ይግባኝ መልስ ሰጭ ፍርድ ቤት መከታተያ </h3>
     </div>
     <!-- /.card-header  -->
     <!-- form start -->
@@ -19,49 +18,58 @@
         <div class="card-body">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label asp-for="Courts" class="control-label"></label>
                     <input type="hidden" asp-for="CCFreelServicesId" class="form-control" />
                     <input type="text" asp-for="Courts" class="form-control" />
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label asp-for="Doc" class="control-label"></label>
                     <input type="Date" asp-for="Doc" class="form-control" />
                     <span asp-validation-for="Doc" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label asp-for="Doa" class="control-label"></label>
-                    <input type="Date" asp-for="Doa" class="form-control" />
-                    <span asp-validation-for="Doa" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="AppointmentType" class="control-label"></label>
-                    @* <input asp-for="AppointmentType" class="form-control" /> *@
-                    @Html.DropDownList("AppointmentType", Html.GetEnumSelectList<DirectChargeResponseAppointment>(), " የቀጠሮ አይነት ይምረጡ ", new { @class = "form-control" })
-                    <span asp-validation-for="AppointmentType" class="text-danger"></span>
+                <div class="form-group col-md-4">
+                    <label class="control-label"> የፍርድ ቤት ውሎ ሁኔታ </label>
+                    <select class="form-control AppointmentService" id="AppointmentService">
+                        <option value="">  የፍርድ ቤት ውሎ ይምረጡ </option>
+                        <option value="NextAppointment"> ለቀጠሮ </option>
+                        <option value="CourtDecisions"> ለውሳኔ </option>
+                    </select>
                 </div>
             </div>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label asp-for="DoD" class="control-label"></label>
-                    <input type="Date" asp-for="DoD" class="form-control" />
-                    <span asp-validation-for="DoD" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="DecisionStatus" class="control-label"></label>
-                    @Html.DropDownList("DecisionStatus", Html.GetEnumSelectList<TypeofDecision>(), " የውሳኔ አይነት ይምረጡ ", new { @class = "form-control" })
-                    <span asp-validation-for="DecisionStatus" class="text-danger"></span>
+            <div id="Appointmentclass" style="display:none;">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Doa" class="control-label"></label>
+                        <input type="Date" asp-for="Doa" class="form-control" />
+                        <span asp-validation-for="Doa" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="AppointmentType" class="control-label"></label>
+                        @Html.DropDownList("AppointmentType", Html.GetEnumSelectList<AppealOpeningAppointment>(), " የቀጠሮ አይነት ይምረጡ ", new { @class = "form-control" })
+                        <span asp-validation-for="AppointmentType" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Decisionmadeby" class="control-label"></label>
-                <input asp-for="Decisionmadeby" class="form-control" />
-                <span asp-validation-for="Decisionmadeby" class="text-danger"></span>
+            <div id="Courtdecisionclass" style="display:none;" >
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="DoD" class="control-label"></label>
+                        <input type="Date" asp-for="DoD" class="form-control" />
+                        <span asp-validation-for="DoD" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="DecisionStatus" class="control-label"></label>
+                        @Html.DropDownList("DecisionStatus", Html.GetEnumSelectList<TypeofDecision>(), " የውሳኔ አይነት ይምረጡ ", new { @class = "form-control" })
+                        <span asp-validation-for="DecisionStatus" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Decisionmadeby" class="control-label"></label>
+                    <input asp-for="Decisionmadeby" class="form-control" />
+                    <span asp-validation-for="Decisionmadeby" class="text-danger"></span>
+                </div>
             </div>
-
-
             <div class="form-group">
                 <input type="submit" value="መዝግብ" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-success float-right btn-circle  text-light btn-sm"> ወደ ዋናው ተመለስ </a>

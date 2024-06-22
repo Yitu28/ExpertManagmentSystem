@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ExpertManagmentSystem.Models.CivilCaseModels;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpertManagmentSystem.OrganizationalStructures
@@ -17,9 +18,10 @@ namespace ExpertManagmentSystem.OrganizationalStructures
         public Guid ReginalSectorId { get; set; }
         public ReginalSector ReginalSector { get; set; }
 
-        // public virtual ReginalSector? ReginalSector{ get; set; }
-
-        //public virtual ICollection<WoredaSectors> WoredaSectors { get; set; }
+        public virtual ICollection<CCFreelServices>? CCFreelServices { get; set; }
+        public virtual ICollection<CCdlt>? CCdlt { get; set; }
+        public virtual ICollection<CCLegaladvices>? CCLegaladvices { get; set; }
+        public virtual ICollection<CCPetition>? CCPetition { get; set; }
 
 
     }

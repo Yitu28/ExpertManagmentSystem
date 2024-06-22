@@ -59,7 +59,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FreeLegServiceFollowupId,Doc,Doa,AppointmentType,DoD,DecisionStatus,Decisionmadeby,CCFreelServicesId,FollupCreatedBy,FollupUpdatededBy,FollupDeletedBy,FollupCreatedAt,FollupEdittedAt,FollupDeletedAt")] CCFreeLegServiceFollowup cCFreeLegServiceFollowup)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 cCFreeLegServiceFollowup.FreeLegServiceFollowupId = Guid.NewGuid();
                 _context.Add(cCFreeLegServiceFollowup);
@@ -99,7 +99,7 @@ namespace ExpertManagmentSystem.Controllers.CivilCasesController
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {

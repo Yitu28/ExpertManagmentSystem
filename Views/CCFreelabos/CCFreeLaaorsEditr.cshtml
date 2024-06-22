@@ -8,7 +8,7 @@
 <!-- general form elements disabled -->
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title"> ነፃ የህግ ደጋፍ ሰበር አመልካች የዐቃቢ ህግ ውሳኔ </h3>
+        <h3 class="card-title"> ነፃ የህግ ደጋፍ ሰበር ተጠሪ የዐቃቢ ህግ ውሳኔ </h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -17,7 +17,7 @@
             <input type="hidden" asp-for="CCFreelServicesId" />
             <div class="form-group">
                 <label asp-for="CCPDecissionTypes" class="control-label"></label>
-                @Html.DropDownList("CCPDecissionTypes", Html.GetEnumSelectList<CCPDecissionTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" })
+                @Html.DropDownList("CCPDecissionTypes", Html.GetEnumSelectList<CCPDecissionrTypes>(), " የአቃቢ ህግ ውሳኔ ይምረጡ ", new { @class = "form-control" })
                 <span asp-validation-for="CCPDecissionTypes" class="text-danger"></span>
             </div>
             <div class="form-group">
